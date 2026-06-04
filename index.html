@@ -174,43 +174,142 @@
       display: grid; grid-template-columns: 1fr 320px; gap: 24px; align-items: start;
     }
 
-    /* ===== Upload Zone ===== */
-    .upload-zone {
-      border: 2px dashed rgba(124,58,237,0.25);
-      border-radius: var(--radius);
-      padding: 60px 24px; text-align: center; cursor: pointer;
-      transition: all 0.3s ease;
-      background: var(--glass);
-      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-      position: relative; overflow: hidden;
+    /* ===== Upload Zone - Interactive Stage ===== */
+    .upload-stage {
+      position: relative; width: 100%; aspect-ratio: 4/3; min-height: 360px;
+      border-radius: var(--radius); overflow: hidden; cursor: pointer;
+      background: linear-gradient(145deg, #0d0d1a, #12122a);
+      transition: box-shadow 0.4s ease;
     }
-    .upload-zone::before {
-      content: ''; position: absolute; inset: -2px; border-radius: var(--radius);
-      background: conic-gradient(from 0deg, transparent, rgba(124,58,237,0.3), transparent, rgba(6,182,212,0.3), transparent);
-      opacity: 0; transition: opacity 0.4s; z-index: -1;
-      animation: borderSpin 4s linear infinite;
-    }
-    @keyframes borderSpin { to { transform: rotate(360deg); } }
-    .upload-zone:hover, .upload-zone.dragover {
-      border-color: rgba(124,58,237,0.5);
-      background: rgba(124,58,237,0.05);
-    }
-    .upload-zone:hover::before, .upload-zone.dragover::before { opacity: 1; }
-    .upload-zone.has-image { padding: 16px; border-style: solid; }
+    .upload-stage:hover { box-shadow: 0 0 60px rgba(124,58,237,0.12), 0 0 120px rgba(6,182,212,0.06); }
+    .upload-stage.dragover { box-shadow: 0 0 80px rgba(124,58,237,0.25), 0 0 160px rgba(6,182,212,0.12); }
+    .upload-stage.dragover .stage-border { opacity: 1; border-width: 3px; }
+    .upload-stage.has-image { cursor: default; aspect-ratio: auto; min-height: auto; }
 
-    .upload-icon {
-      font-size: 3rem; margin-bottom: 16px; display: block;
-      filter: drop-shadow(0 0 20px rgba(124,58,237,0.3));
+    .stage-canvas {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 1;
     }
-    .upload-zone h3 { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 8px; color: var(--text); }
-    .upload-zone p { color: var(--text2); font-size: 0.9rem; }
-    .upload-hint { margin-top: 12px; font-size: 0.8rem; color: var(--text3); }
+
+    /* Animated border frame */
+    .stage-border {
+      position: absolute; inset: 24px; border-radius: 14px;
+      border: 2px solid transparent;
+      background: linear-gradient(#0d0d1a, #0d0d1a) padding-box,
+                  conic-gradient(from var(--angle, 0deg), #7c3aed, #06b6d4, #f43f5e, #7c3aed) border-box;
+      opacity: 0.6; transition: opacity 0.4s, border-width 0.3s;
+      z-index: 2; pointer-events: none;
+    }
+    @property --angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+    .stage-border { animation: borderRotate 6s linear infinite; }
+    @keyframes borderRotate { to { --angle: 360deg; } }
+
+    /* Inner glow pulse */
+    .stage-glow {
+      position: absolute; inset: 24px; border-radius: 14px;
+      background: radial-gradient(ellipse at 50% 50%, rgba(124,58,237,0.08), transparent 70%);
+      z-index: 2; pointer-events: none;
+      animation: glowPulse 3s ease-in-out infinite;
+    }
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.4; transform: scale(0.95); }
+      50% { opacity: 1; transform: scale(1.02); }
+    }
+
+    /* Demo image cycling inside the frame */
+    .stage-demo {
+      position: absolute; z-index: 3; pointer-events: none;
+      inset: 44px; border-radius: 8px; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .stage-demo-img {
+      width: 70%; max-height: 65%; object-fit: contain;
+      border-radius: 4px; opacity: 0;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+    .stage-demo-img.active { opacity: 0.5; transform: scale(1); }
+
+    /* Upload text overlay */
+    .stage-content {
+      position: absolute; inset: 0; z-index: 5;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: opacity 0.4s;
+    }
+    .upload-stage.has-image .stage-content { opacity: 0; pointer-events: none; }
+    .upload-stage.has-image .stage-border { opacity: 0; }
+    .upload-stage.has-image .stage-glow { opacity: 0; }
+    .upload-stage.has-image .stage-demo { opacity: 0; }
+
+    .stage-icon-wrap {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(6,182,212,0.1));
+      border: 1px solid rgba(124,58,237,0.2);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; position: relative;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .upload-stage:hover .stage-icon-wrap {
+      transform: scale(1.08);
+      box-shadow: 0 0 30px rgba(124,58,237,0.2);
+    }
+    .stage-icon-wrap svg { width: 28px; height: 28px; stroke: #a78bfa; fill: none; stroke-width: 1.5; }
+    .icon-ring {
+      position: absolute; inset: -6px; border-radius: 50%;
+      border: 1px solid rgba(124,58,237,0.15);
+      animation: ringPulse 2.5s ease-in-out infinite;
+    }
+    @keyframes ringPulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.15); opacity: 0; }
+    }
+
+    .stage-title {
+      font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
+      margin-bottom: 6px; color: var(--text);
+    }
+    .stage-sub { color: var(--text2); font-size: 0.88rem; margin-bottom: 12px; }
+    .stage-hint { color: var(--text3); font-size: 0.78rem; letter-spacing: 0.02em; }
+    .stage-keys {
+      display: inline-flex; gap: 4px; margin-top: 10px;
+    }
+    .stage-key {
+      padding: 2px 8px; border-radius: 4px; font-size: 0.7rem;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text3); font-family: var(--font-body);
+    }
+
+    /* Bloom animation overlay */
+    .bloom-overlay {
+      position: absolute; inset: 0; z-index: 10;
+      display: flex; align-items: center; justify-content: center;
+      pointer-events: none; opacity: 0;
+    }
+    .bloom-overlay.active {
+      animation: bloomFlash 0.8s ease-out forwards;
+    }
+    @keyframes bloomFlash {
+      0% { opacity: 1; }
+      30% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    .bloom-ring {
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 2px solid rgba(124,58,237,0.6);
+      animation: bloomExpand 0.8s ease-out forwards;
+    }
+    @keyframes bloomExpand {
+      0% { transform: scale(0.5); opacity: 1; }
+      100% { transform: scale(15); opacity: 0; }
+    }
+
     #fileInput { display: none; }
+    .upload-zone { display: none; } /* hide original if referenced */
 
     /* Preview */
     .preview-wrapper { display: none; position: relative; }
     .preview-wrapper.active { display: block; }
-    .upload-zone.hidden { display: none; }
+    .upload-stage.hidden { display: none; }
     #previewCanvas {
       max-width: 100%; max-height: 500px; border-radius: var(--radius-sm);
       display: block; margin: 0 auto;
@@ -522,7 +621,7 @@
       .tool-hero h1 { font-size: 1.5rem; }
       .header-inner { flex-direction: column; gap: 8px; }
       nav { gap: 4px; }
-      .upload-zone { padding: 40px 16px; }
+      .upload-stage { min-height: 280px; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .features-grid { grid-template-columns: 1fr; }
       .footer-inner { flex-direction: column; text-align: center; }
@@ -575,11 +674,55 @@
 
       <div class="tool-container">
         <div>
-          <div class="upload-zone" id="uploadZone" role="button" tabindex="0" aria-label="Upload image">
-            <span class="upload-icon">&#128247;</span>
-            <h3>Drop your image here</h3>
-            <p>or click to browse &middot; paste with Ctrl+V</p>
-            <p class="upload-hint">JPG, PNG, WebP, GIF, BMP, SVG</p>
+          <div class="upload-stage" id="uploadZone" role="button" tabindex="0" aria-label="Upload image area - drag, drop, click, or paste">
+            <!-- Particle canvas -->
+            <canvas class="stage-canvas" id="stageCanvas"></canvas>
+            <!-- Animated conic-gradient border -->
+            <div class="stage-border"></div>
+            <!-- Inner radial glow pulse -->
+            <div class="stage-glow"></div>
+            <!-- Demo image showcase cycling border styles -->
+            <div class="stage-demo" id="stageDemo">
+              <svg class="stage-demo-img active" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+                <rect width="240" height="180" fill="#1a1a2e"/>
+                <rect x="14" y="14" width="212" height="152" rx="3" fill="#2d1b69" stroke="#fff" stroke-width="5"/>
+                <circle cx="78" cy="65" r="22" fill="#7c3aed" opacity="0.6"/><circle cx="155" cy="90" r="30" fill="#06b6d4" opacity="0.45"/>
+                <rect x="60" y="120" width="120" height="16" rx="4" fill="#f43f5e" opacity="0.3"/>
+              </svg>
+              <svg class="stage-demo-img" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="pgb" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#667eea"/><stop offset="100%" stop-color="#764ba2"/></linearGradient></defs>
+                <rect width="240" height="180" fill="#1a1a2e"/>
+                <rect x="4" y="4" width="232" height="172" rx="2" fill="url(#pgb)"/>
+                <rect x="18" y="18" width="204" height="144" rx="3" fill="#2d1b69"/>
+                <circle cx="90" cy="75" r="28" fill="#a78bfa" opacity="0.5"/><rect x="50" y="115" width="140" height="14" rx="4" fill="#22d3ee" opacity="0.35"/>
+              </svg>
+              <svg class="stage-demo-img" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+                <rect width="240" height="180" fill="#1a1a2e"/>
+                <rect x="10" y="10" width="220" height="160" rx="28" fill="none" stroke="#06b6d4" stroke-width="3"/>
+                <rect x="28" y="28" width="184" height="124" rx="18" fill="#1e1b4b"/>
+                <circle cx="100" cy="72" r="24" fill="#7c3aed" opacity="0.5"/><circle cx="155" cy="95" r="18" fill="#f43f5e" opacity="0.4"/>
+                <rect x="70" y="120" width="100" height="12" rx="6" fill="#06b6d4" opacity="0.3"/>
+              </svg>
+            </div>
+            <!-- Upload instruction overlay -->
+            <div class="stage-content">
+              <div class="stage-icon-wrap">
+                <div class="icon-ring"></div>
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke-linecap="round" stroke-linejoin="round"/><polyline points="17 8 12 3 7 8" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="3" x2="12" y2="15" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="stage-title">Drop your image here</div>
+              <div class="stage-sub">or click to browse &middot; paste with Ctrl+V</div>
+              <div class="stage-hint">JPG, PNG, WebP, GIF, BMP, SVG</div>
+              <div class="stage-keys">
+                <span class="stage-key">Drag</span>
+                <span class="stage-key">Drop</span>
+                <span class="stage-key">Ctrl+V</span>
+              </div>
+            </div>
+            <!-- Bloom expansion effect on upload -->
+            <div class="bloom-overlay" id="bloomOverlay">
+              <div class="bloom-ring"></div>
+            </div>
             <input type="file" id="fileInput" accept="image/*" multiple>
           </div>
           <div class="preview-wrapper" id="previewWrapper">
@@ -824,6 +967,164 @@
     }
     animateBlob();
 
+    // ===== Particle System (upload stage) =====
+    const stageCanvas = document.getElementById('stageCanvas');
+    const stageEl = stageCanvas.closest('.upload-stage');
+    const stageCtx = stageCanvas.getContext('2d');
+    let particles = [];
+    let stageMouseX = -999, stageMouseY = -999;
+    let particleAnimId = null;
+
+    function resizeStageCanvas() {
+      const r = stageEl.getBoundingClientRect();
+      stageCanvas.width = r.width;
+      stageCanvas.height = r.height;
+    }
+    resizeStageCanvas();
+    window.addEventListener('resize', resizeStageCanvas);
+
+    stageEl.addEventListener('mousemove', (e) => {
+      const r = stageEl.getBoundingClientRect();
+      stageMouseX = e.clientX - r.left;
+      stageMouseY = e.clientY - r.top;
+    });
+    stageEl.addEventListener('mouseleave', () => { stageMouseX = -999; stageMouseY = -999; });
+
+    const PARTICLE_COUNT = 75;
+    const palette = [
+      {r:124,g:58,b:237},   // purple
+      {r:6,g:182,b:212},    // cyan
+      {r:244,g:63,b:94},    // pink
+      {r:167,g:139,b:250},  // light purple
+      {r:34,g:211,b:238}    // light cyan
+    ];
+
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        const c = palette[Math.floor(Math.random() * palette.length)];
+        particles.push({
+          x: Math.random() * stageCanvas.width,
+          y: Math.random() * stageCanvas.height,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          r: Math.random() * 2.5 + 1,
+          baseR: Math.random() * 2.5 + 1,
+          c,
+          alpha: Math.random() * 0.4 + 0.2,
+          baseAlpha: Math.random() * 0.4 + 0.2
+        });
+      }
+    }
+    initParticles();
+
+    function animateParticles() {
+      stageCtx.clearRect(0, 0, stageCanvas.width, stageCanvas.height);
+      const hovering = stageMouseX > -500;
+
+      // Update & draw particles
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        if (hovering) {
+          const dx = stageMouseX - p.x;
+          const dy = stageMouseY - p.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 160) {
+            const force = (160 - dist) / 160 * 0.022;
+            p.vx += dx * force;
+            p.vy += dy * force;
+            p.r = p.baseR + (160 - dist) / 160 * 3;
+            p.alpha = Math.min(p.baseAlpha + (160 - dist) / 160 * 0.4, 0.9);
+          } else {
+            p.r += (p.baseR - p.r) * 0.04;
+            p.alpha += (p.baseAlpha - p.alpha) * 0.04;
+          }
+        } else {
+          p.r += (p.baseR - p.r) * 0.04;
+          p.alpha += (p.baseAlpha - p.alpha) * 0.04;
+        }
+
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vx *= 0.985;
+        p.vy *= 0.985;
+
+        if (p.x < -15) p.x = stageCanvas.width + 15;
+        if (p.x > stageCanvas.width + 15) p.x = -15;
+        if (p.y < -15) p.y = stageCanvas.height + 15;
+        if (p.y > stageCanvas.height + 15) p.y = -15;
+
+        // Glow halo
+        const glowR = p.r * 3.5;
+        const grad = stageCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, glowR);
+        grad.addColorStop(0, 'rgba(' + p.c.r + ',' + p.c.g + ',' + p.c.b + ',' + (p.alpha * 0.35) + ')');
+        grad.addColorStop(1, 'rgba(' + p.c.r + ',' + p.c.g + ',' + p.c.b + ',0)');
+        stageCtx.fillStyle = grad;
+        stageCtx.beginPath();
+        stageCtx.arc(p.x, p.y, glowR, 0, Math.PI * 2);
+        stageCtx.fill();
+
+        // Core dot
+        stageCtx.fillStyle = 'rgba(' + p.c.r + ',' + p.c.g + ',' + p.c.b + ',' + p.alpha + ')';
+        stageCtx.beginPath();
+        stageCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        stageCtx.fill();
+      }
+
+      // Connection lines (liquid metal web)
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 90) {
+            const alpha = (1 - dist / 90) * 0.12;
+            stageCtx.strokeStyle = 'rgba(124,58,212,' + alpha + ')';
+            stageCtx.lineWidth = 0.6;
+            stageCtx.beginPath();
+            stageCtx.moveTo(particles[i].x, particles[i].y);
+            stageCtx.lineTo(particles[j].x, particles[j].y);
+            stageCtx.stroke();
+          }
+        }
+      }
+
+      // Liquid metal cursor glow (bright blob near mouse when hovering)
+      if (hovering) {
+        const mg = stageCtx.createRadialGradient(stageMouseX, stageMouseY, 0, stageMouseX, stageMouseY, 60);
+        mg.addColorStop(0, 'rgba(124,58,237,0.08)');
+        mg.addColorStop(0.5, 'rgba(6,182,212,0.04)');
+        mg.addColorStop(1, 'rgba(0,0,0,0)');
+        stageCtx.fillStyle = mg;
+        stageCtx.beginPath();
+        stageCtx.arc(stageMouseX, stageMouseY, 60, 0, Math.PI * 2);
+        stageCtx.fill();
+      }
+
+      particleAnimId = requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // Demo image cycling (shows border style previews)
+    const demoImgs = document.querySelectorAll('.stage-demo-img');
+    let demoIndex = 0;
+    const demoInterval = setInterval(() => {
+      if (!stageEl || stageEl.classList.contains('has-image')) return;
+      demoImgs.forEach(img => img.classList.remove('active'));
+      demoIndex = (demoIndex + 1) % demoImgs.length;
+      demoImgs[demoIndex].classList.add('active');
+    }, 3500);
+
+    // Bloom animation trigger
+    function triggerBloom() {
+      const bloom = document.getElementById('bloomOverlay');
+      if (!bloom) return;
+      bloom.classList.remove('active');
+      void bloom.offsetWidth;
+      bloom.classList.add('active');
+      setTimeout(() => bloom.classList.remove('active'), 900);
+    }
+
     // ===== Button Ripple Effect =====
     document.querySelectorAll('.btn').forEach(btn => {
       btn.addEventListener('click', function(e) {
@@ -976,16 +1277,22 @@
           img.src = url;
         });
       });
-      Promise.all(promises).then(() => { showTool(); renderPreview(); updateBatchUI(); });
+      Promise.all(promises).then(() => { triggerBloom(); showTool(); renderPreview(); updateBatchUI(); });
     }
 
-    function showTool() { uploadZone.classList.add('hidden'); previewWrapper.classList.add('active'); }
+    function showTool() {
+      uploadZone.classList.add('hidden', 'has-image');
+      previewWrapper.classList.add('active');
+      if (particleAnimId) { cancelAnimationFrame(particleAnimId); particleAnimId = null; }
+    }
     function resetTool() {
       state.images = []; state.activeIndex = 0;
-      uploadZone.classList.remove('hidden'); previewWrapper.classList.remove('active');
+      uploadZone.classList.remove('hidden', 'has-image');
+      previewWrapper.classList.remove('active');
       document.getElementById('batchArea').classList.remove('active');
       fileInput.value = '';
       document.getElementById('batchDownloadBtn').style.display = 'none';
+      if (!particleAnimId) animateParticles();
     }
 
     // ===== Controls =====
