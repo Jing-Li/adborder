@@ -871,42 +871,49 @@
     /* ===== Before/After Compare Slider ===== */
     .compare-wrapper {
       display: none; position: relative; max-width: 800px;
-      margin: 0 auto; border-radius: var(--radius-sm);
+      margin: 20px auto; border-radius: var(--radius-sm);
       overflow: hidden; cursor: ew-resize; user-select: none;
+      background: var(--bg);
       box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px var(--glass-border);
+      touch-action: none;
     }
     .compare-wrapper.active { display: block; }
     .compare-wrapper canvas { display: block; width: 100%; height: auto; }
     .compare-before {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      overflow: hidden;
+      position: absolute; top: 0; left: 0; width: 50%; height: 100%;
+      overflow: hidden; pointer-events: none;
     }
-    .compare-before canvas { width: 100%; height: 100%; object-fit: contain; }
+    .compare-before canvas { display: block; width: 100%; height: 100%; }
     .compare-divider {
-      position: absolute; top: 0; bottom: 0; width: 3px;
-      background: white; z-index: 5; left: 50%;
+      position: absolute; top: 0; bottom: 0; width: 2px;
+      background: rgba(255,255,255,0.9); z-index: 5; left: 50%;
       transform: translateX(-50%); pointer-events: none;
+      box-shadow: 0 0 8px rgba(0,0,0,0.5);
     }
     .compare-handle {
       position: absolute; top: 50%; left: 50%; z-index: 6;
       transform: translate(-50%, -50%);
-      width: 40px; height: 40px; border-radius: 50%;
-      background: white; border: 3px solid var(--accent1);
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(255,255,255,0.95); border: 3px solid var(--accent1);
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
-      font-size: 0.75rem; color: var(--accent1); font-weight: 800;
-      pointer-events: none;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.5), 0 0 0 4px rgba(124,58,237,0.2);
+      font-size: 0.85rem; color: var(--accent1); font-weight: 800;
+      pointer-events: none; transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .compare-wrapper.dragging .compare-handle {
+      transform: translate(-50%, -50%) scale(1.15);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.6), 0 0 0 6px rgba(124,58,237,0.35);
     }
     .compare-label {
-      position: absolute; top: 10px; z-index: 4;
-      padding: 3px 10px; border-radius: 6px;
-      background: rgba(0,0,0,0.55); backdrop-filter: blur(4px);
-      font-size: 0.68rem; font-weight: 700; color: white;
-      font-family: var(--font-display); letter-spacing: 0.04em;
-      text-transform: uppercase;
+      position: absolute; top: 12px; z-index: 4;
+      padding: 4px 12px; border-radius: 6px;
+      background: rgba(0,0,0,0.6); backdrop-filter: blur(6px);
+      font-size: 0.7rem; font-weight: 700; color: white;
+      font-family: var(--font-display); letter-spacing: 0.05em;
+      text-transform: uppercase; pointer-events: none;
     }
-    .compare-label-before { left: 10px; }
-    .compare-label-after { right: 10px; }
+    .compare-label-before { left: 12px; }
+    .compare-label-after { right: 12px; }
 
     /* ===== Scrollbar ===== */
     ::-webkit-scrollbar { width: 6px; }
@@ -1741,6 +1748,7 @@
       const img = state.images[state.activeIndex]; if (!img) return;
       const canvas = document.getElementById('previewCanvas');
       renderToCanvas(canvas, img.img, { style: state.style, width: state.width, color: state.color, gradient1: state.gradient1, gradient2: state.gradient2, radius: state.radius, shadow: document.getElementById('shadowToggle').checked, socialPreset: state.socialPreset }, true);
+      if (compareActive) renderCompare();
     }
 
     // ===== Download =====
@@ -1849,51 +1857,95 @@
         renderCompare();
         wrapper.classList.add('active');
         preview.style.display = 'none';
+        // Reset slider to 50% when opening
+        const before = document.getElementById('compareBefore');
+        const divider = document.getElementById('compareDivider');
+        const handle = document.getElementById('compareHandle');
+        before.style.width = '50%';
+        divider.style.left = '50%';
+        handle.style.left = '50%';
       } else {
         wrapper.classList.remove('active');
         preview.style.display = '';
       }
     }
+
     function renderCompare() {
       if (!state.images.length) return;
       const img = state.images[state.activeIndex].img;
       const origCanvas = document.getElementById('compareOrig');
       const afterCanvas = document.getElementById('compareAfter');
-      const maxW = 800, maxH = 500;
-      const scale = Math.min(maxW / img.width, maxH / img.height, 1);
-      const w = Math.round(img.width * scale), h = Math.round(img.height * scale);
-      origCanvas.width = afterCanvas.width = w;
-      origCanvas.height = afterCanvas.height = h;
-      origCanvas.getContext('2d').drawImage(img, 0, 0, w, h);
-      renderToCanvas(afterCanvas, img, {
+
+      // Compute bordered dimensions
+      const opts = {
         style: state.style, width: state.width, color: state.color,
         gradient1: state.gradient1, gradient2: state.gradient2,
         radius: state.radius, shadow: document.getElementById('shadowToggle').checked,
         socialPreset: state.socialPreset
-      }, true);
-      const before = document.getElementById('compareBefore');
-      before.style.width = '50%';
+      };
+      const params = computeBorderParams(img, opts.style, opts.width, opts.socialPreset);
+      const scale = Math.min(800 / params.totalW, 500 / params.totalH, 1);
+      const totalW = Math.round(params.totalW * scale);
+      const totalH = Math.round(params.totalH * scale);
+
+      // Both canvases MUST be the same size for the overlay to align
+      origCanvas.width = afterCanvas.width = totalW;
+      origCanvas.height = afterCanvas.height = totalH;
+
+      // Draw original image centered on dark background (same layout as bordered)
+      const origCtx = origCanvas.getContext('2d');
+      origCtx.fillStyle = '#0a0a12';
+      origCtx.fillRect(0, 0, totalW, totalH);
+      const ix = Math.round(params.bx * scale);
+      const iy = Math.round(params.by * scale);
+      const iw = Math.round(img.width * scale);
+      const ih = Math.round(img.height * scale);
+      origCtx.drawImage(img, ix, iy, iw, ih);
+
+      // Draw bordered version
+      renderToCanvas(afterCanvas, img, opts, true);
     }
+
+    // Slider interaction (mouse + touch)
     (function() {
       const wrapper = document.getElementById('compareWrapper');
       const before = document.getElementById('compareBefore');
       const divider = document.getElementById('compareDivider');
       const handle = document.getElementById('compareHandle');
       let dragging = false;
-      function setPosition(x) {
+
+      function setPosition(clientX) {
         const rect = wrapper.getBoundingClientRect();
-        let pct = ((x - rect.left) / rect.width) * 100;
+        let pct = ((clientX - rect.left) / rect.width) * 100;
         pct = Math.max(2, Math.min(98, pct));
         before.style.width = pct + '%';
         divider.style.left = pct + '%';
         handle.style.left = pct + '%';
       }
-      wrapper.addEventListener('mousedown', (e) => { dragging = true; setPosition(e.clientX); });
-      document.addEventListener('mousemove', (e) => { if (dragging) setPosition(e.clientX); });
-      document.addEventListener('mouseup', () => { dragging = false; });
-      wrapper.addEventListener('touchstart', (e) => { dragging = true; setPosition(e.touches[0].clientX); }, { passive: true });
-      document.addEventListener('touchmove', (e) => { if (dragging) setPosition(e.touches[0].clientX); }, { passive: true });
-      document.addEventListener('touchend', () => { dragging = false; });
+
+      wrapper.addEventListener('mousedown', (e) => {
+        dragging = true;
+        wrapper.classList.add('dragging');
+        setPosition(e.clientX);
+        e.preventDefault();
+      });
+      document.addEventListener('mousemove', (e) => {
+        if (dragging) { setPosition(e.clientX); e.preventDefault(); }
+      });
+      document.addEventListener('mouseup', () => {
+        if (dragging) { dragging = false; wrapper.classList.remove('dragging'); }
+      });
+      wrapper.addEventListener('touchstart', (e) => {
+        dragging = true;
+        wrapper.classList.add('dragging');
+        setPosition(e.touches[0].clientX);
+      }, { passive: true });
+      document.addEventListener('touchmove', (e) => {
+        if (dragging) setPosition(e.touches[0].clientX);
+      }, { passive: true });
+      document.addEventListener('touchend', () => {
+        if (dragging) { dragging = false; wrapper.classList.remove('dragging'); }
+      });
     })();
   </script>
 </body>
