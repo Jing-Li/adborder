@@ -1,0 +1,22 @@
+{
+  "name": "AdBorder - Add Border to Image Online",
+  "short_name": "AdBorder",
+  "description": "Free online tool to add beautiful borders to your images. No signup, no watermark, 100% private.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a12",
+  "theme_color": "#0a0a12",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -10,16 +10,22 @@
   <meta name="google-site-verification" content="RrDjrKc0TzssHvF5gtzF-VrCu46XdmH7PvPVTyVu_bU" />
   <meta name="Impact-Site-Verification" content="19440d1d-438f-465e-9bec-a84be3c73c7a" />
   <meta name="theme-color" content="#0a0a12">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/logo.png">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%237c3aed'/><stop offset='100%25' stop-color='%2306b6d4'/></linearGradient></defs><rect x='5' y='5' width='90' height='90' rx='16' fill='%230a0a12' stroke='url(%23g)' stroke-width='6'/><text x='50' y='66' font-size='44' font-weight='bold' fill='url(%23g)' text-anchor='middle' font-family='sans-serif'>AB</text></svg>">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Add Border to Image Online Free | AdBorder">
   <meta property="og:description" content="Free online tool to add borders to your images instantly. Customize border color, width, and style. No signup, no watermark, 100% private.">
   <meta property="og:url" content="https://adborder.top/">
+  <meta property="og:image" content="https://adborder.top/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="AdBorder">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Add Border to Image Online Free | AdBorder">
   <meta name="twitter:description" content="Free online tool to add borders to your images instantly. No signup, no watermark.">
+  <meta name="twitter:image" content="https://adborder.top/og-image.png">
 
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebApplication","name":"AdBorder - Add Border to Image Online","url":"https://adborder.top/","applicationCategory":"MultimediaApplication","operatingSystem":"All","browserRequirements":"Requires a modern web browser with Canvas support","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free online tool to add borders to images. Customize border color, width, and style including solid, polaroid, gradient, and rounded corners. No signup required. No watermark. All image processing happens locally in your browser for complete privacy.","featureList":"Solid color borders, Polaroid-style borders, Gradient borders, Rounded corners, Shadow effects, Instagram aspect ratio presets, Drag and drop upload, Clipboard paste, Batch processing, Multiple export formats (PNG, JPEG, WebP)"}
@@ -661,6 +667,48 @@
     .feature-card h3 { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
     .feature-card p { font-size: 0.85rem; color: var(--text3); margin: 0; }
 
+    /* ===== Newsletter ===== */
+    .newsletter-section {
+      max-width: 1200px; margin: 0 auto; padding: 40px 24px;
+    }
+    .newsletter-card {
+      background: linear-gradient(145deg, rgba(124,58,237,0.06), rgba(6,182,212,0.04));
+      border: 1px solid rgba(124,58,237,0.12);
+      border-radius: 20px; padding: 36px 32px;
+      display: flex; align-items: center; gap: 32px;
+      flex-wrap: wrap;
+    }
+    .newsletter-text { flex: 1; min-width: 240px; }
+    .newsletter-text h3 {
+      font-family: var(--font-display); font-size: 1.15rem; font-weight: 800;
+      margin-bottom: 6px; color: var(--text);
+    }
+    .newsletter-text p { color: var(--text3); font-size: 0.85rem; margin: 0; }
+    .newsletter-form {
+      display: flex; gap: 8px; flex: 1; min-width: 280px; max-width: 440px;
+    }
+    .newsletter-form input[type="email"] {
+      flex: 1; padding: 11px 16px; border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04);
+      color: var(--text); font-size: 0.85rem; font-family: var(--font-body);
+      outline: none; transition: border-color 0.2s;
+    }
+    .newsletter-form input[type="email"]:focus { border-color: rgba(124,58,237,0.4); }
+    .newsletter-form input[type="email"]::placeholder { color: var(--text3); }
+    .newsletter-form button {
+      padding: 11px 24px; border: none; border-radius: 10px;
+      background: var(--gradient); color: white; font-weight: 700;
+      font-size: 0.82rem; cursor: pointer; white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(124,58,237,0.25);
+      transition: transform 0.2s, box-shadow 0.2s;
+      font-family: var(--font-body);
+    }
+    .newsletter-form button:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(124,58,237,0.35); }
+    .newsletter-success {
+      color: #22c55e; font-size: 0.85rem; font-weight: 600;
+      display: none; margin-top: 8px;
+    }
+
     /* ===== FAQ ===== */
     .faq-list { margin-top: 28px; }
     .faq-item {
@@ -773,6 +821,93 @@
       .social-grid { grid-template-columns: repeat(4, 1fr); }
     }
 
+    /* ===== Exit Intent Popup ===== */
+    .exit-overlay {
+      position: fixed; inset: 0; z-index: 10000;
+      background: rgba(0,0,0,0.6); backdrop-filter: blur(6px);
+      display: none; align-items: center; justify-content: center;
+      animation: exitFadeIn 0.3s ease;
+    }
+    .exit-overlay.active { display: flex; }
+    @keyframes exitFadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .exit-popup {
+      background: linear-gradient(145deg, #13132a, #1a1a35);
+      border: 1px solid rgba(124,58,237,0.2); border-radius: 20px;
+      padding: 36px 32px; max-width: 420px; width: 90%;
+      text-align: center; position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(124,58,237,0.1);
+      animation: exitSlideUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes exitSlideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .exit-close {
+      position: absolute; top: 12px; right: 16px;
+      background: none; border: none; color: var(--text3);
+      font-size: 1.2rem; cursor: pointer; padding: 4px;
+      transition: color 0.2s;
+    }
+    .exit-close:hover { color: var(--text); }
+    .exit-icon { font-size: 2.2rem; margin-bottom: 12px; display: block; }
+    .exit-popup h3 {
+      font-family: var(--font-display); font-size: 1.15rem; font-weight: 800;
+      margin-bottom: 8px; color: var(--text);
+    }
+    .exit-popup p { color: var(--text2); font-size: 0.88rem; margin-bottom: 20px; line-height: 1.55; }
+    .exit-cta {
+      display: inline-flex; padding: 10px 28px;
+      background: var(--gradient); color: white; border: none;
+      border-radius: 10px; font-family: var(--font-body); font-weight: 700;
+      font-size: 0.88rem; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(124,58,237,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .exit-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(124,58,237,0.45); }
+    .exit-skip {
+      display: block; margin-top: 12px; background: none; border: none;
+      color: var(--text3); font-size: 0.78rem; cursor: pointer;
+      transition: color 0.2s;
+    }
+    .exit-skip:hover { color: var(--text2); }
+
+    /* ===== Before/After Compare Slider ===== */
+    .compare-wrapper {
+      display: none; position: relative; max-width: 800px;
+      margin: 0 auto; border-radius: var(--radius-sm);
+      overflow: hidden; cursor: ew-resize; user-select: none;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px var(--glass-border);
+    }
+    .compare-wrapper.active { display: block; }
+    .compare-wrapper canvas { display: block; width: 100%; height: auto; }
+    .compare-before {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      overflow: hidden;
+    }
+    .compare-before canvas { width: 100%; height: 100%; object-fit: contain; }
+    .compare-divider {
+      position: absolute; top: 0; bottom: 0; width: 3px;
+      background: white; z-index: 5; left: 50%;
+      transform: translateX(-50%); pointer-events: none;
+    }
+    .compare-handle {
+      position: absolute; top: 50%; left: 50%; z-index: 6;
+      transform: translate(-50%, -50%);
+      width: 40px; height: 40px; border-radius: 50%;
+      background: white; border: 3px solid var(--accent1);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+      font-size: 0.75rem; color: var(--accent1); font-weight: 800;
+      pointer-events: none;
+    }
+    .compare-label {
+      position: absolute; top: 10px; z-index: 4;
+      padding: 3px 10px; border-radius: 6px;
+      background: rgba(0,0,0,0.55); backdrop-filter: blur(4px);
+      font-size: 0.68rem; font-weight: 700; color: white;
+      font-family: var(--font-display); letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .compare-label-before { left: 10px; }
+    .compare-label-after { right: 10px; }
+
     /* ===== Scrollbar ===== */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
@@ -876,7 +1011,18 @@
               <button class="btn btn-primary" id="downloadBtn" onclick="downloadImage()">&#11015; Download</button>
               <button class="btn btn-secondary" id="newImageBtn" onclick="resetTool()">&#8635; New Image</button>
               <button class="btn btn-secondary" id="batchDownloadBtn" onclick="downloadBatch()" style="display:none">&#11015; Download All</button>
+              <button class="btn btn-secondary" id="compareBtn" onclick="toggleCompare()">&#128065; Compare</button>
             </div>
+          </div>
+          <div class="compare-wrapper" id="compareWrapper">
+            <canvas id="compareAfter"></canvas>
+            <div class="compare-before" id="compareBefore">
+              <canvas id="compareOrig"></canvas>
+            </div>
+            <div class="compare-divider" id="compareDivider"></div>
+            <div class="compare-handle" id="compareHandle">&#8596;</div>
+            <span class="compare-label compare-label-before">Before</span>
+            <span class="compare-label compare-label-after">After</span>
           </div>
           <div class="batch-area" id="batchArea">
             <div class="batch-list" id="batchList"></div>
@@ -1094,18 +1240,33 @@
       </div>
     </div>
 
+    <!-- Newsletter -->
+    <section class="newsletter-section reveal" aria-label="Newsletter signup">
+      <div class="newsletter-card">
+        <div class="newsletter-text">
+          <h3>Get Design Tips & Tool Updates</h3>
+          <p>Free border presets, design tricks, and new features — straight to your inbox. No spam.</p>
+        </div>
+        <form class="newsletter-form" id="newsletterForm" onsubmit="return handleNewsletter(event)">
+          <input type="email" placeholder="your@email.com" required aria-label="Email address">
+          <button type="submit">Subscribe</button>
+        </form>
+        <div class="newsletter-success" id="newsletterSuccess">Thanks! You're subscribed.</div>
+      </div>
+    </section>
+
     <!-- FAQ -->
     <section class="content-section" id="faq">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list">
-        <div class="faq-item reveal"><div class="faq-question" onclick="toggleFaq(this)"><span>How do I add a border to an image online for free?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">Go to adborder.top, drag and drop or paste your image, choose your border style, adjust the width and color, preview in real-time, and click Download. No signup required, no watermark on output.</div></div></div>
-        <div class="faq-item reveal"><div class="faq-question" onclick="toggleFaq(this)"><span>What is the best free tool to add a white border to photos?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">AdBorder is one of the best free tools for adding white borders. It requires no account, adds no watermark, and processes images entirely in your browser for complete privacy. Supports widths from 1px to 200px.</div></div></div>
-        <div class="faq-item reveal"><div class="faq-question" onclick="toggleFaq(this)"><span>Can I add a colored border without Photoshop?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">Yes. Use the color picker to select any color, adjust the width with a slider, and download in PNG, JPEG, or WebP. You can also choose from gradient presets for creative styles.</div></div></div>
-        <div class="faq-item reveal"><div class="faq-question" onclick="toggleFaq(this)"><span>How do I add a polaroid-style border?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">Select the Polaroid preset to add a white border with a thicker bottom section that mimics classic Polaroid film. Add a drop shadow for a more realistic effect.</div></div></div>
-        <div class="faq-item reveal"><div class="faq-question" onclick="toggleFaq(this)"><span>Is my image safe when using AdBorder?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">Your images are completely safe. All processing happens locally in your browser using JavaScript and Canvas API. Images are never uploaded to any server.</div></div></div>
-        <div class="faq-item reveal"><div class="faq-question" onclick="toggleFaq(this)"><span>What image formats are supported?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">Input: JPG, PNG, WebP, GIF, BMP, SVG. Output: PNG (lossless), JPEG (adjustable quality), or WebP (modern, excellent compression).</div></div></div>
-        <div class="faq-item reveal"><div class="faq-question" onclick="toggleFaq(this)"><span>Can I add borders to multiple images at once?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">Yes. Upload multiple images, apply the same settings to all, and download all results at once. Much faster than one by one.</div></div></div>
-        <div class="faq-item reveal"><div class="faq-question" onclick="toggleFaq(this)"><span>How do I add a border for Instagram posts?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">Use the IG Square preset for 1:1 ratio with a white border, or IG Story for 9:16. Your photos display perfectly on Instagram without unwanted cropping.</div></div></div>
+        <div class="faq-item reveal" id="faq-border-online"><div class="faq-question" onclick="toggleFaq(this)"><span>How do I add a border to an image online for free?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">Go to adborder.top, drag and drop or paste your image, choose your border style, adjust the width and color, preview in real-time, and click Download. No signup required, no watermark on output.</div></div></div>
+        <div class="faq-item reveal" id="faq-white-border"><div class="faq-question" onclick="toggleFaq(this)"><span>What is the best free tool to add a white border to photos?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">AdBorder is one of the best free tools for adding white borders. It requires no account, adds no watermark, and processes images entirely in your browser for complete privacy. Supports widths from 1px to 200px.</div></div></div>
+        <div class="faq-item reveal" id="faq-colored-border"><div class="faq-question" onclick="toggleFaq(this)"><span>Can I add a colored border without Photoshop?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">Yes. Use the color picker to select any color, adjust the width with a slider, and download in PNG, JPEG, or WebP. You can also choose from gradient presets for creative styles.</div></div></div>
+        <div class="faq-item reveal" id="faq-polaroid"><div class="faq-question" onclick="toggleFaq(this)"><span>How do I add a polaroid-style border?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">Select the Polaroid preset to add a white border with a thicker bottom section that mimics classic Polaroid film. Add a drop shadow for a more realistic effect.</div></div></div>
+        <div class="faq-item reveal" id="faq-privacy"><div class="faq-question" onclick="toggleFaq(this)"><span>Is my image safe when using AdBorder?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">Your images are completely safe. All processing happens locally in your browser using JavaScript and Canvas API. Images are never uploaded to any server.</div></div></div>
+        <div class="faq-item reveal" id="faq-formats"><div class="faq-question" onclick="toggleFaq(this)"><span>What image formats are supported?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">Input: JPG, PNG, WebP, GIF, BMP, SVG. Output: PNG (lossless), JPEG (adjustable quality), or WebP (modern, excellent compression).</div></div></div>
+        <div class="faq-item reveal" id="faq-batch"><div class="faq-question" onclick="toggleFaq(this)"><span>Can I add borders to multiple images at once?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">Yes. Upload multiple images, apply the same settings to all, and download all results at once. Much faster than one by one.</div></div></div>
+        <div class="faq-item reveal" id="faq-instagram"><div class="faq-question" onclick="toggleFaq(this)"><span>How do I add a border for Instagram posts?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">Use the IG Square preset for 1:1 ratio with a white border, or IG Story for 9:16. Your photos display perfectly on Instagram without unwanted cropping.</div></div></div>
       </div>
     </section>
   </main>
@@ -1121,6 +1282,18 @@
       </div>
     </div>
   </footer>
+
+  <!-- Exit Intent Popup -->
+  <div class="exit-overlay" id="exitOverlay">
+    <div class="exit-popup">
+      <button class="exit-close" id="exitClose" aria-label="Close">&times;</button>
+      <span class="exit-icon">&#128064;</span>
+      <h3>Wait! Don't leave empty-handed</h3>
+      <p>Upload an image and add a beautiful border in seconds. It's free, no signup needed, and your images stay 100% private.</p>
+      <button class="exit-cta" id="exitCta">Try It Free Now</button>
+      <button class="exit-skip" id="exitSkip">No thanks, I'll come back later</button>
+    </div>
+  </div>
 
   <!-- Activity Toast -->
   <div class="activity-toast" id="activityToast">
@@ -1143,6 +1316,12 @@
     function dismissCookie() {
       document.cookie = 'adborder_consent=1;max-age=31536000;path=/;SameSite=Lax';
       document.getElementById('cookieBanner').style.display = 'none';
+    }
+  </script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(() => {});
     }
   </script>
 
@@ -1613,6 +1792,109 @@
 
     // ===== Shadow Sync =====
     document.getElementById('shadowToggle').addEventListener('change', () => { state.shadow = document.getElementById('shadowToggle').checked; });
+
+    // ===== Exit Intent Popup =====
+    (function() {
+      const overlay = document.getElementById('exitOverlay');
+      const closeBtn = document.getElementById('exitClose');
+      const ctaBtn = document.getElementById('exitCta');
+      const skipBtn = document.getElementById('exitSkip');
+      let shown = false;
+
+      function showExit() {
+        if (shown) return;
+        if (state.images.length > 0) return; // user is actively using the tool
+        shown = true;
+        overlay.classList.add('active');
+      }
+      function hideExit() { overlay.classList.remove('active'); }
+
+      document.addEventListener('mouseout', (e) => {
+        if (e.clientY <= 0 && !e.relatedTarget) showExit();
+      });
+      closeBtn.addEventListener('click', hideExit);
+      skipBtn.addEventListener('click', hideExit);
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) hideExit(); });
+      ctaBtn.addEventListener('click', () => {
+        hideExit();
+        document.getElementById('tool').scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => { if (fileInput) fileInput.click(); }, 600);
+      });
+    })();
+
+    // ===== Newsletter Form =====
+    function handleNewsletter(e) {
+      e.preventDefault();
+      const form = document.getElementById('newsletterForm');
+      const email = form.querySelector('input[type="email"]').value;
+      const success = document.getElementById('newsletterSuccess');
+      // Store email locally for now — connect to Mailchimp/Formspree later
+      const emails = JSON.parse(localStorage.getItem('adborder_newsletter') || '[]');
+      if (!emails.includes(email)) {
+        emails.push(email);
+        localStorage.setItem('adborder_newsletter', JSON.stringify(emails));
+      }
+      form.style.display = 'none';
+      success.style.display = 'block';
+      return false;
+    }
+
+    // ===== Before/After Compare Slider =====
+    let compareActive = false;
+    function toggleCompare() {
+      const wrapper = document.getElementById('compareWrapper');
+      const preview = document.getElementById('previewCanvas');
+      compareActive = !compareActive;
+      if (compareActive) {
+        renderCompare();
+        wrapper.classList.add('active');
+        preview.style.display = 'none';
+      } else {
+        wrapper.classList.remove('active');
+        preview.style.display = '';
+      }
+    }
+    function renderCompare() {
+      if (!state.images.length) return;
+      const img = state.images[state.activeIndex].img;
+      const origCanvas = document.getElementById('compareOrig');
+      const afterCanvas = document.getElementById('compareAfter');
+      const maxW = 800, maxH = 500;
+      const scale = Math.min(maxW / img.width, maxH / img.height, 1);
+      const w = Math.round(img.width * scale), h = Math.round(img.height * scale);
+      origCanvas.width = afterCanvas.width = w;
+      origCanvas.height = afterCanvas.height = h;
+      origCanvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      renderToCanvas(afterCanvas, img, {
+        style: state.style, width: state.width, color: state.color,
+        gradient1: state.gradient1, gradient2: state.gradient2,
+        radius: state.radius, shadow: document.getElementById('shadowToggle').checked,
+        socialPreset: state.socialPreset
+      }, true);
+      const before = document.getElementById('compareBefore');
+      before.style.width = '50%';
+    }
+    (function() {
+      const wrapper = document.getElementById('compareWrapper');
+      const before = document.getElementById('compareBefore');
+      const divider = document.getElementById('compareDivider');
+      const handle = document.getElementById('compareHandle');
+      let dragging = false;
+      function setPosition(x) {
+        const rect = wrapper.getBoundingClientRect();
+        let pct = ((x - rect.left) / rect.width) * 100;
+        pct = Math.max(2, Math.min(98, pct));
+        before.style.width = pct + '%';
+        divider.style.left = pct + '%';
+        handle.style.left = pct + '%';
+      }
+      wrapper.addEventListener('mousedown', (e) => { dragging = true; setPosition(e.clientX); });
+      document.addEventListener('mousemove', (e) => { if (dragging) setPosition(e.clientX); });
+      document.addEventListener('mouseup', () => { dragging = false; });
+      wrapper.addEventListener('touchstart', (e) => { dragging = true; setPosition(e.touches[0].clientX); }, { passive: true });
+      document.addEventListener('touchmove', (e) => { if (dragging) setPosition(e.touches[0].clientX); }, { passive: true });
+      document.addEventListener('touchend', () => { dragging = false; });
+    })();
   </script>
 </body>
 </html>
