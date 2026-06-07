@@ -18,14 +18,14 @@
   <meta property="og:title" content="Add Border to Image Online Free | AdBorder">
   <meta property="og:description" content="Free online tool to add borders to your images instantly. Customize border color, width, and style. No signup, no watermark, 100% private.">
   <meta property="og:url" content="https://adborder.top/">
-  <meta property="og:image" content="https://adborder.top/og-image.png">
+  <meta property="og:image" content="https://adborder.top/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="AdBorder">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Add Border to Image Online Free | AdBorder">
   <meta name="twitter:description" content="Free online tool to add borders to your images instantly. No signup, no watermark.">
-  <meta name="twitter:image" content="https://adborder.top/og-image.png">
+  <meta name="twitter:image" content="https://adborder.top/og-image.jpg">
 
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebApplication","name":"AdBorder - Add Border to Image Online","url":"https://adborder.top/","applicationCategory":"MultimediaApplication","operatingSystem":"All","browserRequirements":"Requires a modern web browser with Canvas support","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free online tool to add borders to images. Customize border color, width, and style including solid, polaroid, gradient, and rounded corners. No signup required. No watermark. All image processing happens locally in your browser for complete privacy.","featureList":"Solid color borders, Polaroid-style borders, Gradient borders, Rounded corners, Shadow effects, Instagram aspect ratio presets, Drag and drop upload, Clipboard paste, Batch processing, Multiple export formats (PNG, JPEG, WebP)"}
@@ -790,6 +790,31 @@
     .reveal:nth-child(3) { transition-delay: 0.16s; }
     .reveal:nth-child(4) { transition-delay: 0.24s; }
 
+    /* ===== Blog CTA Banner ===== */
+    .blog-cta {
+      max-width: 900px; margin: 0 auto; padding: 0 24px;
+    }
+    .blog-cta-card {
+      background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(6,182,212,0.06));
+      border: 1px solid rgba(124,58,237,0.15);
+      border-radius: var(--radius); padding: 28px 32px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .blog-cta-text h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+    .blog-cta-text p { color: var(--text2); font-size: 0.88rem; margin: 0; }
+    .blog-cta-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 10px 22px; border-radius: var(--radius-sm);
+      background: rgba(255,255,255,0.06); border: 1px solid var(--glass-border);
+      color: var(--text); text-decoration: none; font-size: 0.85rem;
+      font-weight: 600; font-family: var(--font-display);
+      white-space: nowrap; transition: all 0.2s;
+    }
+    .blog-cta-link:hover { background: rgba(255,255,255,0.1); border-color: var(--accent1); }
+    @media (max-width: 600px) {
+      .blog-cta-card { flex-direction: column; text-align: center; padding: 24px 20px; }
+    }
+
     /* ===== Footer ===== */
     footer {
       border-top: 1px solid var(--glass-border);
@@ -1208,6 +1233,17 @@
         <div class="newsletter-success" id="newsletterSuccess">Thanks! You're subscribed.</div>
       </div>
     </section>
+
+    <!-- Blog CTA -->
+    <div class="blog-cta reveal">
+      <div class="blog-cta-card">
+        <div class="blog-cta-text">
+          <h3>Photo Border Tips & Tutorials</h3>
+          <p>Learn the best border styles for Instagram, Polaroid effects, social media tricks, and more.</p>
+        </div>
+        <a href="/blog.html" class="blog-cta-link">Read Blog &#8594;</a>
+      </div>
+    </div>
 
     <!-- FAQ -->
     <section class="content-section" id="faq">
