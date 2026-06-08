@@ -2131,9 +2131,10 @@
         tabs[1].classList.add('active');
         toolContainer.style.display = 'none';
         checkerPanel.classList.add('active');
-        // Stop border particles, restart SC particles
+        // Stop border particles, restart SC particles (reinit canvas since it was display:none)
         if (particleAnimId) { cancelAnimationFrame(particleAnimId); particleAnimId = null; }
-        if (!scParticleAnimId && !scImage) animateScParticles();
+        if (scParticleAnimId) { cancelAnimationFrame(scParticleAnimId); scParticleAnimId = null; }
+        if (!scImage) { resizeScCanvas(); initScParticles(); animateScParticles(); }
       }
     }
 
