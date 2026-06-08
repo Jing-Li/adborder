@@ -1,15 +1,23 @@
-const CACHE_NAME = 'adborder-v4';
+const CACHE_NAME = 'adborder-v6';
 const ASSETS = [
   '/',
   '/index.html',
   '/privacy.html',
   '/about.html',
   '/terms.html',
+  '/contact.html',
+  '/404.html',
   '/blog.html',
   '/blog-instagram-border.html',
   '/blog-polaroid.html',
   '/blog-social-media-borders.html',
   '/blog-photo-border-guide.html',
+  '/instagram-size.html',
+  '/twitter-size.html',
+  '/facebook-size.html',
+  '/pinterest-size.html',
+  '/linkedin-size.html',
+  '/youtube-size.html',
   '/logo.png',
   '/og-image.jpg',
   '/manifest.json'

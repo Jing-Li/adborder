@@ -766,6 +766,28 @@
       .blog-cta-card { flex-direction: column; text-align: center; padding: 24px 20px; }
     }
 
+    /* ===== Platform Size Guides Section ===== */
+    .platform-guides { max-width: 1200px; margin: 0 auto; padding: 48px 24px; }
+    .platform-guides h2 {
+      font-family: var(--font-display); font-size: 1.6rem; font-weight: 800;
+      margin-bottom: 8px; letter-spacing: -0.02em; text-align: center;
+    }
+    .platform-guides > p { color: var(--text2); font-size: 0.95rem; text-align: center; max-width: 600px; margin: 0 auto 28px; }
+    .platform-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px;
+    }
+    .platform-card {
+      background: var(--glass); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      border: 1px solid var(--glass-border); border-radius: var(--radius);
+      padding: 24px 16px; text-align: center; text-decoration: none;
+      transition: all 0.3s ease; display: block;
+    }
+    .platform-card:hover { border-color: var(--glass-border-hover); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+    .platform-card-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+    .platform-card-name { font-family: var(--font-display); font-size: 0.88rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .platform-card-desc { color: var(--text3); font-size: 0.78rem; }
+    @media (max-width: 600px) { .platform-grid { grid-template-columns: repeat(2, 1fr); } }
+
     /* ===== Footer ===== */
     footer {
       border-top: 1px solid var(--glass-border);
@@ -876,17 +898,102 @@
     .size-checker { display: none; }
     .size-checker.active { display: block; }
     .sc-upload {
-      max-width: 500px; margin: 0 auto 32px; padding: 48px 24px;
-      border: 2px dashed var(--glass-border); border-radius: var(--radius);
-      text-align: center; cursor: pointer; transition: all 0.3s;
-      background: var(--surface);
+      position: relative; max-width: 500px; margin: 0 auto 32px;
+      aspect-ratio: 4/3; min-height: 300px;
+      border-radius: var(--radius); overflow: hidden; cursor: pointer;
+      background: linear-gradient(145deg, #0d0d1a, #12122a);
+      transition: box-shadow 0.4s ease;
     }
-    .sc-upload:hover { border-color: var(--accent1); background: var(--surface-hover); }
-    .sc-upload.has-image { padding: 16px; cursor: default; }
-    .sc-upload-icon { font-size: 2.5rem; margin-bottom: 12px; }
-    .sc-upload h3 { font-family: var(--font-display); font-size: 1rem; margin-bottom: 6px; }
-    .sc-upload p { color: var(--text3); font-size: 0.82rem; margin: 0; }
-    .sc-preview { max-width: 300px; margin: 0 auto; border-radius: 8px; display: none; }
+    .sc-upload:hover { box-shadow: 0 0 60px rgba(124,58,237,0.12), 0 0 120px rgba(6,182,212,0.06); }
+    .sc-upload.dragover { box-shadow: 0 0 80px rgba(124,58,237,0.25), 0 0 160px rgba(6,182,212,0.12); }
+    .sc-upload.dragover .sc-border { opacity: 1; border-width: 3px; }
+    .sc-upload.has-image { cursor: default; aspect-ratio: auto; min-height: auto; padding: 16px; overflow: visible; }
+
+    .sc-canvas {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 1;
+    }
+
+    .sc-border {
+      position: absolute; inset: 24px; border-radius: 14px;
+      border: 2px solid transparent;
+      background: linear-gradient(#0d0d1a, #0d0d1a) padding-box,
+                  conic-gradient(from var(--angle, 0deg), #06b6d4, #f43f5e, #7c3aed, #06b6d4) border-box;
+      opacity: 0.6; transition: opacity 0.4s, border-width 0.3s;
+      z-index: 2; pointer-events: none;
+      animation: borderRotate 6s linear infinite;
+    }
+
+    .sc-glow {
+      position: absolute; inset: 24px; border-radius: 14px;
+      background: radial-gradient(ellipse at 50% 50%, rgba(6,182,212,0.08), transparent 70%);
+      z-index: 2; pointer-events: none;
+      animation: glowPulse 3s ease-in-out infinite;
+    }
+
+    .sc-demo {
+      position: absolute; z-index: 3; pointer-events: none;
+      inset: 44px; border-radius: 8px; overflow: hidden;
+      display: flex; align-items: center; justify-content: center; gap: 16px;
+    }
+    .sc-demo-item {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      opacity: 0; transition: opacity 0.8s ease, transform 0.8s ease;
+      transform: scale(0.9);
+    }
+    .sc-demo-item.active { opacity: 0.45; transform: scale(1); }
+    .sc-demo-icon {
+      font-size: 2.8rem;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+    }
+    .sc-demo-label {
+      font-family: var(--font-display); font-size: 0.7rem; font-weight: 600;
+      color: var(--text3); letter-spacing: 0.03em;
+    }
+
+    .sc-content {
+      position: absolute; inset: 0; z-index: 5;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: opacity 0.4s;
+    }
+    .sc-upload.has-image .sc-content { opacity: 0; pointer-events: none; }
+    .sc-upload.has-image .sc-border { opacity: 0; }
+    .sc-upload.has-image .sc-glow { opacity: 0; }
+    .sc-upload.has-image .sc-demo { opacity: 0; }
+
+    .sc-icon-wrap {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: linear-gradient(135deg, rgba(6,182,212,0.15), rgba(124,58,237,0.1));
+      border: 1px solid rgba(6,182,212,0.2);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; position: relative;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .sc-upload:hover .sc-icon-wrap {
+      transform: scale(1.08);
+      box-shadow: 0 0 30px rgba(6,182,212,0.2);
+    }
+    .sc-icon-wrap svg { width: 28px; height: 28px; stroke: #22d3ee; fill: none; stroke-width: 1.5; }
+    .sc-icon-ring {
+      position: absolute; inset: -6px; border-radius: 50%;
+      border: 1px solid rgba(6,182,212,0.15);
+      animation: ringPulse 2.5s ease-in-out infinite;
+    }
+
+    .sc-upload-title {
+      font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
+      margin-bottom: 6px; color: var(--text);
+    }
+    .sc-upload-sub { color: var(--text2); font-size: 0.88rem; margin-bottom: 12px; }
+    .sc-upload-hint { color: var(--text3); font-size: 0.78rem; letter-spacing: 0.02em; }
+    .sc-upload-keys { display: inline-flex; gap: 4px; margin-top: 10px; }
+    .sc-upload-key {
+      padding: 2px 8px; border-radius: 4px; font-size: 0.7rem;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text3); font-family: var(--font-body);
+    }
+
+    .sc-preview { max-width: 300px; margin: 0 auto; border-radius: 8px; display: none; position: relative; z-index: 5; }
     .sc-upload.has-image .sc-preview { display: block; }
     .sc-upload.has-image .sc-upload-prompt { display: none; }
 
@@ -1168,10 +1275,45 @@
       <!-- Size Checker Panel -->
       <div class="size-checker" id="sizeCheckerPanel">
         <div class="sc-upload" id="scUpload">
-          <div class="sc-upload-prompt">
-            <div class="sc-upload-icon">&#128208;</div>
-            <h3>Drop your image here</h3>
-            <p>Check how your image fits on every social media platform</p>
+          <!-- Particle canvas -->
+          <canvas class="sc-canvas" id="scCanvas"></canvas>
+          <!-- Animated conic-gradient border -->
+          <div class="sc-border"></div>
+          <!-- Inner radial glow pulse -->
+          <div class="sc-glow"></div>
+          <!-- Demo platform icons cycling -->
+          <div class="sc-demo" id="scDemo">
+            <div class="sc-demo-item active">
+              <span class="sc-demo-icon">&#128248;</span>
+              <span class="sc-demo-label">Instagram</span>
+            </div>
+            <div class="sc-demo-item">
+              <span class="sc-demo-icon">&#128038;</span>
+              <span class="sc-demo-label">Twitter / X</span>
+            </div>
+            <div class="sc-demo-item">
+              <span class="sc-demo-icon">&#9654;&#65039;</span>
+              <span class="sc-demo-label">YouTube</span>
+            </div>
+            <div class="sc-demo-item">
+              <span class="sc-demo-icon">&#128204;</span>
+              <span class="sc-demo-label">Pinterest</span>
+            </div>
+          </div>
+          <!-- Upload instruction overlay -->
+          <div class="sc-content">
+            <div class="sc-icon-wrap">
+              <div class="sc-icon-ring"></div>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke-linecap="round" stroke-linejoin="round"/><polyline points="17 8 12 3 7 8" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="3" x2="12" y2="15" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="sc-upload-title">Drop your image here</div>
+            <div class="sc-upload-sub">Check how your image fits on every platform</div>
+            <div class="sc-upload-hint">JPG, PNG, WebP, GIF, BMP</div>
+            <div class="sc-upload-keys">
+              <span class="sc-upload-key">Drag</span>
+              <span class="sc-upload-key">Drop</span>
+              <span class="sc-upload-key">Click</span>
+            </div>
           </div>
           <img class="sc-preview" id="scPreview" alt="Uploaded preview">
           <input type="file" id="scFileInput" accept="image/*" style="display:none">
@@ -1205,6 +1347,44 @@
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       </div>
     </div>
+
+    <!-- Platform Size Guides -->
+    <section class="platform-guides reveal" aria-label="Platform-specific image size guides">
+      <h2>Social Media Image Size Guides</h2>
+      <p>Exact dimensions for every platform. Get the perfect size for your photos, thumbnails, banners, and profile pictures.</p>
+      <div class="platform-grid">
+        <a href="/instagram-size.html" class="platform-card">
+          <span class="platform-card-icon">&#128248;</span>
+          <div class="platform-card-name">Instagram</div>
+          <div class="platform-card-desc">Posts, Stories, Reels</div>
+        </a>
+        <a href="/twitter-size.html" class="platform-card">
+          <span class="platform-card-icon">&#128038;</span>
+          <div class="platform-card-name">Twitter / X</div>
+          <div class="platform-card-desc">Posts, Headers, Profiles</div>
+        </a>
+        <a href="/facebook-size.html" class="platform-card">
+          <span class="platform-card-icon">&#128100;</span>
+          <div class="platform-card-name">Facebook</div>
+          <div class="platform-card-desc">Posts, Covers, Stories</div>
+        </a>
+        <a href="/pinterest-size.html" class="platform-card">
+          <span class="platform-card-icon">&#128204;</span>
+          <div class="platform-card-name">Pinterest</div>
+          <div class="platform-card-desc">Pins, Profiles, Idea Pins</div>
+        </a>
+        <a href="/linkedin-size.html" class="platform-card">
+          <span class="platform-card-icon">&#128188;</span>
+          <div class="platform-card-name">LinkedIn</div>
+          <div class="platform-card-desc">Posts, Banners, Profiles</div>
+        </a>
+        <a href="/youtube-size.html" class="platform-card">
+          <span class="platform-card-icon">&#9654;&#65039;</span>
+          <div class="platform-card-name">YouTube</div>
+          <div class="platform-card-desc">Thumbnails, Banners, Profiles</div>
+        </a>
+      </div>
+    </section>
 
     <!-- Social Proof Stats -->
     <section class="stats-section" aria-label="Usage statistics">
@@ -1885,10 +2065,16 @@
         tabs[0].classList.add('active');
         toolContainer.style.display = '';
         checkerPanel.classList.remove('active');
+        // Stop SC particles, restart border particles
+        if (scParticleAnimId) { cancelAnimationFrame(scParticleAnimId); scParticleAnimId = null; }
+        if (!particleAnimId && !state.images.length) animateParticles();
       } else {
         tabs[1].classList.add('active');
         toolContainer.style.display = 'none';
         checkerPanel.classList.add('active');
+        // Stop border particles, restart SC particles
+        if (particleAnimId) { cancelAnimationFrame(particleAnimId); particleAnimId = null; }
+        if (!scParticleAnimId && !scImage) animateScParticles();
       }
     }
 
@@ -1952,13 +2138,155 @@
     const scPreview = document.getElementById('scPreview');
 
     scUploadEl.addEventListener('click', () => { if (!scImage) scFileInput.click(); });
-    scUploadEl.addEventListener('dragover', (e) => { e.preventDefault(); scUploadEl.style.borderColor = 'var(--accent1)'; });
-    scUploadEl.addEventListener('dragleave', () => { scUploadEl.style.borderColor = ''; });
+    scUploadEl.addEventListener('dragover', (e) => { e.preventDefault(); scUploadEl.classList.add('dragover'); });
+    scUploadEl.addEventListener('dragleave', () => { scUploadEl.classList.remove('dragover'); });
     scUploadEl.addEventListener('drop', (e) => {
-      e.preventDefault(); scUploadEl.style.borderColor = '';
+      e.preventDefault(); scUploadEl.classList.remove('dragover');
       if (e.dataTransfer.files.length) handleScFile(e.dataTransfer.files[0]);
     });
     scFileInput.addEventListener('change', (e) => { if (e.target.files.length) handleScFile(e.target.files[0]); });
+
+    // ===== SC Particle System =====
+    const scCanvas = document.getElementById('scCanvas');
+    const scCtx = scCanvas.getContext('2d');
+    let scParticles = [];
+    let scMouseX = -999, scMouseY = -999;
+    let scParticleAnimId = null;
+
+    function resizeScCanvas() {
+      const r = scUploadEl.getBoundingClientRect();
+      scCanvas.width = r.width;
+      scCanvas.height = r.height;
+    }
+    resizeScCanvas();
+    window.addEventListener('resize', resizeScCanvas);
+
+    scUploadEl.addEventListener('mousemove', (e) => {
+      const r = scUploadEl.getBoundingClientRect();
+      scMouseX = e.clientX - r.left;
+      scMouseY = e.clientY - r.top;
+    });
+    scUploadEl.addEventListener('mouseleave', () => { scMouseX = -999; scMouseY = -999; });
+
+    const SC_PARTICLE_COUNT = 55;
+    const scPalette = [
+      {r:6,g:182,b:212},    // cyan
+      {r:124,g:58,b:237},   // purple
+      {r:244,g:63,b:94},    // pink
+      {r:34,g:211,b:238},   // light cyan
+      {r:167,g:139,b:250}   // light purple
+    ];
+
+    function initScParticles() {
+      scParticles = [];
+      for (let i = 0; i < SC_PARTICLE_COUNT; i++) {
+        const c = scPalette[Math.floor(Math.random() * scPalette.length)];
+        scParticles.push({
+          x: Math.random() * scCanvas.width,
+          y: Math.random() * scCanvas.height,
+          vx: (Math.random() - 0.5) * 0.35,
+          vy: (Math.random() - 0.5) * 0.35,
+          r: Math.random() * 2.2 + 0.8,
+          baseR: Math.random() * 2.2 + 0.8,
+          c,
+          alpha: Math.random() * 0.35 + 0.15,
+          baseAlpha: Math.random() * 0.35 + 0.15
+        });
+      }
+    }
+    initScParticles();
+
+    function animateScParticles() {
+      scCtx.clearRect(0, 0, scCanvas.width, scCanvas.height);
+      const hovering = scMouseX > -500;
+
+      for (let i = 0; i < scParticles.length; i++) {
+        const p = scParticles[i];
+        if (hovering) {
+          const dx = scMouseX - p.x;
+          const dy = scMouseY - p.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 140) {
+            const force = (140 - dist) / 140 * 0.02;
+            p.vx += dx * force;
+            p.vy += dy * force;
+            p.r = p.baseR + (140 - dist) / 140 * 2.5;
+            p.alpha = Math.min(p.baseAlpha + (140 - dist) / 140 * 0.35, 0.85);
+          } else {
+            p.r += (p.baseR - p.r) * 0.04;
+            p.alpha += (p.baseAlpha - p.alpha) * 0.04;
+          }
+        } else {
+          p.r += (p.baseR - p.r) * 0.04;
+          p.alpha += (p.baseAlpha - p.alpha) * 0.04;
+        }
+
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vx *= 0.985;
+        p.vy *= 0.985;
+
+        if (p.x < -15) p.x = scCanvas.width + 15;
+        if (p.x > scCanvas.width + 15) p.x = -15;
+        if (p.y < -15) p.y = scCanvas.height + 15;
+        if (p.y > scCanvas.height + 15) p.y = -15;
+
+        const glowR = p.r * 3.5;
+        const grad = scCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, glowR);
+        grad.addColorStop(0, 'rgba(' + p.c.r + ',' + p.c.g + ',' + p.c.b + ',' + (p.alpha * 0.3) + ')');
+        grad.addColorStop(1, 'rgba(' + p.c.r + ',' + p.c.g + ',' + p.c.b + ',0)');
+        scCtx.fillStyle = grad;
+        scCtx.beginPath();
+        scCtx.arc(p.x, p.y, glowR, 0, Math.PI * 2);
+        scCtx.fill();
+
+        scCtx.fillStyle = 'rgba(' + p.c.r + ',' + p.c.g + ',' + p.c.b + ',' + p.alpha + ')';
+        scCtx.beginPath();
+        scCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        scCtx.fill();
+      }
+
+      for (let i = 0; i < scParticles.length; i++) {
+        for (let j = i + 1; j < scParticles.length; j++) {
+          const dx = scParticles[i].x - scParticles[j].x;
+          const dy = scParticles[i].y - scParticles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 80) {
+            const alpha = (1 - dist / 80) * 0.1;
+            scCtx.strokeStyle = 'rgba(6,182,212,' + alpha + ')';
+            scCtx.lineWidth = 0.5;
+            scCtx.beginPath();
+            scCtx.moveTo(scParticles[i].x, scParticles[i].y);
+            scCtx.lineTo(scParticles[j].x, scParticles[j].y);
+            scCtx.stroke();
+          }
+        }
+      }
+
+      if (hovering) {
+        const mg = scCtx.createRadialGradient(scMouseX, scMouseY, 0, scMouseX, scMouseY, 50);
+        mg.addColorStop(0, 'rgba(6,182,212,0.07)');
+        mg.addColorStop(0.5, 'rgba(124,58,237,0.03)');
+        mg.addColorStop(1, 'rgba(0,0,0,0)');
+        scCtx.fillStyle = mg;
+        scCtx.beginPath();
+        scCtx.arc(scMouseX, scMouseY, 50, 0, Math.PI * 2);
+        scCtx.fill();
+      }
+
+      scParticleAnimId = requestAnimationFrame(animateScParticles);
+    }
+    animateScParticles();
+
+    // SC Demo item cycling
+    const scDemoItems = document.querySelectorAll('.sc-demo-item');
+    let scDemoIndex = 0;
+    setInterval(() => {
+      if (!scUploadEl || scUploadEl.classList.contains('has-image')) return;
+      scDemoItems.forEach(item => item.classList.remove('active'));
+      scDemoIndex = (scDemoIndex + 1) % scDemoItems.length;
+      scDemoItems[scDemoIndex].classList.add('active');
+    }, 3000);
 
     function handleScFile(file) {
       if (!file.type.startsWith('image/')) return;
@@ -1969,6 +2297,7 @@
           scImage = img;
           scPreview.src = e.target.result;
           scUploadEl.classList.add('has-image');
+          if (scParticleAnimId) { cancelAnimationFrame(scParticleAnimId); scParticleAnimId = null; }
           analyzeImage(img);
         };
         img.src = e.target.result;
@@ -2037,6 +2366,7 @@
       scUploadEl.classList.remove('has-image');
       document.getElementById('scResults').classList.remove('active');
       scFileInput.value = '';
+      if (!scParticleAnimId) animateScParticles();
     }
 
     function generateShareCard() {
