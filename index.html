@@ -730,55 +730,6 @@
     .faq-answer-inner { padding: 0 24px 18px; color: var(--text3); font-size: 0.88rem; line-height: 1.7; }
     .faq-item.open .faq-answer { max-height: 500px; }
 
-    /* ===== Affiliate / Recommended Tools ===== */
-    .tools-section { max-width: 1200px; margin: 0 auto; padding: 48px 24px; }
-    .tools-section h2 {
-      font-family: var(--font-display); font-size: 1.4rem; font-weight: 800;
-      margin-bottom: 8px; letter-spacing: -0.02em;
-    }
-    .tools-section .tools-sub { color: var(--text3); font-size: 0.9rem; margin-bottom: 28px; }
-    .tools-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px;
-    }
-    .tool-card {
-      background: var(--glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--glass-border); border-radius: var(--radius);
-      padding: 24px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      display: flex; flex-direction: column; gap: 10px;
-      text-decoration: none; color: inherit; position: relative; overflow: hidden;
-    }
-    .tool-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: var(--gradient); opacity: 0; transition: opacity 0.3s;
-    }
-    .tool-card:hover {
-      border-color: var(--glass-border-hover); transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-    }
-    .tool-card:hover::before { opacity: 1; }
-    .tool-card-header { display: flex; align-items: center; gap: 12px; }
-    .tool-card-logo {
-      width: 40px; height: 40px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; flex-shrink: 0;
-    }
-    .tool-card-name {
-      font-family: var(--font-display); font-size: 0.92rem; font-weight: 700;
-      color: var(--text);
-    }
-    .tool-card-tag {
-      font-size: 0.65rem; font-weight: 600; padding: 2px 8px; border-radius: 4px;
-      background: rgba(124,58,237,0.12); color: var(--accent1);
-      text-transform: uppercase; letter-spacing: 0.05em;
-      margin-left: auto;
-    }
-    .tool-card p { font-size: 0.82rem; color: var(--text3); line-height: 1.55; margin: 0; flex: 1; }
-    .tool-card-cta {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 0.78rem; font-weight: 600; color: var(--accent2);
-      margin-top: 4px; transition: gap 0.2s;
-    }
-    .tool-card:hover .tool-card-cta { gap: 10px; }
 
     /* ===== Scroll Reveal ===== */
     .reveal {
@@ -1106,49 +1057,6 @@
         </aside>
       </div>
 
-      <!-- Recommended Tools (Affiliate) - right below tool area -->
-      <section class="tools-section" aria-label="Recommended design tools">
-        <h2>Want More? Try These</h2>
-        <p class="tools-sub">Complementary tools for designers and content creators.</p>
-        <div class="tools-grid">
-          <a class="tool-card reveal" href="AFFILIATE_LINK_ADOBE" target="_blank" rel="noopener sponsored">
-            <div class="tool-card-header">
-              <div class="tool-card-logo" style="background:linear-gradient(135deg,#ff0000,#fa0f00)">&#9998;</div>
-              <span class="tool-card-name">Adobe Express</span>
-              <span class="tool-card-tag">Pro</span>
-            </div>
-            <p>All-in-one design tool from Adobe. Templates, brand kits, AI-powered features for social media, presentations, and marketing materials.</p>
-            <span class="tool-card-cta">Try Adobe Express &#8594;</span>
-          </a>
-          <a class="tool-card reveal" href="AFFILIATE_LINK_PIXLR" target="_blank" rel="noopener sponsored">
-            <div class="tool-card-header">
-              <div class="tool-card-logo" style="background:linear-gradient(135deg,#1cc8ff,#0066ff)">&#127912;</div>
-              <span class="tool-card-name">Pixlr Editor</span>
-              <span class="tool-card-tag">Free</span>
-            </div>
-            <p>Advanced online photo editor with layers, filters, and AI tools. A powerful Photoshop alternative that runs in your browser.</p>
-            <span class="tool-card-cta">Open Pixlr &#8594;</span>
-          </a>
-          <a class="tool-card reveal" href="AFFILIATE_LINK_PICWISH" target="_blank" rel="noopener sponsored">
-            <div class="tool-card-header">
-              <div class="tool-card-logo" style="background:linear-gradient(135deg,#6366f1,#8b5cf6)">&#128270;</div>
-              <span class="tool-card-name">PicWish</span>
-              <span class="tool-card-tag">AI</span>
-            </div>
-            <p>Remove image backgrounds in seconds with AI. Perfect for product photos, headshots, and e-commerce. 100% automatic and precise.</p>
-            <span class="tool-card-cta">Remove background &#8594;</span>
-          </a>
-          <a class="tool-card reveal" href="AFFILIATE_LINK_FIVERR" target="_blank" rel="noopener sponsored">
-            <div class="tool-card-header">
-              <div class="tool-card-logo" style="background:linear-gradient(135deg,#1dbf73,#0a8f56)">&#128188;</div>
-              <span class="tool-card-name">Fiverr</span>
-              <span class="tool-card-tag">Hire</span>
-            </div>
-            <p>Need professional design work? Hire freelancers for logo design, photo editing, brand identity, and more starting at $5.</p>
-            <span class="tool-card-cta">Find a designer &#8594;</span>
-          </a>
-        </div>
-      </section>
     </section>
 
     <!-- Privacy -->
