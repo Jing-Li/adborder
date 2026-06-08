@@ -855,6 +855,91 @@
     /* Selection */
     ::selection { background: rgba(124,58,237,0.3); color: white; }
 
+    /* ===== Tool Tabs ===== */
+    .tool-tabs {
+      display: flex; gap: 0; justify-content: center; margin-bottom: 24px;
+      background: var(--surface); border-radius: 12px; padding: 4px;
+      max-width: 400px; margin-left: auto; margin-right: auto;
+    }
+    .tool-tab {
+      flex: 1; padding: 10px 20px; border: none; background: none; cursor: pointer;
+      font-family: var(--font-display); font-size: 0.85rem; font-weight: 600;
+      color: var(--text3); border-radius: 8px; transition: all 0.25s;
+    }
+    .tool-tab.active {
+      background: var(--gradient); color: white;
+      box-shadow: 0 2px 12px rgba(124,58,237,0.3);
+    }
+    .tool-tab:not(.active):hover { color: var(--text); background: var(--surface-hover); }
+
+    /* ===== Size Checker ===== */
+    .size-checker { display: none; }
+    .size-checker.active { display: block; }
+    .sc-upload {
+      max-width: 500px; margin: 0 auto 32px; padding: 48px 24px;
+      border: 2px dashed var(--glass-border); border-radius: var(--radius);
+      text-align: center; cursor: pointer; transition: all 0.3s;
+      background: var(--surface);
+    }
+    .sc-upload:hover { border-color: var(--accent1); background: var(--surface-hover); }
+    .sc-upload.has-image { padding: 16px; cursor: default; }
+    .sc-upload-icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .sc-upload h3 { font-family: var(--font-display); font-size: 1rem; margin-bottom: 6px; }
+    .sc-upload p { color: var(--text3); font-size: 0.82rem; margin: 0; }
+    .sc-preview { max-width: 300px; margin: 0 auto; border-radius: 8px; display: none; }
+    .sc-upload.has-image .sc-preview { display: block; }
+    .sc-upload.has-image .sc-upload-prompt { display: none; }
+
+    .sc-results { max-width: 900px; margin: 0 auto; display: none; }
+    .sc-results.active { display: block; }
+    .sc-results h2 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; text-align: center; margin-bottom: 20px; }
+    .sc-score-overall {
+      text-align: center; margin-bottom: 28px;
+      padding: 20px; background: var(--glass); border-radius: var(--radius);
+      border: 1px solid var(--glass-border);
+    }
+    .sc-score-number {
+      font-family: var(--font-display); font-size: 3.5rem; font-weight: 800;
+      background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .sc-score-label { color: var(--text2); font-size: 0.88rem; margin-top: 4px; }
+
+    .sc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 24px; }
+    .sc-card {
+      background: var(--glass); border: 1px solid var(--glass-border);
+      border-radius: var(--radius); padding: 20px; transition: all 0.3s;
+    }
+    .sc-card:hover { border-color: var(--glass-border-hover); transform: translateY(-2px); }
+    .sc-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .sc-card-icon { font-size: 1.3rem; }
+    .sc-card-name { font-family: var(--font-display); font-size: 0.92rem; font-weight: 700; }
+    .sc-card-score { margin-left: auto; font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; }
+    .sc-card-score.perfect { color: #10b981; }
+    .sc-card-score.good { color: #f59e0b; }
+    .sc-card-score.poor { color: #ef4444; }
+    .sc-format-list { list-style: none; padding: 0; }
+    .sc-format-item {
+      display: flex; align-items: center; gap: 8px; padding: 6px 0;
+      font-size: 0.8rem; color: var(--text2);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .sc-format-item:last-child { border: none; }
+    .sc-format-status { width: 18px; text-align: center; font-size: 0.85rem; }
+    .sc-format-name { flex: 1; }
+    .sc-format-size { color: var(--text3); font-size: 0.75rem; font-family: monospace; }
+
+    .sc-actions { display: flex; gap: 12px; justify-content: center; margin-top: 24px; flex-wrap: wrap; }
+    .sc-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: 10px; border: none; cursor: pointer;
+      font-family: var(--font-display); font-size: 0.85rem; font-weight: 600;
+      transition: all 0.25s;
+    }
+    .sc-btn-primary { background: var(--gradient); color: white; }
+    .sc-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(124,58,237,0.4); }
+    .sc-btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--glass-border); }
+    .sc-btn-secondary:hover { background: var(--surface-hover); border-color: var(--accent2); }
+
     /* ===== Ko-fi Support Button ===== */
     .kofi-float {
       position: fixed; bottom: 24px; right: 24px; z-index: 999;
@@ -906,6 +991,12 @@
       <div class="tool-hero">
         <h1>Add <span class="gradient-word">Beautiful Borders</span><br>to Any Image, Instantly</h1>
         <p>Free. No signup. No watermark. 100% private — your images never leave your browser.</p>
+      </div>
+
+      <!-- Tool Tabs -->
+      <div class="tool-tabs">
+        <button class="tool-tab active" onclick="switchTab('border')">&#127912; Border Tool</button>
+        <button class="tool-tab" onclick="switchTab('checker')">&#128207; Size Checker</button>
       </div>
 
       <div class="tool-container">
@@ -1072,6 +1163,31 @@
             </div>
           </div>
         </aside>
+      </div>
+
+      <!-- Size Checker Panel -->
+      <div class="size-checker" id="sizeCheckerPanel">
+        <div class="sc-upload" id="scUpload">
+          <div class="sc-upload-prompt">
+            <div class="sc-upload-icon">&#128208;</div>
+            <h3>Drop your image here</h3>
+            <p>Check how your image fits on every social media platform</p>
+          </div>
+          <img class="sc-preview" id="scPreview" alt="Uploaded preview">
+          <input type="file" id="scFileInput" accept="image/*" style="display:none">
+        </div>
+        <div class="sc-results" id="scResults">
+          <div class="sc-score-overall">
+            <div class="sc-score-number" id="scOverallScore">--</div>
+            <div class="sc-score-label">Overall Social Media Score</div>
+          </div>
+          <div class="sc-grid" id="scGrid"></div>
+          <div class="sc-actions">
+            <button class="sc-btn sc-btn-primary" onclick="generateShareCard()">&#128228; Download Share Card</button>
+            <button class="sc-btn sc-btn-secondary" onclick="switchTab('border')">&#127912; Fix with Border Tool</button>
+            <button class="sc-btn sc-btn-secondary" onclick="resetSizeChecker()">&#8635; Check Another Image</button>
+          </div>
+        </div>
       </div>
 
     </section>
@@ -1755,6 +1871,274 @@
       form.style.display = 'none';
       success.style.display = 'block';
       return false;
+    }
+
+    // ===== Tool Tab Switching =====
+    function switchTab(tab) {
+      const tabs = document.querySelectorAll('.tool-tab');
+      const checkerPanel = document.getElementById('sizeCheckerPanel');
+      const toolContainer = document.querySelector('.tool-container');
+
+      tabs.forEach(t => t.classList.remove('active'));
+
+      if (tab === 'border') {
+        tabs[0].classList.add('active');
+        toolContainer.style.display = '';
+        checkerPanel.classList.remove('active');
+      } else {
+        tabs[1].classList.add('active');
+        toolContainer.style.display = 'none';
+        checkerPanel.classList.add('active');
+      }
+    }
+
+    // ===== Size Checker =====
+    const SC_PLATFORMS = [
+      {
+        name: 'Instagram', icon: '\ud83d\udcf8',
+        formats: [
+          { name: 'Feed Post', w: 1080, h: 1080, ratio: '1:1' },
+          { name: 'Feed Portrait', w: 1080, h: 1350, ratio: '4:5' },
+          { name: 'Story / Reel', w: 1080, h: 1920, ratio: '9:16' }
+        ]
+      },
+      {
+        name: 'Twitter / X', icon: '\ud83d\udc26',
+        formats: [
+          { name: 'Post Image', w: 1200, h: 675, ratio: '16:9' },
+          { name: 'Header', w: 1500, h: 500, ratio: '3:1' },
+          { name: 'Profile', w: 400, h: 400, ratio: '1:1' }
+        ]
+      },
+      {
+        name: 'Facebook', icon: '\ud83d\udc64',
+        formats: [
+          { name: 'Post', w: 1200, h: 630, ratio: '1.91:1' },
+          { name: 'Cover Photo', w: 820, h: 312, ratio: '2.63:1' },
+          { name: 'Profile', w: 170, h: 170, ratio: '1:1' },
+          { name: 'Story', w: 1080, h: 1920, ratio: '9:16' }
+        ]
+      },
+      {
+        name: 'Pinterest', icon: '\ud83d\udccc',
+        formats: [
+          { name: 'Standard Pin', w: 1000, h: 1500, ratio: '2:3' },
+          { name: 'Profile', w: 165, h: 165, ratio: '1:1' }
+        ]
+      },
+      {
+        name: 'LinkedIn', icon: '\ud83d\udcbc',
+        formats: [
+          { name: 'Post', w: 1200, h: 627, ratio: '1.91:1' },
+          { name: 'Cover', w: 1584, h: 396, ratio: '4:1' },
+          { name: 'Profile', w: 400, h: 400, ratio: '1:1' }
+        ]
+      },
+      {
+        name: 'YouTube', icon: '\u25b6\ufe0f',
+        formats: [
+          { name: 'Thumbnail', w: 1280, h: 720, ratio: '16:9' },
+          { name: 'Banner', w: 2560, h: 1440, ratio: '16:9' },
+          { name: 'Profile', w: 800, h: 800, ratio: '1:1' }
+        ]
+      }
+    ];
+
+    let scImage = null;
+
+    // Upload handling
+    const scUploadEl = document.getElementById('scUpload');
+    const scFileInput = document.getElementById('scFileInput');
+    const scPreview = document.getElementById('scPreview');
+
+    scUploadEl.addEventListener('click', () => { if (!scImage) scFileInput.click(); });
+    scUploadEl.addEventListener('dragover', (e) => { e.preventDefault(); scUploadEl.style.borderColor = 'var(--accent1)'; });
+    scUploadEl.addEventListener('dragleave', () => { scUploadEl.style.borderColor = ''; });
+    scUploadEl.addEventListener('drop', (e) => {
+      e.preventDefault(); scUploadEl.style.borderColor = '';
+      if (e.dataTransfer.files.length) handleScFile(e.dataTransfer.files[0]);
+    });
+    scFileInput.addEventListener('change', (e) => { if (e.target.files.length) handleScFile(e.target.files[0]); });
+
+    function handleScFile(file) {
+      if (!file.type.startsWith('image/')) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          scImage = img;
+          scPreview.src = e.target.result;
+          scUploadEl.classList.add('has-image');
+          analyzeImage(img);
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function analyzeImage(img) {
+      const w = img.width, h = img.height;
+      const imgRatio = w / h;
+      let totalScore = 0;
+      let totalFormats = 0;
+
+      const grid = document.getElementById('scGrid');
+      grid.innerHTML = '';
+
+      SC_PLATFORMS.forEach(platform => {
+        let platformScore = 0;
+        const formatHtml = platform.formats.map(fmt => {
+          const fmtRatio = fmt.w / fmt.h;
+          const ratioDiff = Math.abs(imgRatio - fmtRatio) / fmtRatio;
+          const resolutionOk = w >= fmt.w * 0.5 && h >= fmt.h * 0.5;
+          let status, statusIcon, score;
+
+          if (ratioDiff < 0.05 && resolutionOk) {
+            status = 'Perfect'; statusIcon = '\u2705'; score = 100;
+          } else if (ratioDiff < 0.15 && resolutionOk) {
+            status = 'Good'; statusIcon = '\ud83d\udfe1'; score = 70;
+          } else if (ratioDiff < 0.3) {
+            status = 'Croppable'; statusIcon = '\ud83d\udfe0'; score = 40;
+          } else {
+            status = 'Poor fit'; statusIcon = '\u274c'; score = 10;
+          }
+
+          platformScore += score;
+          totalScore += score;
+          totalFormats++;
+
+          return '<li class="sc-format-item">' +
+            '<span class="sc-format-status">' + statusIcon + '</span>' +
+            '<span class="sc-format-name">' + fmt.name + '</span>' +
+            '<span class="sc-format-size">' + fmt.w + '\u00d7' + fmt.h + ' (' + fmt.ratio + ')</span>' +
+          '</li>';
+        }).join('');
+
+        const avgScore = Math.round(platformScore / platform.formats.length);
+        const scoreClass = avgScore >= 70 ? 'perfect' : avgScore >= 40 ? 'good' : 'poor';
+
+        grid.innerHTML += '<div class="sc-card">' +
+          '<div class="sc-card-header">' +
+            '<span class="sc-card-icon">' + platform.icon + '</span>' +
+            '<span class="sc-card-name">' + platform.name + '</span>' +
+            '<span class="sc-card-score ' + scoreClass + '">' + avgScore + '</span>' +
+          '</div>' +
+          '<ul class="sc-format-list">' + formatHtml + '</ul>' +
+        '</div>';
+      });
+
+      const overall = Math.round(totalScore / totalFormats);
+      document.getElementById('scOverallScore').textContent = overall;
+      document.getElementById('scResults').classList.add('active');
+    }
+
+    function resetSizeChecker() {
+      scImage = null;
+      scUploadEl.classList.remove('has-image');
+      document.getElementById('scResults').classList.remove('active');
+      scFileInput.value = '';
+    }
+
+    function generateShareCard() {
+      if (!scImage) return;
+      const canvas = document.createElement('canvas');
+      canvas.width = 1080; canvas.height = 1080;
+      const ctx = canvas.getContext('2d');
+
+      // Background
+      ctx.fillStyle = '#0a0a12';
+      ctx.fillRect(0, 0, 1080, 1080);
+
+      // Gradient border
+      const grad = ctx.createLinearGradient(0, 0, 1080, 1080);
+      grad.addColorStop(0, '#7c3aed'); grad.addColorStop(1, '#06b6d4');
+      ctx.strokeStyle = grad; ctx.lineWidth = 6;
+      ctx.strokeRect(30, 30, 1020, 1020);
+
+      // Title
+      ctx.fillStyle = '#e8e8f0';
+      ctx.font = 'bold 36px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('My Social Media Image Score', 540, 100);
+
+      // Overall score
+      const overall = document.getElementById('scOverallScore').textContent;
+      ctx.font = 'bold 120px sans-serif';
+      const scoreGrad = ctx.createLinearGradient(340, 120, 740, 280);
+      scoreGrad.addColorStop(0, '#a78bfa'); scoreGrad.addColorStop(1, '#22d3ee');
+      ctx.fillStyle = scoreGrad;
+      ctx.fillText(overall, 540, 260);
+
+      ctx.font = '20px sans-serif';
+      ctx.fillStyle = '#8888a0';
+      ctx.fillText('Overall Score', 540, 295);
+
+      // Platform scores
+      const cards = document.querySelectorAll('.sc-card');
+      const startY = 350;
+      const colW = 340;
+      const rowH = 100;
+      cards.forEach((card, i) => {
+        const col = i % 2;
+        const row = Math.floor(i / 2);
+        const x = 80 + col * colW;
+        const y = startY + row * rowH;
+
+        const name = card.querySelector('.sc-card-name').textContent;
+        const score = card.querySelector('.sc-card-score').textContent;
+        const icon = card.querySelector('.sc-card-icon').textContent;
+
+        ctx.font = '28px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillStyle = '#e8e8f0';
+        ctx.fillText(icon + ' ' + name, x, y + 30);
+
+        ctx.font = 'bold 36px sans-serif';
+        ctx.textAlign = 'right';
+        const sc = parseInt(score);
+        ctx.fillStyle = sc >= 70 ? '#10b981' : sc >= 40 ? '#f59e0b' : '#ef4444';
+        ctx.fillText(score, x + 300, y + 35);
+
+        // Separator line
+        ctx.strokeStyle = 'rgba(255,255,255,0.06)'; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(x, y + 55); ctx.lineTo(x + 320, y + 55); ctx.stroke();
+      });
+
+      // Image thumbnail
+      const thumbSize = 160;
+      const thumbX = 540 - thumbSize / 2;
+      const thumbY = 700;
+      ctx.save();
+      ctx.beginPath();
+      ctx.roundRect(thumbX, thumbY, thumbSize, thumbSize, 12);
+      ctx.clip();
+      const scale = Math.min(thumbSize / scImage.width, thumbSize / scImage.height);
+      const tw = scImage.width * scale, th = scImage.height * scale;
+      ctx.drawImage(scImage, thumbX + (thumbSize - tw) / 2, thumbY + (thumbSize - th) / 2, tw, th);
+      ctx.restore();
+
+      // Image dimensions
+      ctx.font = '18px monospace'; ctx.textAlign = 'center'; ctx.fillStyle = '#8888a0';
+      ctx.fillText(scImage.width + ' \u00d7 ' + scImage.height, 540, 890);
+
+      // Branding
+      ctx.font = 'bold 28px sans-serif'; ctx.textAlign = 'center';
+      const brandGrad = ctx.createLinearGradient(340, 940, 740, 970);
+      brandGrad.addColorStop(0, '#a78bfa'); brandGrad.addColorStop(1, '#22d3ee');
+      ctx.fillStyle = brandGrad;
+      ctx.fillText('adborder.top', 540, 960);
+
+      ctx.font = '16px sans-serif'; ctx.fillStyle = '#555570';
+      ctx.fillText('Free Social Media Image Size Checker', 540, 990);
+
+      // Download
+      canvas.toBlob((blob) => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'social-media-score.png';
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }, 'image/png');
     }
 
   </script>
