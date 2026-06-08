@@ -854,6 +854,23 @@
 
     /* Selection */
     ::selection { background: rgba(124,58,237,0.3); color: white; }
+
+    /* ===== Ko-fi Support Button ===== */
+    .kofi-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 999;
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px 20px; border-radius: 50px;
+      background: linear-gradient(135deg, #7c3aed, #06b6d4);
+      color: white; text-decoration: none; font-family: var(--font-display);
+      font-size: 0.82rem; font-weight: 700;
+      box-shadow: 0 4px 20px rgba(124,58,237,0.4), 0 2px 8px rgba(0,0,0,0.3);
+      transition: all 0.3s ease; cursor: pointer;
+    }
+    .kofi-float:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(124,58,237,0.55), 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .kofi-float-icon { font-size: 1.2rem; line-height: 1; }
   </style>
 </head>
 <body>
@@ -1743,7 +1760,8 @@
   </script>
 
   <!-- Ko-fi Floating Button -->
-  <script src='https://storage.ko-fi.com/cdn/widget/float_2.js'></script>
-  <script>kofiwidget2.init('Support AdBorder', '#7c3aed', 'adborder');kofiwidget2.draw();</script>
+  <a href="https://ko-fi.com/adborder" target="_blank" rel="noopener" class="kofi-float">
+    <span class="kofi-float-icon">&#9749;</span> Support Us
+  </a>
 </body>
 </html>
