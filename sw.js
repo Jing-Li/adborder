@@ -1,4 +1,4 @@
-const CACHE_NAME = 'adborder-v2';
+const CACHE_NAME = 'adborder-v3';
 const ASSETS = [
   '/',
   '/index.html',
