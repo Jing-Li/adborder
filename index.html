@@ -898,8 +898,8 @@
     .size-checker { display: none; }
     .size-checker.active { display: block; }
     .sc-upload {
-      position: relative; max-width: 500px; margin: 0 auto 32px;
-      aspect-ratio: 4/3; min-height: 300px;
+      position: relative; width: 100%; max-width: 800px; margin: 0 auto 32px;
+      aspect-ratio: 4/3; min-height: 360px;
       border-radius: var(--radius); overflow: hidden; cursor: pointer;
       background: linear-gradient(145deg, #0d0d1a, #12122a);
       transition: box-shadow 0.4s ease;
@@ -934,22 +934,15 @@
     .sc-demo {
       position: absolute; z-index: 3; pointer-events: none;
       inset: 44px; border-radius: 8px; overflow: hidden;
-      display: flex; align-items: center; justify-content: center; gap: 16px;
+      display: flex; align-items: center; justify-content: center;
     }
-    .sc-demo-item {
-      display: flex; flex-direction: column; align-items: center; gap: 8px;
-      opacity: 0; transition: opacity 0.8s ease, transform 0.8s ease;
-      transform: scale(0.9);
+    .sc-demo-img {
+      width: 70%; max-height: 65%; object-fit: contain;
+      border-radius: 4px; opacity: 0;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
     }
-    .sc-demo-item.active { opacity: 0.45; transform: scale(1); }
-    .sc-demo-icon {
-      font-size: 2.8rem;
-      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
-    }
-    .sc-demo-label {
-      font-family: var(--font-display); font-size: 0.7rem; font-weight: 600;
-      color: var(--text3); letter-spacing: 0.03em;
-    }
+    .sc-demo-img.active { opacity: 0.5; transform: scale(1); }
 
     .sc-content {
       position: absolute; inset: 0; z-index: 5;
@@ -1281,24 +1274,90 @@
           <div class="sc-border"></div>
           <!-- Inner radial glow pulse -->
           <div class="sc-glow"></div>
-          <!-- Demo platform icons cycling -->
+          <!-- Demo image showcase cycling social media layouts -->
           <div class="sc-demo" id="scDemo">
-            <div class="sc-demo-item active">
-              <span class="sc-demo-icon">&#128248;</span>
-              <span class="sc-demo-label">Instagram</span>
-            </div>
-            <div class="sc-demo-item">
-              <span class="sc-demo-icon">&#128038;</span>
-              <span class="sc-demo-label">Twitter / X</span>
-            </div>
-            <div class="sc-demo-item">
-              <span class="sc-demo-icon">&#9654;&#65039;</span>
-              <span class="sc-demo-label">YouTube</span>
-            </div>
-            <div class="sc-demo-item">
-              <span class="sc-demo-icon">&#128204;</span>
-              <span class="sc-demo-label">Pinterest</span>
-            </div>
+            <svg class="sc-demo-img active" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <rect width="240" height="180" fill="#1a1a2e"/>
+              <rect x="10" y="10" width="220" height="160" rx="4" fill="#0d0d1a" stroke="rgba(124,58,237,0.3)" stroke-width="1"/>
+              <!-- Score circle -->
+              <circle cx="60" cy="65" r="30" fill="none" stroke="#7c3aed" stroke-width="3" opacity="0.6"/>
+              <text x="60" y="70" text-anchor="middle" fill="#a78bfa" font-size="18" font-weight="bold" font-family="sans-serif">87</text>
+              <!-- Platform bars -->
+              <rect x="110" y="30" width="100" height="10" rx="5" fill="#10b981" opacity="0.5"/>
+              <rect x="110" y="48" width="80" height="10" rx="5" fill="#f59e0b" opacity="0.5"/>
+              <rect x="110" y="66" width="65" height="10" rx="5" fill="#ef4444" opacity="0.4"/>
+              <rect x="110" y="84" width="90" height="10" rx="5" fill="#10b981" opacity="0.5"/>
+              <!-- Platform icons -->
+              <circle cx="102" cy="35" r="4" fill="#06b6d4" opacity="0.6"/>
+              <circle cx="102" cy="53" r="4" fill="#06b6d4" opacity="0.6"/>
+              <circle cx="102" cy="71" r="4" fill="#06b6d4" opacity="0.6"/>
+              <circle cx="102" cy="89" r="4" fill="#06b6d4" opacity="0.6"/>
+              <!-- Bottom row -->
+              <rect x="20" y="115" width="55" height="42" rx="4" fill="#2d1b69" opacity="0.5"/>
+              <rect x="85" y="115" width="55" height="42" rx="4" fill="#1e1b4b" opacity="0.5"/>
+              <rect x="150" y="115" width="55" height="42" rx="4" fill="#2d1b69" opacity="0.5"/>
+              <text x="47" y="140" text-anchor="middle" fill="#8888a0" font-size="7" font-family="sans-serif">1:1</text>
+              <text x="112" y="140" text-anchor="middle" fill="#8888a0" font-size="7" font-family="sans-serif">16:9</text>
+              <text x="177" y="140" text-anchor="middle" fill="#8888a0" font-size="7" font-family="sans-serif">9:16</text>
+            </svg>
+            <svg class="sc-demo-img" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <rect width="240" height="180" fill="#1a1a2e"/>
+              <!-- Phone frame -->
+              <rect x="70" y="8" width="100" height="164" rx="12" fill="#0d0d1a" stroke="rgba(6,182,212,0.3)" stroke-width="1.5"/>
+              <!-- Screen content -->
+              <rect x="78" y="22" width="84" height="136" rx="4" fill="#12122a"/>
+              <!-- Story preview -->
+              <rect x="86" y="30" width="68" height="90" rx="3" fill="#2d1b69" opacity="0.6"/>
+              <circle cx="120" cy="65" r="16" fill="#7c3aed" opacity="0.4"/>
+              <rect x="98" y="82" width="44" height="6" rx="3" fill="#06b6d4" opacity="0.35"/>
+              <!-- Status bar dots -->
+              <circle cx="110" cy="15" r="1.5" fill="#555570"/>
+              <circle cx="120" cy="15" r="1.5" fill="#555570"/>
+              <circle cx="130" cy="15" r="1.5" fill="#555570"/>
+              <!-- Bottom UI -->
+              <rect x="86" y="128" width="68" height="8" rx="2" fill="rgba(255,255,255,0.06)"/>
+              <rect x="86" y="140" width="45" height="8" rx="2" fill="rgba(124,58,237,0.2)"/>
+              <!-- Side labels -->
+              <rect x="14" y="50" width="42" height="8" rx="4" fill="#06b6d4" opacity="0.2"/>
+              <rect x="14" y="65" width="35" height="6" rx="3" fill="rgba(255,255,255,0.05)"/>
+              <rect x="184" y="50" width="42" height="8" rx="4" fill="#f43f5e" opacity="0.2"/>
+              <rect x="184" y="65" width="35" height="6" rx="3" fill="rgba(255,255,255,0.05)"/>
+              <text x="120" y="175" text-anchor="middle" fill="#555570" font-size="7" font-family="sans-serif">1080 x 1920</text>
+            </svg>
+            <svg class="sc-demo-img" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <rect width="240" height="180" fill="#1a1a2e"/>
+              <!-- Multi-platform grid -->
+              <!-- Instagram square -->
+              <rect x="12" y="12" width="64" height="64" rx="4" fill="#2d1b69" opacity="0.5" stroke="rgba(124,58,237,0.2)" stroke-width="1"/>
+              <circle cx="44" cy="38" r="14" fill="#7c3aed" opacity="0.4"/>
+              <rect x="28" y="56" width="32" height="4" rx="2" fill="#a78bfa" opacity="0.3"/>
+              <text x="44" y="72" text-anchor="middle" fill="#8888a0" font-size="5" font-family="sans-serif">IG</text>
+              <!-- YouTube thumbnail -->
+              <rect x="88" y="12" width="96" height="54" rx="4" fill="#1e1b4b" opacity="0.5" stroke="rgba(244,63,94,0.2)" stroke-width="1"/>
+              <polygon points="136,32 136,46 148,39" fill="#f43f5e" opacity="0.5"/>
+              <rect x="96" y="52" width="60" height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
+              <text x="136" y="62" text-anchor="middle" fill="#8888a0" font-size="5" font-family="sans-serif">YouTube</text>
+              <!-- Twitter card -->
+              <rect x="12" y="90" width="96" height="54" rx="4" fill="#0d1b2a" opacity="0.5" stroke="rgba(6,182,212,0.2)" stroke-width="1"/>
+              <circle cx="26" cy="100" r="6" fill="#06b6d4" opacity="0.3"/>
+              <rect x="36" y="96" width="44" height="4" rx="2" fill="rgba(255,255,255,0.08)"/>
+              <rect x="36" y="104" width="32" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+              <rect x="18" y="116" width="80" height="20" rx="2" fill="#2d1b69" opacity="0.4"/>
+              <text x="60" y="140" text-anchor="middle" fill="#8888a0" font-size="5" font-family="sans-serif">Twitter</text>
+              <!-- Pinterest pin -->
+              <rect x="120" y="80" width="48" height="72" rx="4" fill="#2d1b69" opacity="0.5" stroke="rgba(244,63,94,0.2)" stroke-width="1"/>
+              <circle cx="144" cy="106" r="12" fill="#f43f5e" opacity="0.3"/>
+              <rect x="130" y="124" width="28" height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
+              <rect x="132" y="132" width="24" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+              <text x="144" y="148" text-anchor="middle" fill="#8888a0" font-size="5" font-family="sans-serif">Pin</text>
+              <!-- LinkedIn -->
+              <rect x="180" y="90" width="48" height="64" rx="4" fill="#0d1b2a" opacity="0.5" stroke="rgba(6,182,212,0.15)" stroke-width="1"/>
+              <circle cx="204" cy="104" r="8" fill="#06b6d4" opacity="0.3"/>
+              <rect x="188" y="118" width="32" height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
+              <rect x="188" y="126" width="24" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+              <rect x="188" y="134" width="32" height="12" rx="2" fill="rgba(6,182,212,0.15)"/>
+              <text x="204" y="152" text-anchor="middle" fill="#8888a0" font-size="5" font-family="sans-serif">LinkedIn</text>
+            </svg>
           </div>
           <!-- Upload instruction overlay -->
           <div class="sc-content">
@@ -2278,15 +2337,15 @@
     }
     animateScParticles();
 
-    // SC Demo item cycling
-    const scDemoItems = document.querySelectorAll('.sc-demo-item');
+    // SC Demo image cycling
+    const scDemoImgs = document.querySelectorAll('.sc-demo-img');
     let scDemoIndex = 0;
     setInterval(() => {
       if (!scUploadEl || scUploadEl.classList.contains('has-image')) return;
-      scDemoItems.forEach(item => item.classList.remove('active'));
-      scDemoIndex = (scDemoIndex + 1) % scDemoItems.length;
-      scDemoItems[scDemoIndex].classList.add('active');
-    }, 3000);
+      scDemoImgs.forEach(img => img.classList.remove('active'));
+      scDemoIndex = (scDemoIndex + 1) % scDemoImgs.length;
+      scDemoImgs[scDemoIndex].classList.add('active');
+    }, 3500);
 
     function handleScFile(file) {
       if (!file.type.startsWith('image/')) return;
