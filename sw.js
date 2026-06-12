@@ -1,4 +1,4 @@
-const CACHE_NAME = 'adborder-v8';
+const CACHE_NAME = 'adborder-v9';
 const ASSETS = [
   '/',
   '/index.html',
@@ -12,6 +12,11 @@ const ASSETS = [
   '/blog-polaroid.html',
   '/blog-social-media-borders.html',
   '/blog-photo-border-guide.html',
+  '/blog-image-format.html',
+  '/blog-aspect-ratio.html',
+  '/blog-youtube-thumbnails.html',
+  '/blog-border-color.html',
+  '/blog-batch-processing.html',
   '/instagram-size.html',
   '/twitter-size.html',
   '/facebook-size.html',
