@@ -172,11 +172,29 @@
   <footer>
     <div class="footer-links">
       <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/blog.html">Blog</a>
       <a href="/privacy.html">Privacy Policy</a>
       <a href="/terms.html">Terms of Service</a>
       <a href="/contact.html">Contact</a>
     </div>
     <p class="footer-copy">&copy; 2026 AdBorder.top</p>
   </footer>
+  <div id="cookieBanner" style="position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,18,0.92);backdrop-filter:blur(12px);color:#e8e8f0;padding:14px 24px;z-index:9999;font-size:0.85rem;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.08);display:none">
+    <span>We use cookies for analytics and advertising. By continuing, you agree to our <a href="/privacy.html" style="color:#a78bfa;text-decoration:underline">Privacy Policy</a>.</span>
+    <button onclick="dismissCookie()" style="background:linear-gradient(135deg,#7c3aed,#06b6d4);color:white;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600;font-size:0.82rem">Accept</button>
+  </div>
+  <script>
+    (function(){
+      var cb = document.getElementById('cookieBanner');
+      if (!document.cookie.split(';').some(function(c){return c.trim().startsWith('adborder_consent=')})) {
+        cb.style.display = 'flex';
+      } else { cb.style.display = 'none'; }
+    })();
+    function dismissCookie() {
+      document.cookie = 'adborder_consent=1;max-age=31536000;path=/;SameSite=Lax';
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+  </script>
 </body>
 </html>

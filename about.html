@@ -53,7 +53,11 @@
     <p>AdBorder is a free online tool designed to make adding borders to images as simple and fast as possible. Whether you need a white border for your Instagram posts, a polaroid-style frame for your photos, a gradient border for social media, or rounded corners for profile pictures, AdBorder handles it all in seconds.</p>
 
     <h2>Why We Built AdBorder</h2>
+    <p>AdBorder was created by a small team of independent developers who are passionate about making creative tools accessible to everyone. Frustrated by image editing tools that required expensive subscriptions, account creation, or uploading private photos to remote servers, we set out to build something different — a tool that respects your privacy while delivering professional results in seconds.</p>
     <p>We noticed that most online image editing tools either require account creation, charge for basic features, add watermarks to your output, or upload your images to their servers. We believed that adding a simple border to an image should be free, instant, and private. So we built AdBorder.</p>
+
+    <h2>Our Story</h2>
+    <p>AdBorder started as a personal project in early 2026. What began as a simple weekend hack to add white borders to Instagram photos quickly grew into a full-featured image border tool used by content creators, photographers, and social media managers around the world. Today, AdBorder processes thousands of images every month, and we continue to add new features based on user feedback.</p>
 
     <h2>Privacy-First Architecture</h2>
     <p>AdBorder is built with a client-side-only architecture. All image processing happens in your web browser using the HTML5 Canvas API and JavaScript. Your images never leave your device. No uploads, no server storage, no data collection. When you close the page, everything is gone. This is not just a feature — it is a fundamental design principle.</p>
@@ -61,11 +65,20 @@
     <h2>Free Forever</h2>
     <p>Every feature on AdBorder is completely free with no limits. No premium tiers, no usage caps, no watermarks on your output. We support the tool through non-intrusive advertising. We believe that useful tools should be accessible to everyone.</p>
 
+    <h2>Our Values</h2>
+    <p>We believe in three core principles:</p>
+    <p><strong style="color:#e8e8f0">1. Privacy by design</strong> — your images never leave your device. We will never collect, store, or transmit your personal photos.</p>
+    <p><strong style="color:#e8e8f0">2. Accessibility</strong> — every feature is free, with no hidden costs or premium gates. No account required, no paywalls, ever.</p>
+    <p><strong style="color:#e8e8f0">3. Simplicity</strong> — powerful tools don't need to be complicated. We obsess over user experience so you can go from upload to download in under 10 seconds.</p>
+
     <h2>Built for Speed</h2>
     <p>AdBorder is a single-page application with no external frameworks or dependencies. It loads in under a second and processes images instantly. Our goal is to get you from upload to download in under 10 seconds.</p>
 
+    <h2>Where We Are</h2>
+    <p>AdBorder is developed and maintained from China. We're proud to be part of Asia's vibrant developer community, and we serve users from every corner of the globe — from North America and Europe to Southeast Asia and beyond.</p>
+
     <h2>Contact</h2>
-    <p>If you have feedback, suggestions, or just want to say hello, you can reach us through our website. We appreciate all feedback and use it to improve AdBorder.</p>
+    <p>If you have feedback, suggestions, or just want to say hello, email us at <a href="mailto:hello@adborder.top" style="color:#a78bfa">hello@adborder.top</a>. You can also visit our <a href="/contact.html" style="color:#a78bfa">Contact page</a> for more ways to get in touch. We read every message and aim to respond within 48 hours.</p>
   </main>
 
   <footer>
@@ -78,5 +91,21 @@
     </div>
     <p class="footer-copy">&copy; 2026 AdBorder.top</p>
   </footer>
+  <div id="cookieBanner" style="position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,18,0.92);backdrop-filter:blur(12px);color:#e8e8f0;padding:14px 24px;z-index:9999;font-size:0.85rem;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.08);display:none">
+    <span>We use cookies for analytics and advertising. By continuing, you agree to our <a href="/privacy.html" style="color:#a78bfa;text-decoration:underline">Privacy Policy</a>.</span>
+    <button onclick="dismissCookie()" style="background:linear-gradient(135deg,#7c3aed,#06b6d4);color:white;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600;font-size:0.82rem">Accept</button>
+  </div>
+  <script>
+    (function(){
+      var cb = document.getElementById('cookieBanner');
+      if (!document.cookie.split(';').some(function(c){return c.trim().startsWith('adborder_consent=')})) {
+        cb.style.display = 'flex';
+      } else { cb.style.display = 'none'; }
+    })();
+    function dismissCookie() {
+      document.cookie = 'adborder_consent=1;max-age=31536000;path=/;SameSite=Lax';
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
