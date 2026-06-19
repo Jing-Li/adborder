@@ -1091,6 +1091,7 @@
       <div class="tool-hero">
         <h1>Add <span class="gradient-word">Beautiful Borders</span><br>to Any Image, Instantly</h1>
         <p>Free. No signup. No watermark. 100% private — your images never leave your browser.</p>
+        <p style="color:var(--text3);font-size:0.88rem;max-width:600px;margin:12px auto 0">AdBorder is a free browser-based image editor that adds borders to photos using the HTML5 Canvas API. Upload any JPG, PNG, WebP, or GIF, choose from solid color, polaroid, gradient, or rounded corner styles, adjust the border width from 1px to 200px, pick any color, and download the result instantly. Also includes a Social Media Image Size Checker that tests your images against 18 format specifications across Instagram, Twitter, Facebook, YouTube, Pinterest, and LinkedIn.</p>
       </div>
 
       <!-- Tool Tabs -->
@@ -1421,23 +1422,23 @@
     </section>
 
     <!-- Social Proof Stats -->
-    <section class="stats-section" aria-label="Usage statistics">
+    <section class="stats-section" aria-label="About the tool">
       <div class="stats-grid">
         <div class="stat-card reveal">
-          <div class="stat-number" data-target="2847563">0</div>
-          <div class="stat-label">Images Processed</div>
+          <div class="stat-number" style="font-size:1.2rem;background:var(--gradient-text);-webkit-background-clip:text;background-clip:text;color:transparent">Free Forever</div>
+          <div class="stat-label">No premium tiers, no watermarks, no hidden costs</div>
         </div>
         <div class="stat-card reveal">
-          <div class="stat-number" data-target="152">0</div>
-          <div class="stat-label">Countries Reached</div>
+          <div class="stat-number" style="font-size:1.2rem;background:var(--gradient-text);-webkit-background-clip:text;background-clip:text;color:transparent">100% Private</div>
+          <div class="stat-label">All processing in your browser. Images never leave your device</div>
         </div>
         <div class="stat-card reveal">
-          <div class="stat-number" data-target="100" data-suffix="%">0</div>
-          <div class="stat-label">Free Forever</div>
+          <div class="stat-number" style="font-size:1.2rem;background:var(--gradient-text);-webkit-background-clip:text;background-clip:text;color:transparent">4 Border Styles</div>
+          <div class="stat-label">Solid, Polaroid, Gradient, and Rounded corners</div>
         </div>
         <div class="stat-card reveal">
-          <div class="stat-number" data-target="0" data-suffix="<1s" data-no-animate="true">&lt;1s</div>
-          <div class="stat-label">Average Processing</div>
+          <div class="stat-number" style="font-size:1.2rem;background:var(--gradient-text);-webkit-background-clip:text;background-clip:text;color:transparent">Instant Results</div>
+          <div class="stat-label">Upload, customize, and download in under 10 seconds</div>
         </div>
       </div>
     </section>
@@ -1543,11 +1544,7 @@
     </div>
   </div>
 
-  <!-- Activity Toast -->
-  <div class="activity-toast" id="activityToast">
-    <span class="activity-dot"></span>
-    <span id="activityText"></span>
-  </div>
+
 
   <!-- Cookie Banner -->
   <div id="cookieBanner" style="position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,18,0.92);backdrop-filter:blur(12px);color:#e8e8f0;padding:14px 24px;z-index:9999;font-size:0.85rem;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.08);display:none">
@@ -1778,55 +1775,6 @@
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-    // ===== Animated Counters =====
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          if (el.dataset.noAnimate === 'true') return;
-          const target = parseInt(el.dataset.target);
-          const suffix = el.dataset.suffix || '';
-          const duration = 2000;
-          const start = performance.now();
-          function tick(now) {
-            const progress = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            const current = Math.round(eased * target);
-            el.textContent = current.toLocaleString() + suffix;
-            if (progress < 1) requestAnimationFrame(tick);
-          }
-          requestAnimationFrame(tick);
-          counterObserver.unobserve(el);
-        }
-      });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('.stat-number[data-target]').forEach(el => counterObserver.observe(el));
-
-    // ===== Activity Toast (social proof) =====
-    const activities = [
-      'Someone in New York just added a white border',
-      'Someone in Tokyo processed 5 images',
-      'Someone in London created a polaroid frame',
-      'Someone in Berlin added a gradient border',
-      'Someone in Singapore downloaded a bordered image',
-      'Someone in Sydney used batch processing',
-      'Someone in Toronto created an Instagram border',
-      'Someone in Amsterdam added rounded corners',
-    ];
-    const toast = document.getElementById('activityToast');
-    const toastText = document.getElementById('activityText');
-    let toastTimeout;
-    function showActivity() {
-      toastText.textContent = activities[Math.floor(Math.random() * activities.length)];
-      toast.classList.add('show');
-      clearTimeout(toastTimeout);
-      toastTimeout = setTimeout(() => {
-        toast.classList.remove('show');
-        setTimeout(showActivity, 15000 + Math.random() * 25000);
-      }, 4000);
-    }
-    setTimeout(showActivity, 8000 + Math.random() * 7000);
 
     // ===== State =====
     let state = {
