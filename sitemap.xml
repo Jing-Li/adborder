@@ -2,55 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://adborder.top/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://adborder.top/instagram-size.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://adborder.top/twitter-size.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://adborder.top/facebook-size.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://adborder.top/pinterest-size.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://adborder.top/linkedin-size.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://adborder.top/youtube-size.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://adborder.top/blog.html</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://adborder.top/blog-social-media-sizes.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://adborder.top/blog-instagram-border.html</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adborder.top/blog-photo-border-guide.html</loc>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -62,12 +38,6 @@
   </url>
   <url>
     <loc>https://adborder.top/blog-social-media-borders.html</loc>
-    <lastmod>2026-06-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://adborder.top/blog-photo-border-guide.html</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -104,25 +74,25 @@
   </url>
   <url>
     <loc>https://adborder.top/about.html</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adborder.top/contact.html</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adborder.top/privacy.html</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://adborder.top/terms.html</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

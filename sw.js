@@ -1,4 +1,4 @@
-const CACHE_NAME = 'adborder-v10';
+const CACHE_NAME = 'adborder-v11';
 const ASSETS = [
   '/',
   '/index.html',
@@ -8,6 +8,7 @@ const ASSETS = [
   '/contact.html',
   '/404.html',
   '/blog.html',
+  '/blog-social-media-sizes.html',
   '/blog-instagram-border.html',
   '/blog-polaroid.html',
   '/blog-social-media-borders.html',
@@ -17,12 +18,6 @@ const ASSETS = [
   '/blog-youtube-thumbnails.html',
   '/blog-border-color.html',
   '/blog-batch-processing.html',
-  '/instagram-size.html',
-  '/twitter-size.html',
-  '/facebook-size.html',
-  '/pinterest-size.html',
-  '/linkedin-size.html',
-  '/youtube-size.html',
   '/logo.png',
   '/og-image.jpg',
   '/manifest.json'
