@@ -24,17 +24,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a12; --text: #e8e8f0; --text2: #9999b0; --text3: #777790;
+      --accent1: #7c3aed; --accent2: #06b6d4;
+    }
     body { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a12; color: #e8e8f0; line-height: 1.7; -webkit-font-smoothing: antialiased; }
     header { background: rgba(10,10,18,0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 14px 0; position: sticky; top: 0; z-index: 100; }
     .header-inner { max-width: 800px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
     .logo { font-size: 1.4rem; font-weight: 800; background: linear-gradient(135deg, #a78bfa, #22d3ee); -webkit-background-clip: text; background-clip: text; color: transparent; text-decoration: none; }
-    nav a { color: #8888a0; text-decoration: none; margin-left: 20px; font-size: 0.85rem; font-weight: 500; }
+    nav a { color: #9999b0; text-decoration: none; margin-left: 20px; font-size: 0.85rem; font-weight: 500; }
     nav a:hover { color: #e8e8f0; }
     main { max-width: 800px; margin: 0 auto; padding: 48px 24px; }
     h1 { font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
-    .subtitle { color: #8888a0; margin-bottom: 32px; font-size: 1rem; }
+    .subtitle { color: #9999b0; margin-bottom: 32px; font-size: 1rem; }
     h2 { font-family: 'Sora', sans-serif; font-size: 1.3rem; font-weight: 700; margin-top: 32px; margin-bottom: 12px; }
-    p { color: #8888a0; margin-bottom: 12px; }
+    p { color: #9999b0; margin-bottom: 12px; }
     a { color: #06b6d4; text-decoration: none; }
     a:hover { text-decoration: underline; }
 
@@ -50,20 +54,30 @@
     .faq-mini { margin-top: 32px; }
     .faq-mini-item { border-bottom: 1px solid rgba(255,255,255,0.06); padding: 14px 0; }
     .faq-mini-q { font-weight: 600; color: #e8e8f0; font-size: 0.92rem; margin-bottom: 4px; }
-    .faq-mini-a { color: #8888a0; font-size: 0.88rem; margin: 0; }
+    .faq-mini-a { color: #9999b0; font-size: 0.88rem; margin: 0; }
 
     .ad-slot { max-width: 800px; margin: 32px auto; padding: 0 24px; }
     .ad-slot-inner { background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.06); border-radius: 8px; padding: 8px; text-align: center; }
 
     footer { border-top: 1px solid rgba(255,255,255,0.08); padding: 32px 24px; margin-top: 48px; text-align: center; }
     .footer-links { display: flex; gap: 20px; justify-content: center; margin-bottom: 12px; }
-    .footer-links a { color: #555570; text-decoration: none; font-size: 0.82rem; }
+    .footer-links a { color: #777790; text-decoration: none; font-size: 0.82rem; }
     .footer-links a:hover { color: #06b6d4; }
-    .footer-copy { font-size: 0.82rem; color: #555570; }
+    .footer-copy { font-size: 0.82rem; color: #777790; }
     ::selection { background: rgba(124,58,237,0.3); color: white; }
+    *:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; border-radius: 4px; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }
+    .skip-link {
+      position: absolute; top: -50px; left: 0; z-index: 10001;
+      background: #7c3aed; color: white; padding: 10px 20px;
+      font-size: 0.85rem; font-weight: 600; text-decoration: none;
+      border-radius: 0 0 10px 0; transition: top 0.25s ease;
+    }
+    .skip-link:focus { top: 0; }
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
   <header>
     <div class="header-inner">
       <a href="/" class="logo">AdBorder</a>
@@ -75,7 +89,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <h1>Contact Us</h1>
     <p class="subtitle">Have a question, suggestion, or just want to say hi? We'd love to hear from you.</p>
 

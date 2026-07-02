@@ -44,28 +44,39 @@
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a12; --bg2: #0f0f1a; --surface: rgba(255,255,255,0.04);
+      --surface-hover: rgba(255,255,255,0.07); --glass: rgba(255,255,255,0.05);
+      --glass-border: rgba(255,255,255,0.08); --glass-border-hover: rgba(255,255,255,0.15);
+      --text: #e8e8f0; --text2: #9999b0; --text3: #777790;
+      --accent1: #7c3aed; --accent2: #06b6d4; --accent3: #f43f5e;
+      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
+      --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee);
+      --radius: 16px; --radius-sm: 10px;
+      --font-display: 'Sora', sans-serif; --font-body: 'DM Sans', sans-serif;
+    }
     body { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a12; color: #e8e8f0; line-height: 1.7; -webkit-font-smoothing: antialiased; }
     header { background: rgba(10,10,18,0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 14px 0; position: sticky; top: 0; z-index: 100; }
     .header-inner { max-width: 800px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
     .logo { font-family: 'Sora', sans-serif; font-size: 1.4rem; font-weight: 800; background: linear-gradient(135deg, #a78bfa, #22d3ee); -webkit-background-clip: text; background-clip: text; color: transparent; text-decoration: none; }
-    nav a { color: #8888a0; text-decoration: none; margin-left: 20px; font-size: 0.85rem; font-weight: 500; }
+    nav a { color: #9999b0; text-decoration: none; margin-left: 20px; font-size: 0.85rem; font-weight: 500; padding: 8px 4px; min-height: 44px; display: inline-flex; align-items: center; }
     nav a:hover { color: #e8e8f0; }
     main { max-width: 800px; margin: 0 auto; padding: 48px 24px; }
     h1 { font-family: 'Sora', sans-serif; font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; line-height: 1.2; }
-    .updated { color: #555570; font-size: 0.9rem; margin-bottom: 32px; }
+    .updated { color: #777790; font-size: 0.9rem; margin-bottom: 32px; }
     h2 { font-family: 'Sora', sans-serif; font-size: 1.5rem; font-weight: 700; margin-top: 48px; margin-bottom: 16px; letter-spacing: -0.01em; }
     h3 { font-family: 'Sora', sans-serif; font-size: 1.15rem; font-weight: 700; margin-top: 28px; margin-bottom: 12px; color: #a78bfa; }
-    p { color: #8888a0; margin-bottom: 16px; font-size: 1rem; }
+    p { color: #9999b0; margin-bottom: 16px; font-size: 1rem; }
     strong { color: #e8e8f0; }
-    ul, ol { color: #8888a0; margin-bottom: 16px; padding-left: 24px; }
+    ul, ol { color: #9999b0; margin-bottom: 16px; padding-left: 24px; }
     li { margin-bottom: 8px; }
     a { color: #a78bfa; text-decoration: none; }
     a:hover { text-decoration: underline; }
     .ad-slot { margin: 32px 0; }
-    .ad-slot-inner { width: 100%; min-height: 90px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #555570; font-size: 0.75rem; }
+    .ad-slot-inner { width: 100%; min-height: 90px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #777790; font-size: 0.75rem; }
     .cta-box { background: linear-gradient(145deg, rgba(124,58,237,0.08), rgba(6,182,212,0.05)); border: 1px solid rgba(124,58,237,0.2); border-radius: 16px; padding: 32px; margin: 40px 0; text-align: center; }
     .cta-box h3 { color: #e8e8f0; font-size: 1.3rem; margin-bottom: 12px; margin-top: 0; }
-    .cta-box p { color: #8888a0; margin-bottom: 20px; }
+    .cta-box p { color: #9999b0; margin-bottom: 20px; }
     .cta-button { display: inline-block; background: linear-gradient(135deg, #7c3aed, #06b6d4); color: white; padding: 12px 32px; border-radius: 10px; font-weight: 700; font-size: 0.95rem; text-decoration: none; box-shadow: 0 4px 20px rgba(124,58,237,0.3); transition: transform 0.2s, box-shadow 0.2s; }
     .cta-button:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(124,58,237,0.45); text-decoration: none; }
     .related-articles { margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); }
@@ -75,15 +86,24 @@
     .related-list a { color: #a78bfa; font-weight: 500; }
     footer { border-top: 1px solid rgba(255,255,255,0.08); padding: 32px 24px; margin-top: 48px; text-align: center; }
     .footer-links { display: flex; gap: 20px; justify-content: center; margin-bottom: 12px; }
-    .footer-links a { color: #555570; text-decoration: none; font-size: 0.82rem; }
+    .footer-links a { color: #777790; text-decoration: none; font-size: 0.82rem; }
     .footer-links a:hover { color: #06b6d4; }
-    .footer-copy { font-size: 0.82rem; color: #555570; }
+    .footer-copy { font-size: 0.82rem; color: #777790; }
     ::selection { background: rgba(124,58,237,0.3); color: white; }
+    *:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; border-radius: 4px; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }
+    .skip-link {
+      position: absolute; top: -50px; left: 0; z-index: 10001;
+      background: var(--accent1, #7c3aed); color: white; padding: 10px 20px;
+      font-size: 0.85rem; font-weight: 600; text-decoration: none;
+      border-radius: 0 0 10px 0; transition: top 0.25s ease;
+    }
+    .skip-link:focus { top: 0; }
     .author-card { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; padding: 16px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; }
     .author-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #a78bfa, #22d3ee); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 700; color: white; flex-shrink: 0; }
     .author-info { flex: 1; }
     .author-name { font-weight: 700; color: #e8e8f0; font-size: 0.95rem; }
-    .author-bio { color: #8888a0; font-size: 0.82rem; margin: 2px 0 0 0; }
+    .author-bio { color: #9999b0; font-size: 0.82rem; margin: 2px 0 0 0; }
     /* Mesh background */
     .mesh-bg { position: fixed; inset: 0; z-index: -2; background: radial-gradient(ellipse 80% 50% at 20% 20%, rgba(124,58,237,0.08), transparent), radial-gradient(ellipse 60% 40% at 80% 10%, rgba(6,182,212,0.05), transparent), radial-gradient(ellipse 50% 60% at 10% 80%, rgba(244,163,94,0.04), transparent), radial-gradient(ellipse 70% 50% at 90% 90%, rgba(124,58,237,0.05), transparent); animation: meshDrift 20s ease-in-out infinite alternate; }
     @keyframes meshDrift { 0% { transform: scale(1) rotate(0deg); } 100% { transform: scale(1.1) rotate(2deg); } }
@@ -112,6 +132,7 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
   <div class="mesh-bg"></div>
   <div class="noise"></div>
   <header>
@@ -125,7 +146,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <article>
       <h1>The Complete Guide to Adding Photo Borders Online</h1>
       <p class="updated">Updated: June 7, 2026</p>

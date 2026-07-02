@@ -57,8 +57,8 @@
       --glass-border: rgba(255,255,255,0.08);
       --glass-border-hover: rgba(255,255,255,0.15);
       --text: #e8e8f0;
-      --text2: #8888a0;
-      --text3: #555570;
+      --text2: #9999b0;
+      --text3: #777790;
       --accent1: #7c3aed;
       --accent2: #06b6d4;
       --accent3: #f43f5e;
@@ -393,7 +393,7 @@
       font-family: var(--font-display);
       font-weight: 700; font-size: 0.67rem;
       margin-bottom: 11px;
-      color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.5);
       text-transform: uppercase; letter-spacing: 0.1em;
     }
     .control-group label .label-icon {
@@ -466,9 +466,10 @@
 
     .width-presets { display: flex; gap: 5px; margin-top: 10px; }
     .width-preset {
-      flex: 1; padding: 7px 4px; border: 1px solid rgba(255,255,255,0.06);
+      flex: 1; padding: 10px 4px; border: 1px solid rgba(255,255,255,0.06);
       border-radius: 8px; background: rgba(255,255,255,0.02); cursor: pointer;
       font-size: 0.68rem; font-weight: 600; color: var(--text3);
+      min-height: 40px;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       text-align: center;
     }
@@ -484,7 +485,7 @@
     input[type="color"]:hover { border-color: rgba(255,255,255,0.2); }
     .color-swatches { display: flex; gap: 5px; flex-wrap: wrap; }
     .color-swatch {
-      width: 28px; height: 28px; border-radius: 8px;
+      width: 36px; height: 36px; border-radius: 8px;
       border: 2px solid transparent; cursor: pointer;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
@@ -879,6 +880,25 @@
     /* Selection */
     ::selection { background: rgba(124,58,237,0.3); color: white; }
 
+    /* Focus visible — keyboard accessibility */
+    *:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; border-radius: 4px; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }
+    .style-btn:focus-visible, .color-swatch:focus-visible, .gradient-btn:focus-visible,
+    .width-preset:focus-visible, .social-btn:focus-visible, .format-btn:focus-visible {
+      outline: 2px solid #a78bfa; outline-offset: 2px;
+      border-color: rgba(124,58,237,0.5);
+    }
+
+    /* Skip navigation link */
+    .skip-link {
+      position: absolute; top: -50px; left: 0; z-index: 10001;
+      background: var(--accent1); color: white; padding: 10px 20px;
+      font-family: var(--font-body); font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; border-radius: 0 0 10px 0;
+      transition: top 0.25s ease;
+    }
+    .skip-link:focus { top: 0; }
+
     /* ===== Tool Tabs ===== */
     .tool-tabs {
       display: flex; gap: 0; justify-content: center; margin-bottom: 24px;
@@ -1061,6 +1081,7 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
 
   <div class="mesh-bg"></div>
   <div class="noise"></div>
@@ -1088,7 +1109,7 @@
   </div>
 
   <!-- Main Tool -->
-  <main>
+  <main id="main-content">
     <section class="tool-section" id="tool">
       <div class="tool-hero">
         <h1>Add <span class="gradient-word">Beautiful Borders</span><br>to Any Image, Instantly</h1>
@@ -1098,8 +1119,8 @@
 
       <!-- Tool Tabs -->
       <div class="tool-tabs">
-        <button class="tool-tab active" onclick="switchTab('border')">&#127912; Border Tool</button>
-        <button class="tool-tab" onclick="switchTab('checker')">&#128207; Size Checker</button>
+        <button class="tool-tab active" onclick="switchTab('border')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px"><rect x="3" y="3" width="18" height="18" rx="2"/><rect x="7" y="7" width="10" height="10" rx="1"/></svg> Border Tool</button>
+        <button class="tool-tab" onclick="switchTab('checker')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Size Checker</button>
       </div>
 
       <div class="tool-container">
@@ -1174,22 +1195,22 @@
         <!-- Controls -->
         <aside class="controls-panel" aria-label="Border customization controls">
           <div class="panel-header">
-            <div class="panel-header-icon">&#9998;</div>
+            <div class="panel-header-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
             <h3>Customize</h3>
           </div>
           <div class="control-group">
-            <label><span class="label-icon">&#9632;</span> Style</label>
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></span> Style</label>
             <div class="style-grid">
-              <div class="style-btn active" data-style="solid" onclick="setStyle(this,'solid')"><span class="style-icon">&#9632;</span>Solid</div>
-              <div class="style-btn" data-style="polaroid" onclick="setStyle(this,'polaroid')"><span class="style-icon">&#128248;</span>Polaroid</div>
-              <div class="style-btn" data-style="gradient" onclick="setStyle(this,'gradient')"><span class="style-icon">&#127752;</span>Gradient</div>
-              <div class="style-btn" data-style="rounded" onclick="setStyle(this,'rounded')"><span class="style-icon">&#9673;</span>Rounded</div>
+              <div class="style-btn active" data-style="solid" role="button" tabindex="0" onclick="setStyle(this,'solid')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setStyle(this,'solid')}"><span class="style-icon">&#9632;</span>Solid</div>
+              <div class="style-btn" data-style="polaroid" role="button" tabindex="0" onclick="setStyle(this,'polaroid')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setStyle(this,'polaroid')}"><span class="style-icon">&#128248;</span>Polaroid</div>
+              <div class="style-btn" data-style="gradient" role="button" tabindex="0" onclick="setStyle(this,'gradient')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setStyle(this,'gradient')}"><span class="style-icon">&#127752;</span>Gradient</div>
+              <div class="style-btn" data-style="rounded" role="button" tabindex="0" onclick="setStyle(this,'rounded')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setStyle(this,'rounded')}"><span class="style-icon">&#9673;</span>Rounded</div>
             </div>
           </div>
           <div class="control-group">
-            <label><span class="label-icon">&#8596;</span> Width</label>
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span> Width</label>
             <div class="slider-row">
-              <input type="range" id="borderWidth" min="1" max="200" value="20" oninput="updateWidth(this.value)">
+              <input type="range" id="borderWidth" min="1" max="200" value="20" aria-label="Border width" oninput="updateWidth(this.value)">
               <span class="slider-value" id="widthValue">20px</span>
             </div>
             <div class="width-presets">
@@ -1200,49 +1221,49 @@
             </div>
           </div>
           <div class="control-group" id="colorGroup">
-            <label><span class="label-icon">&#127912;</span> Color</label>
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></span> Color</label>
             <div class="color-row">
-              <input type="color" id="borderColor" value="#ffffff" oninput="updateColor(this.value)">
+              <input type="color" id="borderColor" value="#ffffff" aria-label="Border color" oninput="updateColor(this.value)">
               <div class="color-swatches">
-                <div class="color-swatch active" style="background:#ffffff" data-color="#ffffff" onclick="pickColor(this)"></div>
-                <div class="color-swatch" style="background:#000000" data-color="#000000" onclick="pickColor(this)"></div>
-                <div class="color-swatch" style="background:#ef4444" data-color="#ef4444" onclick="pickColor(this)"></div>
-                <div class="color-swatch" style="background:#3b82f6" data-color="#3b82f6" onclick="pickColor(this)"></div>
-                <div class="color-swatch" style="background:#22c55e" data-color="#22c55e" onclick="pickColor(this)"></div>
-                <div class="color-swatch" style="background:#f59e0b" data-color="#f59e0b" onclick="pickColor(this)"></div>
-                <div class="color-swatch" style="background:#8b5cf6" data-color="#8b5cf6" onclick="pickColor(this)"></div>
-                <div class="color-swatch" style="background:#ec4899" data-color="#ec4899" onclick="pickColor(this)"></div>
+                <div class="color-swatch active" style="background:#ffffff" data-color="#ffffff" role="button" tabindex="0" aria-label="White" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+                <div class="color-swatch" style="background:#000000" data-color="#000000" role="button" tabindex="0" aria-label="Black" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+                <div class="color-swatch" style="background:#ef4444" data-color="#ef4444" role="button" tabindex="0" aria-label="Red" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+                <div class="color-swatch" style="background:#3b82f6" data-color="#3b82f6" role="button" tabindex="0" aria-label="Blue" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+                <div class="color-swatch" style="background:#22c55e" data-color="#22c55e" role="button" tabindex="0" aria-label="Green" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+                <div class="color-swatch" style="background:#f59e0b" data-color="#f59e0b" role="button" tabindex="0" aria-label="Amber" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+                <div class="color-swatch" style="background:#8b5cf6" data-color="#8b5cf6" role="button" tabindex="0" aria-label="Purple" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+                <div class="color-swatch" style="background:#ec4899" data-color="#ec4899" role="button" tabindex="0" aria-label="Pink" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
               </div>
             </div>
           </div>
           <div class="control-group" id="gradientGroup" style="display:none">
-            <label><span class="label-icon">&#127752;</span> Gradient</label>
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18"/><path d="M3 6h18"/><path d="M3 18h18"/></svg></span> Gradient</label>
             <div class="gradient-grid">
-              <div class="gradient-btn active" style="background:linear-gradient(135deg,#667eea,#764ba2)" data-g1="#667eea" data-g2="#764ba2" onclick="pickGradient(this)"></div>
-              <div class="gradient-btn" style="background:linear-gradient(135deg,#f093fb,#f5576c)" data-g1="#f093fb" data-g2="#f5576c" onclick="pickGradient(this)"></div>
-              <div class="gradient-btn" style="background:linear-gradient(135deg,#4facfe,#00f2fe)" data-g1="#4facfe" data-g2="#00f2fe" onclick="pickGradient(this)"></div>
-              <div class="gradient-btn" style="background:linear-gradient(135deg,#43e97b,#38f9d7)" data-g1="#43e97b" data-g2="#38f9d7" onclick="pickGradient(this)"></div>
-              <div class="gradient-btn" style="background:linear-gradient(135deg,#fa709a,#fee140)" data-g1="#fa709a" data-g2="#fee140" onclick="pickGradient(this)"></div>
-              <div class="gradient-btn" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)" data-g1="#a18cd1" data-g2="#fbc2eb" onclick="pickGradient(this)"></div>
-              <div class="gradient-btn" style="background:linear-gradient(135deg,#ff9a9e,#fad0c4)" data-g1="#ff9a9e" data-g2="#fad0c4" onclick="pickGradient(this)"></div>
-              <div class="gradient-btn" style="background:linear-gradient(135deg,#ffecd2,#fcb69f)" data-g1="#ffecd2" data-g2="#fcb69f" onclick="pickGradient(this)"></div>
+              <div class="gradient-btn active" style="background:linear-gradient(135deg,#667eea,#764ba2)" data-g1="#667eea" data-g2="#764ba2" role="button" tabindex="0" aria-label="Purple gradient" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+              <div class="gradient-btn" style="background:linear-gradient(135deg,#f093fb,#f5576c)" data-g1="#f093fb" data-g2="#f5576c" role="button" tabindex="0" aria-label="Pink gradient" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+              <div class="gradient-btn" style="background:linear-gradient(135deg,#4facfe,#00f2fe)" data-g1="#4facfe" data-g2="#00f2fe" role="button" tabindex="0" aria-label="Blue gradient" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+              <div class="gradient-btn" style="background:linear-gradient(135deg,#43e97b,#38f9d7)" data-g1="#43e97b" data-g2="#38f9d7" role="button" tabindex="0" aria-label="Green gradient" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+              <div class="gradient-btn" style="background:linear-gradient(135deg,#fa709a,#fee140)" data-g1="#fa709a" data-g2="#fee140" role="button" tabindex="0" aria-label="Sunset gradient" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+              <div class="gradient-btn" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)" data-g1="#a18cd1" data-g2="#fbc2eb" role="button" tabindex="0" aria-label="Lavender gradient" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+              <div class="gradient-btn" style="background:linear-gradient(135deg,#ff9a9e,#fad0c4)" data-g1="#ff9a9e" data-g2="#fad0c4" role="button" tabindex="0" aria-label="Peach gradient" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+              <div class="gradient-btn" style="background:linear-gradient(135deg,#ffecd2,#fcb69f)" data-g1="#ffecd2" data-g2="#fcb69f" role="button" tabindex="0" aria-label="Warm gradient" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
             </div>
           </div>
           <div class="control-group" id="radiusGroup">
-            <label><span class="label-icon">&#9673;</span> Corner Radius</label>
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="6"/></svg></span> Corner Radius</label>
             <div class="slider-row">
-              <input type="range" id="cornerRadius" min="0" max="50" value="10" oninput="updateRadius(this.value)">
+              <input type="range" id="cornerRadius" min="0" max="50" value="10" aria-label="Corner radius" oninput="updateRadius(this.value)">
               <span class="slider-value" id="radiusValue">10%</span>
             </div>
           </div>
           <div class="control-group">
             <div class="toggle-row">
               <span>Drop Shadow</span>
-              <label class="toggle"><input type="checkbox" id="shadowToggle" onchange="renderPreview()"><span class="toggle-slider"></span></label>
+              <label class="toggle"><input type="checkbox" id="shadowToggle" aria-label="Toggle drop shadow" onchange="renderPreview()"><span class="toggle-slider"></span></label>
             </div>
           </div>
           <div class="control-group">
-            <label><span class="label-icon">&#128241;</span> Social Preset</label>
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></span> Social Preset</label>
             <div class="social-grid">
               <button class="social-btn" onclick="applySocial(this,'square')" title="1:1 ratio">IG<br>Square</button>
               <button class="social-btn" onclick="applySocial(this,'story')" title="9:16 ratio">IG<br>Story</button>
@@ -1251,7 +1272,7 @@
             </div>
           </div>
           <div class="control-group">
-            <label><span class="label-icon">&#128190;</span> Export</label>
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span> Export</label>
             <div class="format-row">
               <button class="format-btn active" data-format="png" onclick="setFormat(this,'png')">PNG</button>
               <button class="format-btn" data-format="jpeg" onclick="setFormat(this,'jpeg')">JPEG</button>
@@ -1259,9 +1280,9 @@
             </div>
           </div>
           <div class="control-group" id="qualityGroup">
-            <label><span class="label-icon">&#9733;</span> Quality</label>
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> Quality</label>
             <div class="slider-row">
-              <input type="range" id="jpegQuality" min="50" max="100" value="92" oninput="document.getElementById('qualityValue').textContent=this.value+'%'">
+              <input type="range" id="jpegQuality" min="50" max="100" value="92" aria-label="JPEG quality" oninput="document.getElementById('qualityValue').textContent=this.value+'%'">
               <span class="slider-value" id="qualityValue">92%</span>
             </div>
           </div>
