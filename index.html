@@ -784,6 +784,8 @@
     }
     .platform-card:hover { border-color: var(--glass-border-hover); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
     .platform-card-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+    .platform-card-icon svg { transition: color 0.3s ease; }
+    .platform-card:hover .platform-card-icon svg { color: #e8e8f0 !important; }
     .platform-card-name { font-family: var(--font-display); font-size: 0.88rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
     .platform-card-desc { color: var(--text3); font-size: 0.78rem; }
     @media (max-width: 600px) { .platform-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -1412,7 +1414,7 @@
     <section class="platform-guides reveal" aria-label="Social media image size guide">
       <div class="platform-grid" style="display:flex;justify-content:center">
         <a href="/blog-social-media-sizes.html" class="platform-card" style="max-width:600px;padding:32px 40px;text-align:left;display:flex;align-items:center;gap:24px">
-          <span class="platform-card-icon" style="font-size:2.8rem;margin-bottom:0;flex-shrink:0">&#128207;</span>
+          <span class="platform-card-icon" style="margin-bottom:0;flex-shrink:0"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#8888a0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
           <div>
             <div class="platform-card-name" style="font-size:1rem;margin-bottom:4px">The Ultimate Social Media Image Size Guide</div>
             <div class="platform-card-desc" style="font-size:0.85rem">Instagram, Twitter, Facebook, YouTube, Pinterest, LinkedIn — all sizes in one guide. Updated June 2026.</div>
@@ -1448,12 +1450,12 @@
       <h2>Why AdBorder?</h2>
       <p>The fastest way to add borders to your images. Whether you need a white border for Instagram, a polaroid frame, or a colorful gradient for social media.</p>
       <div class="features-grid">
-        <article class="feature-card reveal"><span class="feature-icon">&#9889;</span><h3>Instant Results</h3><p>Upload, customize, and download in under 10 seconds. Real-time preview shows exactly what you get.</p></article>
-        <article class="feature-card reveal"><span class="feature-icon">&#128274;</span><h3>100% Private</h3><p>All processing happens in your browser. No server uploads, no data collection, ever.</p></article>
-        <article class="feature-card reveal"><span class="feature-icon">&#127912;</span><h3>Multiple Styles</h3><p>Solid, polaroid, gradient, and rounded. Customize width, color, shadow, and export format.</p></article>
-        <article class="feature-card reveal"><span class="feature-icon">&#128241;</span><h3>Social Media Ready</h3><p>One-click presets for Instagram square, stories, and Facebook posts. Perfect ratios every time.</p></article>
-        <article class="feature-card reveal"><span class="feature-icon">&#128196;</span><h3>Batch Processing</h3><p>Upload multiple images, apply the same border, and download all at once. Save time on bulk editing.</p></article>
-        <article class="feature-card reveal"><span class="feature-icon">&#128176;</span><h3>Completely Free</h3><p>No hidden fees, no premium tiers, no watermarks. Every feature is free with unlimited use.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#a78bfa"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span><h3>Instant Results</h3><p>Upload, customize, and download in under 10 seconds. Real-time preview shows exactly what you get.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#a78bfa"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>100% Private</h3><p>All processing happens in your browser. No server uploads, no data collection, ever.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#a78bfa"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.5-.7 1.5-1.5 0-.4-.2-.8-.4-1.1-.3-.3-.4-.7-.4-1.1 0-.9.7-1.5 1.5-1.5H16c3.3 0 6-2.7 6-6 0-5.5-4.5-9-10-9z"/><circle cx="7.5" cy="11.5" r="1.5"/><circle cx="12" cy="7.5" r="1.5"/><circle cx="16.5" cy="11.5" r="1.5"/></svg></span><h3>Multiple Styles</h3><p>Solid, polaroid, gradient, and rounded. Customize width, color, shadow, and export format.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#a78bfa"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span><h3>Social Media Ready</h3><p>One-click presets for Instagram square, stories, and Facebook posts. Perfect ratios every time.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#a78bfa"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span><h3>Batch Processing</h3><p>Upload multiple images, apply the same border, and download all at once. Save time on bulk editing.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#a78bfa"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></span><h3>Completely Free</h3><p>No hidden fees, no premium tiers, no watermarks. Every feature is free with unlimited use.</p></article>
       </div>
     </section>
 

@@ -28,6 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a12; color: #e8e8f0; line-height: 1.7; -webkit-font-smoothing: antialiased; }
@@ -69,6 +70,31 @@
     .author-info { flex: 1; }
     .author-name { font-weight: 700; color: #e8e8f0; font-size: 0.95rem; }
     .author-bio { color: #8888a0; font-size: 0.82rem; margin: 2px 0 0 0; }
+    /* Mesh background */
+    .mesh-bg { position: fixed; inset: 0; z-index: -2; background: radial-gradient(ellipse 80% 50% at 20% 20%, rgba(124,58,237,0.08), transparent), radial-gradient(ellipse 60% 40% at 80% 10%, rgba(6,182,212,0.05), transparent), radial-gradient(ellipse 50% 60% at 10% 80%, rgba(244,163,94,0.04), transparent), radial-gradient(ellipse 70% 50% at 90% 90%, rgba(124,58,237,0.05), transparent); animation: meshDrift 20s ease-in-out infinite alternate; }
+    @keyframes meshDrift { 0% { transform: scale(1) rotate(0deg); } 100% { transform: scale(1.1) rotate(2deg); } }
+    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 200px; }
+    /* Enhanced header */
+    header { backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); }
+    /* Serif reading font for body text */
+    p, ol, ul, li, .faq-item p, blockquote { font-family: 'Newsreader', Georgia, serif; font-size: 1.02rem; line-height: 1.8; }
+    h1, h2, h3 { font-family: 'Sora', sans-serif; }
+    .author-card, .author-hero, .author-info, .author-hero-info, .blog-card, .blog-card-meta, .cta-box, .faq-item h3, .updated, nav, header, footer { font-family: 'DM Sans', sans-serif; }
+    /* Warm accent for links in content */
+    main a { color: #c4a1ff; }
+    main a:hover { color: #e0ccff; }
+    /* Subtle text glow on headings */
+    h1 { text-shadow: 0 0 40px rgba(124,58,237,0.15); }
+    h2 { text-shadow: 0 0 30px rgba(124,58,237,0.08); }
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .mesh-bg { animation: none; } .reveal { opacity: 1; transform: none; } }
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0a0a12; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
   </style>
 
   <script type="application/ld+json">
@@ -147,6 +173,8 @@
   </script>
 </head>
 <body>
+  <div class="mesh-bg"></div>
+  <div class="noise"></div>
   <header>
     <div class="header-inner">
       <a href="/" class="logo">Ad<span>Border</span></a>
@@ -362,6 +390,16 @@
       document.cookie = 'adborder_consent=1;max-age=31536000;path=/;SameSite=Lax';
       document.getElementById('cookieBanner').style.display = 'none';
     }
+  </script>
+  <script>
+    (function(){
+      var els = document.querySelectorAll('h1, h2, h3, p, .blog-card, .featured-hero, .featured-card, .author-card, .author-hero, .faq-item, .cta-box, .tip-box, .size-table, .comparison-table, .mistake-card, .blog-grid, .featured-section, .archive-label, .featured-label, footer');
+      els.forEach(function(el, i){ el.classList.add('reveal'); el.style.transitionDelay = (i % 6) * 0.06 + 's'; });
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.08 });
+      els.forEach(function(el){ obs.observe(el); });
+    })();
   </script>
 </body>
 </html>

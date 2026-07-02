@@ -22,6 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a12; color: #e8e8f0; line-height: 1.7; -webkit-font-smoothing: antialiased; }
@@ -48,14 +49,58 @@
     .footer-copy { font-size: 0.82rem; color: #555570; }
     .ad-container { max-width: 800px; margin: 40px auto 0; padding: 0 24px; }
     ::selection { background: rgba(124,58,237,0.3); color: white; }
+    /* Featured section */
+    .featured-section { margin-bottom: 48px; }
+    .featured-label { font-family: 'Sora', sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #f4a35e; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+    .featured-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(244,163,94,0.3), transparent); }
+    .featured-hero { display: block; text-decoration: none; color: inherit; border: 1px solid rgba(244,163,94,0.2); border-radius: 16px; padding: 36px 32px; background: linear-gradient(145deg, rgba(244,163,94,0.04), rgba(124,58,237,0.03)); transition: all 0.3s ease; position: relative; overflow: hidden; margin-bottom: 16px; }
+    .featured-hero::before { content: 'NEW'; position: absolute; top: 16px; right: 16px; font-family: 'Sora', sans-serif; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.08em; color: #f4a35e; background: rgba(244,163,94,0.1); border: 1px solid rgba(244,163,94,0.2); border-radius: 6px; padding: 3px 10px; }
+    .featured-hero:hover { border-color: rgba(244,163,94,0.4); box-shadow: 0 0 30px rgba(244,163,94,0.08), 0 12px 40px rgba(0,0,0,0.2); transform: translateY(-3px); }
+    .featured-hero h2 { font-family: 'Sora', sans-serif; font-size: 1.4rem; font-weight: 800; color: #e8e8f0; margin-bottom: 10px; line-height: 1.3; }
+    .featured-hero p { color: #8888a0; font-size: 0.95rem; line-height: 1.65; max-width: 600px; }
+    .featured-hero .blog-card-meta { margin-bottom: 14px; }
+    .featured-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .featured-card { display: block; text-decoration: none; color: inherit; border: 1px solid rgba(244,163,94,0.12); border-radius: 14px; padding: 24px; background: rgba(244,163,94,0.02); transition: all 0.3s ease; position: relative; }
+    .featured-card::before { content: 'NEW'; position: absolute; top: 14px; right: 14px; font-family: 'Sora', sans-serif; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.08em; color: #f4a35e; background: rgba(244,163,94,0.1); border: 1px solid rgba(244,163,94,0.2); border-radius: 5px; padding: 2px 8px; }
+    .featured-card:hover { border-color: rgba(244,163,94,0.3); box-shadow: 0 8px 30px rgba(0,0,0,0.2); transform: translateY(-2px); }
+    .featured-card h2 { font-family: 'Sora', sans-serif; font-size: 1.1rem; font-weight: 700; color: #e8e8f0; margin-bottom: 8px; line-height: 1.4; }
+    .featured-card p { color: #8888a0; font-size: 0.88rem; line-height: 1.6; }
+    /* Archive section */
+    .archive-label { font-family: 'Sora', sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #555570; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+    .archive-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(255,255,255,0.08), transparent); }
     @media (max-width: 600px) {
       h1 { font-size: 1.6rem; }
       .blog-card { padding: 20px; }
       .blog-card h2 { font-size: 1.05rem; }
+      .featured-pair { grid-template-columns: 1fr; }
+      .featured-hero h2 { font-size: 1.2rem; }
     }
+    /* Mesh background */
+    .mesh-bg { position: fixed; inset: 0; z-index: -2; background: radial-gradient(ellipse 80% 50% at 20% 20%, rgba(124,58,237,0.08), transparent), radial-gradient(ellipse 60% 40% at 80% 10%, rgba(6,182,212,0.05), transparent), radial-gradient(ellipse 50% 60% at 10% 80%, rgba(244,163,94,0.04), transparent), radial-gradient(ellipse 70% 50% at 90% 90%, rgba(124,58,237,0.05), transparent); animation: meshDrift 20s ease-in-out infinite alternate; }
+    @keyframes meshDrift { 0% { transform: scale(1) rotate(0deg); } 100% { transform: scale(1.1) rotate(2deg); } }
+    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 200px; }
+    /* Enhanced header */
+    header { backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); }
+    /* Serif reading font */
+    p, ol, ul, li, .faq-item p, blockquote { font-family: 'Newsreader', Georgia, serif; font-size: 1.02rem; line-height: 1.8; }
+    h1, h2, h3 { font-family: 'Sora', sans-serif; }
+    .author-card, .author-hero, .author-info, .author-hero-info, .blog-card, .blog-card-meta, .cta-box, .faq-item h3, .updated, nav, header, footer { font-family: 'DM Sans', sans-serif; }
+    main a { color: #c4a1ff; }
+    main a:hover { color: #e0ccff; }
+    h1 { text-shadow: 0 0 40px rgba(124,58,237,0.15); }
+    h2 { text-shadow: 0 0 30px rgba(124,58,237,0.08); }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .mesh-bg { animation: none; } .reveal { opacity: 1; transform: none; } }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0a0a12; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
   </style>
 </head>
 <body>
+  <div class="mesh-bg"></div>
+  <div class="noise"></div>
   <header>
     <div class="header-inner">
       <a href="/" class="logo">Ad<span>Border</span></a>
@@ -69,10 +114,13 @@
 
   <main>
     <h1>Blog</h1>
-    <p class="subtitle">Photo border tips, tutorials, and styling ideas to make your images stand out on every platform.</p>
+    <p class="subtitle">Insights on visual content, image optimization, and social media — by Lena Park.</p>
 
-    <div class="blog-grid">
-      <a href="blog-color-psychology-social-media.html" class="blog-card">
+    <div class="featured-section">
+      <div class="featured-label">Latest</div>
+
+      <!-- Hero featured: Color Psychology (most unique/newest) -->
+      <a href="blog-color-psychology-social-media.html" class="featured-hero">
         <div class="blog-card-meta">
           <span>July 2026</span>
           <span class="dot"></span>
@@ -84,30 +132,35 @@
         <p>Research-backed insights on how color choices influence likes, shares, and saves across Instagram, Twitter, Facebook, and Pinterest. Practical tips for every platform.</p>
       </a>
 
-      <a href="blog-visual-storytelling.html" class="blog-card">
-        <div class="blog-card-meta">
-          <span>July 2026</span>
-          <span class="dot"></span>
-          <span>12 min read</span>
-          <span class="dot"></span>
-          <span>By Lena Park</span>
-        </div>
-        <h2>Visual Storytelling 101: How to Communicate Ideas Through Images</h2>
-        <p>A practical guide to visual storytelling for content creators. Learn composition techniques, visual hierarchy, and how to convey emotions and messages through images.</p>
-      </a>
+      <!-- Pair: Visual Storytelling + Composition Tips -->
+      <div class="featured-pair">
+        <a href="blog-visual-storytelling.html" class="featured-card">
+          <div class="blog-card-meta">
+            <span>July 2026</span>
+            <span class="dot"></span>
+            <span>12 min read</span>
+            <span class="dot"></span>
+            <span>By Lena Park</span>
+          </div>
+          <h2>Visual Storytelling 101: How to Communicate Ideas Through Images</h2>
+          <p>A practical guide to visual storytelling for content creators. Learn composition techniques, visual hierarchy, and how to convey emotions through images.</p>
+        </a>
+        <a href="blog-image-composition-tips.html" class="featured-card">
+          <div class="blog-card-meta">
+            <span>July 2026</span>
+            <span class="dot"></span>
+            <span>14 min read</span>
+            <span class="dot"></span>
+            <span>By Lena Park</span>
+          </div>
+          <h2>12 Image Composition Techniques Every Content Creator Should Know</h2>
+          <p>Master image composition with 12 practical techniques — from the rule of thirds to leading lines and S-curves. Create more engaging photos for social media.</p>
+        </a>
+      </div>
+    </div>
 
-      <a href="blog-image-composition-tips.html" class="blog-card">
-        <div class="blog-card-meta">
-          <span>July 2026</span>
-          <span class="dot"></span>
-          <span>14 min read</span>
-          <span class="dot"></span>
-          <span>By Lena Park</span>
-        </div>
-        <h2>12 Image Composition Techniques Every Content Creator Should Know</h2>
-        <p>Master image composition with 12 practical techniques — from the rule of thirds to leading lines and S-curves. Create more engaging photos for social media.</p>
-      </a>
-
+    <div class="archive-label">All Articles</div>
+    <div class="blog-grid">
       <a href="blog-social-media-sizes.html" class="blog-card">
         <div class="blog-card-meta">
           <span>June 2026</span>
@@ -208,6 +261,16 @@
       document.cookie = 'adborder_consent=1;max-age=31536000;path=/;SameSite=Lax';
       document.getElementById('cookieBanner').style.display = 'none';
     }
+  </script>
+  <script>
+    (function(){
+      var els = document.querySelectorAll('h1, h2, h3, p, .blog-card, .featured-hero, .featured-card, .author-card, .author-hero, .faq-item, .cta-box, .tip-box, .size-table, .comparison-table, .mistake-card, .blog-grid, .featured-section, .archive-label, .featured-label, footer');
+      els.forEach(function(el, i){ el.classList.add('reveal'); el.style.transitionDelay = (i % 6) * 0.06 + 's'; });
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.08 });
+      els.forEach(function(el){ obs.observe(el); });
+    })();
   </script>
 </body>
 </html>
