@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Resize Images Without Losing Quality (Step-by-Step Guide) | AdBorder</title>
+  <meta name="description" content="Resize images without losing quality. Learn the difference between resampling algorithms, when to upscale vs downscale, and free tools that preserve sharpness.">
+  <link rel="canonical" href="https://adborder.top/blog-resize-images.html">
+  <meta name="google-site-verification" content="RrDjrKc0TzssHvF5gtzF-VrCu46XdmH7PvPVTyVu_bU" />
+  <meta name="author" content="AdBorder Editorial Team">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How to Resize Images Without Losing Quality (Step-by-Step Guide)">
+  <meta property="og:description" content="Resize images without losing quality. Learn the difference between resampling algorithms, when to upscale vs downscale, and free tools that preserve sharpness.">
+  <meta property="og:url" content="https://adborder.top/blog-resize-images.html">
+  <meta property="og:image" content="https://adborder.top/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="AdBorder">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Resize Images Without Losing Quality (Step-by-Step Guide)">
+  <meta name="twitter:description" content="Resize images without losing quality. Learn the difference between resampling algorithms, when to upscale vs downscale, and free tools that preserve sharpness.">
+  <meta name="twitter:image" content="https://adborder.top/og-image.jpg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Resize Images Without Losing Quality (Step-by-Step Guide)",
+    "description": "Resize images without losing quality. Learn the difference between resampling algorithms, when to upscale vs downscale, and free tools that preserve sharpness.",
+    "author": {
+      "@type": "Organization",
+      "name": "AdBorder Editorial Team",
+      "description": "Editorial team covering photo editing, image optimization, and creator tools."
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AdBorder",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://adborder.top/logo.png"
+      }
+    },
+    "datePublished": "2026-07-09",
+    "dateModified": "2026-07-09",
+    "image": "https://adborder.top/og-image.jpg",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://adborder.top/blog-resize-images.html"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can you resize an image without any loss of quality?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In practice, no. Any resize operation involves resampling pixels, and some information is either discarded (downscaling) or invented (upscaling). The goal is to minimize the visible loss. Downscaling from a high-quality source with a good algorithm like Bicubic or Lanczos produces results that are visually indistinguishable from the original. Upscaling always introduces some softness or artifacts, though AI upscalers can now produce convincing results for moderate size increases."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the best resampling algorithm for resizing photos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For downscaling photographs, Bicubic Sharper or Lanczos generally produce the best results by preserving edge detail and reducing softness. For upscaling by small amounts, Bicubic Smoother or Lanczos work well. For larger upscales, dedicated AI tools like Topaz Gigapixel, Upscayl, or waifu2x outperform traditional algorithms significantly. Avoid Nearest Neighbor for photographs; it is only suitable for pixel art or images that must retain hard edges without any interpolation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much can I upscale an image before it looks bad?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "With traditional resampling algorithms, increases up to 150 percent typically remain acceptable for casual use. Beyond that, softness and artifacts become clearly visible. Modern AI upscalers can convincingly enlarge images by 2x to 4x, and sometimes further for specific subject types like faces or illustrations. The starting image quality matters more than the final size; a sharp 1000-pixel image upscales better than a blurry 2000-pixel image."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I resize before or after adding effects and borders?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Resize first, then apply effects like borders, text, or filters. Resizing after adding a border can distort the border thickness or introduce softness at the edges where crisp lines matter most. Working at the final output size means every subsequent edit is applied at the correct resolution, and text or borders remain pixel-perfect. The one exception is heavy retouching, which is easier at full resolution before the final resize."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does resizing an image reduce its file size?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Fewer pixels means less data to store, so resizing to smaller dimensions almost always reduces file size significantly. For example, halving both dimensions of an image reduces its pixel count by 75 percent, and file size typically drops by a similar proportion. However, file size also depends on format and compression settings. Saving a resized image as PNG will produce a larger file than the same image saved as a high-quality JPEG."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adborder.top/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://adborder.top/blog.html"},{"@type":"ListItem","position":3,"name":"How to Resize Images","item":"https://adborder.top/blog-resize-images.html"}]}
+</script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2779701070600473" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C483V5DK3K"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-C483V5DK3K');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a12; --bg2: #0f0f1a; --surface: rgba(255,255,255,0.04);
+      --surface-hover: rgba(255,255,255,0.07); --glass: rgba(255,255,255,0.05);
+      --glass-border: rgba(255,255,255,0.08); --glass-border-hover: rgba(255,255,255,0.15);
+      --text: #e8e8f0; --text2: #9999b0; --text3: #777790;
+      --accent1: #7c3aed; --accent2: #06b6d4; --accent3: #f43f5e;
+      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
+      --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee);
+      --radius: 16px; --radius-sm: 10px;
+      --font-display: 'Sora', sans-serif; --font-body: 'DM Sans', sans-serif;
+    }
+    body { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a12; color: #e8e8f0; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    header { background: rgba(10,10,18,0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 14px 0; position: sticky; top: 0; z-index: 100; }
+    .header-inner { max-width: 800px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 1.4rem; font-weight: 800; background: linear-gradient(135deg, #a78bfa, #22d3ee); -webkit-background-clip: text; background-clip: text; color: transparent; text-decoration: none; }
+    .logo span {}
+    nav a { color: #9999b0; text-decoration: none; margin-left: 20px; font-size: 0.85rem; font-weight: 500; padding: 8px 4px; min-height: 44px; display: inline-flex; align-items: center; }
+    nav a:hover { color: #e8e8f0; }
+    main { max-width: 800px; margin: 0 auto; padding: 48px 24px; }
+    h1 { font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .updated { color: #777790; font-size: 0.9rem; margin-bottom: 32px; }
+    h2 { font-family: 'Sora', sans-serif; font-size: 1.3rem; font-weight: 700; margin-top: 32px; margin-bottom: 12px; }
+    p { color: #9999b0; margin-bottom: 12px; }
+    a { color: #a78bfa; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ol, ul { color: #9999b0; margin-bottom: 12px; padding-left: 24px; }
+    ol li, ul li { margin-bottom: 8px; }
+    strong { color: #e8e8f0; }
+    .ad-slot { margin: 32px 0; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 20px 0 28px; font-size: 0.92rem; }
+    .comparison-table th { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 12px 16px; text-align: left; font-family: 'Sora', sans-serif; font-weight: 600; color: #e8e8f0; font-size: 0.85rem; }
+    .comparison-table td { border: 1px solid rgba(255,255,255,0.08); padding: 10px 16px; color: #9999b0; }
+    .comparison-table tr:hover td { background: rgba(255,255,255,0.03); }
+    .faq-item { margin-bottom: 24px; }
+    .faq-item h3 { font-family: 'Sora', sans-serif; font-size: 1.05rem; font-weight: 600; color: #e8e8f0; margin-bottom: 6px; }
+    .faq-item p { margin-bottom: 0; }
+    .cta-box { margin-top: 40px; padding: 24px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; }
+    .cta-box p { color: #e8e8f0; margin-bottom: 0; }
+    .related-articles { margin-top: 40px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .related-articles h3 { font-family: 'Sora', sans-serif; font-size: 1.05rem; font-weight: 600; color: #e8e8f0; margin-bottom: 12px; }
+    .related-list { list-style: none; padding: 0; }
+    .related-list li { margin-bottom: 10px; }
+    .related-list a { color: #a78bfa; font-weight: 500; }
+    footer { border-top: 1px solid rgba(255,255,255,0.08); padding: 32px 24px; margin-top: 48px; text-align: center; }
+    .footer-links { display: flex; gap: 20px; justify-content: center; margin-bottom: 12px; flex-wrap: wrap; }
+    .footer-links a { color: #777790; text-decoration: none; font-size: 0.82rem; }
+    .footer-links a:hover { color: #06b6d4; }
+    .footer-copy { font-size: 0.82rem; color: #777790; }
+    ::selection { background: rgba(124,58,237,0.3); color: white; }
+    *:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; border-radius: 4px; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }
+    .skip-link {
+      position: absolute; top: -50px; left: 0; z-index: 10001;
+      background: var(--accent1, #7c3aed); color: white; padding: 10px 20px;
+      font-size: 0.85rem; font-weight: 600; text-decoration: none;
+      border-radius: 0 0 10px 0; transition: top 0.25s ease;
+    }
+    .skip-link:focus { top: 0; }
+    .author-card { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; padding: 16px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; }
+    .author-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #a78bfa, #22d3ee); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 700; color: white; flex-shrink: 0; }
+    .author-info { flex: 1; }
+    .author-name { font-weight: 700; color: #e8e8f0; font-size: 0.95rem; }
+    .author-bio { color: #9999b0; font-size: 0.82rem; margin: 2px 0 0 0; }
+    /* Mesh background */
+    .mesh-bg { position: fixed; inset: 0; z-index: -2; background: radial-gradient(ellipse 80% 50% at 20% 20%, rgba(124,58,237,0.08), transparent), radial-gradient(ellipse 60% 40% at 80% 10%, rgba(6,182,212,0.05), transparent), radial-gradient(ellipse 50% 60% at 10% 80%, rgba(244,163,94,0.04), transparent), radial-gradient(ellipse 70% 50% at 90% 90%, rgba(124,58,237,0.05), transparent); animation: meshDrift 20s ease-in-out infinite alternate; }
+    @keyframes meshDrift { 0% { transform: scale(1) rotate(0deg); } 100% { transform: scale(1.1) rotate(2deg); } }
+    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 200px; }
+    /* Enhanced header */
+    header { backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); }
+    /* Serif reading font for body text */
+    p, ol, ul, li, .faq-item p, blockquote { font-family: 'Newsreader', Georgia, serif; font-size: 1.02rem; line-height: 1.8; }
+    h1, h2, h3 { font-family: 'Sora', sans-serif; }
+    .author-card, .author-hero, .author-info, .author-hero-info, .blog-card, .blog-card-meta, .cta-box, .faq-item h3, .updated, nav, header, footer { font-family: 'DM Sans', sans-serif; }
+    /* Warm accent for links in content */
+    main a { color: #c4a1ff; }
+    main a:hover { color: #e0ccff; }
+    /* Subtle text glow on headings */
+    h1 { text-shadow: 0 0 40px rgba(124,58,237,0.15); }
+    h2 { text-shadow: 0 0 30px rgba(124,58,237,0.08); }
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .mesh-bg { animation: none; } .reveal { opacity: 1; transform: none; } }
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0a0a12; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <div class="mesh-bg"></div>
+  <div class="noise"></div>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo">Ad<span>Border</span></a>
+      <nav>
+        <a href="/#tool">Tool</a>
+        <a href="/#tool">Size Checker</a>
+        <a href="/blog.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <h1>How to Resize Images Without Losing Quality (Step-by-Step Guide)</h1>
+    <p class="updated">Published: July 9, 2026</p>
+    <div class="author-card">
+      <div class="author-avatar">AE</div>
+      <div class="author-info">
+        <div class="author-name">AdBorder Editorial Team</div>
+        <p class="author-bio">How-to references on photo editing, image optimization, and creator workflows</p>
+      </div>
+    </div>
+
+    <p>Resizing is one of the most common photo tasks and, paradoxically, one of the easiest to mess up. A few clicks in the wrong menu can leave a crisp original looking soft, muddy, or full of visible artifacts. Understanding what actually happens behind the resize dialog makes the difference between a photograph that survives the trip to social media and one that arrives looking noticeably worse than intended.</p>
+
+    <p>Two hard truths sit at the center of every resize operation. <strong>Downscaling almost always loses some quality</strong>, because pixels have to be discarded or averaged together. <strong>Upscaling loses much more</strong>, because the software has to invent detail that was never captured in the original. This guide walks through how to minimize the damage in both directions.</p>
+
+    <h2>Understanding Downscale vs Upscale</h2>
+
+    <p><strong>Downscaling</strong> means making an image smaller: fewer pixels wide, fewer pixels tall. When a 4000-pixel photograph is reduced to 1080 pixels for Instagram, the software has to decide how to represent nine pixels of information using roughly one pixel of output. Good resampling algorithms handle this gracefully by averaging neighboring pixels together, and the result usually looks close to the original at the smaller size. Downscaling is generally safe when done with a decent algorithm from a high-quality source.</p>
+
+    <p><strong>Upscaling</strong> is the opposite: turning a smaller image into a larger one. This is much harder because the extra pixels have to come from somewhere. Traditional algorithms interpolate between existing pixels, which produces a softer, blurrier version of the original. AI upscalers try to synthesize plausible detail based on training data, which works surprisingly well for certain subjects but can still hallucinate features that were never there. A useful analogy: resampling upward is like asking software to invent detail that was never captured by the lens.</p>
+
+    <h2>The Role of Resampling Algorithms</h2>
+
+    <p>Every time an image changes size, a resampling algorithm decides how to calculate the new pixel values. The algorithm chosen has a bigger impact on final quality than most people realize. Below is a plain-English summary of the options seen in most image editors.</p>
+
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Algorithm</th>
+          <th>How It Works</th>
+          <th>Best For</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Nearest Neighbor</strong></td>
+          <td>Picks the closest single pixel; no blending</td>
+          <td>Pixel art, screenshots of pixel-perfect UI</td>
+        </tr>
+        <tr>
+          <td><strong>Bilinear</strong></td>
+          <td>Averages 4 nearby pixels linearly</td>
+          <td>Fast previews; low-detail images</td>
+        </tr>
+        <tr>
+          <td><strong>Bicubic</strong></td>
+          <td>Averages 16 pixels using a smooth curve</td>
+          <td>General-purpose photo resizing</td>
+        </tr>
+        <tr>
+          <td><strong>Bicubic Sharper</strong></td>
+          <td>Bicubic with extra edge contrast</td>
+          <td>Downscaling photographs</td>
+        </tr>
+        <tr>
+          <td><strong>Bicubic Smoother</strong></td>
+          <td>Bicubic tuned for enlargement</td>
+          <td>Small upscales (under 150%)</td>
+        </tr>
+        <tr>
+          <td><strong>Lanczos</strong></td>
+          <td>Sinc-based; preserves edges and detail</td>
+          <td>High-quality downscaling; moderate upscaling</td>
+        </tr>
+        <tr>
+          <td><strong>AI Upscaling</strong></td>
+          <td>Neural network predicts missing detail</td>
+          <td>Large upscales (2x, 4x, or more)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>How to Downscale Without Losing Quality</h2>
+
+    <p>Downscaling is where most creators spend their time, whether they are prepping a photo for a social feed, an email newsletter, or a web page. Following these five steps keeps quality loss to a minimum.</p>
+
+    <ol>
+      <li><strong>Start with the highest-quality original.</strong> The single biggest predictor of final quality is what goes in. A sharp, correctly exposed, minimally compressed source file gives the resampling algorithm the best possible material to work with. If the source is already a low-resolution JPEG that has been saved and re-saved, no downscale will make it look better.</li>
+      <li><strong>Choose a target size based on where the image will be used.</strong> Do not guess. Every platform has recommended dimensions, and matching them avoids the platform's own aggressive downscaling. This is where a solid understanding of <a href="/blog-aspect-ratio.html">aspect ratios and target dimensions</a> pays off.</li>
+      <li><strong>Use a good resampling method.</strong> Bicubic Sharper is a reliable default for photographs. Lanczos is another strong choice available in many free tools. Both preserve edge detail better than plain Bilinear or basic Bicubic.</li>
+      <li><strong>Apply subtle sharpening after resize if needed.</strong> Downscaling naturally softens perceived edges. A light pass of Unsharp Mask or Smart Sharpen restores crispness. Keep the amount modest; oversharpening produces halos that look worse than the original softness.</li>
+      <li><strong>Save in the right format.</strong> Format choice affects final quality as much as the resize itself. For photographs, high-quality JPEG or WebP is ideal. For graphics with text or sharp edges, PNG preserves clarity. A full breakdown lives in the <a href="/blog-image-format.html">image format comparison guide</a>.</li>
+    </ol>
+
+    <h2>How to Upscale (When There Is No Better Option)</h2>
+
+    <p>Sometimes upscaling is unavoidable: a client sends a small logo that needs to fit a billboard, or a favorite old photo needs to be printed larger than its source resolution allows. Accept up front that some detail will be lost, and pick the method that fits the situation.</p>
+
+    <ul>
+      <li><strong>Simple resampling (Lanczos or Bicubic Smoother).</strong> Fine for small increases, roughly under 150 percent of the original size. Good enough for casual use where minor softness is acceptable.</li>
+      <li><strong>AI upscalers.</strong> Tools like Topaz Gigapixel, Upscayl (free and open source), and waifu2x use trained models to reconstruct plausible detail. They handle 2x to 4x enlargements convincingly and are especially strong on faces, textures, and illustrations. Results vary by subject; test on the specific image before committing.</li>
+      <li><strong>Vector conversion.</strong> For line art, logos, and other flat-color graphics, tracing to vector format allows infinite scaling with zero loss. Not applicable to photographs.</li>
+      <li><strong>Reshoot at higher resolution.</strong> Almost always the best answer if the option exists. No algorithm can match real captured detail, and modern smartphones now shoot at resolutions that eliminate most upscale needs.</li>
+    </ul>
+
+    <h2>Recommended Sizes by Use Case</h2>
+
+    <p>Matching the target platform's expected dimensions is the single easiest optimization available. These are the sizes that produce the sharpest results across popular destinations.</p>
+
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Use Case</th>
+          <th>Dimensions (pixels)</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Instagram post</strong></td>
+          <td>1080 x 1080 or 1080 x 1350</td>
+          <td>Square or 4:5 portrait</td>
+        </tr>
+        <tr>
+          <td><strong>Instagram Stories</strong></td>
+          <td>1080 x 1920</td>
+          <td>9:16 vertical</td>
+        </tr>
+        <tr>
+          <td><strong>Twitter / X post</strong></td>
+          <td>1600 x 900</td>
+          <td>16:9 landscape</td>
+        </tr>
+        <tr>
+          <td><strong>Facebook cover</strong></td>
+          <td>851 x 315</td>
+          <td>Desktop-optimized</td>
+        </tr>
+        <tr>
+          <td><strong>LinkedIn banner</strong></td>
+          <td>1584 x 396</td>
+          <td>Personal profile</td>
+        </tr>
+        <tr>
+          <td><strong>YouTube thumbnail</strong></td>
+          <td>1280 x 720</td>
+          <td>16:9, under 2MB</td>
+        </tr>
+        <tr>
+          <td><strong>Print 4x6"</strong></td>
+          <td>1200 x 1800</td>
+          <td>At 300 DPI</td>
+        </tr>
+        <tr>
+          <td><strong>Web hero image</strong></td>
+          <td>1920 x 1080</td>
+          <td>Full-width desktop</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Free Tools That Resize Well</h2>
+
+    <p>Plenty of free tools handle resizing responsibly. The following are the most reliable options based on quality of output and ease of use.</p>
+
+    <ul>
+      <li><strong>Squoosh</strong> (Google). Runs entirely in the browser, previews compression tradeoffs side-by-side, and supports multiple modern formats. Ideal for a single file at a time.</li>
+      <li><strong>GIMP.</strong> Free desktop editor with full control over resampling algorithm, sharpening, and output format. Steeper learning curve, but professional-grade results.</li>
+      <li><strong>IrfanView</strong> (Windows). Lightweight viewer with excellent batch resize functionality. Best when hundreds of files need the same treatment.</li>
+      <li><strong>iLoveIMG.</strong> Fast browser-based resize with a clean interface. Good for quick one-off tasks without installing anything.</li>
+      <li><strong>Preview</strong> (Mac). Built into macOS, handles basic resize with decent quality. Sufficient for most casual needs on a Mac.</li>
+    </ul>
+
+    <h2>Common Resize Mistakes</h2>
+
+    <p>Most quality complaints come down to a small set of avoidable errors. Watch for these pitfalls in particular.</p>
+
+    <ul>
+      <li><strong>Upscaling a 400px image to 4000px and expecting sharpness.</strong> No algorithm can recover detail that was never captured. Even the best AI upscalers have limits.</li>
+      <li><strong>Resizing then re-saving as JPEG multiple times.</strong> JPEG compression is lossy, and every save cycle compounds the loss. Keep a lossless master file and export fresh JPEGs from it each time.</li>
+      <li><strong>Choosing "Nearest Neighbor" for photographs.</strong> That algorithm exists for pixel art. Applied to a photo, it produces blocky, jagged edges. Bicubic or Lanczos is the correct default.</li>
+      <li><strong>Ignoring aspect ratio and stretching.</strong> Unlocking the aspect ratio and typing arbitrary width and height values distorts the entire image. Always crop to the target aspect ratio first, then resize proportionally.</li>
+      <li><strong>Skipping the post-resize sharpening step.</strong> Downscaled photographs benefit from a small sharpening pass. Skipping it leaves images looking slightly soft compared to what the source can support.</li>
+    </ul>
+
+    <div class="cta-box">
+      <p><strong>Resized your photo? Now add the perfect frame.</strong> <a href="/">Add a Border Free</a> with AdBorder. Upload the resized image, pick a border style, and export at the exact dimensions the target platform expects. No account, no watermark.</p>
+    </div>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <h3>Can you resize an image without any loss of quality?</h3>
+      <p>In practice, no. Any resize operation involves resampling pixels, and some information is either discarded (downscaling) or invented (upscaling). The goal is to minimize the visible loss. Downscaling from a high-quality source with a good algorithm like Bicubic or Lanczos produces results that are visually indistinguishable from the original. Upscaling always introduces some softness or artifacts, though AI upscalers can now produce convincing results for moderate size increases.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What is the best resampling algorithm for resizing photos?</h3>
+      <p>For downscaling photographs, Bicubic Sharper or Lanczos generally produce the best results by preserving edge detail and reducing softness. For upscaling by small amounts, Bicubic Smoother or Lanczos work well. For larger upscales, dedicated AI tools like Topaz Gigapixel, Upscayl, or waifu2x outperform traditional algorithms significantly. Avoid Nearest Neighbor for photographs; it is only suitable for pixel art or images that must retain hard edges without any interpolation.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How much can I upscale an image before it looks bad?</h3>
+      <p>With traditional resampling algorithms, increases up to 150 percent typically remain acceptable for casual use. Beyond that, softness and artifacts become clearly visible. Modern AI upscalers can convincingly enlarge images by 2x to 4x, and sometimes further for specific subject types like faces or illustrations. The starting image quality matters more than the final size; a sharp 1000-pixel image upscales better than a blurry 2000-pixel image.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Should I resize before or after adding effects and borders?</h3>
+      <p>Resize first, then apply effects like borders, text, or filters. Resizing after adding a border can distort the border thickness or introduce softness at the edges where crisp lines matter most. Working at the final output size means every subsequent edit is applied at the correct resolution, and text or borders remain pixel-perfect. The one exception is heavy retouching, which is easier at full resolution before the final resize.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Does resizing an image reduce its file size?</h3>
+      <p>Yes. Fewer pixels means less data to store, so resizing to smaller dimensions almost always reduces file size significantly. For example, halving both dimensions of an image reduces its pixel count by 75 percent, and file size typically drops by a similar proportion. However, file size also depends on format and compression settings. Saving a resized image as PNG will produce a larger file than the same image saved as a high-quality JPEG.</p>
+    </div>
+
+    <div class="related-articles">
+      <h3>Related Articles</h3>
+      <ul class="related-list">
+        <li><a href="/blog-aspect-ratio.html">Aspect Ratios Explained: A Practical Guide for Creators</a></li>
+        <li><a href="/blog-image-format.html">PNG vs JPEG vs WebP: Best Image Format for Social Media</a></li>
+        <li><a href="/blog-ppi-vs-dpi.html">PPI vs DPI: What Every Creator Needs to Know</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/editorial.html">Editorial Policy</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 AdBorder.top</p>
+  </footer>
+  <div id="cookieBanner" style="position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,18,0.92);backdrop-filter:blur(12px);color:#e8e8f0;padding:14px 24px;z-index:9999;font-size:0.85rem;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.08);display:none">
+    <span>We use cookies for analytics and advertising. By continuing, you agree to our <a href="/privacy.html" style="color:#a78bfa;text-decoration:underline">Privacy Policy</a>.</span>
+    <button onclick="dismissCookie()" style="background:linear-gradient(135deg,#7c3aed,#06b6d4);color:white;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600;font-size:0.82rem">Accept</button>
+  </div>
+  <script>
+    (function(){
+      var cb = document.getElementById('cookieBanner');
+      if (!document.cookie.split(';').some(function(c){return c.trim().startsWith('adborder_consent=')})) {
+        cb.style.display = 'flex';
+      } else { cb.style.display = 'none'; }
+    })();
+    function dismissCookie() {
+      document.cookie = 'adborder_consent=1;max-age=31536000;path=/;SameSite=Lax';
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+  </script>
+  <script>
+    (function(){
+      var els = document.querySelectorAll('h1, h2, h3, p, .blog-card, .featured-hero, .featured-card, .author-card, .author-hero, .faq-item, .cta-box, .tip-box, .size-table, .comparison-table, .mistake-card, .blog-grid, .featured-section, .archive-label, .featured-label, footer');
+      els.forEach(function(el, i){ el.classList.add('reveal'); el.style.transitionDelay = (i % 6) * 0.06 + 's'; });
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.08 });
+      els.forEach(function(el){ obs.observe(el); });
+    })();
+  </script>
+</body>
+</html>
