@@ -12,7 +12,7 @@
   <meta name="theme-color" content="#0a0a12">
   <link rel="manifest" href="/manifest.json">
   <link rel="apple-touch-icon" href="/logo.png">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%237c3aed'/><stop offset='100%25' stop-color='%2306b6d4'/></linearGradient></defs><rect x='5' y='5' width='90' height='90' rx='16' fill='%230a0a12' stroke='url(%23g)' stroke-width='6'/><text x='50' y='66' font-size='44' font-weight='bold' fill='url(%23g)' text-anchor='middle' font-family='sans-serif'>AB</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%230d9488'/><stop offset='100%25' stop-color='%23d97706'/></linearGradient></defs><rect x='5' y='5' width='90' height='90' rx='16' fill='%230b1120' stroke='url(%23g)' stroke-width='6'/><text x='50' y='66' font-size='44' font-weight='bold' fill='url(%23g)' text-anchor='middle' font-family='sans-serif'>AB</text></svg>">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Add Border to Image Online Free | AdBorder">
@@ -41,127 +41,12 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-C483V5DK3K"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-C483V5DK3K');</script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/tool.css">
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #0a0a12;
-      --bg2: #0f0f1a;
-      --surface: rgba(255,255,255,0.04);
-      --surface-hover: rgba(255,255,255,0.07);
-      --glass: rgba(255,255,255,0.05);
-      --glass-border: rgba(255,255,255,0.08);
-      --glass-border-hover: rgba(255,255,255,0.15);
-      --text: #e8e8f0;
-      --text2: #9999b0;
-      --text3: #777790;
-      --accent1: #7c3aed;
-      --accent2: #06b6d4;
-      --accent3: #f43f5e;
-      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
-      --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee);
-      --radius: 16px;
-      --radius-sm: 10px;
-      --font-display: 'Sora', sans-serif;
-      --font-body: 'DM Sans', sans-serif;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font-body);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ===== Animated Mesh Background ===== */
-    .mesh-bg {
-      position: fixed; inset: 0; z-index: -2;
-      background:
-        radial-gradient(ellipse 80% 50% at 20% 20%, rgba(124,58,237,0.12), transparent),
-        radial-gradient(ellipse 60% 40% at 80% 10%, rgba(6,182,212,0.08), transparent),
-        radial-gradient(ellipse 50% 60% at 10% 80%, rgba(244,63,94,0.06), transparent),
-        radial-gradient(ellipse 70% 50% at 90% 90%, rgba(124,58,237,0.08), transparent);
-      animation: meshDrift 20s ease-in-out infinite alternate;
-    }
-    @keyframes meshDrift {
-      0% { transform: scale(1) rotate(0deg); }
-      100% { transform: scale(1.1) rotate(2deg); }
-    }
-
-    /* Noise overlay */
-    .noise {
-      position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.035;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-repeat: repeat; background-size: 200px;
-    }
-
-    /* ===== Cursor Blob ===== */
-    .cursor-blob {
-      position: fixed; width: 300px; height: 300px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(124,58,237,0.15), rgba(6,182,212,0.08), transparent 70%);
-      pointer-events: none; z-index: 0;
-      filter: blur(40px);
-      transition: transform 0.15s ease-out, opacity 0.3s;
-      transform: translate(-50%, -50%);
-      will-change: transform;
-    }
-
-    @media (max-width: 768px) {
-      .cursor-blob { display: none; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-      .cursor-blob { display: none; }
-      .mesh-bg { animation: none; }
-    }
-
-    /* ===== Header ===== */
-    header {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(10,10,18,0.7);
-      backdrop-filter: blur(20px) saturate(1.4);
-      -webkit-backdrop-filter: blur(20px) saturate(1.4);
-      border-bottom: 1px solid var(--glass-border);
-    }
-    .header-inner {
-      max-width: 1200px; margin: 0 auto; padding: 14px 24px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .logo {
-      font-family: var(--font-display); font-size: 1.4rem; font-weight: 800;
-      text-decoration: none; letter-spacing: -0.5px;
-      background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent;
-    }
-    nav { display: flex; gap: 8px; }
-    nav a {
-      color: var(--text2); text-decoration: none; font-size: 0.85rem; font-weight: 500;
-      padding: 6px 14px; border-radius: 8px;
-      transition: color 0.2s, background 0.2s;
-    }
-    nav a:hover, nav a.active { color: var(--text); background: var(--surface-hover); }
-
-    /* ===== Ad Slots ===== */
-    .ad-slot {
-      max-width: 1200px; margin: 12px auto; padding: 0 24px;
-    }
-    .ad-slot-inner {
-      width: 100%; min-height: 90px;
-      background: var(--surface); border: 1px solid var(--glass-border);
-      border-radius: var(--radius-sm);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text3); font-size: 0.75rem;
-    }
+    /* Tool-specific CSS below — shared styles in /styles.css and /tool.css */
 
     /* ===== Hero ===== */
     .tool-section { max-width: 1200px; margin: 0 auto; padding: 24px; }
@@ -732,16 +617,6 @@
     .faq-item.open .faq-answer { max-height: 500px; }
 
 
-    /* ===== Scroll Reveal ===== */
-    .reveal {
-      opacity: 0; transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal:nth-child(2) { transition-delay: 0.08s; }
-    .reveal:nth-child(3) { transition-delay: 0.16s; }
-    .reveal:nth-child(4) { transition-delay: 0.24s; }
-
     /* ===== Blog CTA Banner ===== */
     .blog-cta {
       max-width: 900px; margin: 0 auto; padding: 0 24px;
@@ -791,32 +666,14 @@
     .platform-card-desc { color: var(--text3); font-size: 0.78rem; }
     @media (max-width: 600px) { .platform-grid { grid-template-columns: repeat(2, 1fr); } }
 
-    /* ===== Footer ===== */
-    footer {
-      border-top: 1px solid var(--glass-border);
-      padding: 32px 24px; margin-top: 48px;
-      background: rgba(10,10,18,0.5);
-    }
-    .footer-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
-    }
-    .footer-links { display: flex; gap: 20px; }
-    .footer-links a { color: var(--text3); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--accent2); }
-    .footer-copy { font-size: 0.82rem; color: var(--text3); }
-
     /* ===== Responsive ===== */
     @media (max-width: 768px) {
       .tool-container { grid-template-columns: 1fr; }
       .controls-panel { position: static; order: -1; border-radius: 16px; margin-bottom: 8px; }
       .tool-hero h1 { font-size: 1.5rem; }
-      .header-inner { flex-direction: column; gap: 8px; }
-      nav { gap: 4px; }
       .upload-stage { min-height: 280px; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .features-grid { grid-template-columns: 1fr; }
-      .footer-inner { flex-direction: column; text-align: center; }
       .privacy-banner { flex-direction: column; text-align: center; }
       .style-grid { grid-template-columns: repeat(4, 1fr); }
       .social-grid { grid-template-columns: repeat(4, 1fr); }
@@ -871,33 +728,12 @@
 
 
 
-    /* ===== Scrollbar ===== */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
-
-    /* Selection */
-    ::selection { background: rgba(124,58,237,0.3); color: white; }
-
-    /* Focus visible — keyboard accessibility */
-    *:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; border-radius: 4px; }
-    a:focus-visible, button:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }
+    /* Focus visible — tool-specific controls */
     .style-btn:focus-visible, .color-swatch:focus-visible, .gradient-btn:focus-visible,
     .width-preset:focus-visible, .social-btn:focus-visible, .format-btn:focus-visible {
       outline: 2px solid #a78bfa; outline-offset: 2px;
       border-color: rgba(124,58,237,0.5);
     }
-
-    /* Skip navigation link */
-    .skip-link {
-      position: absolute; top: -50px; left: 0; z-index: 10001;
-      background: var(--accent1); color: white; padding: 10px 20px;
-      font-family: var(--font-body); font-size: 0.85rem; font-weight: 600;
-      text-decoration: none; border-radius: 0 0 10px 0;
-      transition: top 0.25s ease;
-    }
-    .skip-link:focus { top: 0; }
 
     /* ===== Tool Tabs ===== */
     .tool-tabs {
@@ -1091,7 +927,7 @@
   <header>
     <div class="header-inner">
       <a href="/" class="logo">Ad<span>Border</span></a>
-      <nav>
+      <nav aria-label="Main navigation">
         <a href="/" class="active">Tool</a>
         <a href="/blog.html">Blog</a>
         <a href="/critique/">Critique</a>
@@ -1528,20 +1364,21 @@
     <section class="content-section" id="faq">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list">
-        <div class="faq-item reveal" id="faq-border-online"><div class="faq-question" onclick="toggleFaq(this)"><span>How do I add a border to an image online for free?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">Go to adborder.top, drag and drop or paste your image, choose your border style, adjust the width and color, preview in real-time, and click Download. No signup required, no watermark on output.</div></div></div>
-        <div class="faq-item reveal" id="faq-white-border"><div class="faq-question" onclick="toggleFaq(this)"><span>What is the best free tool to add a white border to photos?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">AdBorder is one of the best free tools for adding white borders. It requires no account, adds no watermark, and processes images entirely in your browser for complete privacy. Supports widths from 1px to 200px.</div></div></div>
-        <div class="faq-item reveal" id="faq-colored-border"><div class="faq-question" onclick="toggleFaq(this)"><span>Can I add a colored border without Photoshop?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">Yes. Use the color picker to select any color, adjust the width with a slider, and download in PNG, JPEG, or WebP. You can also choose from gradient presets for creative styles.</div></div></div>
-        <div class="faq-item reveal" id="faq-polaroid"><div class="faq-question" onclick="toggleFaq(this)"><span>How do I add a polaroid-style border?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">Select the Polaroid preset to add a white border with a thicker bottom section that mimics classic Polaroid film. Add a drop shadow for a more realistic effect.</div></div></div>
-        <div class="faq-item reveal" id="faq-privacy"><div class="faq-question" onclick="toggleFaq(this)"><span>Is my image safe when using AdBorder?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">Your images are completely safe. All processing happens locally in your browser using JavaScript and Canvas API. Images are never uploaded to any server.</div></div></div>
-        <div class="faq-item reveal" id="faq-formats"><div class="faq-question" onclick="toggleFaq(this)"><span>What image formats are supported?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">Input: JPG, PNG, WebP, GIF, BMP, SVG. Output: PNG (lossless), JPEG (adjustable quality), or WebP (modern, excellent compression).</div></div></div>
-        <div class="faq-item reveal" id="faq-batch"><div class="faq-question" onclick="toggleFaq(this)"><span>Can I add borders to multiple images at once?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">Yes. Upload multiple images, apply the same settings to all, and download all results at once. Much faster than one by one.</div></div></div>
-        <div class="faq-item reveal" id="faq-instagram"><div class="faq-question" onclick="toggleFaq(this)"><span>How do I add a border for Instagram posts?</span><span class="faq-arrow">&#9660;</span></div><div class="faq-answer"><div class="faq-answer-inner">Use the IG Square preset for 1:1 ratio with a white border, or IG Story for 9:16. Your photos display perfectly on Instagram without unwanted cropping.</div></div></div>
+        <div class="faq-item reveal" id="faq-border-online"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>How do I add a border to an image online for free?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">Go to adborder.top, drag and drop or paste your image, choose your border style, adjust the width and color, preview in real-time, and click Download. No signup required, no watermark on output.</div></div></div>
+        <div class="faq-item reveal" id="faq-white-border"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>What is the best free tool to add a white border to photos?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">AdBorder is one of the best free tools for adding white borders. It requires no account, adds no watermark, and processes images entirely in your browser for complete privacy. Supports widths from 1px to 200px.</div></div></div>
+        <div class="faq-item reveal" id="faq-colored-border"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>Can I add a colored border without Photoshop?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">Yes. Use the color picker to select any color, adjust the width with a slider, and download in PNG, JPEG, or WebP. You can also choose from gradient presets for creative styles.</div></div></div>
+        <div class="faq-item reveal" id="faq-polaroid"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>How do I add a polaroid-style border?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">Select the Polaroid preset to add a white border with a thicker bottom section that mimics classic Polaroid film. Add a drop shadow for a more realistic effect.</div></div></div>
+        <div class="faq-item reveal" id="faq-privacy"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>Is my image safe when using AdBorder?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">Your images are completely safe. All processing happens locally in your browser using JavaScript and Canvas API. Images are never uploaded to any server.</div></div></div>
+        <div class="faq-item reveal" id="faq-formats"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>What image formats are supported?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">Input: JPG, PNG, WebP, GIF, BMP, SVG. Output: PNG (lossless), JPEG (adjustable quality), or WebP (modern, excellent compression).</div></div></div>
+        <div class="faq-item reveal" id="faq-batch"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>Can I add borders to multiple images at once?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">Yes. Upload multiple images, apply the same settings to all, and download all results at once. Much faster than one by one.</div></div></div>
+        <div class="faq-item reveal" id="faq-instagram"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>How do I add a border for Instagram posts?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">Use the IG Square preset for 1:1 ratio with a white border, or IG Story for 9:16. Your photos display perfectly on Instagram without unwanted cropping.</div></div></div>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
   <footer>
+    <nav aria-label="Footer">
     <div class="footer-links">
       <a href="/">Home</a>
       <a href="/blog.html">Blog</a>
@@ -1552,6 +1389,7 @@
       <a href="/contact.html">Contact</a>
       <a href="/editorial.html">Editorial Policy</a>
     </div>
+    </nav>
     <p class="footer-copy">&copy; 2026 AdBorder.top</p>
   </footer>
 

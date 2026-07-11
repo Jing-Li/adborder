@@ -15,78 +15,45 @@
   <meta name="twitter:title" content="Blog - Photo Border Tips & Tutorials | AdBorder">
   <meta name="twitter:description" content="Tips, tutorials, and guides on adding borders to photos for Instagram, social media, and more.">
   <meta name="google-site-verification" content="RrDjrKc0TzssHvF5gtzF-VrCu46XdmH7PvPVTyVu_bU" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%237c3aed'/><stop offset='100%25' stop-color='%2306b6d4'/></linearGradient></defs><rect x='5' y='5' width='90' height='90' rx='16' fill='%230a0a12' stroke='url(%23g)' stroke-width='6'/><text x='50' y='66' font-size='44' font-weight='bold' fill='url(%23g)' text-anchor='middle' font-family='sans-serif'>AB</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%230d9488'/><stop offset='100%25' stop-color='%23d97706'/></linearGradient></defs><rect x='5' y='5' width='90' height='90' rx='16' fill='%230b1120' stroke='url(%23g)' stroke-width='6'/><text x='50' y='66' font-size='44' font-weight='bold' fill='url(%23g)' text-anchor='middle' font-family='sans-serif'>AB</text></svg>">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2779701070600473" crossorigin="anonymous"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-C483V5DK3K"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-C483V5DK3K');</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/blog.css">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #0a0a12; --bg2: #0f0f1a; --surface: rgba(255,255,255,0.04);
-      --surface-hover: rgba(255,255,255,0.07); --glass: rgba(255,255,255,0.05);
-      --glass-border: rgba(255,255,255,0.08); --glass-border-hover: rgba(255,255,255,0.15);
-      --text: #e8e8f0; --text2: #9999b0; --text3: #777790;
-      --accent1: #7c3aed; --accent2: #06b6d4; --accent3: #f43f5e;
-      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
-      --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee);
-      --radius: 16px; --radius-sm: 10px;
-      --font-display: 'Sora', sans-serif; --font-body: 'DM Sans', sans-serif;
-    }
-    body { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a12; color: #e8e8f0; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-    header { background: rgba(10,10,18,0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 14px 0; position: sticky; top: 0; z-index: 100; }
-    .header-inner { max-width: 800px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
-    .logo { font-size: 1.4rem; font-weight: 800; background: linear-gradient(135deg, #a78bfa, #22d3ee); -webkit-background-clip: text; background-clip: text; color: transparent; text-decoration: none; }
-    nav a { color: #9999b0; text-decoration: none; margin-left: 20px; font-size: 0.85rem; font-weight: 500; padding: 8px 4px; min-height: 44px; display: inline-flex; align-items: center; }
-    nav a:hover, nav a.active { color: #e8e8f0; }
+    /* Blog-specific CSS — shared styles in /styles.css and /blog.css */
     main { max-width: 800px; margin: 0 auto; padding: 48px 24px; }
-    h1 { font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; background: linear-gradient(135deg, #a78bfa, #22d3ee); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    h1 { font-family: var(--font-display); font-size: 2rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
     .subtitle { color: #9999b0; font-size: 1.05rem; margin-bottom: 40px; max-width: 600px; }
     .blog-grid { display: grid; gap: 20px; }
     .blog-card { display: block; text-decoration: none; color: inherit; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 28px; background: rgba(255,255,255,0.02); transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease; }
     .blog-card:hover { border-color: rgba(124,58,237,0.4); box-shadow: 0 0 20px rgba(124,58,237,0.1), 0 0 40px rgba(6,182,212,0.05); background: rgba(255,255,255,0.04); }
     .blog-card-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; font-size: 0.82rem; color: #777790; }
     .blog-card-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: #555570; }
-    .blog-card h2 { font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 700; color: #e8e8f0; margin-bottom: 10px; line-height: 1.4; transition: color 0.3s ease; }
+    .blog-card h2 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: #e8e8f0; margin-bottom: 10px; line-height: 1.4; transition: color 0.3s ease; }
     .blog-card:hover h2 { color: #ffffff; }
     .blog-card p { color: #9999b0; font-size: 0.92rem; line-height: 1.65; margin-bottom: 0; }
-    footer { border-top: 1px solid rgba(255,255,255,0.08); padding: 32px 24px; margin-top: 48px; text-align: center; }
-    .footer-links { display: flex; gap: 20px; justify-content: center; margin-bottom: 12px; }
-    .footer-links a { color: #777790; text-decoration: none; font-size: 0.82rem; }
-    .footer-links a:hover { color: #06b6d4; }
-    .footer-copy { font-size: 0.82rem; color: #777790; }
     .ad-container { max-width: 800px; margin: 40px auto 0; padding: 0 24px; }
-    ::selection { background: rgba(124,58,237,0.3); color: white; }
-    *:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; border-radius: 4px; }
-    a:focus-visible, button:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }
-    .skip-link {
-      position: absolute; top: -50px; left: 0; z-index: 10001;
-      background: var(--accent1, #7c3aed); color: white; padding: 10px 20px;
-      font-size: 0.85rem; font-weight: 600; text-decoration: none;
-      border-radius: 0 0 10px 0; transition: top 0.25s ease;
-    }
-    .skip-link:focus { top: 0; }
     /* Featured section */
     .featured-section { margin-bottom: 48px; }
-    .featured-label { font-family: 'Sora', sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #f4a35e; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+    .featured-label { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: #f4a35e; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
     .featured-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(244,163,94,0.3), transparent); }
     .featured-hero { display: block; text-decoration: none; color: inherit; border: 1px solid rgba(244,163,94,0.2); border-radius: 16px; padding: 36px 32px; background: linear-gradient(145deg, rgba(244,163,94,0.04), rgba(124,58,237,0.03)); transition: all 0.3s ease; position: relative; overflow: hidden; margin-bottom: 16px; }
-    .featured-hero::before { content: 'NEW'; position: absolute; top: 16px; right: 16px; font-family: 'Sora', sans-serif; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.08em; color: #f4a35e; background: rgba(244,163,94,0.1); border: 1px solid rgba(244,163,94,0.2); border-radius: 6px; padding: 3px 10px; }
+    .featured-hero::before { content: 'NEW'; position: absolute; top: 16px; right: 16px; font-family: var(--font-display); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.08em; color: #f4a35e; background: rgba(244,163,94,0.1); border: 1px solid rgba(244,163,94,0.2); border-radius: 6px; padding: 3px 10px; }
     .featured-hero:hover { border-color: rgba(244,163,94,0.4); box-shadow: 0 0 30px rgba(244,163,94,0.08), 0 12px 40px rgba(0,0,0,0.2); transform: translateY(-3px); }
-    .featured-hero h2 { font-family: 'Sora', sans-serif; font-size: 1.4rem; font-weight: 800; color: #e8e8f0; margin-bottom: 10px; line-height: 1.3; }
+    .featured-hero h2 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; color: #e8e8f0; margin-bottom: 10px; line-height: 1.3; }
     .featured-hero p { color: #9999b0; font-size: 0.95rem; line-height: 1.65; max-width: 600px; }
     .featured-hero .blog-card-meta { margin-bottom: 14px; }
     .featured-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .featured-card { display: block; text-decoration: none; color: inherit; border: 1px solid rgba(244,163,94,0.12); border-radius: 14px; padding: 24px; background: rgba(244,163,94,0.02); transition: all 0.3s ease; position: relative; }
-    .featured-card::before { content: 'NEW'; position: absolute; top: 14px; right: 14px; font-family: 'Sora', sans-serif; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.08em; color: #f4a35e; background: rgba(244,163,94,0.1); border: 1px solid rgba(244,163,94,0.2); border-radius: 5px; padding: 2px 8px; }
+    .featured-card::before { content: 'NEW'; position: absolute; top: 14px; right: 14px; font-family: var(--font-display); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.08em; color: #f4a35e; background: rgba(244,163,94,0.1); border: 1px solid rgba(244,163,94,0.2); border-radius: 5px; padding: 2px 8px; }
     .featured-card:hover { border-color: rgba(244,163,94,0.3); box-shadow: 0 8px 30px rgba(0,0,0,0.2); transform: translateY(-2px); }
-    .featured-card h2 { font-family: 'Sora', sans-serif; font-size: 1.1rem; font-weight: 700; color: #e8e8f0; margin-bottom: 8px; line-height: 1.4; }
+    .featured-card h2 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #e8e8f0; margin-bottom: 8px; line-height: 1.4; }
     .featured-card p { color: #9999b0; font-size: 0.88rem; line-height: 1.6; }
     /* Archive section */
-    .archive-label { font-family: 'Sora', sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #777790; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+    .archive-label { font-family: var(--font-display); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #777790; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
     .archive-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(255,255,255,0.08), transparent); }
     @media (max-width: 600px) {
       h1 { font-size: 1.6rem; }
@@ -95,37 +62,20 @@
       .featured-pair { grid-template-columns: 1fr; }
       .featured-hero h2 { font-size: 1.2rem; }
     }
-    /* Mesh background */
-    .mesh-bg { position: fixed; inset: 0; z-index: -2; background: radial-gradient(ellipse 80% 50% at 20% 20%, rgba(124,58,237,0.08), transparent), radial-gradient(ellipse 60% 40% at 80% 10%, rgba(6,182,212,0.05), transparent), radial-gradient(ellipse 50% 60% at 10% 80%, rgba(244,163,94,0.04), transparent), radial-gradient(ellipse 70% 50% at 90% 90%, rgba(124,58,237,0.05), transparent); animation: meshDrift 20s ease-in-out infinite alternate; }
-    @keyframes meshDrift { 0% { transform: scale(1) rotate(0deg); } 100% { transform: scale(1.1) rotate(2deg); } }
-    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 200px; }
     /* Enhanced header */
     header { backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); }
     /* Serif reading font */
-    p, ol, ul, li, .faq-item p, blockquote { font-family: 'Newsreader', Georgia, serif; font-size: 1.02rem; line-height: 1.8; }
-    h1, h2, h3 { font-family: 'Sora', sans-serif; }
-    .author-card, .author-hero, .author-info, .author-hero-info, .blog-card, .blog-card-meta, .cta-box, .faq-item h3, .updated, nav, header, footer { font-family: 'DM Sans', sans-serif; }
-    main a { color: #c4a1ff; }
-    main a:hover { color: #e0ccff; }
-    h1 { text-shadow: 0 0 40px rgba(124,58,237,0.15); }
-    h2 { text-shadow: 0 0 30px rgba(124,58,237,0.08); }
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    @media (prefers-reduced-motion: reduce) { .mesh-bg { animation: none; } .reveal { opacity: 1; transform: none; } }
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #0a0a12; }
-    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
+    p, ol, ul, li, .faq-item p, blockquote { font-family: var(--font-serif); font-size: 1.02rem; line-height: 1.8; }
   </style>
 </head>
-<body>
+<body class="blog-page">
   <a href="#main-content" class="skip-link">Skip to content</a>
   <div class="mesh-bg"></div>
   <div class="noise"></div>
   <header>
     <div class="header-inner">
       <a href="/" class="logo">Ad<span>Border</span></a>
-      <nav>
+      <nav aria-label="Main navigation">
         <a href="/">Tool</a>
         <a href="/blog.html" class="active">Blog</a>
         <a href="/critique/">Critique</a>
@@ -324,6 +274,7 @@
   </main>
 
   <footer>
+    <nav aria-label="Footer">
     <div class="footer-links">
       <a href="/">Home</a>
       <a href="/blog.html">Blog</a>
@@ -334,6 +285,7 @@
       <a href="/contact.html">Contact</a>
       <a href="/editorial.html">Editorial Policy</a>
     </div>
+    </nav>
     <p class="footer-copy">&copy; 2026 AdBorder.top</p>
   </footer>
   <div id="cookieBanner" style="position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,18,0.92);backdrop-filter:blur(12px);color:#e8e8f0;padding:14px 24px;z-index:9999;font-size:0.85rem;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.08);display:none">

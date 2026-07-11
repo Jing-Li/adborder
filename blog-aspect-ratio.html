@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -27,95 +27,44 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-C483V5DK3K');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/blog.css">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #0a0a12; --bg2: #0f0f1a; --surface: rgba(255,255,255,0.04);
-      --surface-hover: rgba(255,255,255,0.07); --glass: rgba(255,255,255,0.05);
-      --glass-border: rgba(255,255,255,0.08); --glass-border-hover: rgba(255,255,255,0.15);
-      --text: #e8e8f0; --text2: #9999b0; --text3: #777790;
-      --accent1: #7c3aed; --accent2: #06b6d4; --accent3: #f43f5e;
-      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
-      --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee);
-      --radius: 16px; --radius-sm: 10px;
-      --font-display: 'Sora', sans-serif; --font-body: 'DM Sans', sans-serif;
-    }
-    body { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a12; color: #e8e8f0; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-    header { background: rgba(10,10,18,0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 14px 0; position: sticky; top: 0; z-index: 100; }
-    .header-inner { max-width: 800px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
-    .logo { font-size: 1.4rem; font-weight: 800; background: linear-gradient(135deg, #a78bfa, #22d3ee); -webkit-background-clip: text; background-clip: text; color: transparent; text-decoration: none; }
-    .logo span {}
-    nav a { color: #9999b0; text-decoration: none; margin-left: 20px; font-size: 0.85rem; font-weight: 500; padding: 8px 4px; min-height: 44px; display: inline-flex; align-items: center; }
-    nav a:hover, nav a.active { color: #e8e8f0; }
     main { max-width: 800px; margin: 0 auto; padding: 48px 24px; }
-    h1 { font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
+    h1 { font-family: var(--font-display); font-size: 2rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
     .updated { color: #777790; font-size: 0.9rem; margin-bottom: 32px; }
-    h2 { font-family: 'Sora', sans-serif; font-size: 1.3rem; font-weight: 700; margin-top: 32px; margin-bottom: 12px; }
-    p { color: #9999b0; margin-bottom: 12px; }
-    a { color: #a78bfa; text-decoration: none; }
+    h2 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; margin-top: 32px; margin-bottom: 12px; }
+    p { color: var(--text2); margin-bottom: 12px; }
+    a { color: var(--accent-light); text-decoration: none; }
     a:hover { text-decoration: underline; }
     ol, ul { color: #9999b0; margin-bottom: 12px; padding-left: 24px; }
     ol li, ul li { margin-bottom: 8px; }
-    strong { color: #e8e8f0; }
+    strong { color: var(--text); }
     .ad-slot { margin: 32px 0; }
     .faq-item { margin-bottom: 24px; }
-    .faq-item h3 { font-family: 'Sora', sans-serif; font-size: 1.05rem; font-weight: 600; color: #e8e8f0; margin-bottom: 6px; }
+    .faq-item h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: #e8e8f0; margin-bottom: 6px; }
     .faq-item p { margin-bottom: 0; }
     .cta-box { margin-top: 40px; padding: 24px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; }
     .cta-box p { color: #e8e8f0; margin-bottom: 0; }
-    footer { border-top: 1px solid rgba(255,255,255,0.08); padding: 32px 24px; margin-top: 48px; text-align: center; }
-    .footer-links { display: flex; gap: 20px; justify-content: center; margin-bottom: 12px; }
-    .footer-links a { color: #777790; text-decoration: none; font-size: 0.82rem; }
-    .footer-links a:hover { color: #06b6d4; }
-    .footer-copy { font-size: 0.82rem; color: #777790; }
-    ::selection { background: rgba(124,58,237,0.3); color: white; }
-    *:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; border-radius: 4px; }
-    a:focus-visible, button:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }
-    .skip-link {
-      position: absolute; top: -50px; left: 0; z-index: 10001;
-      background: var(--accent1, #7c3aed); color: white; padding: 10px 20px;
-      font-size: 0.85rem; font-weight: 600; text-decoration: none;
-      border-radius: 0 0 10px 0; transition: top 0.25s ease;
-    }
-    .skip-link:focus { top: 0; }
     table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
     th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 0.92rem; }
-    th { font-family: 'Sora', sans-serif; font-weight: 600; color: #e8e8f0; }
+    th { font-family: var(--font-display); font-weight: 600; color: #e8e8f0; }
     td { color: #9999b0; }
-    td strong { color: #e8e8f0; }
+    td strong { color: var(--text); }
     .author-card { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; padding: 16px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; }
-    .author-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #a78bfa, #22d3ee); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 700; color: white; flex-shrink: 0; }
+    .author-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 700; color: white; flex-shrink: 0; }
     .author-info { flex: 1; }
     .author-name { font-weight: 700; color: #e8e8f0; font-size: 0.95rem; }
     .author-bio { color: #9999b0; font-size: 0.82rem; margin: 2px 0 0 0; }
-    /* Mesh background */
-    .mesh-bg { position: fixed; inset: 0; z-index: -2; background: radial-gradient(ellipse 80% 50% at 20% 20%, rgba(124,58,237,0.08), transparent), radial-gradient(ellipse 60% 40% at 80% 10%, rgba(6,182,212,0.05), transparent), radial-gradient(ellipse 50% 60% at 10% 80%, rgba(244,163,94,0.04), transparent), radial-gradient(ellipse 70% 50% at 90% 90%, rgba(124,58,237,0.05), transparent); animation: meshDrift 20s ease-in-out infinite alternate; }
-    @keyframes meshDrift { 0% { transform: scale(1) rotate(0deg); } 100% { transform: scale(1.1) rotate(2deg); } }
-    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 200px; }
-    /* Enhanced header */
-    header { backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); }
     /* Serif reading font for body text */
-    p, ol, ul, li, .faq-item p, blockquote { font-family: 'Newsreader', Georgia, serif; font-size: 1.02rem; line-height: 1.8; }
-    h1, h2, h3 { font-family: 'Sora', sans-serif; }
-    .author-card, .author-hero, .author-info, .author-hero-info, .blog-card, .blog-card-meta, .cta-box, .faq-item h3, .updated, nav, header, footer { font-family: 'DM Sans', sans-serif; }
+    p, ol, ul, li, .faq-item p, blockquote { font-family: var(--font-serif), Georgia, serif; font-size: 1.02rem; line-height: 1.8; }
+    h1, h2, h3 { font-family: var(--font-display); }
+    .author-card, .author-hero, .author-info, .author-hero-info, .blog-card, .blog-card-meta, .cta-box, .faq-item h3, .updated, nav, header, footer { font-family: var(--font-body); }
     /* Warm accent for links in content */
-    main a { color: #c4a1ff; }
+    main a { color: var(--accent-light); }
     main a:hover { color: #e0ccff; }
-    /* Subtle text glow on headings */
-    h1 { text-shadow: 0 0 40px rgba(124,58,237,0.15); }
-    h2 { text-shadow: 0 0 30px rgba(124,58,237,0.08); }
-    /* Scroll reveal */
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    @media (prefers-reduced-motion: reduce) { .mesh-bg { animation: none; } .reveal { opacity: 1; transform: none; } }
-    /* Scrollbar */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #0a0a12; }
-    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
-  </style>
+</style>
 
   <script type="application/ld+json">
   {
@@ -197,14 +146,14 @@
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adborder.top/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://adborder.top/blog.html"},{"@type":"ListItem","position":3,"name":"Aspect Ratios for Photos and Social Media","item":"https://adborder.top/blog-aspect-ratio.html"}]}
 </script>
 </head>
-<body>
+<body class="article-page">
   <a href="#main-content" class="skip-link">Skip to content</a>
   <div class="mesh-bg"></div>
   <div class="noise"></div>
   <header>
     <div class="header-inner">
       <a href="/" class="logo">Ad<span>Border</span></a>
-      <nav>
+      <nav aria-label="Main navigation">
         <a href="/">Tool</a>
         <a href="/blog.html" class="active">Blog</a>
         <a href="/critique/">Critique</a>
@@ -406,7 +355,8 @@
   </main>
 
   <footer>
-    <div class="footer-links">
+    <nav aria-label="Footer">
+        <div class="footer-links">
       <a href="/">Home</a>
       <a href="/blog.html">Blog</a>
       <a href="/critique/">AI Critique</a>
@@ -416,6 +366,7 @@
       <a href="/contact.html">Contact</a>
       <a href="/editorial.html">Editorial Policy</a>
     </div>
+    </nav>
     <p class="footer-copy">&copy; 2026 AdBorder.top</p>
   </footer>
   <div id="cookieBanner" style="position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,18,0.92);backdrop-filter:blur(12px);color:#e8e8f0;padding:14px 24px;z-index:9999;font-size:0.85rem;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.08);display:none">

@@ -68,42 +68,26 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%230d9488'/><stop offset='100%25' stop-color='%23d97706'/></linearGradient></defs><rect x='5' y='5' width='90' height='90' rx='16' fill='%230b1120' stroke='url(%23g)' stroke-width='6'/><text x='50' y='66' font-size='44' font-weight='bold' fill='url(%23g)' text-anchor='middle' font-family='sans-serif'>AB</text></svg>">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/critique.css">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #0a0a12; --bg2: #0f0f1a; --surface: rgba(255,255,255,0.04);
-      --surface-hover: rgba(255,255,255,0.07); --glass: rgba(255,255,255,0.05);
-      --glass-border: rgba(255,255,255,0.08); --glass-border-hover: rgba(255,255,255,0.15);
-      --text: #e8e8f0; --text2: #9999b0; --text3: #777790;
-      --accent1: #7c3aed; --accent2: #06b6d4; --critique: #ef4444; --critique2: #f97316;
-      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
-      --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee);
-      --gradient-critique: linear-gradient(135deg, #ef4444, #f97316);
-      --radius: 16px; --radius-sm: 10px;
-    }
-    body { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a12; color: #e8e8f0; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-    header { background: rgba(10,10,18,0.7); backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 14px 0; position: sticky; top: 0; z-index: 100; }
-    .header-inner { max-width: 800px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
-    .logo { font-size: 1.4rem; font-weight: 800; background: linear-gradient(135deg, #a78bfa, #22d3ee); -webkit-background-clip: text; background-clip: text; color: transparent; text-decoration: none; }
-    nav a { color: #9999b0; text-decoration: none; margin-left: 20px; font-size: 0.85rem; font-weight: 500; padding: 8px 4px; min-height: 44px; display: inline-flex; align-items: center; }
-    nav a:hover, nav a.active { color: #e8e8f0; }
     main { max-width: 800px; margin: 0 auto; padding: 48px 24px; }
 
     /* Series tag */
-    .series-tag { display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.25); border-radius: 999px; font-family: 'Sora', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fb7185; margin-bottom: 16px; }
+    .series-tag { display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.25); border-radius: 999px; font-family: var(--font-display); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fb7185; margin-bottom: 16px; }
     .series-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: linear-gradient(135deg, #ef4444, #f97316); box-shadow: 0 0 8px rgba(239,68,68,0.6); }
 
-    h1 { font-family: 'Sora', sans-serif; font-size: 2.1rem; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.02em; line-height: 1.2; text-shadow: 0 0 40px rgba(239,68,68,0.15); }
-    .deck { font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 1.08rem; color: #9999b0; margin-bottom: 28px; line-height: 1.65; border-left: 3px solid rgba(239,68,68,0.4); padding-left: 18px; }
-    .updated { color: #777790; font-size: 0.9rem; margin-bottom: 32px; font-family: 'DM Sans', sans-serif; }
+    h1 { font-family: var(--font-display); font-size: 2.1rem; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.02em; line-height: 1.2; text-shadow: 0 0 40px rgba(239,68,68,0.15); }
+    .deck { font-family: var(--font-serif); font-style: italic; font-size: 1.08rem; color: #9999b0; margin-bottom: 28px; line-height: 1.65; border-left: 3px solid rgba(239,68,68,0.4); padding-left: 18px; }
+    .updated { color: #777790; font-size: 0.9rem; margin-bottom: 32px; font-family: var(--font-body); }
 
-    h2 { font-family: 'Sora', sans-serif; font-size: 1.35rem; font-weight: 700; margin-top: 44px; margin-bottom: 16px; color: #e8e8f0; text-shadow: 0 0 30px rgba(239,68,68,0.08); }
+    h2 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; margin-top: 44px; margin-bottom: 16px; color: #e8e8f0; text-shadow: 0 0 30px rgba(239,68,68,0.08); }
     h2 .num { color: #fb7185; margin-right: 8px; font-weight: 800; }
 
-    p, ol, ul, li { font-family: 'Newsreader', Georgia, serif; font-size: 1.05rem; line-height: 1.85; color: #b8b8c8; margin-bottom: 16px; }
+    p, ol, ul, li { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.85; color: #b8b8c8; margin-bottom: 16px; }
     p { text-align: justify; hyphens: auto; }
     strong { color: #f0f0fa; font-weight: 600; }
     em { color: #c4a1ff; font-style: italic; }
@@ -115,7 +99,7 @@
     hr { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 48px 0; }
 
     /* Author card — crimson variant for Lin Kong */
-    .author-card { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; padding: 16px; background: rgba(239,68,68,0.04); border: 1px solid rgba(239,68,68,0.18); border-radius: 12px; font-family: 'DM Sans', sans-serif; }
+    .author-card { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; padding: 16px; background: rgba(239,68,68,0.04); border: 1px solid rgba(239,68,68,0.18); border-radius: 12px; font-family: var(--font-body); }
     .author-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #ef4444, #f97316); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; font-weight: 700; color: white; flex-shrink: 0; box-shadow: 0 4px 20px rgba(239,68,68,0.25); }
     .author-info { flex: 1; }
     .author-name { font-weight: 700; color: #e8e8f0; font-size: 0.95rem; }
@@ -132,53 +116,23 @@
 
     /* References list */
     .references-card { margin-top: 48px; padding: 28px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; }
-    .references-title { font-family: 'Sora', sans-serif; font-size: 1rem; font-weight: 700; color: #e8e8f0; margin-bottom: 16px; letter-spacing: 0.04em; text-transform: uppercase; }
+    .references-title { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: #e8e8f0; margin-bottom: 16px; letter-spacing: 0.04em; text-transform: uppercase; }
     .references-list { list-style: none; padding: 0; margin: 0; }
-    .references-list li { font-family: 'Newsreader', Georgia, serif; font-size: 0.88rem; line-height: 1.65; color: #9999b0; margin-bottom: 10px; padding-left: 38px; position: relative; text-indent: -38px; }
+    .references-list li { font-family: var(--font-serif); font-size: 0.88rem; line-height: 1.65; color: #9999b0; margin-bottom: 10px; padding-left: 38px; position: relative; text-indent: -38px; }
     .references-list li .num { color: #fb7185; font-weight: 700; margin-right: 8px; }
     .references-list li em { color: #c4a1ff; }
 
     /* Next in series teaser */
     .next-in-series { margin-top: 40px; padding: 24px; background: linear-gradient(145deg, rgba(239,68,68,0.05), rgba(249,115,22,0.03)); border: 1px solid rgba(239,68,68,0.2); border-radius: 14px; }
-    .next-in-series .label { font-family: 'Sora', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #fb7185; margin-bottom: 10px; }
-    .next-in-series h3 { font-family: 'Sora', sans-serif; font-size: 1.05rem; font-weight: 700; color: #e8e8f0; margin-bottom: 6px; line-height: 1.4; }
-    .next-in-series p { font-family: 'Newsreader', Georgia, serif; font-size: 0.92rem; color: #9999b0; margin-bottom: 0; line-height: 1.6; }
+    .next-in-series .label { font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #fb7185; margin-bottom: 10px; }
+    .next-in-series h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: #e8e8f0; margin-bottom: 6px; line-height: 1.4; }
+    .next-in-series p { font-family: var(--font-serif); font-size: 0.92rem; color: #9999b0; margin-bottom: 0; line-height: 1.6; }
 
     .related-articles { margin-top: 40px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.08); }
-    .related-articles h3 { font-family: 'Sora', sans-serif; font-size: 1.05rem; font-weight: 600; color: #e8e8f0; margin-bottom: 12px; }
+    .related-articles h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: #e8e8f0; margin-bottom: 12px; }
     .related-list { list-style: none; padding: 0; }
     .related-list li { margin-bottom: 10px; }
     .related-list a { color: #a78bfa; font-weight: 500; }
-
-    footer { border-top: 1px solid rgba(255,255,255,0.08); padding: 32px 24px; margin-top: 48px; text-align: center; font-family: 'DM Sans', sans-serif; }
-    .footer-links { display: flex; gap: 20px; justify-content: center; margin-bottom: 12px; flex-wrap: wrap; }
-    .footer-links a { color: #777790; text-decoration: none; font-size: 0.82rem; }
-    .footer-links a:hover { color: #06b6d4; }
-    .footer-copy { font-size: 0.82rem; color: #777790; }
-
-    ::selection { background: rgba(239,68,68,0.3); color: white; }
-    *:focus-visible { outline: 2px solid #fb7185; outline-offset: 2px; border-radius: 4px; }
-    .skip-link {
-      position: absolute; top: -50px; left: 0; z-index: 10001;
-      background: var(--critique, #ef4444); color: white; padding: 10px 20px;
-      font-size: 0.85rem; font-weight: 600; text-decoration: none;
-      border-radius: 0 0 10px 0; transition: top 0.25s ease;
-    }
-    .skip-link:focus { top: 0; }
-
-    /* Mesh background */
-    .mesh-bg { position: fixed; inset: 0; z-index: -2; background: radial-gradient(ellipse 80% 50% at 20% 20%, rgba(239,68,68,0.06), transparent), radial-gradient(ellipse 60% 40% at 80% 10%, rgba(249,115,22,0.04), transparent), radial-gradient(ellipse 50% 60% at 10% 80%, rgba(124,58,237,0.04), transparent), radial-gradient(ellipse 70% 50% at 90% 90%, rgba(239,68,68,0.05), transparent); animation: meshDrift 20s ease-in-out infinite alternate; }
-    @keyframes meshDrift { 0% { transform: scale(1) rotate(0deg); } 100% { transform: scale(1.1) rotate(2deg); } }
-    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 200px; }
-
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    @media (prefers-reduced-motion: reduce) { .mesh-bg { animation: none; } .reveal { opacity: 1; transform: none; } }
-
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #0a0a12; }
-    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
 
     @media (max-width: 600px) {
       h1 { font-size: 1.6rem; }
@@ -190,14 +144,14 @@
     }
   </style>
 </head>
-<body>
+<body class="episode-page">
   <a href="#main-content" class="skip-link">Skip to content</a>
   <div class="mesh-bg"></div>
   <div class="noise"></div>
   <header>
     <div class="header-inner">
       <a href="/" class="logo">Ad<span>Border</span></a>
-      <nav>
+      <nav aria-label="Main navigation">
         <a href="/">Tool</a>
         <a href="/blog.html">Blog</a>
         <a href="/critique/" class="active">Critique</a>
@@ -335,7 +289,7 @@
   </main>
 
   <footer>
-    <div class="footer-links">
+    <nav aria-label="Footer"><div class="footer-links">
       <a href="/">Home</a>
       <a href="/blog.html">Blog</a>
       <a href="/critique/">AI Critique</a>
@@ -344,13 +298,13 @@
       <a href="/terms.html">Terms of Service</a>
       <a href="/contact.html">Contact</a>
       <a href="/editorial.html">Editorial Policy</a>
-    </div>
+    </div></nav>
     <p class="footer-copy">&copy; 2026 AdBorder.top</p>
   </footer>
 
-  <div id="cookieBanner" style="position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,18,0.92);backdrop-filter:blur(12px);color:#e8e8f0;padding:14px 24px;z-index:9999;font-size:0.85rem;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.08);display:none">
-    <span>We use cookies for analytics and advertising. By continuing, you agree to our <a href="/privacy.html" style="color:#a78bfa;text-decoration:underline">Privacy Policy</a>.</span>
-    <button onclick="dismissCookie()" style="background:linear-gradient(135deg,#7c3aed,#06b6d4);color:white;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600;font-size:0.82rem">Accept</button>
+  <div id="cookieBanner" class="cookie-banner">
+    <span>We use cookies for analytics and advertising. By continuing, you agree to our <a href="/privacy.html">Privacy Policy</a>.</span>
+    <button onclick="dismissCookie()" class="cookie-accept">Accept</button>
   </div>
   <script>
     (function(){

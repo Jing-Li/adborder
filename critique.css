@@ -1,0 +1,234 @@
+/* =============================================================
+   AdBorder — Critique Column Styles (Lin Kong)
+   Crimson + orange accent for intellectual AI essays
+   ============================================================= */
+
+/* ===== Critique Color Overrides ===== */
+:root {
+  --critique: #ef4444;
+  --critique2: #f97316;
+  --critique-surface: rgba(239,68,68,0.04);
+  --critique-border: rgba(239,68,68,0.18);
+  --gradient-critique: linear-gradient(135deg, #ef4444, #f97316);
+}
+
+/* Critique header border */
+body.critique-page header { border-bottom-color: var(--critique-border); }
+
+/* ===== Critique Index (critique/index.html) ===== */
+
+/* Eyebrow — restrained, not repeated on every section */
+.critique-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 5px 14px; background: var(--critique-surface);
+  border: 1px solid var(--critique-border); border-radius: 999px;
+  font-family: var(--font-body); font-size: 0.78rem; font-weight: 600;
+  color: #fb7185; margin-bottom: 20px;
+}
+.critique-eyebrow::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gradient-critique);
+}
+
+/* Critique heading */
+.critique-page h1 {
+  font-family: var(--font-display); font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 800; letter-spacing: -0.03em; line-height: 1.05;
+  color: var(--text); margin-bottom: 18px;
+}
+.tagline {
+  font-family: var(--font-serif); font-size: 1.15rem;
+  color: var(--text2); max-width: 640px; line-height: 1.65; margin-bottom: 40px;
+}
+.tagline em { color: #fb7185; font-style: italic; }
+
+/* Author banner */
+.author-banner {
+  display: flex; align-items: center; gap: 18px;
+  padding: 20px 24px; background: var(--critique-surface);
+  border: 1px solid var(--critique-border); border-radius: var(--radius);
+  margin-bottom: 48px; font-family: var(--font-body);
+}
+.author-avatar-critique {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--gradient-critique);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; font-weight: 700; color: white; flex-shrink: 0;
+}
+.author-banner-name { font-weight: 700; color: var(--text); font-size: 1rem; }
+.author-banner-role { color: var(--text2); font-size: 0.85rem; margin: 2px 0 0 0; }
+
+/* Manifesto */
+.manifesto { padding: 0 0 0 28px; margin-bottom: 56px; border-left: 3px solid var(--critique-border); }
+.manifesto h2 {
+  font-family: var(--font-display); font-size: 0.88rem; font-weight: 700;
+  color: #fb7185; margin-bottom: 18px; margin-top: 0;
+}
+.manifesto p { font-family: var(--font-serif); font-size: 1.08rem; line-height: 1.8; color: #b8b8c8; margin-bottom: 16px; }
+.manifesto p:last-child { margin-bottom: 0; }
+
+/* Episodes section */
+.episodes-section { margin-bottom: 56px; }
+.episodes-label {
+  font-family: var(--font-body); font-size: 0.82rem; font-weight: 600;
+  color: #fb7185; margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.episodes-label::after { content: ''; flex: 1; height: 1px; background: rgba(239,68,68,0.2); }
+
+/* Episode cards */
+.episode-card {
+  display: block; text-decoration: none; color: inherit;
+  border: 1px solid var(--critique-border); border-radius: var(--radius);
+  padding: 28px; background: var(--critique-surface);
+  transition: border-color 0.3s, transform 0.3s; position: relative; margin-bottom: 16px;
+}
+.episode-card::before {
+  content: 'EP ' attr(data-ep); position: absolute; top: 16px; right: 16px;
+  font-family: var(--font-body); font-size: 0.65rem; font-weight: 800;
+  letter-spacing: 0.08em; color: #fb7185;
+  background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.25);
+  border-radius: 6px; padding: 3px 10px;
+}
+.episode-card:hover { border-color: rgba(239,68,68,0.4); transform: translateY(-2px); }
+.episode-card .meta { font-family: var(--font-body); font-size: 0.82rem; color: var(--text3); margin-bottom: 10px; }
+.episode-card h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.35; }
+.episode-card p { font-family: var(--font-serif); color: var(--text2); font-size: 0.95rem; line-height: 1.65; margin-bottom: 0; }
+
+.upcoming-card { border-style: dashed; border-color: rgba(239,68,68,0.12); background: rgba(239,68,68,0.02); cursor: default; }
+.upcoming-card::before { content: 'SOON'; color: var(--text3); background: var(--surface); border-color: var(--surface-border); }
+.upcoming-card:hover { transform: none; }
+.upcoming-card h3 { color: var(--text2); }
+
+/* About box */
+.about-box {
+  padding: 28px; background: var(--surface);
+  border: 1px solid var(--surface-border); border-radius: var(--radius);
+  margin-bottom: 56px;
+}
+.about-box h2 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 12px; margin-top: 0; }
+.about-box p { font-family: var(--font-serif); color: var(--text2); font-size: 0.95rem; line-height: 1.75; margin-bottom: 12px; }
+.about-box p:last-child { margin-bottom: 0; }
+
+/* ===== Critique Episode Page (episode-1.html, etc.) ===== */
+
+/* Series tag */
+.series-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 4px 12px; background: var(--critique-surface);
+  border: 1px solid var(--critique-border); border-radius: 999px;
+  font-family: var(--font-body); font-size: 0.78rem; font-weight: 600;
+  color: #fb7185; margin-bottom: 16px;
+}
+.series-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gradient-critique); }
+
+/* Episode heading */
+.episode-page h1 {
+  font-family: var(--font-display); font-size: 2.1rem; font-weight: 800;
+  margin-bottom: 14px; letter-spacing: -0.02em; line-height: 1.2; color: var(--text);
+}
+.deck {
+  font-family: var(--font-serif); font-style: italic; font-size: 1.08rem;
+  color: var(--text2); margin-bottom: 28px; line-height: 1.65;
+  border-left: 3px solid var(--critique-border); padding-left: 18px;
+}
+
+/* Episode typography — serif body with justified text */
+.episode-page p, .episode-page ol, .episode-page ul, .episode-page li {
+  font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.85;
+  color: #b8b8c8; margin-bottom: 16px;
+}
+.episode-page p { text-align: justify; hyphens: auto; }
+.episode-page strong { color: #f0f0fa; font-weight: 600; }
+.episode-page em { color: var(--accent-light); font-style: italic; }
+.episode-page a { color: var(--accent-light); }
+.episode-page a:hover { color: var(--text); text-decoration: underline; }
+.episode-page sup { font-size: 0.72rem; }
+.episode-page sup a { color: #fb7185; }
+.episode-page sup a:hover { color: #ffa5b8; text-decoration: none; }
+.episode-page hr { border: none; border-top: 1px solid var(--surface-border); margin: 48px 0; }
+
+/* Episode h2 with section markers */
+.episode-page h2 {
+  font-family: var(--font-display); font-size: 1.35rem; font-weight: 700;
+  margin-top: 44px; margin-bottom: 16px; color: var(--text);
+}
+.episode-page h2 .num { color: #fb7185; margin-right: 8px; font-weight: 800; }
+
+/* Author card — crimson variant */
+.author-card-critique {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 32px; padding: 16px;
+  background: var(--critique-surface); border: 1px solid var(--critique-border);
+  border-radius: var(--radius); font-family: var(--font-body);
+}
+.author-avatar-critique-sm {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--gradient-critique);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.15rem; font-weight: 700; color: white; flex-shrink: 0;
+}
+
+/* Math block */
+.math-block {
+  background: rgba(239,68,68,0.05); border-left: 4px solid #fb7185;
+  padding: 20px 24px; margin: 28px 0; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  overflow-x: auto; text-align: center;
+}
+.math-block p, .math-block > * { color: var(--text); margin: 0; }
+
+/* ASCII diagram */
+.diagram {
+  background: #0c0c16; border: 1px solid var(--surface-border);
+  border-radius: var(--radius-sm); padding: 20px 24px; margin: 28px 0;
+  font-family: 'JetBrains Mono', 'Consolas', monospace;
+  font-size: 0.85rem; color: #fb7185; line-height: 1.7;
+  white-space: pre; overflow-x: auto;
+}
+.diagram .dim { color: var(--text3); }
+.diagram .accent { color: var(--accent-light); }
+
+/* References */
+.references-card {
+  margin-top: 48px; padding: 28px;
+  background: var(--surface); border: 1px solid var(--surface-border);
+  border-radius: var(--radius);
+}
+.references-title {
+  font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+  color: var(--text); margin-bottom: 16px;
+}
+.references-list { list-style: none; padding: 0; margin: 0; }
+.references-list li {
+  font-family: var(--font-serif); font-size: 0.88rem; line-height: 1.65;
+  color: var(--text2); margin-bottom: 10px;
+  padding-left: 38px; position: relative; text-indent: -38px;
+}
+.references-list li .num { color: #fb7185; font-weight: 700; margin-right: 8px; }
+.references-list li em { color: var(--accent-light); }
+
+/* Next in series */
+.next-in-series {
+  margin-top: 40px; padding: 24px;
+  background: var(--critique-surface); border: 1px solid var(--critique-border);
+  border-radius: var(--radius);
+}
+.next-in-series .label { font-family: var(--font-body); font-size: 0.78rem; font-weight: 600; color: #fb7185; margin-bottom: 10px; }
+.next-in-series h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+.next-in-series p { font-family: var(--font-serif); font-size: 0.92rem; color: var(--text2); margin-bottom: 0; line-height: 1.6; }
+
+/* Related articles */
+.related-articles { margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--surface-border); }
+.related-articles h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 12px; }
+.related-list { list-style: none; padding: 0; }
+.related-list li { margin-bottom: 10px; }
+.related-list a { color: var(--accent-light); text-decoration: none; font-size: 0.9rem; }
+.related-list a:hover { text-decoration: underline; }
+
+/* ===== Responsive — Critique ===== */
+@media (max-width: 600px) {
+  .critique-page h1 { font-size: 1.8rem; }
+  .episode-page h1 { font-size: 1.6rem; }
+  .author-banner { flex-direction: column; text-align: center; }
+  .manifesto { padding-left: 16px; }
+}

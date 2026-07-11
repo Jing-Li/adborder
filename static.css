@@ -1,0 +1,31 @@
+/* =============================================================
+   AdBorder — Static & Contact Page Styles
+   ============================================================= */
+
+/* Contact methods grid */
+.contact-methods { display: grid; gap: 16px; margin: 24px 0 32px; }
+.contact-card {
+  background: var(--surface); border: 1px solid var(--surface-border);
+  border-radius: var(--radius); padding: 20px 24px;
+}
+.contact-card h3 { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; color: var(--text); }
+.contact-card p { margin: 0; font-size: 0.9rem; }
+.contact-card .contact-icon { font-size: 1.3rem; margin-bottom: 8px; display: block; }
+
+/* Contact FAQ */
+.faq-mini { margin-top: 32px; }
+.faq-mini-item { border-bottom: 1px solid var(--surface-border); padding: 14px 0; }
+.faq-mini-q { font-weight: 600; color: var(--text); font-size: 0.92rem; margin-bottom: 4px; }
+.faq-mini-a { color: var(--text2); font-size: 0.88rem; margin: 0; }
+
+/* 404 page */
+.error-container { text-align: center; max-width: 480px; }
+.error-code {
+  font-family: var(--font-display); font-size: 8rem; font-weight: 800;
+  color: var(--accent); line-height: 1; margin-bottom: 8px;
+}
+.error-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; margin-bottom: 12px; }
+.error-text { color: var(--text2); margin-bottom: 32px; font-size: 0.95rem; }
+.error-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* Policy/legal pages — standard article typography inherited from styles.css */
