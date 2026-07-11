@@ -23,7 +23,7 @@
     .header-inner { max-width: 800px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
     .logo { font-size: 1.4rem; font-weight: 800; background: linear-gradient(135deg, #a78bfa, #22d3ee); -webkit-background-clip: text; background-clip: text; color: transparent; text-decoration: none; }
     nav a { color: #9999b0; text-decoration: none; margin-left: 20px; font-size: 0.85rem; font-weight: 500; }
-    nav a:hover { color: #e8e8f0; }
+    nav a:hover, nav a.active { color: #e8e8f0; }
     main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 48px 24px; }
     .error-container { text-align: center; max-width: 480px; }
     .error-code { font-family: 'Sora', sans-serif; font-size: 8rem; font-weight: 800; background: linear-gradient(135deg, #7c3aed, #06b6d4); -webkit-background-clip: text; background-clip: text; color: transparent; line-height: 1; margin-bottom: 8px; }
@@ -56,11 +56,12 @@
   <a href="#main-content" class="skip-link">Skip to content</a>
   <header>
     <div class="header-inner">
-      <a href="/" class="logo">AdBorder</a>
+      <a href="/" class="logo">Ad<span>Border</span></a>
       <nav>
         <a href="/">Tool</a>
-        <a href="/#faq">FAQ</a>
         <a href="/blog.html">Blog</a>
+        <a href="/critique/">Critique</a>
+        <a href="/about.html" class="active">About</a>
       </nav>
     </div>
   </header>

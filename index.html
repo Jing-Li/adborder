@@ -149,7 +149,7 @@
       padding: 6px 14px; border-radius: 8px;
       transition: color 0.2s, background 0.2s;
     }
-    nav a:hover { color: var(--text); background: var(--surface-hover); }
+    nav a:hover, nav a.active { color: var(--text); background: var(--surface-hover); }
 
     /* ===== Ad Slots ===== */
     .ad-slot {
@@ -1090,12 +1090,12 @@
   <!-- Header -->
   <header>
     <div class="header-inner">
-      <a href="/" class="logo">AdBorder</a>
+      <a href="/" class="logo">Ad<span>Border</span></a>
       <nav>
-        <a href="#tool">Tool</a>
-        <a href="#features">Features</a>
-        <a href="#faq">FAQ</a>
+        <a href="/" class="active">Tool</a>
         <a href="/blog.html">Blog</a>
+        <a href="/critique/">Critique</a>
+        <a href="/about.html">About</a>
       </nav>
     </div>
   </header>

@@ -128,7 +128,7 @@
     .logo { font-size: 1.4rem; font-weight: 800; background: linear-gradient(135deg, #a78bfa, #22d3ee); -webkit-background-clip: text; background-clip: text; color: transparent; text-decoration: none; }
     .logo span {}
     nav a { color: #9999b0; text-decoration: none; margin-left: 20px; font-size: 0.85rem; font-weight: 500; padding: 8px 4px; min-height: 44px; display: inline-flex; align-items: center; }
-    nav a:hover { color: #e8e8f0; }
+    nav a:hover, nav a.active { color: #e8e8f0; }
     main { max-width: 800px; margin: 0 auto; padding: 48px 24px; }
     h1 { font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
     .updated { color: #777790; font-size: 0.9rem; margin-bottom: 32px; }
@@ -209,9 +209,10 @@
     <div class="header-inner">
       <a href="/" class="logo">Ad<span>Border</span></a>
       <nav>
-        <a href="/#tool">Tool</a>
-        <a href="/#tool">Size Checker</a>
-        <a href="/blog.html">Blog</a>
+        <a href="/">Tool</a>
+        <a href="/blog.html" class="active">Blog</a>
+        <a href="/critique/">Critique</a>
+        <a href="/about.html">About</a>
       </nav>
     </div>
   </header>
