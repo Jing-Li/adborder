@@ -113,8 +113,8 @@ nav a.active { color: var(--text); background: var(--surface); }
 main { max-width: var(--content-max); margin: 0 auto; padding: 48px 24px; }
 
 /* ===== Typography ===== */
-h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); color: var(--text); }
-h1 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 800; margin-bottom: 12px; letter-spacing: -0.02em; line-height: 1.2; }
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); color: var(--text); text-wrap: balance; }
+h1 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 800; margin-bottom: 16px; letter-spacing: -0.02em; line-height: 1.2; }
 h2 { font-size: 1.3rem; font-weight: 700; margin-top: 32px; margin-bottom: 12px; }
 h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; }
 p { color: var(--text2); margin-bottom: 12px; }
@@ -126,12 +126,13 @@ a:hover { text-decoration: underline; }
 footer {
   border-top: 1px solid var(--surface-border);
   padding: 32px 24px; margin-top: 48px; text-align: center;
+  max-width: var(--content-max); margin-left: auto; margin-right: auto;
 }
 .footer-links {
   display: flex; gap: 20px; justify-content: center;
   margin-bottom: 12px; flex-wrap: wrap;
 }
-.footer-links a { color: var(--text3); text-decoration: none; font-size: 0.82rem; }
+.footer-links a { color: var(--text2); text-decoration: none; font-size: 0.82rem; }
 .footer-links a:hover { color: var(--accent); }
 .footer-copy { font-size: 0.82rem; color: var(--text3); }
 

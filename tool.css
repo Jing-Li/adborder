@@ -1,4 +1,4 @@
-/* =============================================================
+﻿/* =============================================================
    AdBorder — Tool Page Styles (index.html)
    Migrated inline styles + original tool.css
    July 2026
@@ -16,7 +16,7 @@
 }
 .tool-hero h1 .accent-word { color: var(--accent); }
 .tool-hero h1 .gradient-word {
-  background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent;
+  color: var(--accent-light);
 }
 .tool-hero p { color: var(--text2); font-size: 1.05rem; max-width: 520px; margin: 0 auto; }
 
@@ -430,12 +430,11 @@ input[type="color"]:hover { border-color: rgba(255,255,255,0.2); }
 }
 .stat-card:hover {
   border-color: var(--surface-border-hover);
-  transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(0,0,0,0.3);
 }
 .stat-number {
   font-family: var(--font-display); font-size: 2rem; font-weight: 800;
-  background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent;
+  color: var(--accent-light);
   line-height: 1.2;
 }
 .stat-label { font-size: 0.82rem; color: var(--text3); margin-top: 4px; }
@@ -473,7 +472,7 @@ input[type="color"]:hover { border-color: rgba(255,255,255,0.2); }
   background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(13,148,136,0.06), transparent 50%);
   pointer-events: none; opacity: 0; transition: opacity 0.3s;
 }
-.feature-card:hover { border-color: var(--surface-border-hover); transform: translateY(-3px); }
+.feature-card:hover { border-color: var(--surface-border-hover); box-shadow: 0 8px 30px rgba(0,0,0,0.25); }
 .feature-card:hover::after { opacity: 1; }
 .feature-card .feature-icon { font-size: 1.8rem; margin-bottom: 14px; display: block; }
 .feature-card h3 { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
@@ -571,7 +570,7 @@ input[type="color"]:hover { border-color: rgba(255,255,255,0.2); }
   padding: 24px 16px; text-align: center; text-decoration: none;
   transition: all 0.3s ease; display: block;
 }
-.platform-card:hover { border-color: var(--surface-border-hover); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+.platform-card:hover { border-color: var(--surface-border-hover); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
 .platform-card-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
 .platform-card-icon svg { transition: color 0.3s ease; }
 .platform-card:hover .platform-card-icon svg { color: var(--text) !important; }
@@ -755,7 +754,7 @@ input[type="color"]:hover { border-color: rgba(255,255,255,0.2); }
 }
 .sc-score-number {
   font-family: var(--font-display); font-size: 3.5rem; font-weight: 800;
-  background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent;
+  color: var(--accent-light);
 }
 .sc-score-label { color: var(--text2); font-size: 0.88rem; margin-top: 4px; }
 
@@ -764,7 +763,7 @@ input[type="color"]:hover { border-color: rgba(255,255,255,0.2); }
   background: var(--surface); border: 1px solid var(--surface-border);
   border-radius: var(--radius); padding: 20px; transition: all 0.3s;
 }
-.sc-card:hover { border-color: var(--surface-border-hover); transform: translateY(-2px); }
+.sc-card:hover { border-color: var(--surface-border-hover); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
 .sc-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
 .sc-card-icon { font-size: 1.3rem; }
 .sc-card-name { font-family: var(--font-display); font-size: 0.92rem; font-weight: 700; }

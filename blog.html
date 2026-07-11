@@ -243,10 +243,10 @@
     </nav>
     <p class="footer-copy">&copy; 2026 AdBorder.top</p>
   </footer>
-  <div id="cookieBanner" style="position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,18,0.92);backdrop-filter:blur(12px);color:#e8e8f0;padding:14px 24px;z-index:9999;font-size:0.85rem;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.08);display:none">
-    <span>We use cookies for analytics and advertising. By continuing, you agree to our <a href="/privacy.html" style="color:#5eead4;text-decoration:underline">Privacy Policy</a>.</span>
-    <button onclick="dismissCookie()" style="background:linear-gradient(135deg,#0d9488,#d97706);color:white;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600;font-size:0.82rem">Accept</button>
-  </div>
+    <div id="cookieBanner" class="cookie-banner">
+      <span>We use cookies to improve your experience and serve non-intrusive ads. By continuing, you agree to our <a href="/privacy.html">Privacy Policy</a>.</span>
+      <button class="cookie-accept" onclick="document.getElementById('cookieBanner').style.display='none';localStorage.setItem('adborder-cookies','accepted')">Accept</button>
+    </div>
   <script>
     (function(){
       var cb = document.getElementById('cookieBanner');
