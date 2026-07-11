@@ -134,6 +134,26 @@ footer {
 .footer-links a { color: var(--text2); text-decoration: none; font-size: 0.82rem; }
 .footer-links a:hover { color: var(--accent); }
 .footer-copy { font-size: 0.82rem; color: var(--text3); }
+.footer-support {
+  margin-top: 20px; padding-top: 20px;
+  border-top: 1px solid var(--surface-border);
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; flex-wrap: wrap;
+}
+.footer-support-text { color: var(--text2); font-size: 0.82rem; margin: 0; }
+.footer-support-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 18px; border-radius: 20px;
+  background: linear-gradient(135deg, rgba(13,148,136,0.15), rgba(217,119,6,0.10));
+  border: 1px solid rgba(13,148,136,0.25);
+  color: var(--accent-light); text-decoration: none;
+  font-family: var(--font-display); font-size: 0.8rem; font-weight: 600;
+  transition: all 0.3s ease;
+}
+.footer-support-btn:hover {
+  background: linear-gradient(135deg, rgba(13,148,136,0.25), rgba(217,119,6,0.15));
+  border-color: rgba(13,148,136,0.4);
+}
 
 /* ===== Selection & Focus ===== */
 ::selection { background: rgba(13,148,136,0.3); color: white; }
