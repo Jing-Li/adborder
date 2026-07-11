@@ -126,7 +126,6 @@ a:hover { text-decoration: underline; }
 footer {
   border-top: 1px solid var(--surface-border);
   padding: 32px 24px; margin-top: 48px; text-align: center;
-  max-width: var(--content-max); margin-left: auto; margin-right: auto;
 }
 .footer-links {
   display: flex; gap: 20px; justify-content: center;
