@@ -85,6 +85,15 @@
     .featured-card:hover { border-color: rgba(244,163,94,0.3); box-shadow: 0 8px 30px rgba(0,0,0,0.2); transform: translateY(-2px); }
     .featured-card h2 { font-family: 'Sora', sans-serif; font-size: 1.1rem; font-weight: 700; color: #e8e8f0; margin-bottom: 8px; line-height: 1.4; }
     .featured-card p { color: #9999b0; font-size: 0.88rem; line-height: 1.6; }
+    /* AI Critique — crimson variant */
+    .critique-hero { border-color: rgba(239,68,68,0.22) !important; background: linear-gradient(145deg, rgba(239,68,68,0.04), rgba(249,115,22,0.03)) !important; }
+    .critique-hero::before { content: 'CRITIQUE'; color: #fb7185; background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.25); }
+    .critique-hero:hover { border-color: rgba(239,68,68,0.4) !important; box-shadow: 0 0 30px rgba(239,68,68,0.1), 0 12px 40px rgba(0,0,0,0.2); transform: translateY(-3px); }
+    .critique-card { border-color: rgba(239,68,68,0.15) !important; background: rgba(239,68,68,0.025) !important; }
+    .critique-card::before { content: 'CRITIQUE'; color: #fb7185; background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.25); }
+    .critique-card:hover { border-color: rgba(239,68,68,0.35) !important; box-shadow: 0 8px 30px rgba(239,68,68,0.08), 0 8px 30px rgba(0,0,0,0.2); transform: translateY(-2px); }
+    .critique-label { color: #fb7185; }
+    .critique-label::after { background: linear-gradient(to right, rgba(239,68,68,0.3), transparent); }
     /* Archive section */
     .archive-label { font-family: 'Sora', sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #777790; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
     .archive-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(255,255,255,0.08), transparent); }
@@ -244,6 +253,22 @@
           <p>When black borders work, when to avoid them, and the ideal widths for Instagram, Twitter/X, portfolios, and print — with a step-by-step walkthrough.</p>
         </a>
       </div>
+    </div>
+
+    <div class="featured-section">
+      <div class="featured-label critique-label">AI Critique</div>
+
+      <a href="blog-ai-truth-illusion.html" class="featured-hero critique-hero">
+        <div class="blog-card-meta">
+          <span>July 2026</span>
+          <span class="dot"></span>
+          <span>12 min read</span>
+          <span class="dot"></span>
+          <span>By Lin Kong</span>
+        </div>
+        <h2>The Epicyclic Bubble: Why Autoregressive LLMs are the Ptolemaic Epicycles of AI</h2>
+        <p>Trillion-parameter language models are not on a path to general intelligence — they are on a path to the most elaborate curve-fitting exercise in the history of science. The math was always going to catch up with them.</p>
+      </a>
     </div>
 
     <div class="archive-label">All Articles</div>
