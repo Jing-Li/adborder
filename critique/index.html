@@ -69,59 +69,6 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%230d9488'/><stop offset='100%25' stop-color='%23d97706'/></linearGradient></defs><rect x='5' y='5' width='90' height='90' rx='16' fill='%230b1120' stroke='url(%23g)' stroke-width='6'/><text x='50' y='66' font-size='44' font-weight='bold' fill='url(%23g)' text-anchor='middle' font-family='sans-serif'>AB</text></svg>">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/critique.css">
-  <style>
-    main { max-width: 900px; margin: 0 auto; padding: 48px 24px; }
-
-    .eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 5px 14px; background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.25); border-radius: 999px; font-family: var(--font-display); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #fb7185; margin-bottom: 20px; }
-    .eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: linear-gradient(135deg, #ef4444, #f97316); box-shadow: 0 0 8px rgba(239,68,68,0.6); }
-
-    h1 { font-family: var(--font-display); font-size: 2.8rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; color: var(--text); margin-bottom: 18px; }
-    .tagline { font-family: var(--font-serif); font-size: 1.15rem; color: #9999b0; max-width: 640px; line-height: 1.65; margin-bottom: 40px; }
-    .tagline em { color: #fb7185; font-style: italic; }
-
-    /* Author banner */
-    .author-banner { display: flex; align-items: center; gap: 18px; padding: 20px 24px; background: rgba(239,68,68,0.04); border: 1px solid rgba(239,68,68,0.18); border-radius: 14px; margin-bottom: 48px; font-family: var(--font-body); }
-    .author-avatar { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #ef4444, #f97316); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 700; color: white; flex-shrink: 0; box-shadow: 0 4px 24px rgba(239,68,68,0.3); }
-    .author-banner-info { flex: 1; }
-    .author-banner-name { font-weight: 700; color: #e8e8f0; font-size: 1rem; }
-    .author-banner-role { color: #9999b0; font-size: 0.85rem; margin: 2px 0 0 0; }
-
-    /* Manifesto */
-    .manifesto { border-left: 3px solid rgba(239,68,68,0.4); padding: 4px 0 4px 28px; margin-bottom: 56px; }
-    .manifesto h2 { font-family: var(--font-display); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #fb7185; margin-bottom: 18px; }
-    .manifesto p { font-family: var(--font-serif); font-size: 1.08rem; line-height: 1.8; color: #b8b8c8; margin-bottom: 16px; }
-    .manifesto p:last-child { margin-bottom: 0; }
-
-    /* Episodes section */
-    .episodes-section { margin-bottom: 56px; }
-    .episodes-label { font-family: var(--font-display); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #fb7185; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-    .episodes-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(239,68,68,0.25), transparent); }
-
-    .episode-card { display: block; text-decoration: none; color: inherit; border: 1px solid rgba(239,68,68,0.22); border-radius: 14px; padding: 28px; background: linear-gradient(145deg, rgba(239,68,68,0.04), rgba(249,115,22,0.025)); transition: all 0.3s ease; position: relative; margin-bottom: 16px; }
-    .episode-card::before { content: 'EP ' attr(data-ep); position: absolute; top: 16px; right: 16px; font-family: var(--font-display); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.08em; color: #fb7185; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.25); border-radius: 6px; padding: 3px 10px; }
-    .episode-card:hover { border-color: rgba(239,68,68,0.45); box-shadow: 0 0 30px rgba(239,68,68,0.12), 0 12px 40px rgba(0,0,0,0.25); transform: translateY(-3px); }
-    .episode-card .meta { font-family: var(--font-body); font-size: 0.82rem; color: #777790; margin-bottom: 10px; }
-    .episode-card h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: #e8e8f0; margin-bottom: 10px; line-height: 1.35; }
-    .episode-card p { font-family: var(--font-serif); color: #9999b0; font-size: 0.95rem; line-height: 1.65; margin-bottom: 0; }
-
-    .upcoming-card { border-style: dashed; border-color: rgba(239,68,68,0.18); background: rgba(239,68,68,0.02); cursor: default; }
-    .upcoming-card::before { content: 'SOON'; color: #777790; background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); }
-    .upcoming-card:hover { border-color: rgba(239,68,68,0.25); box-shadow: none; transform: none; }
-    .upcoming-card h3 { color: #9999b0; }
-
-    /* About box */
-    .about-box { padding: 28px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; margin-bottom: 56px; }
-    .about-box h2 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: #e8e8f0; margin-bottom: 12px; }
-    .about-box p { font-family: var(--font-serif); color: #9999b0; font-size: 0.95rem; line-height: 1.75; margin-bottom: 12px; }
-    .about-box p:last-child { margin-bottom: 0; }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      .tagline { font-size: 1rem; }
-      .manifesto p { font-size: 0.98rem; }
-      main { padding: 32px 18px; }
-    }
-  </style>
 </head>
 <body class="critique-page">
   <a href="#main-content" class="skip-link">Skip to content</a>

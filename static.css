@@ -1,6 +1,46 @@
-/* =============================================================
+﻿/* =============================================================
    AdBorder — Static & Contact Page Styles
+   Migrated inline styles + original static.css
+   July 2026
    ============================================================= */
+
+/* ===== Shared Static Page Chrome ===== */
+.static-page main { max-width: var(--content-max); margin: 0 auto; padding: 48px 24px; }
+.static-page h1 {
+  font-family: var(--font-display); font-size: 2rem; font-weight: 800;
+  margin-bottom: 8px; letter-spacing: -0.02em;
+}
+.static-page h2 {
+  font-family: var(--font-display); font-size: 1.3rem; font-weight: 700;
+  margin-top: 32px; margin-bottom: 12px;
+}
+.static-page h3 {
+  font-family: var(--font-display); font-size: 1.05rem; font-weight: 600;
+  margin-bottom: 8px;
+}
+.static-page p { color: var(--text2); margin-bottom: 12px; }
+.static-page .updated { color: var(--text3); font-size: 0.9rem; margin-bottom: 32px; font-family: var(--font-body); }
+
+/* Serif body for article-style pages (about, editorial, privacy, terms) */
+.static-page main p, .static-page main ol, .static-page main ul, .static-page main li,
+.static-page main blockquote {
+  font-family: var(--font-serif); font-size: 1.02rem; line-height: 1.8;
+}
+.static-page main h1, .static-page main h2, .static-page main h3 {
+  font-family: var(--font-display);
+}
+
+/* Static page links */
+.static-page a { color: var(--accent-light); text-decoration: none; }
+.static-page a:hover { text-decoration: underline; }
+
+/* ===== Contact Page ===== */
+
+/* Contact subtitle */
+.contact-page .subtitle { color: var(--text2); margin-bottom: 32px; font-size: 1rem; }
+
+/* Contact links — use amber accent */
+.contact-page a { color: var(--accent2); }
 
 /* Contact methods grid */
 .contact-methods { display: grid; gap: 16px; margin: 24px 0 32px; }
@@ -18,7 +58,21 @@
 .faq-mini-q { font-weight: 600; color: var(--text); font-size: 0.92rem; margin-bottom: 4px; }
 .faq-mini-a { color: var(--text2); font-size: 0.88rem; margin: 0; }
 
-/* 404 page */
+/* Contact ad slot */
+.contact-page .ad-slot { max-width: var(--content-max); margin: 32px auto; padding: 0 24px; }
+.contact-page .ad-slot-inner {
+  width: 100%; min-height: 90px;
+  background: var(--surface); border: 1px dashed var(--surface-border);
+  border-radius: var(--radius-sm); padding: 8px; text-align: center;
+}
+
+/* ===== 404 Page ===== */
+
+/* 404 centering layout */
+.error-page main {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  padding: 48px 24px; min-height: calc(100vh - var(--header-height) - 120px);
+}
 .error-container { text-align: center; max-width: 480px; }
 .error-code {
   font-family: var(--font-display); font-size: 8rem; font-weight: 800;
@@ -28,4 +82,45 @@
 .error-text { color: var(--text2); margin-bottom: 32px; font-size: 0.95rem; }
 .error-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
-/* Policy/legal pages — standard article typography inherited from styles.css */
+/* 404 buttons */
+.error-page .btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 12px 24px; border-radius: 10px;
+  font-size: 0.88rem; font-weight: 600; text-decoration: none;
+  transition: all 0.2s; font-family: var(--font-display);
+}
+.error-page .btn-primary {
+  background: var(--gradient-brand); color: white;
+}
+.error-page .btn-primary:hover {
+  transform: translateY(-1px); box-shadow: 0 4px 20px rgba(13,148,136,0.4);
+}
+.error-page .btn-secondary {
+  background: var(--surface); color: var(--text);
+  border: 1px solid var(--surface-border);
+}
+.error-page .btn-secondary:hover {
+  background: var(--surface-hover); border-color: var(--surface-border-hover);
+}
+
+/* ===== About Page ===== */
+
+/* About page strong emphasis */
+.about-page strong { color: var(--text); font-weight: 600; }
+
+/* About page hero override */
+.about-page .author-hero {
+  padding: 24px; background: var(--surface);
+  border: 1px solid var(--surface-border); border-radius: var(--radius);
+}
+
+/* ===== Policy/legal pages — standard article typography inherited from above ===== */
+
+/* ===== Responsive — Static Pages ===== */
+@media (max-width: 600px) {
+  .static-page main { padding: 32px 16px; }
+  .static-page h1 { font-size: 1.5rem; }
+  .error-code { font-size: 5rem; }
+  .error-actions { flex-direction: column; align-items: center; }
+}
+

@@ -29,37 +29,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/blog.css">
-  <style>
-    main { max-width: 800px; margin: 0 auto; padding: 48px 24px; }
-    h1 { font-family: var(--font-display); font-size: 2rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
-    .updated { color: #777790; font-size: 0.9rem; margin-bottom: 32px; }
-    h2 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; margin-top: 32px; margin-bottom: 12px; }
-    p { color: var(--text2); margin-bottom: 12px; }
-    a { color: var(--accent-light); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    ol, ul { color: #9999b0; margin-bottom: 12px; padding-left: 24px; }
-    ol li, ul li { margin-bottom: 8px; }
-    strong { color: var(--text); }
-    .faq-item { margin-bottom: 24px; }
-    .faq-item h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: #e8e8f0; margin-bottom: 6px; }
-    .faq-item p { margin-bottom: 0; }
-    .author-card { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; padding: 16px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; }
-    .author-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 700; color: white; flex-shrink: 0; }
-    .author-info { flex: 1; }
-    .author-name { font-weight: 700; color: #e8e8f0; font-size: 0.95rem; }
-    .author-bio { color: #9999b0; font-size: 0.82rem; margin: 2px 0 0 0; }
-    /* Serif reading font for body text */
-    p, ol, ul, li, .faq-item p, blockquote { font-family: var(--font-serif), Georgia, serif; font-size: 1.02rem; line-height: 1.8; }
-    h1, h2, h3 { font-family: var(--font-display); }
-    .author-card, .author-hero, .author-info, .author-hero-info, .blog-card, .blog-card-meta, .cta-box, .faq-item h3, .updated, nav, header, footer { font-family: var(--font-body); }
-    /* Warm accent for links in content */
-    main a { color: var(--accent-light); }
-    main a:hover { color: #e0ccff; }
-    .cta-box { margin-top: 40px; padding: 32px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; text-align: center; }
-    .cta-box p { color: #e8e8f0; font-size: 1.1rem; margin-bottom: 16px; font-weight: 500; }
-    .cta-btn { display: inline-block; background: linear-gradient(135deg, #0d9488, #d97706); color: white; padding: 12px 32px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: transform 0.2s, box-shadow 0.2s; }
-    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(13,148,136,0.3); text-decoration: none; }
-  </style>
 
   <script type="application/ld+json">
   {
@@ -134,7 +103,7 @@
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adborder.top/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://adborder.top/blog.html"},{"@type":"ListItem","position":3,"name":"Color Psychology for Social Media","item":"https://adborder.top/blog-color-psychology-social-media.html"}]}
 </script>
 </head>
-<body class="article-page">
+<body class="blog-page">
   <a href="#main-content" class="skip-link">Skip to content</a>
   <div class="mesh-bg"></div>
   <div class="noise"></div>
@@ -263,16 +232,16 @@
       <a href="/" class="cta-btn">Try It Free on AdBorder</a>
     </div>
 
-    <div class="related-articles" style="margin-top:40px;">
-      <h2 style="font-size:1.2rem;margin-bottom:16px;">Related Articles</h2>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
-        <a href="/blog-visual-storytelling.html" style="display:block;padding:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;text-decoration:none;transition:border-color 0.2s;">
-          <p style="color:#e8e8f0;font-size:0.9rem;font-weight:600;margin-bottom:4px;">Visual Storytelling Guide</p>
-          <p style="color:#777790;font-size:0.8rem;margin:0;">How composition, contrast, and context make people stop scrolling.</p>
+    <div class="related-articles">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        <a href="/blog-visual-storytelling.html">
+          <p class="related-title">Visual Storytelling Guide</p>
+          <p class="related-desc">How composition, contrast, and context make people stop scrolling.</p>
         </a>
-        <a href="/blog-image-composition-tips.html" style="display:block;padding:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;text-decoration:none;transition:border-color 0.2s;">
-          <p style="color:#e8e8f0;font-size:0.9rem;font-weight:600;margin-bottom:4px;">8 Image Composition Techniques</p>
-          <p style="color:#777790;font-size:0.8rem;margin:0;">Practical techniques to make your photos more engaging.</p>
+        <a href="/blog-image-composition-tips.html">
+          <p class="related-title">8 Image Composition Techniques</p>
+          <p class="related-desc">Practical techniques to make your photos more engaging.</p>
         </a>
       </div>
     </div>

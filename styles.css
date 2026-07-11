@@ -30,6 +30,7 @@
 
   --gradient-brand: linear-gradient(135deg, #0d9488, #d97706);
   --gradient-brand-text: linear-gradient(135deg, #5eead4, #fbbf24);
+  --gradient-text: linear-gradient(135deg, #5eead4, #fbbf24);
 
   --radius: 12px;
   --radius-sm: 8px;

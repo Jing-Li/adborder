@@ -22,51 +22,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/blog.css">
-  <style>
-    /* Blog-specific CSS — shared styles in /styles.css and /blog.css */
-    main { max-width: 800px; margin: 0 auto; padding: 48px 24px; }
-    h1 { font-family: var(--font-display); font-size: 2rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
-    .subtitle { color: #9999b0; font-size: 1.05rem; margin-bottom: 40px; max-width: 600px; }
-    .blog-grid { display: grid; gap: 20px; }
-    .blog-card { display: block; text-decoration: none; color: inherit; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 28px; background: rgba(255,255,255,0.02); transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease; }
-    .blog-card:hover { border-color: rgba(13,148,136,0.4); box-shadow: 0 0 20px rgba(13,148,136,0.1), 0 0 40px rgba(217,119,6,0.05); background: rgba(255,255,255,0.04); }
-    .blog-card-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; font-size: 0.82rem; color: #777790; }
-    .blog-card-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: #555570; }
-    .blog-card h2 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: #e8e8f0; margin-bottom: 10px; line-height: 1.4; transition: color 0.3s ease; }
-    .blog-card:hover h2 { color: #ffffff; }
-    .blog-card p { color: #9999b0; font-size: 0.92rem; line-height: 1.65; margin-bottom: 0; }
-    .ad-container { max-width: 800px; margin: 40px auto 0; padding: 0 24px; }
-    /* Featured section */
-    .featured-section { margin-bottom: 48px; }
-    .featured-label { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: #f4a35e; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-    .featured-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(244,163,94,0.3), transparent); }
-    .featured-hero { display: block; text-decoration: none; color: inherit; border: 1px solid rgba(244,163,94,0.2); border-radius: 16px; padding: 36px 32px; background: linear-gradient(145deg, rgba(244,163,94,0.04), rgba(13,148,136,0.03)); transition: all 0.3s ease; position: relative; overflow: hidden; margin-bottom: 16px; }
-    .featured-hero::before { content: 'NEW'; position: absolute; top: 16px; right: 16px; font-family: var(--font-display); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.08em; color: #f4a35e; background: rgba(244,163,94,0.1); border: 1px solid rgba(244,163,94,0.2); border-radius: 6px; padding: 3px 10px; }
-    .featured-hero:hover { border-color: rgba(244,163,94,0.4); box-shadow: 0 0 30px rgba(244,163,94,0.08), 0 12px 40px rgba(0,0,0,0.2); transform: translateY(-3px); }
-    .featured-hero h2 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; color: #e8e8f0; margin-bottom: 10px; line-height: 1.3; }
-    .featured-hero p { color: #9999b0; font-size: 0.95rem; line-height: 1.65; max-width: 600px; }
-    .featured-hero .blog-card-meta { margin-bottom: 14px; }
-    .featured-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .featured-card { display: block; text-decoration: none; color: inherit; border: 1px solid rgba(244,163,94,0.12); border-radius: 14px; padding: 24px; background: rgba(244,163,94,0.02); transition: all 0.3s ease; position: relative; }
-    .featured-card::before { content: 'NEW'; position: absolute; top: 14px; right: 14px; font-family: var(--font-display); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.08em; color: #f4a35e; background: rgba(244,163,94,0.1); border: 1px solid rgba(244,163,94,0.2); border-radius: 5px; padding: 2px 8px; }
-    .featured-card:hover { border-color: rgba(244,163,94,0.3); box-shadow: 0 8px 30px rgba(0,0,0,0.2); transform: translateY(-2px); }
-    .featured-card h2 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #e8e8f0; margin-bottom: 8px; line-height: 1.4; }
-    .featured-card p { color: #9999b0; font-size: 0.88rem; line-height: 1.6; }
-    /* Archive section */
-    .archive-label { font-family: var(--font-display); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #777790; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-    .archive-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(255,255,255,0.08), transparent); }
-    @media (max-width: 600px) {
-      h1 { font-size: 1.6rem; }
-      .blog-card { padding: 20px; }
-      .blog-card h2 { font-size: 1.05rem; }
-      .featured-pair { grid-template-columns: 1fr; }
-      .featured-hero h2 { font-size: 1.2rem; }
-    }
-    /* Enhanced header */
-    header { backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); }
-    /* Serif reading font */
-    p, ol, ul, li, .faq-item p, blockquote { font-family: var(--font-serif); font-size: 1.02rem; line-height: 1.8; }
-  </style>
 </head>
 <body class="blog-page">
   <a href="#main-content" class="skip-link">Skip to content</a>

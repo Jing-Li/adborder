@@ -30,57 +30,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/blog.css">
-  <style>
-    main { max-width: 800px; margin: 0 auto; padding: 48px 24px; }
-    h1 { font-family: var(--font-display); font-size: 2rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
-    .updated { color: #777790; font-size: 0.9rem; margin-bottom: 32px; }
-    h2 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; margin-top: 32px; margin-bottom: 12px; }
-    h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: #e8e8f0; margin-top: 20px; margin-bottom: 8px; }
-    p { color: var(--text2); margin-bottom: 12px; }
-    a { color: var(--accent-light); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    ol, ul { color: #9999b0; margin-bottom: 12px; padding-left: 24px; }
-    ol li, ul li { margin-bottom: 8px; }
-    strong { color: var(--text); }
-    .ad-slot { margin: 32px 0; }
-    .faq-item { margin-bottom: 24px; }
-    .faq-item h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: #e8e8f0; margin-bottom: 6px; }
-    .faq-item p { margin-bottom: 0; }
-    .cta-box { margin-top: 40px; padding: 24px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; }
-    .cta-box p { color: #e8e8f0; margin-bottom: 0; }
-
-    /* Size reference table */
-    .size-table-wrap { overflow-x: auto; margin: 24px 0 32px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); }
-    .size-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; min-width: 640px; }
-    .size-table thead { background: rgba(94,234,212,0.12); }
-    .size-table th { font-family: var(--font-display); font-weight: 600; color: #e8e8f0; text-align: left; padding: 12px 16px; white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .size-table td { padding: 10px 16px; border-bottom: 1px solid rgba(255,255,255,0.05); color: #b0b0c8; vertical-align: top; }
-    .size-table tbody tr:hover { background: rgba(255,255,255,0.03); }
-    .size-table .platform-row td { background: rgba(94,234,212,0.06); font-family: var(--font-display); font-weight: 600; color: #5eead4; padding-top: 14px; }
-    .size-table code { background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; font-size: 0.82rem; color: #fbbf24; }
-
-    /* Tip callout */
-    .tip-box { background: rgba(251,191,36,0.06); border-left: 3px solid #fbbf24; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0 20px; }
-    .tip-box p { color: #c0c0d8; margin-bottom: 0; }
-    .tip-box strong { color: #fbbf24; }
-
-    /* Mistake card */
-    .mistake-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 16px 20px; margin-bottom: 14px; }
-    .mistake-card h3 { margin-top: 0; font-size: 0.95rem; }
-    .mistake-card p { margin-bottom: 0; }
-    .author-card { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; padding: 16px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; }
-    .author-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 700; color: white; flex-shrink: 0; }
-    .author-info { flex: 1; }
-    .author-name { font-weight: 700; color: #e8e8f0; font-size: 0.95rem; }
-    .author-bio { color: #9999b0; font-size: 0.82rem; margin: 2px 0 0 0; }
-    /* Serif reading font for body text */
-    p, ol, ul, li, .faq-item p, blockquote { font-family: var(--font-serif), Georgia, serif; font-size: 1.02rem; line-height: 1.8; }
-    h1, h2, h3 { font-family: var(--font-display); }
-    .author-card, .author-hero, .author-info, .author-hero-info, .blog-card, .blog-card-meta, .cta-box, .faq-item h3, .updated, nav, header, footer { font-family: var(--font-body); }
-    /* Warm accent for links in content */
-    main a { color: var(--accent-light); }
-    main a:hover { color: #e0ccff; }
-</style>
 
   <script type="application/ld+json">
   {
@@ -170,7 +119,7 @@
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adborder.top/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://adborder.top/blog.html"},{"@type":"ListItem","position":3,"name":"Social Media Image Size Guide","item":"https://adborder.top/blog-social-media-sizes.html"}]}
 </script>
 </head>
-<body class="article-page">
+<body class="blog-page">
   <a href="#main-content" class="skip-link">Skip to content</a>
   <div class="mesh-bg"></div>
   <div class="noise"></div>
@@ -621,16 +570,16 @@
       <p><strong>Ready to check your images?</strong> Use the <a href="/#tool">AdBorder Size Checker</a> to verify your image dimensions instantly, then add clean borders to match any platform's <a href="/blog-aspect-ratio.html">aspect ratio</a>. Free, no signup, no watermark — just drag, drop, and go.</p>
     </div>
 
-    <div class="related-articles" style="margin-top:40px;">
-      <h2 style="font-size:1.2rem;margin-bottom:16px;">Related Articles</h2>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
-        <a href="/blog-aspect-ratio.html" style="display:block;padding:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;text-decoration:none;transition:border-color 0.2s;">
-          <p style="color:#e8e8f0;font-size:0.9rem;font-weight:600;margin-bottom:4px;">Understanding Aspect Ratios</p>
-          <p style="color:#777790;font-size:0.8rem;margin:0;">How aspect ratios work and why getting them wrong kills your engagement.</p>
+    <div class="related-articles">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        <a href="/blog-aspect-ratio.html">
+          <p class="related-title">Understanding Aspect Ratios</p>
+          <p class="related-desc">How aspect ratios work and why getting them wrong kills your engagement.</p>
         </a>
-        <a href="/blog-image-format.html" style="display:block;padding:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;text-decoration:none;transition:border-color 0.2s;">
-          <p style="color:#e8e8f0;font-size:0.9rem;font-weight:600;margin-bottom:4px;">PNG vs JPEG vs WebP Compared</p>
-          <p style="color:#777790;font-size:0.8rem;margin:0;">Choose the right image format for sharp, optimized social media photos.</p>
+        <a href="/blog-image-format.html">
+          <p class="related-title">PNG vs JPEG vs WebP Compared</p>
+          <p class="related-desc">Choose the right image format for sharp, optimized social media photos.</p>
         </a>
       </div>
     </div>
