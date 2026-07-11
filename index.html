@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -73,8 +73,8 @@
       background: linear-gradient(145deg, #0d0d1a, #12122a);
       transition: box-shadow 0.4s ease;
     }
-    .upload-stage:hover { box-shadow: 0 0 60px rgba(124,58,237,0.12), 0 0 120px rgba(6,182,212,0.06); }
-    .upload-stage.dragover { box-shadow: 0 0 80px rgba(124,58,237,0.25), 0 0 160px rgba(6,182,212,0.12); }
+    .upload-stage:hover { box-shadow: 0 0 60px rgba(13,148,136,0.12), 0 0 120px rgba(217,119,6,0.06); }
+    .upload-stage.dragover { box-shadow: 0 0 80px rgba(13,148,136,0.25), 0 0 160px rgba(217,119,6,0.12); }
     .upload-stage.dragover .stage-border { opacity: 1; border-width: 3px; }
     .upload-stage.has-image { cursor: default; aspect-ratio: auto; min-height: auto; }
 
@@ -88,7 +88,7 @@
       position: absolute; inset: 24px; border-radius: 14px;
       border: 2px solid transparent;
       background: linear-gradient(#0d0d1a, #0d0d1a) padding-box,
-                  conic-gradient(from var(--angle, 0deg), #7c3aed, #06b6d4, #f43f5e, #7c3aed) border-box;
+                  conic-gradient(from var(--angle, 0deg), #0d9488, #d97706, #f43f5e, #0d9488) border-box;
       opacity: 0.6; transition: opacity 0.4s, border-width 0.3s;
       z-index: 2; pointer-events: none;
     }
@@ -99,7 +99,7 @@
     /* Inner glow pulse */
     .stage-glow {
       position: absolute; inset: 24px; border-radius: 14px;
-      background: radial-gradient(ellipse at 50% 50%, rgba(124,58,237,0.08), transparent 70%);
+      background: radial-gradient(ellipse at 50% 50%, rgba(13,148,136,0.08), transparent 70%);
       z-index: 2; pointer-events: none;
       animation: glowPulse 3s ease-in-out infinite;
     }
@@ -135,20 +135,20 @@
 
     .stage-icon-wrap {
       width: 72px; height: 72px; border-radius: 50%;
-      background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(6,182,212,0.1));
-      border: 1px solid rgba(124,58,237,0.2);
+      background: linear-gradient(135deg, rgba(13,148,136,0.15), rgba(217,119,6,0.1));
+      border: 1px solid rgba(13,148,136,0.2);
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 20px; position: relative;
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .upload-stage:hover .stage-icon-wrap {
       transform: scale(1.08);
-      box-shadow: 0 0 30px rgba(124,58,237,0.2);
+      box-shadow: 0 0 30px rgba(13,148,136,0.2);
     }
-    .stage-icon-wrap svg { width: 28px; height: 28px; stroke: #a78bfa; fill: none; stroke-width: 1.5; }
+    .stage-icon-wrap svg { width: 28px; height: 28px; stroke: #5eead4; fill: none; stroke-width: 1.5; }
     .icon-ring {
       position: absolute; inset: -6px; border-radius: 50%;
-      border: 1px solid rgba(124,58,237,0.15);
+      border: 1px solid rgba(13,148,136,0.15);
       animation: ringPulse 2.5s ease-in-out infinite;
     }
     @keyframes ringPulse {
@@ -187,7 +187,7 @@
     }
     .bloom-ring {
       width: 40px; height: 40px; border-radius: 50%;
-      border: 2px solid rgba(124,58,237,0.6);
+      border: 2px solid rgba(13,148,136,0.6);
       animation: bloomExpand 0.8s ease-out forwards;
     }
     @keyframes bloomExpand {
@@ -221,9 +221,9 @@
     .btn:active { transform: scale(0.97); }
     .btn-primary {
       background: var(--gradient); color: white;
-      box-shadow: 0 4px 20px rgba(124,58,237,0.3);
+      box-shadow: 0 4px 20px rgba(13,148,136,0.3);
     }
-    .btn-primary:hover { box-shadow: 0 6px 30px rgba(124,58,237,0.45); transform: translateY(-1px); }
+    .btn-primary:hover { box-shadow: 0 6px 30px rgba(13,148,136,0.45); transform: translateY(-1px); }
     .btn-secondary {
       background: var(--surface); color: var(--text);
       border: 1px solid var(--glass-border);
@@ -258,7 +258,7 @@
     }
     .panel-header-icon {
       width: 28px; height: 28px; border-radius: 8px;
-      background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(6,182,212,0.15));
+      background: linear-gradient(135deg, rgba(13,148,136,0.2), rgba(217,119,6,0.15));
       display: flex; align-items: center; justify-content: center;
       font-size: 0.85rem;
     }
@@ -298,16 +298,16 @@
     }
     .style-btn::before {
       content: ''; position: absolute; inset: 0; border-radius: 11px;
-      background: linear-gradient(135deg, rgba(124,58,237,0.12), rgba(6,182,212,0.08));
+      background: linear-gradient(135deg, rgba(13,148,136,0.12), rgba(217,119,6,0.08));
       opacity: 0; transition: opacity 0.25s;
     }
     .style-btn:hover { border-color: rgba(255,255,255,0.12); color: var(--text2); transform: translateY(-1px); }
     .style-btn:hover::before { opacity: 0.5; }
     .style-btn.active {
-      border-color: rgba(124,58,237,0.45);
+      border-color: rgba(13,148,136,0.45);
       color: var(--accent1);
-      background: rgba(124,58,237,0.06);
-      box-shadow: 0 0 24px rgba(124,58,237,0.08), inset 0 0 0 1px rgba(124,58,237,0.12);
+      background: rgba(13,148,136,0.06);
+      box-shadow: 0 0 24px rgba(13,148,136,0.08), inset 0 0 0 1px rgba(13,148,136,0.12);
     }
     .style-btn.active::before { opacity: 1; }
     .style-btn .style-icon { font-size: 1.15rem; display: block; line-height: 1; position: relative; z-index: 1; }
@@ -325,11 +325,11 @@
     input[type="range"]::-webkit-slider-thumb {
       -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%;
       background: var(--accent1); cursor: pointer;
-      box-shadow: 0 0 0 3px rgba(124,58,237,0.15), 0 0 14px rgba(124,58,237,0.35);
+      box-shadow: 0 0 0 3px rgba(13,148,136,0.15), 0 0 14px rgba(13,148,136,0.35);
       transition: box-shadow 0.2s, transform 0.15s;
     }
     input[type="range"]::-webkit-slider-thumb:hover {
-      box-shadow: 0 0 0 5px rgba(124,58,237,0.18), 0 0 24px rgba(124,58,237,0.5);
+      box-shadow: 0 0 0 5px rgba(13,148,136,0.18), 0 0 24px rgba(13,148,136,0.5);
       transform: scale(1.12);
     }
     input[type="range"]::-webkit-slider-thumb:active {
@@ -338,7 +338,7 @@
     input[type="range"]::-moz-range-thumb {
       width: 18px; height: 18px; border-radius: 50%;
       background: var(--accent1); cursor: pointer; border: none;
-      box-shadow: 0 0 0 3px rgba(124,58,237,0.15), 0 0 14px rgba(124,58,237,0.35);
+      box-shadow: 0 0 0 3px rgba(13,148,136,0.15), 0 0 14px rgba(13,148,136,0.35);
     }
     .slider-value {
       font-size: 0.78rem; font-weight: 700; min-width: 44px; text-align: center;
@@ -358,7 +358,7 @@
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       text-align: center;
     }
-    .width-preset:hover { border-color: rgba(124,58,237,0.35); color: var(--accent1); background: rgba(124,58,237,0.05); }
+    .width-preset:hover { border-color: rgba(13,148,136,0.35); color: var(--accent1); background: rgba(13,148,136,0.05); }
 
     /* Color */
     .color-row { display: flex; align-items: center; gap: 12px; }
@@ -378,7 +378,7 @@
     .color-swatch:hover { transform: scale(1.15); box-shadow: 0 0 14px rgba(0,0,0,0.3), inset 0 0 0 1px rgba(255,255,255,0.1); }
     .color-swatch.active {
       border-color: var(--accent1);
-      box-shadow: 0 0 0 2px rgba(124,58,237,0.25), 0 0 14px rgba(124,58,237,0.2);
+      box-shadow: 0 0 0 2px rgba(13,148,136,0.25), 0 0 14px rgba(13,148,136,0.2);
       transform: scale(1.1);
     }
 
@@ -390,7 +390,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
     .gradient-btn:hover { transform: scale(1.08) translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.25); }
-    .gradient-btn.active { border-color: rgba(6,182,212,0.6); box-shadow: 0 0 0 2px rgba(6,182,212,0.2), 0 4px 16px rgba(0,0,0,0.25); }
+    .gradient-btn.active { border-color: rgba(217,119,6,0.6); box-shadow: 0 0 0 2px rgba(217,119,6,0.2), 0 4px 16px rgba(0,0,0,0.25); }
 
     /* Radius */
     #radiusGroup { display: none; }
@@ -419,12 +419,12 @@
       box-shadow: 0 1px 4px rgba(0,0,0,0.3);
     }
     .toggle input:checked + .toggle-slider {
-      background: rgba(124,58,237,0.35);
-      box-shadow: 0 0 16px rgba(124,58,237,0.15);
+      background: rgba(13,148,136,0.35);
+      box-shadow: 0 0 16px rgba(13,148,136,0.15);
     }
     .toggle input:checked + .toggle-slider::before {
       transform: translateX(20px); background: var(--accent1);
-      box-shadow: 0 0 8px rgba(124,58,237,0.4);
+      box-shadow: 0 0 8px rgba(13,148,136,0.4);
     }
 
     /* Social */
@@ -436,11 +436,11 @@
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex; flex-direction: column; align-items: center; gap: 3px;
     }
-    .social-btn:hover { border-color: rgba(6,182,212,0.3); color: var(--text2); transform: translateY(-1px); }
+    .social-btn:hover { border-color: rgba(217,119,6,0.3); color: var(--text2); transform: translateY(-1px); }
     .social-btn.active {
-      border-color: rgba(6,182,212,0.45); background: rgba(6,182,212,0.06);
+      border-color: rgba(217,119,6,0.45); background: rgba(217,119,6,0.06);
       color: var(--accent2);
-      box-shadow: 0 0 16px rgba(6,182,212,0.08);
+      box-shadow: 0 0 16px rgba(217,119,6,0.08);
     }
 
     /* Format */
@@ -454,9 +454,9 @@
     }
     .format-btn:hover { border-color: rgba(255,255,255,0.12); color: var(--text2); transform: translateY(-1px); }
     .format-btn.active {
-      border-color: rgba(124,58,237,0.45); background: rgba(124,58,237,0.06);
+      border-color: rgba(13,148,136,0.45); background: rgba(13,148,136,0.06);
       color: var(--accent1);
-      box-shadow: 0 0 16px rgba(124,58,237,0.08);
+      box-shadow: 0 0 16px rgba(13,148,136,0.08);
     }
 
     #qualityGroup { display: none; }
@@ -470,18 +470,18 @@
       border: 2px solid rgba(255,255,255,0.06); cursor: pointer; transition: all 0.25s;
     }
     .batch-thumb:hover { border-color: rgba(255,255,255,0.15); }
-    .batch-thumb.active { border-color: var(--accent1); box-shadow: 0 0 0 2px rgba(124,58,237,0.2), 0 0 14px rgba(124,58,237,0.15); }
+    .batch-thumb.active { border-color: var(--accent1); box-shadow: 0 0 0 2px rgba(13,148,136,0.2), 0 0 14px rgba(13,148,136,0.15); }
     .batch-progress { background: rgba(255,255,255,0.04); border-radius: 4px; height: 4px; overflow: hidden; display: none; }
     .batch-progress.active { display: block; }
     .batch-progress-bar { height: 100%; background: var(--gradient); border-radius: 4px; transition: width 0.3s; }
 
     /* ===== Privacy Banner ===== */
     .privacy-banner {
-      background: rgba(6,182,212,0.06); border: 1px solid rgba(6,182,212,0.15);
+      background: rgba(217,119,6,0.06); border: 1px solid rgba(217,119,6,0.15);
       border-radius: var(--radius); padding: 14px 20px;
       margin: 32px auto; max-width: 1200px;
       display: flex; align-items: center; gap: 12px;
-      font-size: 0.88rem; color: rgba(6,182,212,0.9);
+      font-size: 0.88rem; color: rgba(217,119,6,0.9);
     }
     .privacy-banner .lock-icon { font-size: 1.2rem; }
 
@@ -544,7 +544,7 @@
     }
     .feature-card::after {
       content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(124,58,237,0.06), transparent 50%);
+      background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(13,148,136,0.06), transparent 50%);
       pointer-events: none; opacity: 0; transition: opacity 0.3s;
     }
     .feature-card:hover { border-color: var(--glass-border-hover); transform: translateY(-3px); }
@@ -558,8 +558,8 @@
       max-width: 1200px; margin: 0 auto; padding: 40px 24px;
     }
     .newsletter-card {
-      background: linear-gradient(145deg, rgba(124,58,237,0.06), rgba(6,182,212,0.04));
-      border: 1px solid rgba(124,58,237,0.12);
+      background: linear-gradient(145deg, rgba(13,148,136,0.06), rgba(217,119,6,0.04));
+      border: 1px solid rgba(13,148,136,0.12);
       border-radius: 20px; padding: 36px 32px;
       display: flex; align-items: center; gap: 32px;
       flex-wrap: wrap;
@@ -579,17 +579,17 @@
       color: var(--text); font-size: 0.85rem; font-family: var(--font-body);
       outline: none; transition: border-color 0.2s;
     }
-    .newsletter-form input[type="email"]:focus { border-color: rgba(124,58,237,0.4); }
+    .newsletter-form input[type="email"]:focus { border-color: rgba(13,148,136,0.4); }
     .newsletter-form input[type="email"]::placeholder { color: var(--text3); }
     .newsletter-form button {
       padding: 11px 24px; border: none; border-radius: 10px;
       background: var(--gradient); color: white; font-weight: 700;
       font-size: 0.82rem; cursor: pointer; white-space: nowrap;
-      box-shadow: 0 4px 16px rgba(124,58,237,0.25);
+      box-shadow: 0 4px 16px rgba(13,148,136,0.25);
       transition: transform 0.2s, box-shadow 0.2s;
       font-family: var(--font-body);
     }
-    .newsletter-form button:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(124,58,237,0.35); }
+    .newsletter-form button:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(13,148,136,0.35); }
     .newsletter-success {
       color: #22c55e; font-size: 0.85rem; font-weight: 600;
       display: none; margin-top: 8px;
@@ -609,7 +609,7 @@
       font-family: var(--font-body); font-weight: 600; font-size: 0.9rem;
       color: var(--text); transition: color 0.2s; user-select: none;
     }
-    .faq-question:hover { color: #a78bfa; }
+    .faq-question:hover { color: #5eead4; }
     .faq-arrow { transition: transform 0.3s; font-size: 0.7rem; color: var(--text3); }
     .faq-item.open .faq-arrow { transform: rotate(180deg); }
     .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
@@ -622,8 +622,8 @@
       max-width: 900px; margin: 0 auto; padding: 0 24px;
     }
     .blog-cta-card {
-      background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(6,182,212,0.06));
-      border: 1px solid rgba(124,58,237,0.15);
+      background: linear-gradient(135deg, rgba(13,148,136,0.08), rgba(217,119,6,0.06));
+      border: 1px solid rgba(13,148,136,0.15);
       border-radius: var(--radius); padding: 28px 32px;
       display: flex; align-items: center; justify-content: space-between; gap: 24px;
     }
@@ -690,10 +690,10 @@
     @keyframes exitFadeIn { from { opacity: 0; } to { opacity: 1; } }
     .exit-popup {
       background: linear-gradient(145deg, #13132a, #1a1a35);
-      border: 1px solid rgba(124,58,237,0.2); border-radius: 20px;
+      border: 1px solid rgba(13,148,136,0.2); border-radius: 20px;
       padding: 36px 32px; max-width: 420px; width: 90%;
       text-align: center; position: relative;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(124,58,237,0.1);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(13,148,136,0.1);
       animation: exitSlideUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     @keyframes exitSlideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
@@ -715,10 +715,10 @@
       background: var(--gradient); color: white; border: none;
       border-radius: 10px; font-family: var(--font-body); font-weight: 700;
       font-size: 0.88rem; cursor: pointer;
-      box-shadow: 0 4px 20px rgba(124,58,237,0.3);
+      box-shadow: 0 4px 20px rgba(13,148,136,0.3);
       transition: transform 0.2s, box-shadow 0.2s;
     }
-    .exit-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(124,58,237,0.45); }
+    .exit-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(13,148,136,0.45); }
     .exit-skip {
       display: block; margin-top: 12px; background: none; border: none;
       color: var(--text3); font-size: 0.78rem; cursor: pointer;
@@ -731,8 +731,8 @@
     /* Focus visible — tool-specific controls */
     .style-btn:focus-visible, .color-swatch:focus-visible, .gradient-btn:focus-visible,
     .width-preset:focus-visible, .social-btn:focus-visible, .format-btn:focus-visible {
-      outline: 2px solid #a78bfa; outline-offset: 2px;
-      border-color: rgba(124,58,237,0.5);
+      outline: 2px solid #5eead4; outline-offset: 2px;
+      border-color: rgba(13,148,136,0.5);
     }
 
     /* ===== Tool Tabs ===== */
@@ -748,7 +748,7 @@
     }
     .tool-tab.active {
       background: var(--gradient); color: white;
-      box-shadow: 0 2px 12px rgba(124,58,237,0.3);
+      box-shadow: 0 2px 12px rgba(13,148,136,0.3);
     }
     .tool-tab:not(.active):hover { color: var(--text); background: var(--surface-hover); }
 
@@ -762,8 +762,8 @@
       background: linear-gradient(145deg, #0d0d1a, #12122a);
       transition: box-shadow 0.4s ease;
     }
-    .sc-upload:hover { box-shadow: 0 0 60px rgba(124,58,237,0.12), 0 0 120px rgba(6,182,212,0.06); }
-    .sc-upload.dragover { box-shadow: 0 0 80px rgba(124,58,237,0.25), 0 0 160px rgba(6,182,212,0.12); }
+    .sc-upload:hover { box-shadow: 0 0 60px rgba(13,148,136,0.12), 0 0 120px rgba(217,119,6,0.06); }
+    .sc-upload.dragover { box-shadow: 0 0 80px rgba(13,148,136,0.25), 0 0 160px rgba(217,119,6,0.12); }
     .sc-upload.dragover .sc-border { opacity: 1; border-width: 3px; }
     .sc-upload.has-image { cursor: default; aspect-ratio: auto; min-height: auto; padding: 16px; overflow: visible; }
 
@@ -776,7 +776,7 @@
       position: absolute; inset: 24px; border-radius: 14px;
       border: 2px solid transparent;
       background: linear-gradient(#0d0d1a, #0d0d1a) padding-box,
-                  conic-gradient(from var(--angle, 0deg), #06b6d4, #f43f5e, #7c3aed, #06b6d4) border-box;
+                  conic-gradient(from var(--angle, 0deg), #d97706, #f43f5e, #0d9488, #d97706) border-box;
       opacity: 0.6; transition: opacity 0.4s, border-width 0.3s;
       z-index: 2; pointer-events: none;
       animation: borderRotate 6s linear infinite;
@@ -784,7 +784,7 @@
 
     .sc-glow {
       position: absolute; inset: 24px; border-radius: 14px;
-      background: radial-gradient(ellipse at 50% 50%, rgba(6,182,212,0.08), transparent 70%);
+      background: radial-gradient(ellipse at 50% 50%, rgba(217,119,6,0.08), transparent 70%);
       z-index: 2; pointer-events: none;
       animation: glowPulse 3s ease-in-out infinite;
     }
@@ -814,20 +814,20 @@
 
     .sc-icon-wrap {
       width: 72px; height: 72px; border-radius: 50%;
-      background: linear-gradient(135deg, rgba(6,182,212,0.15), rgba(124,58,237,0.1));
-      border: 1px solid rgba(6,182,212,0.2);
+      background: linear-gradient(135deg, rgba(217,119,6,0.15), rgba(13,148,136,0.1));
+      border: 1px solid rgba(217,119,6,0.2);
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 20px; position: relative;
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .sc-upload:hover .sc-icon-wrap {
       transform: scale(1.08);
-      box-shadow: 0 0 30px rgba(6,182,212,0.2);
+      box-shadow: 0 0 30px rgba(217,119,6,0.2);
     }
-    .sc-icon-wrap svg { width: 28px; height: 28px; stroke: #22d3ee; fill: none; stroke-width: 1.5; }
+    .sc-icon-wrap svg { width: 28px; height: 28px; stroke: #fbbf24; fill: none; stroke-width: 1.5; }
     .sc-icon-ring {
       position: absolute; inset: -6px; border-radius: 50%;
-      border: 1px solid rgba(6,182,212,0.15);
+      border: 1px solid rgba(217,119,6,0.15);
       animation: ringPulse 2.5s ease-in-out infinite;
     }
 
@@ -894,26 +894,10 @@
       transition: all 0.25s;
     }
     .sc-btn-primary { background: var(--gradient); color: white; }
-    .sc-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(124,58,237,0.4); }
+    .sc-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(13,148,136,0.4); }
     .sc-btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--glass-border); }
     .sc-btn-secondary:hover { background: var(--surface-hover); border-color: var(--accent2); }
 
-    /* ===== Ko-fi Support Button ===== */
-    .kofi-float {
-      position: fixed; bottom: 24px; right: 24px; z-index: 999;
-      display: flex; align-items: center; gap: 8px;
-      padding: 12px 20px; border-radius: 50px;
-      background: linear-gradient(135deg, #7c3aed, #06b6d4);
-      color: white; text-decoration: none; font-family: var(--font-display);
-      font-size: 0.82rem; font-weight: 700;
-      box-shadow: 0 4px 20px rgba(124,58,237,0.4), 0 2px 8px rgba(0,0,0,0.3);
-      transition: all 0.3s ease; cursor: pointer;
-    }
-    .kofi-float:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 28px rgba(124,58,237,0.55), 0 4px 12px rgba(0,0,0,0.3);
-    }
-    .kofi-float-icon { font-size: 1.2rem; line-height: 1; }
   </style>
 </head>
 <body>
@@ -972,23 +956,23 @@
             <div class="stage-demo" id="stageDemo">
               <svg class="stage-demo-img active" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
                 <rect width="240" height="180" fill="#1a1a2e"/>
-                <rect x="14" y="14" width="212" height="152" rx="3" fill="#2d1b69" stroke="#fff" stroke-width="5"/>
-                <circle cx="78" cy="65" r="22" fill="#7c3aed" opacity="0.6"/><circle cx="155" cy="90" r="30" fill="#06b6d4" opacity="0.45"/>
+                <rect x="14" y="14" width="212" height="152" rx="3" fill="#134e4a" stroke="#fff" stroke-width="5"/>
+                <circle cx="78" cy="65" r="22" fill="#0d9488" opacity="0.6"/><circle cx="155" cy="90" r="30" fill="#d97706" opacity="0.45"/>
                 <rect x="60" y="120" width="120" height="16" rx="4" fill="#f43f5e" opacity="0.3"/>
               </svg>
               <svg class="stage-demo-img" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
                 <defs><linearGradient id="pgb" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#667eea"/><stop offset="100%" stop-color="#764ba2"/></linearGradient></defs>
                 <rect width="240" height="180" fill="#1a1a2e"/>
                 <rect x="4" y="4" width="232" height="172" rx="2" fill="url(#pgb)"/>
-                <rect x="18" y="18" width="204" height="144" rx="3" fill="#2d1b69"/>
-                <circle cx="90" cy="75" r="28" fill="#a78bfa" opacity="0.5"/><rect x="50" y="115" width="140" height="14" rx="4" fill="#22d3ee" opacity="0.35"/>
+                <rect x="18" y="18" width="204" height="144" rx="3" fill="#134e4a"/>
+                <circle cx="90" cy="75" r="28" fill="#5eead4" opacity="0.5"/><rect x="50" y="115" width="140" height="14" rx="4" fill="#fbbf24" opacity="0.35"/>
               </svg>
               <svg class="stage-demo-img" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
                 <rect width="240" height="180" fill="#1a1a2e"/>
-                <rect x="10" y="10" width="220" height="160" rx="28" fill="none" stroke="#06b6d4" stroke-width="3"/>
+                <rect x="10" y="10" width="220" height="160" rx="28" fill="none" stroke="#d97706" stroke-width="3"/>
                 <rect x="28" y="28" width="184" height="124" rx="18" fill="#1e1b4b"/>
-                <circle cx="100" cy="72" r="24" fill="#7c3aed" opacity="0.5"/><circle cx="155" cy="95" r="18" fill="#f43f5e" opacity="0.4"/>
-                <rect x="70" y="120" width="100" height="12" rx="6" fill="#06b6d4" opacity="0.3"/>
+                <circle cx="100" cy="72" r="24" fill="#0d9488" opacity="0.5"/><circle cx="155" cy="95" r="18" fill="#f43f5e" opacity="0.4"/>
+                <rect x="70" y="120" width="100" height="12" rx="6" fill="#d97706" opacity="0.3"/>
               </svg>
             </div>
             <!-- Upload instruction overlay -->
@@ -1138,24 +1122,24 @@
           <div class="sc-demo" id="scDemo">
             <svg class="sc-demo-img active" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
               <rect width="240" height="180" fill="#1a1a2e"/>
-              <rect x="10" y="10" width="220" height="160" rx="4" fill="#0d0d1a" stroke="rgba(124,58,237,0.3)" stroke-width="1"/>
+              <rect x="10" y="10" width="220" height="160" rx="4" fill="#0d0d1a" stroke="rgba(13,148,136,0.3)" stroke-width="1"/>
               <!-- Score circle -->
-              <circle cx="60" cy="65" r="30" fill="none" stroke="#7c3aed" stroke-width="3" opacity="0.6"/>
-              <text x="60" y="70" text-anchor="middle" fill="#a78bfa" font-size="18" font-weight="bold" font-family="sans-serif">87</text>
+              <circle cx="60" cy="65" r="30" fill="none" stroke="#0d9488" stroke-width="3" opacity="0.6"/>
+              <text x="60" y="70" text-anchor="middle" fill="#5eead4" font-size="18" font-weight="bold" font-family="sans-serif">87</text>
               <!-- Platform bars -->
               <rect x="110" y="30" width="100" height="10" rx="5" fill="#10b981" opacity="0.5"/>
               <rect x="110" y="48" width="80" height="10" rx="5" fill="#f59e0b" opacity="0.5"/>
               <rect x="110" y="66" width="65" height="10" rx="5" fill="#ef4444" opacity="0.4"/>
               <rect x="110" y="84" width="90" height="10" rx="5" fill="#10b981" opacity="0.5"/>
               <!-- Platform icons -->
-              <circle cx="102" cy="35" r="4" fill="#06b6d4" opacity="0.6"/>
-              <circle cx="102" cy="53" r="4" fill="#06b6d4" opacity="0.6"/>
-              <circle cx="102" cy="71" r="4" fill="#06b6d4" opacity="0.6"/>
-              <circle cx="102" cy="89" r="4" fill="#06b6d4" opacity="0.6"/>
+              <circle cx="102" cy="35" r="4" fill="#d97706" opacity="0.6"/>
+              <circle cx="102" cy="53" r="4" fill="#d97706" opacity="0.6"/>
+              <circle cx="102" cy="71" r="4" fill="#d97706" opacity="0.6"/>
+              <circle cx="102" cy="89" r="4" fill="#d97706" opacity="0.6"/>
               <!-- Bottom row -->
-              <rect x="20" y="115" width="55" height="42" rx="4" fill="#2d1b69" opacity="0.5"/>
+              <rect x="20" y="115" width="55" height="42" rx="4" fill="#134e4a" opacity="0.5"/>
               <rect x="85" y="115" width="55" height="42" rx="4" fill="#1e1b4b" opacity="0.5"/>
-              <rect x="150" y="115" width="55" height="42" rx="4" fill="#2d1b69" opacity="0.5"/>
+              <rect x="150" y="115" width="55" height="42" rx="4" fill="#134e4a" opacity="0.5"/>
               <text x="47" y="140" text-anchor="middle" fill="#8888a0" font-size="7" font-family="sans-serif">1:1</text>
               <text x="112" y="140" text-anchor="middle" fill="#8888a0" font-size="7" font-family="sans-serif">16:9</text>
               <text x="177" y="140" text-anchor="middle" fill="#8888a0" font-size="7" font-family="sans-serif">9:16</text>
@@ -1163,22 +1147,22 @@
             <svg class="sc-demo-img" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
               <rect width="240" height="180" fill="#1a1a2e"/>
               <!-- Phone frame -->
-              <rect x="70" y="8" width="100" height="164" rx="12" fill="#0d0d1a" stroke="rgba(6,182,212,0.3)" stroke-width="1.5"/>
+              <rect x="70" y="8" width="100" height="164" rx="12" fill="#0d0d1a" stroke="rgba(217,119,6,0.3)" stroke-width="1.5"/>
               <!-- Screen content -->
               <rect x="78" y="22" width="84" height="136" rx="4" fill="#12122a"/>
               <!-- Story preview -->
-              <rect x="86" y="30" width="68" height="90" rx="3" fill="#2d1b69" opacity="0.6"/>
-              <circle cx="120" cy="65" r="16" fill="#7c3aed" opacity="0.4"/>
-              <rect x="98" y="82" width="44" height="6" rx="3" fill="#06b6d4" opacity="0.35"/>
+              <rect x="86" y="30" width="68" height="90" rx="3" fill="#134e4a" opacity="0.6"/>
+              <circle cx="120" cy="65" r="16" fill="#0d9488" opacity="0.4"/>
+              <rect x="98" y="82" width="44" height="6" rx="3" fill="#d97706" opacity="0.35"/>
               <!-- Status bar dots -->
               <circle cx="110" cy="15" r="1.5" fill="#555570"/>
               <circle cx="120" cy="15" r="1.5" fill="#555570"/>
               <circle cx="130" cy="15" r="1.5" fill="#555570"/>
               <!-- Bottom UI -->
               <rect x="86" y="128" width="68" height="8" rx="2" fill="rgba(255,255,255,0.06)"/>
-              <rect x="86" y="140" width="45" height="8" rx="2" fill="rgba(124,58,237,0.2)"/>
+              <rect x="86" y="140" width="45" height="8" rx="2" fill="rgba(13,148,136,0.2)"/>
               <!-- Side labels -->
-              <rect x="14" y="50" width="42" height="8" rx="4" fill="#06b6d4" opacity="0.2"/>
+              <rect x="14" y="50" width="42" height="8" rx="4" fill="#d97706" opacity="0.2"/>
               <rect x="14" y="65" width="35" height="6" rx="3" fill="rgba(255,255,255,0.05)"/>
               <rect x="184" y="50" width="42" height="8" rx="4" fill="#f43f5e" opacity="0.2"/>
               <rect x="184" y="65" width="35" height="6" rx="3" fill="rgba(255,255,255,0.05)"/>
@@ -1188,9 +1172,9 @@
               <rect width="240" height="180" fill="#1a1a2e"/>
               <!-- Multi-platform grid -->
               <!-- Instagram square -->
-              <rect x="12" y="12" width="64" height="64" rx="4" fill="#2d1b69" opacity="0.5" stroke="rgba(124,58,237,0.2)" stroke-width="1"/>
-              <circle cx="44" cy="38" r="14" fill="#7c3aed" opacity="0.4"/>
-              <rect x="28" y="56" width="32" height="4" rx="2" fill="#a78bfa" opacity="0.3"/>
+              <rect x="12" y="12" width="64" height="64" rx="4" fill="#134e4a" opacity="0.5" stroke="rgba(13,148,136,0.2)" stroke-width="1"/>
+              <circle cx="44" cy="38" r="14" fill="#0d9488" opacity="0.4"/>
+              <rect x="28" y="56" width="32" height="4" rx="2" fill="#5eead4" opacity="0.3"/>
               <text x="44" y="72" text-anchor="middle" fill="#8888a0" font-size="5" font-family="sans-serif">IG</text>
               <!-- YouTube thumbnail -->
               <rect x="88" y="12" width="96" height="54" rx="4" fill="#1e1b4b" opacity="0.5" stroke="rgba(244,63,94,0.2)" stroke-width="1"/>
@@ -1198,24 +1182,24 @@
               <rect x="96" y="52" width="60" height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
               <text x="136" y="62" text-anchor="middle" fill="#8888a0" font-size="5" font-family="sans-serif">YouTube</text>
               <!-- Twitter card -->
-              <rect x="12" y="90" width="96" height="54" rx="4" fill="#0d1b2a" opacity="0.5" stroke="rgba(6,182,212,0.2)" stroke-width="1"/>
-              <circle cx="26" cy="100" r="6" fill="#06b6d4" opacity="0.3"/>
+              <rect x="12" y="90" width="96" height="54" rx="4" fill="#0d1b2a" opacity="0.5" stroke="rgba(217,119,6,0.2)" stroke-width="1"/>
+              <circle cx="26" cy="100" r="6" fill="#d97706" opacity="0.3"/>
               <rect x="36" y="96" width="44" height="4" rx="2" fill="rgba(255,255,255,0.08)"/>
               <rect x="36" y="104" width="32" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
-              <rect x="18" y="116" width="80" height="20" rx="2" fill="#2d1b69" opacity="0.4"/>
+              <rect x="18" y="116" width="80" height="20" rx="2" fill="#134e4a" opacity="0.4"/>
               <text x="60" y="140" text-anchor="middle" fill="#8888a0" font-size="5" font-family="sans-serif">Twitter</text>
               <!-- Pinterest pin -->
-              <rect x="120" y="80" width="48" height="72" rx="4" fill="#2d1b69" opacity="0.5" stroke="rgba(244,63,94,0.2)" stroke-width="1"/>
+              <rect x="120" y="80" width="48" height="72" rx="4" fill="#134e4a" opacity="0.5" stroke="rgba(244,63,94,0.2)" stroke-width="1"/>
               <circle cx="144" cy="106" r="12" fill="#f43f5e" opacity="0.3"/>
               <rect x="130" y="124" width="28" height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
               <rect x="132" y="132" width="24" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
               <text x="144" y="148" text-anchor="middle" fill="#8888a0" font-size="5" font-family="sans-serif">Pin</text>
               <!-- LinkedIn -->
-              <rect x="180" y="90" width="48" height="64" rx="4" fill="#0d1b2a" opacity="0.5" stroke="rgba(6,182,212,0.15)" stroke-width="1"/>
-              <circle cx="204" cy="104" r="8" fill="#06b6d4" opacity="0.3"/>
+              <rect x="180" y="90" width="48" height="64" rx="4" fill="#0d1b2a" opacity="0.5" stroke="rgba(217,119,6,0.15)" stroke-width="1"/>
+              <circle cx="204" cy="104" r="8" fill="#d97706" opacity="0.3"/>
               <rect x="188" y="118" width="32" height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
               <rect x="188" y="126" width="24" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
-              <rect x="188" y="134" width="32" height="12" rx="2" fill="rgba(6,182,212,0.15)"/>
+              <rect x="188" y="134" width="32" height="12" rx="2" fill="rgba(217,119,6,0.15)"/>
               <text x="204" y="152" text-anchor="middle" fill="#8888a0" font-size="5" font-family="sans-serif">LinkedIn</text>
             </svg>
           </div>
@@ -1307,12 +1291,12 @@
       <h2>Built for Speed, Privacy, and Zero Cost</h2>
       <p>The fastest way to add borders to your images. Whether you need a white border for Instagram, a polaroid frame, or a colorful gradient for social media.</p>
       <div class="features-grid">
-        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#a78bfa"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span><h3>Instant Results</h3><p>Upload, customize, and download in under 10 seconds. Real-time preview shows exactly what you get.</p></article>
-        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#a78bfa"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>100% Private</h3><p>All processing happens in your browser. No server uploads, no data collection, ever.</p></article>
-        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#a78bfa"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.5-.7 1.5-1.5 0-.4-.2-.8-.4-1.1-.3-.3-.4-.7-.4-1.1 0-.9.7-1.5 1.5-1.5H16c3.3 0 6-2.7 6-6 0-5.5-4.5-9-10-9z"/><circle cx="7.5" cy="11.5" r="1.5"/><circle cx="12" cy="7.5" r="1.5"/><circle cx="16.5" cy="11.5" r="1.5"/></svg></span><h3>Multiple Styles</h3><p>From vintage Polaroid frames to modern gradient borders — pick the style that matches your vision. Full control over width, color, and shadows.</p></article>
-        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#a78bfa"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span><h3>Social Media Ready</h3><p>One-click presets for Instagram square, stories, and Facebook posts. Perfect ratios every time.</p></article>
-        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#a78bfa"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span><h3>Batch Processing</h3><p>Got 50 photos to frame? Upload them all, apply one style, download as a ZIP. What used to take hours now takes minutes.</p></article>
-        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#a78bfa"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></span><h3>Completely Free</h3><p>No hidden fees, no premium tiers, no watermarks. Every feature is free with unlimited use.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#5eead4"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span><h3>Instant Results</h3><p>Upload, customize, and download in under 10 seconds. Real-time preview shows exactly what you get.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#5eead4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>100% Private</h3><p>All processing happens in your browser. No server uploads, no data collection, ever.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#5eead4"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.5-.7 1.5-1.5 0-.4-.2-.8-.4-1.1-.3-.3-.4-.7-.4-1.1 0-.9.7-1.5 1.5-1.5H16c3.3 0 6-2.7 6-6 0-5.5-4.5-9-10-9z"/><circle cx="7.5" cy="11.5" r="1.5"/><circle cx="12" cy="7.5" r="1.5"/><circle cx="16.5" cy="11.5" r="1.5"/></svg></span><h3>Multiple Styles</h3><p>From vintage Polaroid frames to modern gradient borders — pick the style that matches your vision. Full control over width, color, and shadows.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#5eead4"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span><h3>Social Media Ready</h3><p>One-click presets for Instagram square, stories, and Facebook posts. Perfect ratios every time.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#5eead4"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span><h3>Batch Processing</h3><p>Got 50 photos to frame? Upload them all, apply one style, download as a ZIP. What used to take hours now takes minutes.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#5eead4"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></span><h3>Completely Free</h3><p>No hidden fees, no premium tiers, no watermarks. Every feature is free with unlimited use.</p></article>
       </div>
     </section>
 
@@ -1409,8 +1393,8 @@
 
   <!-- Cookie Banner -->
   <div id="cookieBanner" style="position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,18,0.92);backdrop-filter:blur(12px);color:#e8e8f0;padding:14px 24px;z-index:9999;font-size:0.85rem;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.08);display:none">
-    <span>We use cookies for analytics and advertising. By continuing, you agree to our <a href="/privacy.html" style="color:#a78bfa;text-decoration:underline">Privacy Policy</a>.</span>
-    <button onclick="dismissCookie()" style="background:linear-gradient(135deg,#7c3aed,#06b6d4);color:white;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600;font-size:0.82rem">Accept</button>
+    <span>We use cookies for analytics and advertising. By continuing, you agree to our <a href="/privacy.html" style="color:#5eead4;text-decoration:underline">Privacy Policy</a>.</span>
+    <button onclick="dismissCookie()" style="background:linear-gradient(135deg,#0d9488,#d97706);color:white;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600;font-size:0.82rem">Accept</button>
   </div>
   <script>
     (function(){
@@ -1570,8 +1554,8 @@
       // Liquid metal cursor glow (bright blob near mouse when hovering)
       if (hovering) {
         const mg = stageCtx.createRadialGradient(stageMouseX, stageMouseY, 0, stageMouseX, stageMouseY, 60);
-        mg.addColorStop(0, 'rgba(124,58,237,0.08)');
-        mg.addColorStop(0.5, 'rgba(6,182,212,0.04)');
+        mg.addColorStop(0, 'rgba(13,148,136,0.08)');
+        mg.addColorStop(0.5, 'rgba(217,119,6,0.04)');
         mg.addColorStop(1, 'rgba(0,0,0,0)');
         stageCtx.fillStyle = mg;
         stageCtx.beginPath();
@@ -2097,7 +2081,7 @@
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < 80) {
             const alpha = (1 - dist / 80) * 0.1;
-            scCtx.strokeStyle = 'rgba(6,182,212,' + alpha + ')';
+            scCtx.strokeStyle = 'rgba(217,119,6,' + alpha + ')';
             scCtx.lineWidth = 0.5;
             scCtx.beginPath();
             scCtx.moveTo(scParticles[i].x, scParticles[i].y);
@@ -2109,8 +2093,8 @@
 
       if (hovering) {
         const mg = scCtx.createRadialGradient(scMouseX, scMouseY, 0, scMouseX, scMouseY, 50);
-        mg.addColorStop(0, 'rgba(6,182,212,0.07)');
-        mg.addColorStop(0.5, 'rgba(124,58,237,0.03)');
+        mg.addColorStop(0, 'rgba(217,119,6,0.07)');
+        mg.addColorStop(0.5, 'rgba(13,148,136,0.03)');
         mg.addColorStop(1, 'rgba(0,0,0,0)');
         scCtx.fillStyle = mg;
         scCtx.beginPath();
@@ -2225,7 +2209,7 @@
 
       // Gradient border
       const grad = ctx.createLinearGradient(0, 0, 1080, 1080);
-      grad.addColorStop(0, '#7c3aed'); grad.addColorStop(1, '#06b6d4');
+      grad.addColorStop(0, '#0d9488'); grad.addColorStop(1, '#d97706');
       ctx.strokeStyle = grad; ctx.lineWidth = 6;
       ctx.strokeRect(30, 30, 1020, 1020);
 
@@ -2239,7 +2223,7 @@
       const overall = document.getElementById('scOverallScore').textContent;
       ctx.font = 'bold 120px sans-serif';
       const scoreGrad = ctx.createLinearGradient(340, 120, 740, 280);
-      scoreGrad.addColorStop(0, '#a78bfa'); scoreGrad.addColorStop(1, '#22d3ee');
+      scoreGrad.addColorStop(0, '#5eead4'); scoreGrad.addColorStop(1, '#fbbf24');
       ctx.fillStyle = scoreGrad;
       ctx.fillText(overall, 540, 260);
 
@@ -2298,7 +2282,7 @@
       // Branding
       ctx.font = 'bold 28px sans-serif'; ctx.textAlign = 'center';
       const brandGrad = ctx.createLinearGradient(340, 940, 740, 970);
-      brandGrad.addColorStop(0, '#a78bfa'); brandGrad.addColorStop(1, '#22d3ee');
+      brandGrad.addColorStop(0, '#5eead4'); brandGrad.addColorStop(1, '#fbbf24');
       ctx.fillStyle = brandGrad;
       ctx.fillText('adborder.top', 540, 960);
 

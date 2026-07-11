@@ -178,6 +178,23 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   color: var(--text3); font-size: 0.75rem;
 }
 
+/* ===== Ko-fi Floating Support Button ===== */
+.kofi-float {
+  position: fixed; bottom: 24px; right: 24px; z-index: 999;
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 20px; border-radius: 50px;
+  background: var(--gradient-brand);
+  color: white; text-decoration: none; font-family: var(--font-display);
+  font-size: 0.82rem; font-weight: 700;
+  box-shadow: 0 4px 20px rgba(13,148,136,0.4), 0 2px 8px rgba(0,0,0,0.3);
+  transition: all 0.3s ease; cursor: pointer;
+}
+.kofi-float:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(13,148,136,0.55), 0 4px 12px rgba(0,0,0,0.3);
+}
+.kofi-float-icon { font-size: 1.2rem; line-height: 1; }
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .header-inner { padding: 0 16px; }
