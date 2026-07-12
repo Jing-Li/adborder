@@ -319,6 +319,17 @@ main td strong { color: var(--text); }
   aspect-ratio: 16/9; object-fit: cover;
 }
 
+/* ===== Utility Classes (migrated from inline styles) ===== */
+.ext-ref { color: var(--accent-light); }
+.content-img {
+  width: 100%; max-width: var(--content-max);
+  border-radius: 12px; margin: 20px 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.content-img-simple {
+  width: 100%; border-radius: 12px; margin: 24px 0;
+}
+
 /* ===== Responsive — Blog ===== */
 @media (max-width: 600px) {
   h1.blog-title { font-size: 1.6rem; }
