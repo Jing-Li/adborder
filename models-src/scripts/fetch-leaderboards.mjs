@@ -199,7 +199,7 @@ const LIVEBENCH_DATA_CANDIDATES = [
 ]
 
 const LIVEBENCH_NA_REASON =
-  '结构化数据路径不可达(2026-10-20 探测):livebench.ai 前端按 /v1/table_{期号日期}.csv 动态拉数,期号无法静态确定(候选日期 404);repo main 无集中结果 JSON;本机网络对 GitHub git/clone 及 HF 不可达。待 GHA runner 复试或人工确认期号后适配。'
+  '两层排查均不可用(2026-10-20 闭环):①livebench.ai 前端按 table_{期号}.csv 动态拉数,期号无法静态确定(候选路径 404);②官方 HF 数据集(livebench/model_judgment 等 7 类)止于 2025-04,缺当前期,采用将误导,故不采用。GHA runner 复抓同结论。待官方公开结构化分数后接入。'
 
 function normalizeLivebench(json) {
   // 若未来候选 URL 命中,在此适配真实结构;当前全部候选已证不可达
