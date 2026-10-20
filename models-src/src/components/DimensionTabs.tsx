@@ -1,5 +1,5 @@
 /**
- * DimensionTabs — 六维度下划线 Tab(方案 A 控件语法)。
+ * DimensionTabs — 五维度下划线 Tab(综合/知识/数学/推理/代码,方案 A 控件语法)。
  * role=tablist + 方向键切换;【T1 第三轮】N/A 维度不再挂灰色「N/A」文字后缀
  * (首屏不得出现“没数据”宣告),改整字降饱和 muted(.tab.is-empty)+ title/aria 提示,
  * 空态解释移交 N/A 面板两层文案,页脚账本条仍保留 N/A 状态信息。
