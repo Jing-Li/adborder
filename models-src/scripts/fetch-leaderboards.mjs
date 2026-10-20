@@ -11,6 +11,8 @@
  * 原则:如实抓取,绝不编数。任一源失败 → 该维度文件落 N/A 占位(models: [] + na_reason),
  *       单源失败不影响其他源;exit code 恒为 0(除非本地 IO 错误),workflow 侧不因单源失败中断。
  *
+ * 运行时机:.github/workflows/fetch-leaderboards.yml 每日 UTC 0 cron + models-src/** 变更 push 自动触发(首跑数据刷新无人工介入)。
+ *
  * 用法:
  *   node scripts/fetch-leaderboards.mjs [--probe] [--use-cache]
  *     --probe      抓取并打印源数据顶层结构,不写 data/ 文件
