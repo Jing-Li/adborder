@@ -2,7 +2,7 @@
   "source": "LMArena Text Arena (Bradley-Terry)",
   "dimension": "人类偏好",
   "source_url": "https://lmarena.ai/leaderboard",
-  "fetched_at": "2026-10-20T04:10:04.516Z",
+  "fetched_at": "2026-10-20T11:39:26.380Z",
   "na_reason": "主站 CORS 拦截;官方 dataset(lmarena-ai/leaderboard-dataset)经 HF 托管,本机网络实测不可达(HF 全链路超时)。等待 GHA runner 海外网络复抓,首版快照 N/A。",
   "models": []
 }
