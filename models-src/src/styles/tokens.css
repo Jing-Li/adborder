@@ -1,24 +1,24 @@
 /*
- * tokens.css — 方案 A「Manifest 档案」tokens v3.1(dx/dx-detail/design-system.md v3.1)
- * 依据:design-options.md 方案 A(用户已批准)+ 两份设计审计 P0 落地
- *      (docs/design-audit/audit-typography.md、audit-texture.md)+ T1 视觉第三轮 Lead 诊断
+ * tokens.css — 方案 A「Manifest 档案」tokens v4.0(T4 深色化:对齐主站 styles.css Design System v2)
+ * 依据:v3.1 基础上,用户线上验收「风格不统一」→ 色板整体对齐 adborder.top 深色语言
+ *      (Deep Navy #0b1120 + teal/amber;字体与品牌色本就同源);字阶/间距/动效纪律沿用 v3.1
  * 阶梯纪律:字号只有 display 40/28/20、body 15/14、utility 13/12 七值;
  *      另设两个显式专用档(唯一破例,理由记录于 design-system.md v3.1):
  *      --fs-score 16px(分数主数据锚点)、--fs-badge 11px(溯源徽标装饰字)。
  */
 :root {
-  /* palette — 方案 A 原值(非文本用色 #d97706/#0d9488 不回退) */
-  --color-text: #1a1a2e;
-  --color-surface: #ffffff;
-  --color-surface-alt: #f4f1ec; /* 斑马纹底(audit-typography 丑5:由 #f7f6f3 加深至可感知档) */
-  --color-surface-hover: #f1efe9; /* 行 hover 底(保持比斑马深一档,层次不倒挂) */
-  --color-muted: #8888a0; /* 仅装饰性小字 */
-  --color-text-2: #55556a; /* 关键次级文本(AA) */
-  --color-accent: #d97706;
-  --color-accent-soft: #fdf3e7;
-  --color-accent-2: #0d9488;
-  --color-border: #e4e2dd;
-  --color-border-strong: #d6d3cb;
+  /* palette — T4 深色化:逐值对齐主站 tokens;对比度实算见 kanban/tasks/T4.md Acceptance */
+  --color-text: #e8ecf4; /* 主站 --text(对底 15.9:1) */
+  --color-surface: #0b1120; /* 主站 --bg(页面底) */
+  --color-surface-alt: #111827; /* 主站 --bg2(斑马纹行底) */
+  --color-surface-hover: #1c2940; /* 主站 --surface-hover(行 hover,层次不倒挂) */
+  --color-muted: #64748b; /* 主站 --text3(仅装饰性小字,豁免档) */
+  --color-text-2: #94a3b8; /* 主站 --text2(对底 7.3:1 AA) */
+  --color-accent: #14b8a6; /* 主站 --accent-hover 亮档:深底强调 7.5:1(主站 --accent #0d9488 深底 4.98:1 略闷,强调位取亮档) */
+  --color-accent-soft: rgb(20 184 166 / 12%); /* 深色 soft 底(rgb 空格语法,chromium 90 安全) */
+  --color-accent-2: #f59e0b; /* 主站 --accent2-hover 亮档(深底 8.8:1) */
+  --color-border: #263348; /* 主站 --surface-border */
+  --color-border-strong: #3b4f6e; /* 主站 --surface-border-hover */
 
   /* type — 中西文分层字体栈(audit-typography 丑2:拉丁字体在前,中文回退补齐) */
   --font-display: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans SC', 'Microsoft YaHei', system-ui, sans-serif;
@@ -54,15 +54,15 @@
   --edge-w: 4px; /* 行左缘「边界线」(T1 第三轮:3px→4px,1440px 截图肉眼可辨) */
   --edge-w-hover: 6px; /* 行 hover 加宽 */
 
-  /* elevation — 三档阴影,全站只此三值,禁随手写(audit-texture §2.1;基色统一品牌深蓝黑) */
-  --shadow-1: 0 1px 2px rgb(26 26 46 / 5%); /* 控件微浮: chip/select hover、badge hover */
-  --shadow-2: 0 2px 8px -1px rgb(26 26 46 / 8%), 0 1px 2px rgb(26 26 46 / 5%); /* 升起物: badge-pop */
-  --shadow-3: 0 12px 32px -8px rgb(26 26 46 / 14%), 0 2px 8px rgb(26 26 46 / 6%); /* 预留: 未来下拉/模态 */
+  /* elevation — 三档阴影,全站只此三值,禁随手写(audit-texture §2.1;T4:深底黑影,浅底影不可见故加重) */
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 40%); /* 控件微浮: chip/select hover、badge hover */
+  --shadow-2: 0 2px 8px -1px rgb(0 0 0 / 45%), 0 1px 2px rgb(0 0 0 / 35%); /* 升起物: badge-pop */
+  --shadow-3: 0 12px 32px -8px rgb(0 0 0 / 55%), 0 2px 8px rgb(0 0 0 / 40%); /* 预留: 未来下拉/模态 */
 
   /* radius — 四值(audit-texture §2.4) */
   --radius-sm: 4px; /* 小徽标: badge、tag-domestic、ledger-chip */
-  --radius-md: 6px; /* 交互控件: chip、vendor-chip、search、rank 徽章 */
-  --radius-lg: 10px; /* 面板: na-panel、empty-panel */
+  --radius-md: 8px; /* 交互控件: chip、vendor-chip、search、rank 徽章(T4:对齐主站 --radius-sm) */
+  --radius-lg: 12px; /* 面板: na-panel、empty-panel(T4:对齐主站 --radius) */
   --radius-pill: 999px; /* 保留: 未启用 */
 
   /* motion — 全站唯一缓动,禁 ease/linear 散写(audit-texture §2.5) */

@@ -44,9 +44,10 @@ function ariaSort(key: SortKey, sort: SortState | null): 'ascending' | 'descendi
   return sort.dir === 'asc' ? 'ascending' : 'descending'
 }
 
-/* ---------- 边界线分位色:OKLCH 插值(T1 第三轮,design-system.md v3.1) ----------
- * 端点与 tokens.css 保持同步:--color-accent #d97706 → --color-accent-2 #0d9488。
+/* ---------- 边界线分位色:OKLCH 插值(T1 第三轮,design-system.md v3.1;T4 深色化换端点) ----------
+ * 端点与 tokens.css 保持同步(T4 深色化):--color-accent #14b8a6 → --color-accent-2 #f59e0b。
  * OKLCH 极坐标插值消除 RGB 中段脏色,并设最低色度 C≥0.12 防中段发灰(Lead:提高最低饱和度);
+ * 深色端点两档均为主站 hover 亮档,插值 L 区间自然抬高,4px 线在深底清晰可辨。
  * 结果按 t 三位小数缓存。端点若调色,须与 tokens.css 同步修改。 */
 
 const EDGE_CHROMA_MIN = 0.12 /* 最低色度(OKLCH C):中段防灰,1440px 截图肉眼可辨 */
@@ -90,8 +91,8 @@ function okLabToHex({ L, a, b }: OkLab): string {
   return `#${ch(r)}${ch(g)}${ch(bl)}`
 }
 
-const EDGE_FROM = hexToOkLab('#d97706') /* = --color-accent */
-const EDGE_TO = hexToOkLab('#0d9488') /* = --color-accent-2 */
+const EDGE_FROM = hexToOkLab('#14b8a6') /* = --color-accent(T4 深色化) */
+const EDGE_TO = hexToOkLab('#f59e0b') /* = --color-accent-2(T4 深色化) */
 const edgeCache = new Map<string, string>()
 
 /** t∈[0,1] → OKLCH 极坐标插值 hex(hue 走最短弧;色度下限防灰) */
@@ -114,7 +115,7 @@ function edgeColorFor(t: number): string {
   return hex
 }
 
-/** Top3 行边界线实色 = Rank 徽章同色(T1 第三轮:1 橙 / 2 青绿 / 3 深蓝黑) */
+/** Top3 行边界线实色 = Rank 徽章同色(T4 深色化:1 青绿 / 2 琥珀 / 3 浅白) */
 const TOP_EDGE: Record<number, string> = {
   1: 'var(--color-accent)',
   2: 'var(--color-accent-2)',
