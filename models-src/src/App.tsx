@@ -15,6 +15,7 @@ import type { LicenseFilter } from './components/FilterBar'
 import Leaderboard from './components/Leaderboard'
 import type { SortKey, SortState } from './components/Leaderboard'
 import NaPanel from './components/NaPanel'
+import AltBoard from './components/AltBoard'
 import FooterLedger from './components/FooterLedger'
 
 /** 列头三态循环:主方向 → 反向 → 恢复榜单原始序 */
@@ -177,6 +178,9 @@ export default function App() {
               onSortToggle={toggleSort}
             />
           )}
+          {/* 副榜(T6):同页可见的英文口径对照(如代码 Tab 的 SWE-bench Verified),静态展示,
+              主榜 N/A 时也照常呈现(AltBoard 自带空态说明),排序/筛选交互以主榜为准 */}
+          {dim.alt && <AltBoard alt={dim.alt} />}
         </section>
       </main>
 

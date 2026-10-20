@@ -30,6 +30,8 @@ interface Props {
   scoreMax: number
   sort: SortState | null
   onSortToggle: (key: SortKey) => void
+  /** 静态模式(T6 副榜):列头不可点、无三态箭头;排序/筛选交互以主榜为准 */
+  static?: boolean
 }
 
 const COLUMNS: Array<{ key: SortKey; label: string; primary: 'asc' | 'desc'; className: string }> = [
@@ -122,7 +124,7 @@ const TOP_EDGE: Record<number, string> = {
   3: 'var(--color-text)',
 }
 
-export default function Leaderboard({ dim, rows, scoreMin, scoreMax, sort, onSortToggle }: Props) {
+export default function Leaderboard({ dim, rows, scoreMin, scoreMax, sort, onSortToggle, static: isStatic = false }: Props) {
   return (
     <div className="table-wrap">
       <table className="lb">
@@ -133,14 +135,18 @@ export default function Leaderboard({ dim, rows, scoreMin, scoreMax, sort, onSor
                 key={col.key}
                 scope="col"
                 className={col.className}
-                aria-sort={ariaSort(col.key, sort)}
+                aria-sort={isStatic ? undefined : ariaSort(col.key, sort)}
               >
-                <button type="button" className="th-btn" onClick={() => onSortToggle(col.key)}>
-                  {col.label}
-                  <span className={`th-arrow${sort?.key === col.key ? ' is-on' : ''}`} aria-hidden="true">
-                    {sort?.key === col.key ? (sort.dir === 'asc' ? '▲' : '▼') : '↕'}
-                  </span>
-                </button>
+                {isStatic ? (
+                  <span className="th-label">{col.label}</span>
+                ) : (
+                  <button type="button" className="th-btn" onClick={() => onSortToggle(col.key)}>
+                    {col.label}
+                    <span className={`th-arrow${sort?.key === col.key ? ' is-on' : ''}`} aria-hidden="true">
+                      {sort?.key === col.key ? (sort.dir === 'asc' ? '▲' : '▼') : '↕'}
+                    </span>
+                  </button>
+                )}
               </th>
             ))}
           </tr>

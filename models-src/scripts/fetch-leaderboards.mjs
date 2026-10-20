@@ -150,7 +150,7 @@ function parseSwebench(json) {
   }
 }
 
-// --------------------------------------------- OpenCompass (chinese 维度)
+// --------------------------------------------- OpenCompass (五张子表 → 五个维度文件)
 
 const OPENCOMPASS_URL = 'https://cdn.opencompass.org.cn/assets/llm-rank/llm-data-v2.26-07.20260824.json'
 const OPENCOMPASS_SOURCE_URL = 'https://rank.opencompass.org.cn/leaderboard-llm-v1'
@@ -165,11 +165,56 @@ function toISODate(s) {
   return `${m[1]}-${m[2].padStart(2, '0')}-${m[3].padStart(2, '0')}`
 }
 
-function normalizeOpencompass(json) {
-  // 结构 2026-10-20 实测:OverallTable(15 行)按 key 降序排名;Average 为综合分;update_time 为源方更新日期
-  const table = Array.isArray(json?.OverallTable) ? json.OverallTable : []
-  const rows = table.filter((r) => typeof r.Average === 'number')
-  const models = rows.map((r, i) => ({
+/**
+ * OpenCompass 五张子表 → 五个维度文件(T6 新分类,2026-10-20 结构实测):
+ * 顶层 OverallTable/KnowledgeTable/ReasonTable/MathTable/CodeTable 各 15 行;
+ * 行键 = 公共元数据 { key, model, org, num, time, update_time, chat_or_base } + 各表 Average 与细分子分;
+ * 子表行序沿用 Overall 名次序(key 递增),故各表 rank 须按子表 Average 重新降序排定。
+ * 口径:五表均为 CompassBench 2607 中文语境分(与 LiveBench/SWE-bench 英文口径不同,不混榜)。
+ * 命名:统一 _oc 后缀,避免与旧 N/A 占位文件(overall/reasoning.json)及 SWE-bench 副榜(coding.json)冲突。
+ */
+const OC_TABLES = [
+  {
+    file: 'overall_oc.json',
+    table: 'OverallTable',
+    dimension: '综合',
+    note: 'CompassBench 2607 期 OverallTable 综合分(原「中文」维度正名承接,同源同表同列);月度期数快照;辅源 SuperCLUE 仅网页报告未结构化抓取,观察名单 FlagEval 未入选',
+  },
+  {
+    file: 'knowledge_oc.json',
+    table: 'KnowledgeTable',
+    dimension: '知识',
+    note: 'CompassBench 2607 期 KnowledgeTable 知识分(Average 列,细分为人文/社科/工程/科学/常识五域);月度期数快照',
+  },
+  {
+    file: 'math_oc.json',
+    table: 'MathTable',
+    dimension: '数学',
+    note: 'CompassBench 2607 期 MathTable 数学分(Average 列,细分为大学数学/竞赛数学);月度期数快照',
+  },
+  {
+    file: 'reasoning_oc.json',
+    table: 'ReasonTable',
+    dimension: '推理',
+    note: 'CompassBench 2607 期 ReasonTable 推理分(Average 列;中文 CompassBench 口径,区别于英文动态基准 LiveBench,两者不可直接互比);月度期数快照',
+  },
+  {
+    file: 'coding_oc.json',
+    table: 'CodeTable',
+    dimension: '代码',
+    note: 'CompassBench 2607 期 CodeTable 代码分(Average 列;中文 CompassBench 口径);SWE-bench Verified 英文真实 issue 口径见代码 Tab 副榜,两者不可直接互比',
+  },
+]
+
+function normalizeOpencompassTable(json, table) {
+  const rows = Array.isArray(json?.[table]) ? json[table] : []
+  const scored = rows.filter((r) => typeof r.Average === 'number')
+  if (scored.length === 0) {
+    throw new Error(`源数据 ${table} 无有效 Average 行(实际行数 ${rows.length})`)
+  }
+  // 子表行序沿用 Overall 名次序,rank 按本子表 Average 降序重新排定
+  const sorted = [...scored].sort((a, b) => b.Average - a.Average)
+  const models = sorted.map((r, i) => ({
     model: String(r.model),
     score: r.Average,
     rank: i + 1,
@@ -182,7 +227,6 @@ function normalizeOpencompass(json) {
   return {
     benchmark_version: 'v2.26-07',
     updated_at: latestUpdate,
-    note: 'CompassBench 2607 期 OverallTable 综合分;月度期数快照;辅源 SuperCLUE 仅网页报告未结构化抓取,观察名单 FlagEval 未入选',
     models,
   }
 }
@@ -199,7 +243,7 @@ const LIVEBENCH_DATA_CANDIDATES = [
 ]
 
 const LIVEBENCH_NA_REASON =
-  '两层排查均不可用(2026-10-20 闭环):①livebench.ai 前端按 table_{期号}.csv 动态拉数,期号无法静态确定(候选路径 404);②官方 HF 数据集(livebench/model_judgment 等 7 类)止于 2025-04,缺当前期,采用将误导,故不采用。GHA runner 复抓同结论。待官方公开结构化分数后接入。'
+  '结构化数据路径不可达(2026-10-20 探测):livebench.ai 前端按 /v1/table_{期号日期}.csv 动态拉数,期号无法静态确定(候选日期 404);repo main 无集中结果 JSON;本机网络对 GitHub git/clone 及 HF 不可达。待 GHA runner 复试或人工确认期号后适配。'
 
 function normalizeLivebench(json) {
   // 若未来候选 URL 命中,在此适配真实结构;当前全部候选已证不可达
@@ -300,7 +344,7 @@ async function main() {
     }
   }
 
-  // --- OpenCompass ---
+  // --- OpenCompass(五张子表 → 五个维度文件,同源零新增 HTTP)---
   try {
     const { json, lastModified, bytes, decodedBytes } = await fetchJSON(OPENCOMPASS_URL, { useCache: USE_CACHE })
     if (PROBE) {
@@ -308,28 +352,44 @@ async function main() {
       console.log(`bytes=${bytes} decodedBytes=${decodedBytes} lastModified=${lastModified}`)
       console.log(JSON.stringify(probe(json), null, 2))
     } else {
-      const parsed = normalizeOpencompass(json)
-      const file = okFile({
-        source: 'OpenCompass 司南(上海人工智能实验室)',
-        dimension: '中文',
-        source_url: OPENCOMPASS_SOURCE_URL,
-        benchmark_version: parsed.benchmark_version,
-        updated_at: parsed.updated_at ?? lastModified,
-        note: parsed.note,
-      }, parsed.models)
-      writeFileSync(join(DATA_DIR, 'chinese.json'), JSON.stringify(file, null, 2) + '\n')
-      summary.push(`OpenCompass: OK, ${parsed.models.length} models, version=${parsed.benchmark_version}`)
+      // 逐子表独立落盘:单表异常不影响其余表,异常表落 N/A 占位(不编数)
+      for (const spec of OC_TABLES) {
+        try {
+          const parsed = normalizeOpencompassTable(json, spec.table)
+          const file = okFile({
+            source: 'OpenCompass 司南(上海人工智能实验室)',
+            dimension: spec.dimension,
+            source_url: OPENCOMPASS_SOURCE_URL,
+            benchmark_version: parsed.benchmark_version,
+            updated_at: parsed.updated_at ?? lastModified,
+            note: spec.note,
+          }, parsed.models)
+          writeFileSync(join(DATA_DIR, spec.file), JSON.stringify(file, null, 2) + '\n')
+          summary.push(`OpenCompass/${spec.table}: OK, ${parsed.models.length} models, version=${parsed.benchmark_version} → ${spec.file}`)
+        } catch (e) {
+          console.error(`OpenCompass/${spec.table} FAIL: ${e.message}`)
+          writeFileSync(join(DATA_DIR, spec.file), JSON.stringify(naFile({
+            source: 'OpenCompass 司南(上海人工智能实验室)',
+            dimension: spec.dimension,
+            source_url: OPENCOMPASS_SOURCE_URL,
+            na_reason: `子表提取失败: ${e.message}`,
+          }), null, 2) + '\n')
+          summary.push(`OpenCompass/${spec.table}: FAIL(落 N/A 占位)`)
+        }
+      }
     }
   } catch (e) {
     console.error(`OpenCompass FAIL: ${e.message}`)
     if (!PROBE) {
-      writeFileSync(join(DATA_DIR, 'chinese.json'), JSON.stringify(naFile({
-        source: 'OpenCompass 司南(上海人工智能实验室)',
-        dimension: '中文',
-        source_url: OPENCOMPASS_SOURCE_URL,
-        na_reason: `抓取失败: ${e.message}`,
-      }), null, 2) + '\n')
-      summary.push('OpenCompass: FAIL(落 N/A 占位)')
+      for (const spec of OC_TABLES) {
+        writeFileSync(join(DATA_DIR, spec.file), JSON.stringify(naFile({
+          source: 'OpenCompass 司南(上海人工智能实验室)',
+          dimension: spec.dimension,
+          source_url: OPENCOMPASS_SOURCE_URL,
+          na_reason: `抓取失败: ${e.message}`,
+        }), null, 2) + '\n')
+      }
+      summary.push('OpenCompass: FAIL(五表各落 N/A 占位)')
     }
   }
 
@@ -370,7 +430,7 @@ async function main() {
         source: 'LiveBench(Abacus.AI)',
         dimension: '推理',
         source_url: 'https://livebench.ai/',
-        // na_reason 用完整排查结论(裸 e.message 如 "HTTP 404" 无信息量),末次错误作附录保留原始细节
+        // na_reason 用完整排查结论(裸 e.message 如 "HTTP 404" 无信息量),末次错误作附录保留原始细节(ab40513)
         na_reason: `${LIVEBENCH_NA_REASON}(末次尝试:${e.message})`,
       }), null, 2) + '\n')
       summary.push('LiveBench: FAIL(落 N/A 占位)')

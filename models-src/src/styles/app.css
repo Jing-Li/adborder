@@ -438,7 +438,10 @@ a {
 /* 数值/来源列表头右对齐,与表体个位成线(audit-typography 丑4;来源列 T1 第三轮转右对齐) */
 .lb thead th.cell-rank .th-btn,
 .lb thead th.cell-score .th-btn,
-.lb thead th.cell-source .th-btn {
+.lb thead th.cell-source .th-btn,
+.lb thead th.cell-rank .th-label,
+.lb thead th.cell-score .th-label,
+.lb thead th.cell-source .th-label {
   justify-content: flex-end;
 }
 
@@ -871,6 +874,138 @@ a {
   margin-bottom: 0;
 }
 
+/* ---------- T6:静态列头(副榜,与 .th-btn 同视觉、无交互态) ---------- */
+.th-label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--fs-utility-2);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-2);
+  white-space: nowrap;
+}
+
+/* ---------- T6:维度副榜(英文口径对照,同页分列标注,静态) ---------- */
+.alt-board {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.alt-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-body-1);
+  font-weight: 700;
+  line-height: var(--lh-body);
+}
+
+.alt-desc {
+  font-size: var(--fs-utility-1);
+  color: var(--color-text-2);
+  margin-top: var(--space-xs);
+  max-width: 72ch;
+}
+
+.alt-count {
+  font-family: var(--font-utility);
+  font-size: var(--fs-utility-2);
+  color: var(--color-text-2);
+  margin: var(--space-xs) 0 var(--space-md);
+}
+
+.alt-na {
+  font-size: var(--fs-body-2);
+  color: var(--color-text-2);
+  max-width: 60ch;
+  margin-top: var(--space-sm);
+}
+
+.alt-details {
+  margin-top: var(--space-sm);
+}
+
+.alt-details summary {
+  cursor: pointer;
+  font-size: var(--fs-utility-1);
+  color: var(--color-text-2);
+}
+
+/* ---------- T6:页脚数据源路线图(原 N/A 维降级呈现;与 N/A 同族「未归档」虚线语言) ---------- */
+.roadmap {
+  margin-top: var(--space-xl);
+  max-width: 72ch;
+}
+
+.roadmap-intro {
+  font-size: var(--fs-body-2);
+  color: var(--color-text-2);
+  margin-bottom: var(--space-md);
+}
+
+.roadmap-list {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.roadmap-item {
+  border: 1px dashed var(--color-border-strong);
+  border-left: var(--edge-w) solid var(--color-muted);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, var(--color-surface-alt), transparent 120px);
+  padding: var(--space-md) var(--space-md) var(--space-md);
+}
+
+.roadmap-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.roadmap-name {
+  font-size: var(--fs-body-1);
+  font-weight: 700;
+}
+
+.roadmap-status {
+  font-family: var(--font-utility);
+  font-size: var(--fs-utility-2);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  padding: 0 6px;
+  color: var(--color-muted);
+}
+
+.roadmap-reason {
+  font-size: var(--fs-body-2);
+  color: var(--color-text-2);
+  margin-top: var(--space-sm);
+}
+
+.roadmap-access {
+  font-size: var(--fs-body-2);
+  color: var(--color-text-2);
+  margin-top: var(--space-sm);
+  border-left: 2px solid var(--color-accent);
+  padding-left: var(--space-sm);
+}
+
+.roadmap-link {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  font-size: var(--fs-body-2);
+  color: var(--color-text);
+  text-underline-offset: 3px;
+}
+
+.roadmap-link:hover {
+  color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
+}
+
 /* ---------- 响应式:768px 降密(方案 A 风险项) ---------- */
 @media (max-width: 768px) {
   .topbar {
@@ -942,6 +1077,19 @@ a {
   .na-panel,
   .empty-panel {
     padding: var(--space-md);
+  }
+
+  /* T6:副榜与路线图移动端降密 */
+  .alt-board {
+    margin-top: var(--space-md);
+  }
+
+  .roadmap-item {
+    padding: var(--space-md);
+  }
+
+  .roadmap-head {
+    gap: var(--space-xs);
   }
 }
 

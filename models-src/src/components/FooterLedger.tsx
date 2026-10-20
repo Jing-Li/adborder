@@ -5,6 +5,7 @@
  */
 import { DIMENSIONS, snapshotTimes } from '../data/dimensions'
 import { fmtUTC } from '../lib/format'
+import Roadmap from './Roadmap'
 
 export default function FooterLedger() {
   const snapshots = snapshotTimes()
@@ -23,6 +24,9 @@ export default function FooterLedger() {
           抓不到的维度显示 N/A 并说明原因,绝不以估算或编造数据补位;排名是各榜单口径下的原始名次,不同维度之间不可直接互比。部分许可证未知的模型不计入开源/闭源筛选,宁缺勿错。
         </p>
       </section>
+
+      {/* T6:未接入四源(原 N/A 维)降级至此逐源呈现状态/原因/接入条件 */}
+      <Roadmap />
 
       <footer id="ledger" className="ledger" aria-labelledby="ledger-title">
         <h2 id="ledger-title" className="section-title">
