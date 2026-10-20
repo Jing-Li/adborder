@@ -2,7 +2,7 @@
   "source": "LiveBench(Abacus.AI)",
   "dimension": "推理",
   "source_url": "https://livebench.ai/",
-  "fetched_at": "2026-10-20T11:56:01.892Z",
-  "na_reason": "HTTP 404 Not Found",
+  "fetched_at": "2026-10-20T11:57:52.352Z",
+  "na_reason": "两层排查均不可用(2026-10-20 闭环):①livebench.ai 前端按 table_{期号}.csv 动态拉数,期号无法静态确定(候选路径 404);②官方 HF 数据集(livebench/model_judgment 等 7 类)止于 2025-04,缺当前期,采用将误导,故不采用。GHA runner 复抓同结论。待官方公开结构化分数后接入。(末次尝试:HTTP 404 Not Found)",
   "models": []
 }
