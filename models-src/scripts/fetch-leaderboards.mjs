@@ -370,7 +370,8 @@ async function main() {
         source: 'LiveBench(Abacus.AI)',
         dimension: '推理',
         source_url: 'https://livebench.ai/',
-        na_reason: e.message,
+        // na_reason 用完整排查结论(裸 e.message 如 "HTTP 404" 无信息量),末次错误作附录保留原始细节
+        na_reason: `${LIVEBENCH_NA_REASON}(末次尝试:${e.message})`,
       }), null, 2) + '\n')
       summary.push('LiveBench: FAIL(落 N/A 占位)')
     } else {
