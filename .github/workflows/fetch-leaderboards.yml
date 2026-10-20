@@ -1,0 +1,60 @@
+# fetch-leaderboards — 每日榜单数据快照 + 排行榜站点重建
+#
+# 设计依据:docs/research/data-acquisition.md 方案 A(GHA cron 快照入库)。
+# 合并进 adborder 主仓库后的分层:
+#   - models-src/  排行榜源码(Vite+React),数据 JSON 为构建期静态导入
+#   - models/      排行榜站点 = 构建产物,branch 部署直接上线 https://adborder.top/models/
+# 因数据是构建期导入,每日流程 = 抓数据 → 重建 → rsync 到 models/ → commit。
+# - commit message 用 [data] 前缀;push 即触发 Pages(branch 部署)上线。
+# - 单源失败不中断:脚本内部 try/catch,失败源落 N/A 占位(models: [] + na_reason)。
+# - commit 用 github-actions[bot] 身份;仅在 models/ 或 models-src/data/ 有实际变更时提交。
+name: fetch-leaderboards
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # 每日 UTC 0 点(北京时间 08:00)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-leaderboards
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: models-src/package-lock.json
+
+      - name: Fetch data and rebuild
+        run: |
+          cd models-src
+          npm ci
+          node scripts/fetch-leaderboards.mjs
+          npm run build
+
+      - name: Publish built site to models/
+        run: rsync -a --delete models-src/dist/ models/
+
+      - name: Commit data + built site
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- models/ models-src/data/; then
+            echo "No changes; skip commit."
+          else
+            git add models/ models-src/data/
+            git commit -m "[data] daily leaderboard snapshot ($(date -u +%F))"
+            git push
+          fi

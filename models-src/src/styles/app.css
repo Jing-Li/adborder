@@ -1,0 +1,932 @@
+/*
+ * app.css — 方案 A「Manifest 档案」组件样式(design-system.md v3.1)
+ * 纪律:字号只用 tokens 七值阶梯 + 两个显式专用档(--fs-score 16 / --fs-badge 11);色板只用 tokens;
+ *       间距用 4px 基 scale(表行 10px / Tab gap 24px 为审计指定的行高节奏特例);
+ *       阴影/圆角/缓动只用 tokens;跨区块间距不写同类选择器互抵规则,统一收敛到本文件区块节(craft C7)。
+ * T1 第三轮:CSS color-mix/oklch 在 Chromium 90 等旧内核整条声明被丢弃(边界线/数据条曾因此不可见),
+ *       渲染路径一律不依赖 CSS 新色彩函数,分位色改由组件端预计算 hex。
+ */
+
+/* ---------- base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--fs-body-1);
+  line-height: var(--lh-body);
+  /* 白底深字必开,否则系统黑体在低分屏发虚(audit-typography 丑2) */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.site {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* ---------- 头部细条(40px) ---------- */
+.topbar {
+  height: var(--topbar-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-md);
+  border-bottom: 1px solid var(--color-border-strong);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.topbar-brand {
+  font-family: var(--font-display);
+  font-size: var(--fs-display-3);
+  font-weight: 700;
+  line-height: var(--lh-display);
+  letter-spacing: 0.01em;
+}
+
+/* 站名品牌记号:10px 橙→青渐变方块,品牌色面在页头出场(audit-texture §3.2) */
+.topbar-brand::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: var(--space-sm);
+  border-radius: 2px;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+}
+
+.topbar-nav {
+  display: flex;
+  gap: var(--space-md);
+  font-size: var(--fs-body-2);
+}
+
+.topbar-nav a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-border-strong);
+  transition: color var(--dur-fast) ease;
+}
+
+.topbar-nav a:hover {
+  color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
+}
+
+/* ---------- 维度报头(Masthead-lite,audit-typography §4) ---------- */
+.masthead {
+  padding: var(--space-md) 0 var(--space-sm);
+}
+
+.masthead-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-display-1);
+  font-weight: 600; /* 中西文分层字重:中文 600 在苹方/思源上比 700 更挺 */
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+
+.masthead-sub {
+  margin-top: var(--space-xs);
+  font-size: var(--fs-body-1);
+  font-weight: 600; /* T1 第三轮:色已是 text-2,再加一档字重上视觉重量(600 为合法字重) */
+  color: var(--color-text-2);
+}
+
+/* ---------- Tab 行 ---------- */
+.tabs-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding-top: var(--space-md);
+}
+
+.tabs {
+  display: flex;
+  gap: 24px; /* 审计指定特例值(质感 §4:32→24) */
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tab {
+  appearance: none;
+  position: relative;
+  background: none;
+  border: none;
+  padding: 10px 2px;
+  font-size: var(--fs-body-1);
+  font-weight: 700; /* 字重恒定,激活不跳变(audit-texture U3) */
+  color: var(--color-text-2);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color var(--dur-fast) var(--ease-soft);
+}
+
+/* Tab 下划线:scaleX 滑入,hover 半程预览(audit-texture §5) */
+.tab::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-base) var(--ease-soft);
+}
+
+.tab:hover {
+  color: var(--color-text);
+}
+
+.tab:hover::after {
+  transform: scaleX(0.4);
+}
+
+.tab.is-active {
+  color: var(--color-text);
+}
+
+.tab.is-active::after {
+  transform: scaleX(1);
+}
+
+/* N/A 维度 Tab(T1 第三轮):去「N/A」文字后缀,改整字降饱和 muted;
+   空态解释移交 N/A 面板两层文案,页脚账本条仍保留 N/A 状态信息 */
+.tab.is-empty {
+  color: var(--color-muted);
+}
+
+.tab.is-empty:hover {
+  color: var(--color-text-2);
+}
+
+/* T1 第三轮:报头 meta 五碎点收敛两组 ——
+   主组「量什么 · 真源」13px text-2;次组「版本 · 更新日期」12px muted utility;
+   绿色圆点装饰与抓取时间移除(抓取时间只在页脚账本/溯源浮层出现) */
+.dim-meta {
+  margin-top: var(--space-sm);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-xs) var(--space-md);
+  min-width: 0;
+}
+
+.dim-meta-main {
+  font-size: var(--fs-utility-1);
+  color: var(--color-text-2);
+}
+
+.dim-meta-sub {
+  font-family: var(--font-utility);
+  font-size: var(--fs-utility-2);
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 筛选行 ---------- */
+.filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding: 12px 0; /* T1 第三轮:行上下留白收紧到 12px,一行流(search 靠右 margin-left:auto) */
+}
+
+.chips {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.chip {
+  appearance: none;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  padding: 5px 12px;
+  font-size: var(--fs-body-2);
+  color: var(--color-text-2);
+  cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease-soft), background var(--dur-fast) var(--ease-soft),
+    color var(--dur-fast) var(--ease-soft), box-shadow var(--dur-fast) var(--ease-soft);
+}
+
+.chip:hover {
+  border-color: var(--color-accent);
+  color: var(--color-text);
+  box-shadow: 0 0 0 1px var(--color-accent), var(--shadow-1); /* 双层光环(audit-texture §4) */
+}
+
+.chip.is-active {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+  color: var(--color-text); /* 激活只靠色+底,字重恒定 400(audit-texture U3) */
+}
+
+.vendor-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  padding: 5px 12px;
+  background: var(--color-surface);
+  transition: border-color var(--dur-fast) var(--ease-soft), box-shadow var(--dur-fast) var(--ease-soft);
+}
+
+.vendor-chip:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-accent), var(--shadow-1);
+}
+
+.vendor-chip:focus-within {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-accent), var(--shadow-1);
+}
+
+.vendor-label {
+  font-size: var(--fs-body-2);
+  color: var(--color-text-2);
+}
+
+.vendor-chip select {
+  appearance: none;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: var(--fs-body-2);
+  color: var(--color-text);
+  padding-right: 20px;
+  cursor: pointer;
+  /* SVG 箭头(audit-texture §4:替换模糊的 4px 渐变双三角) */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5'%3E%3Cpath d='M1 1l3 3 3-3' fill='none' stroke='%2355556a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-position: right 8px center;
+  background-size: 8px 5px;
+  background-repeat: no-repeat;
+}
+
+.vendor-chip select:focus {
+  outline: none;
+}
+
+.search {
+  margin-left: auto;
+  width: 220px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background-color: transparent;
+  padding: 5px 10px 5px 28px;
+  font-family: inherit;
+  font-size: var(--fs-body-2);
+  color: var(--color-text);
+  /* 内嵌放大镜:方案 A 骨架图回归(audit-texture §4) */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Ccircle cx='5' cy='5' r='3.5' fill='none' stroke='%238888a0' stroke-width='1.5'/%3E%3Cpath d='M8 8l2.5 2.5' stroke='%238888a0' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-position: 9px center;
+  background-repeat: no-repeat;
+  transition: border-color var(--dur-fast) var(--ease-soft), box-shadow var(--dur-fast) var(--ease-soft);
+}
+
+.search::placeholder {
+  color: var(--color-muted);
+}
+
+.search:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgb(217 119 6 / 12%); /* 光环,不是底线(audit-texture §4) */
+}
+
+.clear-btn {
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 4px 2px;
+  font-size: var(--fs-body-2);
+  /* C4 对比度:文本用色加深为 #b45309(--color-accent 原值仅保留给非文本用途) */
+  color: #b45309;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.clear-btn:hover {
+  color: var(--color-text);
+}
+
+/* ---------- 主表 ---------- */
+.table-area {
+  min-height: 300px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.lb {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-body-2);
+}
+
+.lb thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-text);
+  padding: 0;
+  text-align: left;
+}
+
+.th-btn {
+  appearance: none;
+  background: none;
+  border: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--fs-utility-2);
+  font-weight: 600; /* 表头反向做小做轻,数据行才重(audit-typography §3) */
+  letter-spacing: 0.06em;
+  text-transform: uppercase; /* 拉丁列名大写;中文不受影响,全站仅表头用 */
+  color: var(--color-text-2);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.th-btn:hover {
+  color: var(--color-text);
+}
+
+.th-arrow {
+  font-size: var(--fs-utility-2);
+  color: var(--color-muted);
+}
+
+.th-arrow.is-on {
+  color: var(--color-accent);
+}
+
+/* 数值/来源列表头右对齐,与表体个位成线(audit-typography 丑4;来源列 T1 第三轮转右对齐) */
+.lb thead th.cell-rank .th-btn,
+.lb thead th.cell-score .th-btn,
+.lb thead th.cell-source .th-btn {
+  justify-content: flex-end;
+}
+
+.lb tbody td {
+  position: relative;
+  padding: 10px var(--space-md); /* 行高 ~41px(audit-typography §3 行高节奏) */
+  border-bottom: 1px solid var(--color-border-strong);
+  vertical-align: baseline;
+  transition: background var(--dur-fast) var(--ease-soft);
+}
+
+/* 行左缘「边界线」:每行 4px(T1 第三轮:3→4px),
+   色由行内注入 --edge-color(组件端 OKLCH 预计算 hex;Top1-3 为与 Rank 徽章同款实色,
+   其余行分位插值且色度下限防灰);不再用 CSS color-mix(Chromium 90 旧内核整条声明被丢弃) */
+.lb tbody td.cell-rank::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--edge-w);
+  background: var(--edge-color, transparent);
+  opacity: var(--edge-on, 0);
+  transition: width var(--dur-fast) var(--ease-soft);
+}
+
+.lb tbody tr:hover td.cell-rank::before {
+  width: var(--edge-w-hover); /* 底色+边界线加宽构成整套反馈(audit-texture U2) */
+}
+
+.lb tbody tr.is-zebra td {
+  background: var(--color-surface-alt);
+}
+
+.lb tbody tr:hover td {
+  background: var(--color-surface-hover);
+}
+
+.cell-rank {
+  width: 64px; /* T1 第三轮:48→64,固定窄列 */
+  text-align: right;
+}
+
+.rank-num {
+  font-family: var(--font-utility);
+  font-size: var(--fs-utility-1);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-2);
+}
+
+/* Top3 徽章:20×20 色块白字,橙/青绿/深蓝黑各领一位(audit-texture §3.2/§4) */
+.rank-badge {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  font-family: var(--font-utility);
+  font-size: var(--fs-utility-2);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.rank-1 {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.rank-2 {
+  background: var(--color-accent-2);
+  color: #fff;
+}
+
+.rank-3 {
+  background: var(--color-text);
+  color: #fff;
+}
+
+.model-name {
+  font-size: var(--fs-body-1);
+  font-weight: 600;
+}
+
+/* 国产标记:去描边改青绿圆点+纯文字(audit-typography 丑6) */
+.tag-domestic {
+  display: inline-block;
+  margin-left: var(--space-sm);
+  font-family: var(--font-utility);
+  font-size: var(--fs-utility-2);
+  line-height: var(--lh-utility);
+  /* C4 对比度:标签文本用色加深为 #0f766e */
+  color: #0f766e;
+  vertical-align: 1px;
+}
+
+.tag-domestic::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 4px;
+  border-radius: 50%;
+  background: var(--color-accent-2);
+  vertical-align: 1px;
+}
+
+/* 分数区(T1 第三轮重做):16px 分数专用档(600/右对齐)+ 其下通栏数据条 ——
+   条贯穿整列(从模型列右缘到分数右缘),长度 = 分数值%(83.3 分 → 83.3% 宽),
+   颜色 = 该行边界线同款分位色(「一色两现」),与分数间距 4px */
+.cell-score {
+  width: 140px; /* 固定列宽(T1 第三轮) */
+  text-align: right;
+}
+
+/* 通栏条要求列内左距清零:需压过 .lb tbody td 的 padding 简写(类型选择器权重更高) */
+.lb tbody td.cell-score {
+  padding-left: 0;
+}
+
+.score-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+}
+
+.score-num {
+  display: block;
+  font-family: var(--font-utility);
+  font-size: var(--fs-score); /* 分数专用档 16px(阶梯唯一破例,design-system.md v3.1) */
+  font-weight: 600;
+  line-height: var(--lh-utility);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text);
+}
+
+.score-bar {
+  display: block;
+  height: 5px;
+  border-radius: var(--radius-pill);
+  background: var(--color-border-strong);
+  overflow: hidden;
+}
+
+.score-bar-fill {
+  display: block;
+  height: 100%;
+  width: var(--bar-pct, 0%);
+  background: var(--edge-color, transparent);
+}
+
+.cell-source {
+  width: 150px; /* T1 第三轮:168→150 固定窄列,整列右对齐贴边,消除与分数列间大空白 */
+  white-space: nowrap;
+  text-align: right;
+}
+
+.cell-date {
+  font-family: var(--font-utility);
+  font-size: var(--fs-utility-2);
+  color: var(--color-muted); /* 日期纯装饰(audit-typography 丑3:元信息转 muted) */
+  margin-left: var(--space-sm); /* 徽标-日期间距 8px(T1 第三轮) */
+  font-variant-numeric: tabular-nums;
+}
+
+.m-source {
+  display: none;
+}
+
+/* ---------- 溯源徽标 + 浮层 ---------- */
+.badge-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+/* 溯源徽标:去框改胶囊底,hover 才显边框(audit-typography 丑6 + 质感 §4) */
+.badge {
+  display: inline-block;
+  padding: 0 6px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-utility);
+  font-size: var(--fs-badge); /* 徽标装饰专用档 11px(T1 第三轮,design-system.md v3.1) */
+  line-height: var(--lh-utility);
+  color: var(--color-muted); /* 徽标纯装饰转 muted(audit-typography 丑3) */
+  text-decoration: none;
+  background: var(--color-surface-alt);
+  transition: border-color var(--dur-fast) var(--ease-soft), color var(--dur-fast) var(--ease-soft),
+    box-shadow var(--dur-fast) var(--ease-soft), transform var(--dur-fast) var(--ease-soft);
+}
+
+.badge:hover,
+.badge:focus-visible {
+  border-color: var(--color-accent);
+  color: #b45309; /* C4 对比度:文本用色加深档 */
+  box-shadow: var(--shadow-1);
+  transform: translateY(-1px);
+}
+
+/* 外链后缀:真源身份可见(audit-texture §4) */
+.badge-ext {
+  margin-left: 1px;
+  font-size: 10px; /* 装饰性符号,非阅读文本,豁免字号阶梯 */
+  color: var(--color-muted);
+}
+
+.badge-pop {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 6px);
+  z-index: 20;
+  width: 300px;
+  padding: var(--space-sm) var(--space-sm) var(--space-xs);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  box-shadow: var(--shadow-2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  pointer-events: none;
+  transition: opacity var(--dur-base) var(--ease-soft), transform var(--dur-base) var(--ease-soft),
+    visibility 0s linear var(--dur-base);
+}
+
+.badge-wrap:hover .badge-pop,
+.badge:focus-visible + .badge-pop {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity var(--dur-base) var(--ease-soft), transform var(--dur-base) var(--ease-soft),
+    visibility 0s;
+}
+
+.badge-pop-row {
+  display: flex;
+  gap: var(--space-sm);
+  font-family: var(--font-utility);
+  font-size: var(--fs-utility-2);
+  line-height: 1.8;
+  color: var(--color-text-2);
+  overflow-wrap: anywhere;
+}
+
+.badge-pop-key {
+  flex: none;
+  color: var(--color-muted);
+}
+
+.badge-pop-hint {
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--space-xs);
+  padding-top: 2px;
+  color: var(--color-muted);
+}
+
+/* ---------- N/A 降级面板:「档案缺页」(audit-texture §6) ---------- */
+.na-panel {
+  border: 1px dashed var(--color-border-strong); /* 虚线 = 未归档 */
+  border-left: var(--edge-w) solid var(--color-accent-2); /* 青绿左缘,与表格边界线同语言同宽 */
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, var(--color-surface-alt), transparent 120px);
+  padding: var(--space-lg) var(--space-lg) var(--space-md);
+  max-width: 720px;
+}
+
+/* N/A 水印大字:装饰字复用 display-1 档,层级 水印>标题>说明 */
+.na-mark {
+  font-family: var(--font-display);
+  font-size: var(--fs-display-1);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: var(--color-border-strong);
+}
+
+.na-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-display-3);
+  font-weight: 700;
+  line-height: var(--lh-display);
+  margin: var(--space-sm) 0;
+}
+
+.na-reason {
+  font-size: var(--fs-body-2);
+  color: var(--color-text-2);
+  max-width: 60ch;
+}
+
+.na-meta {
+  font-family: var(--font-utility);
+  font-size: var(--fs-utility-2);
+  color: var(--color-text-2);
+  margin-top: var(--space-sm);
+}
+
+.na-link {
+  display: inline-block;
+  margin-top: var(--space-md);
+  font-size: var(--fs-body-2);
+  color: var(--color-text);
+  text-underline-offset: 3px;
+}
+
+.na-link:hover {
+  color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
+}
+
+/* ---------- 筛选空状态:与 N/A 同族「缺档」语言(audit-texture §6) ---------- */
+.empty-panel {
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  max-width: 720px;
+}
+
+/* CSS 手绘「空行占位」:三条 2px 圆头线透明度递减,表达“这里本该有行” */
+.empty-panel::before {
+  content: '';
+  display: block;
+  height: 20px;
+  margin-bottom: var(--space-md);
+  /* border-strong 的透明度档用 8 位 hex(#d6d3cb 派生):color-mix 在 Chromium 90 旧内核被丢弃(T1 第三轮加固) */
+  background: linear-gradient(var(--color-border-strong), var(--color-border-strong)) 0 0 / 40% 2px no-repeat,
+    linear-gradient(#d6d3cb99, #d6d3cb99) 0 9px / 28% 2px no-repeat,
+    linear-gradient(#d6d3cb4d, #d6d3cb4d) 0 18px / 18% 2px no-repeat;
+}
+
+.empty-title {
+  font-size: var(--fs-body-1);
+  font-weight: 700;
+}
+
+.empty-hint {
+  font-size: var(--fs-body-2);
+  color: var(--color-text-2);
+  margin: var(--space-xs) 0 var(--space-md);
+}
+
+/* ---------- 方法说明 + 数据账本 ---------- */
+.section-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-display-3);
+  font-weight: 700;
+  line-height: var(--lh-display);
+  margin-bottom: var(--space-sm);
+}
+
+.method {
+  margin-top: var(--space-xl); /* 表区/附录分节 64px(audit-typography 丑7) */
+  max-width: 72ch;
+}
+
+.method p {
+  font-size: var(--fs-body-2);
+  color: var(--color-text-2);
+  margin-bottom: var(--space-sm);
+}
+
+.ledger {
+  margin-top: var(--space-xl); /* 与方法说明一起拉开「档案/附录」分节(audit-typography 丑7) */
+  margin-bottom: var(--space-xl);
+  border-top: 1px solid var(--color-text);
+  padding-top: var(--space-md);
+}
+
+/* 账本条两列 grid:key 88px 右对齐 + 值域左对齐(audit-typography 丑9) */
+.ledger-row {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  align-items: baseline;
+  gap: var(--space-xs) var(--space-sm);
+  font-family: var(--font-utility);
+  font-size: var(--fs-utility-2);
+  line-height: var(--lh-utility);
+  margin-bottom: var(--space-sm);
+}
+
+.ledger-row.ledger-fine {
+  display: block; /* 无 key 的收尾行不进两列轴 */
+}
+
+.ledger-key {
+  color: var(--color-muted);
+  text-align: right;
+}
+
+.ledger-val {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-xs);
+  min-width: 0;
+}
+
+.ledger-chip {
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  padding: 0 6px;
+  color: var(--color-text-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.ledger-note {
+  color: var(--color-muted);
+}
+
+.ledger-dim {
+  color: var(--color-text-2);
+}
+
+.ledger-sep {
+  color: var(--color-muted);
+}
+
+.ledger-ok {
+  color: var(--color-text-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.ledger-na {
+  color: var(--color-muted);
+}
+
+.ledger-fine {
+  color: var(--color-muted);
+  margin-bottom: 0;
+}
+
+/* ---------- 响应式:768px 降密(方案 A 风险项) ---------- */
+@media (max-width: 768px) {
+  .topbar {
+    padding: 0 var(--space-md);
+  }
+
+  .topbar-brand {
+    font-size: var(--fs-display-3);
+  }
+
+  .tabs {
+    gap: var(--space-md);
+  }
+
+  .tabs-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-xs);
+  }
+
+  .dim-meta {
+    white-space: normal;
+  }
+
+  .search {
+    width: 100%;
+    order: 10;
+    margin-left: 0;
+  }
+
+  /* 列优先级折叠:「来源·时间」列收起,徽标折入模型单元格 */
+  .lb thead th.cell-source {
+    display: none;
+  }
+
+  .lb tbody td.cell-source {
+    display: none;
+  }
+
+  .m-source {
+    display: inline-flex;
+    margin-left: var(--space-sm);
+  }
+
+  .lb thead th {
+    padding: var(--space-sm);
+  }
+
+  .lb tbody td {
+    padding: 10px var(--space-sm); /* 桌面 10px 16px 的移动同步(audit-typography §3) */
+  }
+
+  .cell-rank {
+    width: 44px;
+  }
+
+  .cell-score {
+    width: 88px; /* 分数+通栏条块的最小可读宽(T1 第三轮:64→88) */
+  }
+
+  .lb tbody td.cell-score {
+    padding-left: 0; /* 移动 10px 8px 简写会重置左距,此处保持通栏 */
+  }
+
+  .tag-domestic {
+    margin-left: var(--space-xs);
+  }
+
+  .na-panel,
+  .empty-panel {
+    padding: var(--space-md);
+  }
+}
+
+/* ---------- 动效偏好:transition 与 animation 一并归零(含伪元素,audit-texture U11) ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

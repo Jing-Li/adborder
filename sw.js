@@ -40,6 +40,8 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
+  // /models/ 榜单站数据每日更新,必须网络优先,不走 Service Worker 缓存
+  if (new URL(event.request.url).pathname.startsWith('/models/')) return;
   event.respondWith(
     caches.match(event.request).then((cached) => {
       const fetchPromise = fetch(event.request).then((response) => {
