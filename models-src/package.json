@@ -6,8 +6,9 @@
   "description": "AdBorder 大模型权威排行榜 — 纯前端静态站点(GitHub Pages)",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/gen-en-html.mjs",
     "typecheck": "tsc --noEmit",
+    "check:i18n": "node scripts/i18n-check.mjs",
     "preview": "vite preview",
     "fetch:leaderboards": "node scripts/fetch-leaderboards.mjs"
   },

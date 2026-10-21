@@ -6,6 +6,7 @@
  */
 import { useRef } from 'react'
 import type { KeyboardEvent } from 'react'
+import { useT } from '../i18n'
 import { DIMENSIONS } from '../data/dimensions'
 import type { DimensionId } from '../data/types'
 
@@ -15,6 +16,7 @@ interface Props {
 }
 
 export default function DimensionTabs({ active, onChange }: Props) {
+  const t = useT()
   const listRef = useRef<HTMLDivElement>(null)
 
   function onKeyDown(e: KeyboardEvent) {
@@ -35,12 +37,13 @@ export default function DimensionTabs({ active, onChange }: Props) {
       ref={listRef}
       className="tabs"
       role="tablist"
-      aria-label="排行榜维度"
+      aria-label={t('tabs.ariaLabel')}
       onKeyDown={onKeyDown}
     >
       {DIMENSIONS.map((d) => {
         const isActive = d.id === active
         const empty = d.file.models.length === 0
+        const label = t(d.labelKey)
         return (
           <button
             key={d.id}
@@ -49,13 +52,13 @@ export default function DimensionTabs({ active, onChange }: Props) {
             id={`tab-${d.id}`}
             aria-selected={isActive}
             aria-controls={`panel-${d.id}`}
-            aria-label={empty ? `${d.label}(暂无数据)` : undefined}
-            title={empty ? '该维度暂无数据,点击查看原因' : undefined}
+            aria-label={empty ? t('tabs.emptyAria', { label }) : undefined}
+            title={empty ? t('tabs.emptyTitle') : undefined}
             tabIndex={isActive ? 0 : -1}
             className={`tab${isActive ? ' is-active' : ''}${empty ? ' is-empty' : ''}`}
             onClick={() => onChange(d.id)}
           >
-            {d.label}
+            {label}
           </button>
         )
       })}

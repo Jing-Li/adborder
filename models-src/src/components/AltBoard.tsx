@@ -6,6 +6,7 @@
  * 副榜行同为七字段溯源 schema,徽标 [SWE] 点击直达 SWE-bench 真源;
  * 副榜抓取失败时如实说明并折叠 na_reason 原文(NaPanel 同机制),不编数。
  */
+import { useT } from '../i18n'
 import type { AltMeta, DimensionMeta } from '../data/dimensions'
 import Leaderboard from './Leaderboard'
 
@@ -14,20 +15,20 @@ interface Props {
 }
 
 export default function AltBoard({ alt }: Props) {
+  const t = useT()
   const models = alt.file.models
-  const title = (
-    <h3 className="alt-title">{alt.title}</h3>
-  )
+  const titleText = t(alt.titleKey)
+  const title = <h3 className="alt-title">{titleText}</h3>
 
   if (models.length === 0) {
     return (
-      <section className="alt-board" aria-label={alt.title}>
+      <section className="alt-board" aria-label={titleText}>
         {title}
-        <p className="alt-desc">{alt.desc}</p>
-        <p className="alt-na">副榜本次抓取未获结构化数据,不编数;原因见下方抓取记录。</p>
+        <p className="alt-desc">{t(alt.descKey)}</p>
+        <p className="alt-na">{t('alt.naNotice')}</p>
         {alt.file.na_reason && (
-          <details className="alt-details">
-            <summary>抓取记录原文(技术细节)</summary>
+          <details className="alt-details" title={alt.file.na_reason}>
+            <summary>{t('common.detailsSummary')}</summary>
             <p className="alt-na">{alt.file.na_reason}</p>
           </details>
         )}
@@ -41,20 +42,20 @@ export default function AltBoard({ alt }: Props) {
   // Leaderboard 只消费 dim.abbr(徽标)/dim.file(浮层来源);以副榜元数据覆写构成展示宿主
   const host: DimensionMeta = {
     id: 'coding_oc',
-    label: alt.title,
-    desc: alt.desc,
-    sourceName: alt.sourceName,
+    labelKey: alt.titleKey,
+    descKey: alt.descKey,
+    sourceNameKey: alt.sourceNameKey,
     abbr: alt.abbr,
     file: alt.file,
   }
   const rowCount = models.length
 
   return (
-    <section className="alt-board" aria-label={alt.title}>
+    <section className="alt-board" aria-label={titleText}>
       <div className="alt-head">
         {title}
-        <p className="alt-desc">{alt.desc}</p>
-        <p className="alt-count">共 {rowCount} 个模型(英文口径,与主榜中文分不可直接互比)</p>
+        <p className="alt-desc">{t(alt.descKey)}</p>
+        <p className="alt-count">{t('alt.count', { count: rowCount })}</p>
       </div>
       <Leaderboard
         dim={host}

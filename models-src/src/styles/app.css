@@ -136,6 +136,47 @@ a {
   text-decoration-color: var(--color-accent);
 }
 
+/* ---------- 细条右端动作区 + 语言切换器(T10,视觉对齐 topbar 细条) ----------
+ * 只用 tokens 变量;缓动用全站唯一 --ease-soft(motion 纪律);不动 tokens.css */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+}
+
+.lang-toggle .lang-btn {
+  font-family: var(--font-body);
+  font-size: var(--fs-utility-2);
+  line-height: var(--lh-utility);
+  padding: 3px 10px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-text-2);
+  cursor: pointer;
+  transition:
+    color var(--dur-fast) var(--ease-soft),
+    background var(--dur-fast) var(--ease-soft);
+}
+
+.lang-toggle .lang-btn:hover {
+  color: var(--color-text);
+}
+
+.lang-toggle .lang-btn.is-active {
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+}
+
 /* ---------- 维度报头(Masthead-lite,audit-typography §4) ---------- */
 .masthead {
   padding: var(--space-md) 0 var(--space-sm);

@@ -2,13 +2,16 @@
  * App — 方案 A「Manifest 档案」页面组合(dx-detail 实现 + dx-wire 接线)。
  * 状态:激活维度 / 搜索 / 开源属性 / 厂商 / 排序;筛选三组与搜索正交可叠加。
  * 默认 Tab = 第一个有数据的维度(避免首屏即 N/A 面板);Tab 顺序保持定稿六维。
+ * T10:I18nProvider 包裹(语言解析优先级见 src/i18n/resolve.ts),语言切换器挂 topbar 右端。
  */
 import { useMemo, useState } from 'react'
 import { defaultDimensionId, getDimension } from './data/dimensions'
 import type { DimensionId } from './data/types'
 import { getModelMeta } from './lib/modelMeta'
 import { fmtDate } from './lib/format'
+import { I18nProvider, useT } from './i18n'
 import HeaderBar from './components/HeaderBar'
+import LanguageToggle from './components/LanguageToggle'
 import DimensionTabs from './components/DimensionTabs'
 import FilterBar from './components/FilterBar'
 import type { LicenseFilter } from './components/FilterBar'
@@ -27,6 +30,15 @@ const PRIMARY_DIR: Record<SortKey, 'asc' | 'desc'> = {
 }
 
 export default function App() {
+  return (
+    <I18nProvider>
+      <ModelsPage />
+    </I18nProvider>
+  )
+}
+
+function ModelsPage() {
+  const t = useT()
   const [dimId, setDimId] = useState<DimensionId>(() => defaultDimensionId())
   const [query, setQuery] = useState('')
   const [license, setLicense] = useState<LicenseFilter>('all')
@@ -105,25 +117,25 @@ export default function App() {
 
   return (
     <div className="site">
-      <HeaderBar />
+      <HeaderBar actions={<LanguageToggle />} />
 
       <main className="container">
         {/* 维度报头(Masthead-lite):40px 维度大字 + 站点副题 + 元信息;
             切 Tab 即换报头,40px 大字承担“当前在哪”的重述 */}
         <header className="masthead">
-          <p className="masthead-title">{dim.label}</p>
-          <p className="masthead-sub">大模型权威排行榜,每个分数可溯源到真源</p>
+          <p className="masthead-title">{t(dim.labelKey)}</p>
+          <p className="masthead-sub">{t('app.tagline')}</p>
           {/* 报头 meta 两组收敛(T1 第三轮):主组「量什么 · 真源」13px text-2,
               次组「版本 · 更新日期」12px muted utility;绿点与抓取时间移除
               (抓取时间只在页脚账本与溯源浮层出现);N/A 维度也展示主组 */}
           <p className="dim-meta">
             <span className="dim-meta-main">
-              {dim.desc} · {dim.sourceName}
+              {t(dim.descKey)} · {t(dim.sourceNameKey)}
             </span>
             {(dim.file.benchmark_version || dim.file.updated_at) && (
               <span className="dim-meta-sub">
                 {dim.file.benchmark_version ? `${dim.file.benchmark_version} · ` : ''}
-                {dim.file.updated_at ? `${fmtDate(dim.file.updated_at)} 更新` : ''}
+                {dim.file.updated_at ? t('app.updatedSuffix', { date: fmtDate(dim.file.updated_at) }) : ''}
               </span>
             )}
           </p>
@@ -156,16 +168,12 @@ export default function App() {
           ) : sorted.length === 0 ? (
             <div className="empty-panel">
               <p className="empty-title">
-                没有匹配的模型
-                {query.trim() ? (
-                  <>
-                    :「{query.trim()}」
-                  </>
-                ) : null}
+                {t('app.emptyTitle')}
+                {query.trim() ? t('app.emptyQuerySuffix', { query: query.trim() }) : null}
               </p>
-              <p className="empty-hint">当前维度共 {models.length} 个模型,试试放宽筛选条件。</p>
+              <p className="empty-hint">{t('app.emptyHint', { count: models.length })}</p>
               <button type="button" className="clear-btn" onClick={clearFilters}>
-                清除筛选
+                {t('app.emptyClear')}
               </button>
             </div>
           ) : (

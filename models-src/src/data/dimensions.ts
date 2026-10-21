@@ -8,8 +8,12 @@
  * 原「中文」维度正名为「综合」(同源同表同列,数据点零丢失);
  * 原 4 个 N/A 维(overall/preference/reasoning-LiveBench/value)撤一级 Tab,
  * 数据文件与 na_reason 机制保留,由 ROADMAP 供页脚「数据源路线图」使用。
+ *
+ * T10 文案键化:label/desc/sourceName/alt.title/alt.desc 改为 i18n key 引用(真源 src/i18n/zh.ts);
+ * id/file/abbr/naKind 等非文案字段不动;na_reason 属数据文件字段,永不翻译。
  */
 import type { DimensionId, LeaderboardFile } from './types'
+import type { TKey } from '../i18n'
 
 import overallOcJson from '../../data/leaderboards/overall_oc.json'
 import knowledgeOcJson from '../../data/leaderboards/knowledge_oc.json'
@@ -28,24 +32,25 @@ export type NaKind = 'network' | 'key'
 
 /** 维度副榜(如代码 Tab 的 SWE-bench Verified 英文口径对照):同页静态展示,不参与主榜交互 */
 export interface AltMeta {
-  /** 副榜标题(口径分列标注,如「英文口径对照 · SWE-bench Verified(真实 issue 修复)」) */
-  title: string
-  /** 副榜一句话口径说明:为什么是另一个榜、与主榜什么关系 */
-  desc: string
-  /** 副榜数据源短名(溯源徽标悬浮用) */
-  sourceName: string
-  /** 副榜溯源徽标缩写(如 [SWE]) */
+  /** 副榜标题 i18n key(口径分列标注;文案真源 src/i18n/zh.ts,T10 文案键化) */
+  titleKey: TKey
+  /** 副榜一句话口径说明 i18n key:为什么是另一个榜、与主榜什么关系 */
+  descKey: TKey
+  /** 副榜数据源短名 i18n key(溯源徽标悬浮用) */
+  sourceNameKey: TKey
+  /** 副榜溯源徽标缩写(如 [SWE];非文案字段,不动) */
   abbr: string
   file: LeaderboardFile
 }
 
 export interface DimensionMeta {
   id: DimensionId
-  label: string
-  /** 副题·量什么:一句话说清该维度测的是什么(writing-in-design:说人话,不堆术语) */
-  desc: string
-  /** 副题·数据源短名,维度报头以「数据来源:XXX」展示 */
-  sourceName: string
+  /** Tab 名 i18n key(T10 文案键化;id/file/abbr 等非文案字段不动) */
+  labelKey: TKey
+  /** 副题·量什么 i18n key:一句话说清该维度测的是什么(writing-in-design:说人话,不堆术语) */
+  descKey: TKey
+  /** 副题·数据源短名 i18n key,维度报头以「数据来源:XXX」展示 */
+  sourceNameKey: TKey
   /** N/A 降级原因类别(主榜抓取失败落 N/A 占位时,NaPanel 据此分层解释空态原因) */
   naKind?: NaKind
   /** 溯源徽标缩写(如 [OC]/[SWE]) */
@@ -58,47 +63,47 @@ export interface DimensionMeta {
 export const DIMENSIONS: DimensionMeta[] = [
   {
     id: 'overall_oc',
-    label: '综合',
-    desc: '中文语境综合总分',
-    sourceName: 'OpenCompass 司南',
+    labelKey: 'dim.overall.label',
+    descKey: 'dim.overall.desc',
+    sourceNameKey: 'source.oc',
     abbr: 'OC',
     file: overallOcJson as LeaderboardFile,
   },
   {
     id: 'knowledge_oc',
-    label: '知识',
-    desc: '中文语境知识广度(人文/社科/工程/科学/常识)',
-    sourceName: 'OpenCompass 司南',
+    labelKey: 'dim.knowledge.label',
+    descKey: 'dim.knowledge.desc',
+    sourceNameKey: 'source.oc',
     abbr: 'OC',
     file: knowledgeOcJson as LeaderboardFile,
   },
   {
     id: 'math_oc',
-    label: '数学',
-    desc: '中文语境数学能力(大学数学/竞赛数学)',
-    sourceName: 'OpenCompass 司南',
+    labelKey: 'dim.math.label',
+    descKey: 'dim.math.desc',
+    sourceNameKey: 'source.oc',
     abbr: 'OC',
     file: mathOcJson as LeaderboardFile,
   },
   {
     id: 'reasoning_oc',
-    label: '推理',
-    desc: '中文 CompassBench 口径推理分,区别于英文动态基准',
-    sourceName: 'OpenCompass 司南',
+    labelKey: 'dim.reasoning.label',
+    descKey: 'dim.reasoning.desc',
+    sourceNameKey: 'source.oc',
     abbr: 'OC',
     file: reasoningOcJson as LeaderboardFile,
   },
   {
     id: 'coding_oc',
-    label: '代码',
-    desc: '中文 CompassBench 口径代码分,英文口径见下方副榜',
-    sourceName: 'OpenCompass 司南',
+    labelKey: 'dim.coding.label',
+    descKey: 'dim.coding.desc',
+    sourceNameKey: 'source.oc',
     abbr: 'OC',
     file: codingOcJson as LeaderboardFile,
     alt: {
-      title: '英文口径对照 · SWE-bench Verified(真实 issue 修复)',
-      desc: '同一批模型的英文口径代码能力:在真实 GitHub issue 上跑补丁的修复率。与主榜的中文 CompassBench 分不同口径、不可直接互比,分开陈列供对照。',
-      sourceName: 'SWE-bench',
+      titleKey: 'dim.coding.alt.title',
+      descKey: 'dim.coding.alt.desc',
+      sourceNameKey: 'source.swe',
       abbr: 'SWE',
       file: codingJson as LeaderboardFile,
     },
@@ -137,7 +142,7 @@ export const ALL_FILES: LeaderboardFile[] = [
 
 export function getDimension(id: DimensionId): DimensionMeta {
   const dim = DIMENSIONS.find((d) => d.id === id)
-  if (!dim) throw new Error(`未知维度: ${id}`)
+  if (!dim) throw new Error(`Unknown dimension: ${id}`)
   return dim
 }
 

@@ -1,0 +1,75 @@
+{
+  "$meta": {
+    "title": "adborder i18n glossary（主站/子站通用术语表）",
+    "source": "docs/research/i18n-architecture.md 决策⑤（T9 定稿，逐条抄录）",
+    "rule": "新词条进本表须同时给双语定稿 + 一句使用语境；主站/子站翻译直接取本表用词（人工对照为主，本表是唯一依据）；T11 主站双语直接复用本文件",
+    "entryCount": 13
+  },
+  "entries": {
+    "leaderboard": {
+      "zh": "排行榜",
+      "en": "Leaderboard",
+      "note": "子站主名词；导航用 Rankings（主站已用）"
+    },
+    "borderLine": {
+      "zh": "边界线",
+      "en": "Border Line",
+      "note": "主站工具核心词；加边框动词用 add a border"
+    },
+    "traceable": {
+      "zh": "可溯源",
+      "en": "traceable",
+      "note": "「数据可溯源」= traceable data；强调可验证时 verifiable"
+    },
+    "openSource": {
+      "zh": "开源",
+      "en": "open-source",
+      "note": "闭源对译 closed-source；筛选 chip 用 Open-source/Closed-source"
+    },
+    "vendor": {
+      "zh": "厂商",
+      "en": "vendor",
+      "note": "模型厂商 = model vendor；避免 company/provider 混用"
+    },
+    "overall": {
+      "zh": "综合",
+      "en": "Overall",
+      "note": "OC 维度 Tab 名"
+    },
+    "knowledge": {
+      "zh": "知识",
+      "en": "Knowledge",
+      "note": "OC 维度 Tab 名"
+    },
+    "math": {
+      "zh": "数学",
+      "en": "Math",
+      "note": "OC 维度 Tab 名"
+    },
+    "reasoning": {
+      "zh": "推理",
+      "en": "Reasoning",
+      "note": "OC 维度 Tab 名"
+    },
+    "coding": {
+      "zh": "代码",
+      "en": "Coding",
+      "note": "Tab 名用 Coding（与 SWE-bench 口径一致），代码能力语境用 code"
+    },
+    "metricScope": {
+      "zh": "口径",
+      "en": "metric scope",
+      "note": "「中文口径」= Chinese-language scope；禁止逐字直译 caliber"
+    },
+    "dataSource": {
+      "zh": "数据来源",
+      "en": "Data Source",
+      "note": "页脚账本/维度报头"
+    },
+    "snapshot": {
+      "zh": "快照",
+      "en": "snapshot",
+      "note": "每日数据快照 = daily snapshot"
+    }
+  }
+}

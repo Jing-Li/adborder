@@ -3,6 +3,7 @@
  * 筛选维度只来自数据实际可得字段:开源/闭源与厂商由模型名派生元数据
  * (src/lib/modelMeta.ts);数据无模态字段,不摆模态筛选器。
  */
+import { useT } from '../i18n'
 import type { License } from '../lib/modelMeta'
 
 export type LicenseFilter = 'all' | License
@@ -30,20 +31,22 @@ export default function FilterBar({
   activeCount,
   onClear,
 }: Props) {
+  const t = useT()
+
   function toggleLicense(l: Exclude<LicenseFilter, 'all'>) {
     onLicense(license === l ? 'all' : l)
   }
 
   return (
     <div className="filters">
-      <div className="chips" role="group" aria-label="按开源属性筛选">
+      <div className="chips" role="group" aria-label={t('filter.licenseAria')}>
         <button
           type="button"
           className={`chip${license === 'open' ? ' is-active' : ''}`}
           aria-pressed={license === 'open'}
           onClick={() => toggleLicense('open')}
         >
-          开源
+          {t('filter.open')}
         </button>
         <button
           type="button"
@@ -51,17 +54,17 @@ export default function FilterBar({
           aria-pressed={license === 'closed'}
           onClick={() => toggleLicense('closed')}
         >
-          闭源
+          {t('filter.closed')}
         </button>
       </div>
 
       <label className="vendor-chip">
-        <span className="vendor-label">厂商</span>
-        <select value={vendor} onChange={(e) => onVendor(e.target.value)} aria-label="按厂商筛选">
-          <option value="all">全部</option>
+        <span className="vendor-label">{t('filter.vendorLabel')}</span>
+        <select value={vendor} onChange={(e) => onVendor(e.target.value)} aria-label={t('filter.vendorAria')}>
+          <option value="all">{t('filter.vendorAll')}</option>
           {vendors.map((v) => (
             <option key={v.name} value={v.name}>
-              {v.name}({v.count})
+              {t('filter.vendorOption', { name: v.name, count: v.count })}
             </option>
           ))}
         </select>
@@ -72,13 +75,13 @@ export default function FilterBar({
         type="search"
         value={query}
         onChange={(e) => onQuery(e.target.value)}
-        placeholder="搜索模型名…"
-        aria-label="搜索模型名"
+        placeholder={t('filter.searchPlaceholder')}
+        aria-label={t('filter.searchAria')}
       />
 
       {activeCount > 0 && (
         <button type="button" className="clear-btn" onClick={onClear}>
-          清除筛选({activeCount})
+          {t('filter.clearCount', { count: activeCount })}
         </button>
       )}
     </div>

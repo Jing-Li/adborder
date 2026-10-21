@@ -5,6 +5,7 @@
  * 浮层为纯展示(pointer-events:none),唯一动作 = 徽标自身链接。
  */
 import { fmtDate, fmtUTC } from '../lib/format'
+import { useT } from '../i18n'
 import type { ModelRow } from '../data/types'
 
 interface Props {
@@ -15,6 +16,7 @@ interface Props {
 }
 
 export default function SourceBadge({ abbr, row, tabbable = true }: Props) {
+  const t = useT()
   return (
     <span className="badge-wrap">
       <a
@@ -23,7 +25,7 @@ export default function SourceBadge({ abbr, row, tabbable = true }: Props) {
         tabIndex={tabbable ? undefined : -1}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`来源 ${abbr},打开真源(新标签页)`}
+        aria-label={t('badge.ariaLabel', { abbr })}
       >
         {abbr}
         {/* 外链后缀:真源身份可见(audit-texture §4) */}
@@ -33,18 +35,18 @@ export default function SourceBadge({ abbr, row, tabbable = true }: Props) {
       </a>
       <span className="badge-pop" role="presentation">
         <span className="badge-pop-row">
-          <span className="badge-pop-key">来源</span>
+          <span className="badge-pop-key">{t('badge.popSource')}</span>
           {row.source_url}
         </span>
         <span className="badge-pop-row">
-          <span className="badge-pop-key">更新</span>
+          <span className="badge-pop-key">{t('badge.popUpdated')}</span>
           {fmtDate(row.updated_at)}
         </span>
         <span className="badge-pop-row">
-          <span className="badge-pop-key">抓取</span>
+          <span className="badge-pop-key">{t('badge.popFetched')}</span>
           {fmtUTC(row.fetched_at)}
         </span>
-        <span className="badge-pop-row badge-pop-hint">点击徽标在新标签页打开真源</span>
+        <span className="badge-pop-row badge-pop-hint">{t('badge.popHint')}</span>
       </span>
     </span>
   )

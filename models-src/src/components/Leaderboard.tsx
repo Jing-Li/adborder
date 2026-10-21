@@ -12,6 +12,8 @@
 import type { CSSProperties } from 'react'
 import { getModelMeta } from '../lib/modelMeta'
 import { fmtDate, fmtScore, scorePercentile } from '../lib/format'
+import { useT } from '../i18n'
+import type { TKey } from '../i18n'
 import type { DimensionMeta } from '../data/dimensions'
 import type { ModelRow } from '../data/types'
 import SourceBadge from './SourceBadge'
@@ -34,11 +36,11 @@ interface Props {
   static?: boolean
 }
 
-const COLUMNS: Array<{ key: SortKey; label: string; primary: 'asc' | 'desc'; className: string }> = [
-  { key: 'rank', label: 'Rank', primary: 'asc', className: 'cell-rank' },
-  { key: 'model', label: '模型', primary: 'asc', className: 'cell-model' },
-  { key: 'score', label: '分数', primary: 'desc', className: 'cell-score' },
-  { key: 'updated_at', label: '来源 · 时间', primary: 'desc', className: 'cell-source' },
+const COLUMNS: Array<{ key: SortKey; labelKey: TKey; primary: 'asc' | 'desc'; className: string }> = [
+  { key: 'rank', labelKey: 'table.colRank', primary: 'asc', className: 'cell-rank' },
+  { key: 'model', labelKey: 'table.colModel', primary: 'asc', className: 'cell-model' },
+  { key: 'score', labelKey: 'table.colScore', primary: 'desc', className: 'cell-score' },
+  { key: 'updated_at', labelKey: 'table.colSourceTime', primary: 'desc', className: 'cell-source' },
 ]
 
 function ariaSort(key: SortKey, sort: SortState | null): 'ascending' | 'descending' | undefined {
@@ -125,6 +127,7 @@ const TOP_EDGE: Record<number, string> = {
 }
 
 export default function Leaderboard({ dim, rows, scoreMin, scoreMax, sort, onSortToggle, static: isStatic = false }: Props) {
+  const t = useT()
   return (
     <div className="table-wrap">
       <table className="lb">
@@ -138,10 +141,10 @@ export default function Leaderboard({ dim, rows, scoreMin, scoreMax, sort, onSor
                 aria-sort={isStatic ? undefined : ariaSort(col.key, sort)}
               >
                 {isStatic ? (
-                  <span className="th-label">{col.label}</span>
+                  <span className="th-label">{t(col.labelKey)}</span>
                 ) : (
                   <button type="button" className="th-btn" onClick={() => onSortToggle(col.key)}>
-                    {col.label}
+                    {t(col.labelKey)}
                     <span className={`th-arrow${sort?.key === col.key ? ' is-on' : ''}`} aria-hidden="true">
                       {sort?.key === col.key ? (sort.dir === 'asc' ? '▲' : '▼') : '↕'}
                     </span>
@@ -154,7 +157,7 @@ export default function Leaderboard({ dim, rows, scoreMin, scoreMax, sort, onSor
         <tbody>
           {rows.map((row, i) => {
             const meta = getModelMeta(row.model)
-            const t = scorePercentile(row.score, scoreMin, scoreMax)
+            const pct = scorePercentile(row.score, scoreMin, scoreMax)
             // 边界线/数据条同色一源(T1 第三轮):Top3 实色,其余行分位插值 hex;
             // 数据条长度 = 分数值%(83.3 分 → 83.3% 宽),与边界线构成「一色两现」
             const vars: Record<string, string | number> = {
@@ -162,8 +165,8 @@ export default function Leaderboard({ dim, rows, scoreMin, scoreMax, sort, onSor
               '--edge-color':
                 row.rank <= 3
                   ? TOP_EDGE[row.rank]
-                  : t !== null
-                    ? edgeColorFor(t)
+                  : pct !== null
+                    ? edgeColorFor(pct)
                     : 'transparent',
               '--bar-pct': `${Math.min(100, Math.max(0, row.score))}%`,
             }
@@ -180,8 +183,8 @@ export default function Leaderboard({ dim, rows, scoreMin, scoreMax, sort, onSor
                 <td className="cell-model">
                   <span className="model-name">{row.model}</span>
                   {meta.domestic && (
-                    <span className="tag-domestic" title="国产模型(由模型名派生,非榜单字段)">
-                      国产
+                    <span className="tag-domestic" title={t('table.domesticTitle')}>
+                      {t('table.domesticTag')}
                     </span>
                   )}
                   {/* ≤768px 降密:来源徽标折入模型单元格(桌面隐藏;副本不进 Tab 序) */}
