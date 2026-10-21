@@ -1,0 +1,442 @@
+  <!-- Ad Top -->
+  <div class="ad-slot" id="ad-top">
+    <div class="ad-slot-inner">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2779701070600473" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+
+  <!-- Main Tool -->
+  <main id="main-content">
+    <section class="tool-section" id="tool">
+      <div class="tool-hero">
+        <h1>即刻为任意图片<br><span class="gradient-word">添加精美边框</span></h1>
+        <p>免费。无需注册。无水印。100% 隐私安全——图片永不离开你的浏览器。</p>
+        <p style="color:var(--text3);font-size:0.88rem;max-width:600px;margin:12px auto 0">AdBorder 是一款免费在线工具，几秒内即可为你的照片添加精美边框。支持任意图片格式——只需上传、自定义、下载。无需账号、无水印、无限制。</p>
+      </div>
+
+      <!-- Tool Tabs -->
+      <div class="tool-tabs">
+        <button class="tool-tab active" onclick="switchTab('border')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px"><rect x="3" y="3" width="18" height="18" rx="2"/><rect x="7" y="7" width="10" height="10" rx="1"/></svg> 边框工具</button>
+        <button class="tool-tab" onclick="switchTab('checker')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 尺寸检查器</button>
+      </div>
+
+      <div class="tool-container">
+        <div>
+          <div class="upload-stage" id="uploadZone" role="button" tabindex="0" aria-label="上传图片区域——拖放、放置、点击或粘贴">
+            <!-- Particle canvas -->
+            <canvas class="stage-canvas" id="stageCanvas"></canvas>
+            <!-- Animated conic-gradient border -->
+            <div class="stage-border"></div>
+            <!-- Inner radial glow pulse -->
+            <div class="stage-glow"></div>
+            <!-- Demo image showcase cycling border styles -->
+            <div class="stage-demo" id="stageDemo">
+              <svg class="stage-demo-img active" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+                <rect width="240" height="180" fill="#1a1a2e"/>
+                <rect x="14" y="14" width="212" height="152" rx="3" fill="#134e4a" stroke="#fff" stroke-width="5"/>
+                <circle cx="78" cy="65" r="22" fill="#0d9488" opacity="0.6"/><circle cx="155" cy="90" r="30" fill="#d97706" opacity="0.45"/>
+                <rect x="60" y="120" width="120" height="16" rx="4" fill="#f43f5e" opacity="0.3"/>
+              </svg>
+              <svg class="stage-demo-img" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="pgb" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#667eea"/><stop offset="100%" stop-color="#764ba2"/></linearGradient></defs>
+                <rect width="240" height="180" fill="#1a1a2e"/>
+                <rect x="4" y="4" width="232" height="172" rx="2" fill="url(#pgb)"/>
+                <rect x="18" y="18" width="204" height="144" rx="3" fill="#134e4a"/>
+                <circle cx="90" cy="75" r="28" fill="#5eead4" opacity="0.5"/><rect x="50" y="115" width="140" height="14" rx="4" fill="#fbbf24" opacity="0.35"/>
+              </svg>
+              <svg class="stage-demo-img" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+                <rect width="240" height="180" fill="#1a1a2e"/>
+                <rect x="10" y="10" width="220" height="160" rx="28" fill="none" stroke="#d97706" stroke-width="3"/>
+                <rect x="28" y="28" width="184" height="124" rx="18" fill="#1e1b4b"/>
+                <circle cx="100" cy="72" r="24" fill="#0d9488" opacity="0.5"/><circle cx="155" cy="95" r="18" fill="#f43f5e" opacity="0.4"/>
+                <rect x="70" y="120" width="100" height="12" rx="6" fill="#d97706" opacity="0.3"/>
+              </svg>
+            </div>
+            <!-- Upload instruction overlay -->
+            <div class="stage-content">
+              <div class="stage-icon-wrap">
+                <div class="icon-ring"></div>
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke-linecap="round" stroke-linejoin="round"/><polyline points="17 8 12 3 7 8" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="3" x2="12" y2="15" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="stage-title">将图片拖放到这里</div>
+              <div class="stage-sub">或点击选择 &middot; Ctrl+V 粘贴</div>
+              <div class="stage-hint">JPG, PNG, WebP, GIF, BMP, SVG</div>
+              <div class="stage-keys">
+                <span class="stage-key">拖放</span>
+                <span class="stage-key">放置</span>
+                <span class="stage-key">Ctrl+V</span>
+              </div>
+            </div>
+            <!-- Bloom expansion effect on upload -->
+            <div class="bloom-overlay" id="bloomOverlay">
+              <div class="bloom-ring"></div>
+            </div>
+            <input type="file" id="fileInput" accept="image/*" multiple>
+          </div>
+          <div class="preview-wrapper" id="previewWrapper">
+            <canvas id="previewCanvas"></canvas>
+            <div class="preview-actions">
+              <button class="btn btn-primary" id="downloadBtn" onclick="downloadImage()">&#11015; 下载</button>
+              <button class="btn btn-secondary" id="newImageBtn" onclick="resetTool()">&#8635; 换一张图片</button>
+              <button class="btn btn-secondary" id="batchDownloadBtn" onclick="downloadBatch()" style="display:none">&#11015; 全部下载</button>
+
+            </div>
+          </div>
+
+          <div class="batch-area" id="batchArea">
+            <div class="batch-list" id="batchList"></div>
+            <div class="batch-progress" id="batchProgress"><div class="batch-progress-bar" id="batchProgressBar" style="width:0%"></div></div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <aside class="controls-panel" aria-label="边框自定义控制面板">
+          <div class="panel-header">
+            <div class="panel-header-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+            <h3>自定义</h3>
+          </div>
+          <div class="control-group">
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></span> 样式</label>
+            <div class="style-grid">
+              <div class="style-btn active" data-style="solid" role="button" tabindex="0" onclick="setStyle(this,'solid')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setStyle(this,'solid')}"><span class="style-icon">&#9632;</span>纯色</div>
+              <div class="style-btn" data-style="polaroid" role="button" tabindex="0" onclick="setStyle(this,'polaroid')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setStyle(this,'polaroid')}"><span class="style-icon">&#128248;</span>拍立得</div>
+              <div class="style-btn" data-style="gradient" role="button" tabindex="0" onclick="setStyle(this,'gradient')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setStyle(this,'gradient')}"><span class="style-icon">&#127752;</span>渐变</div>
+              <div class="style-btn" data-style="rounded" role="button" tabindex="0" onclick="setStyle(this,'rounded')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setStyle(this,'rounded')}"><span class="style-icon">&#9673;</span>圆角</div>
+            </div>
+          </div>
+          <div class="control-group">
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span> 宽度</label>
+            <div class="slider-row">
+              <input type="range" id="borderWidth" min="1" max="200" value="20" aria-label="边框宽度" oninput="updateWidth(this.value)">
+              <span class="slider-value" id="widthValue">20px</span>
+            </div>
+            <div class="width-presets">
+              <button class="width-preset" onclick="setWidth(5)">细</button>
+              <button class="width-preset" onclick="setWidth(20)">中</button>
+              <button class="width-preset" onclick="setWidth(50)">粗</button>
+              <button class="width-preset" onclick="setWidth(100)">特大</button>
+            </div>
+          </div>
+          <div class="control-group" id="colorGroup">
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></span> 颜色</label>
+            <div class="color-row">
+              <input type="color" id="borderColor" value="#ffffff" aria-label="边框颜色" oninput="updateColor(this.value)">
+              <div class="color-swatches">
+                <div class="color-swatch active" style="background:#ffffff" data-color="#ffffff" role="button" tabindex="0" aria-label="白色" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+                <div class="color-swatch" style="background:#000000" data-color="#000000" role="button" tabindex="0" aria-label="黑色" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+                <div class="color-swatch" style="background:#ef4444" data-color="#ef4444" role="button" tabindex="0" aria-label="红色" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+                <div class="color-swatch" style="background:#3b82f6" data-color="#3b82f6" role="button" tabindex="0" aria-label="蓝色" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+                <div class="color-swatch" style="background:#22c55e" data-color="#22c55e" role="button" tabindex="0" aria-label="绿色" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+                <div class="color-swatch" style="background:#f59e0b" data-color="#f59e0b" role="button" tabindex="0" aria-label="琥珀色" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+                <div class="color-swatch" style="background:#8b5cf6" data-color="#8b5cf6" role="button" tabindex="0" aria-label="紫色" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+                <div class="color-swatch" style="background:#ec4899" data-color="#ec4899" role="button" tabindex="0" aria-label="粉色" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+              </div>
+            </div>
+          </div>
+          <div class="control-group" id="gradientGroup" style="display:none">
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18"/><path d="M3 6h18"/><path d="M3 18h18"/></svg></span> 渐变</label>
+            <div class="gradient-grid">
+              <div class="gradient-btn active" style="background:linear-gradient(135deg,#667eea,#764ba2)" data-g1="#667eea" data-g2="#764ba2" role="button" tabindex="0" aria-label="紫色渐变" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+              <div class="gradient-btn" style="background:linear-gradient(135deg,#f093fb,#f5576c)" data-g1="#f093fb" data-g2="#f5576c" role="button" tabindex="0" aria-label="粉色渐变" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+              <div class="gradient-btn" style="background:linear-gradient(135deg,#4facfe,#00f2fe)" data-g1="#4facfe" data-g2="#00f2fe" role="button" tabindex="0" aria-label="蓝色渐变" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+              <div class="gradient-btn" style="background:linear-gradient(135deg,#43e97b,#38f9d7)" data-g1="#43e97b" data-g2="#38f9d7" role="button" tabindex="0" aria-label="绿色渐变" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+              <div class="gradient-btn" style="background:linear-gradient(135deg,#fa709a,#fee140)" data-g1="#fa709a" data-g2="#fee140" role="button" tabindex="0" aria-label="日落渐变" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+              <div class="gradient-btn" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)" data-g1="#a18cd1" data-g2="#fbc2eb" role="button" tabindex="0" aria-label="薰衣草渐变" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+              <div class="gradient-btn" style="background:linear-gradient(135deg,#ff9a9e,#fad0c4)" data-g1="#ff9a9e" data-g2="#fad0c4" role="button" tabindex="0" aria-label="蜜桃渐变" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+              <div class="gradient-btn" style="background:linear-gradient(135deg,#ffecd2,#fcb69f)" data-g1="#ffecd2" data-g2="#fcb69f" role="button" tabindex="0" aria-label="暖色渐变" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+            </div>
+          </div>
+          <div class="control-group" id="radiusGroup">
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="6"/></svg></span> 圆角半径</label>
+            <div class="slider-row">
+              <input type="range" id="cornerRadius" min="0" max="50" value="10" aria-label="圆角半径" oninput="updateRadius(this.value)">
+              <span class="slider-value" id="radiusValue">10%</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="toggle-row">
+              <span>投影</span>
+              <label class="toggle"><input type="checkbox" id="shadowToggle" aria-label="切换投影" onchange="renderPreview()"><span class="toggle-slider"></span></label>
+            </div>
+          </div>
+          <div class="control-group">
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></span> 社媒预设</label>
+            <div class="social-grid">
+              <button class="social-btn" onclick="applySocial(this,'square')" title="1:1 比例">IG<br>方形</button>
+              <button class="social-btn" onclick="applySocial(this,'story')" title="9:16 比例">IG<br>快拍</button>
+              <button class="social-btn" onclick="applySocial(this,'post')" title="16:9 比例">FB<br>帖子</button>
+              <button class="social-btn" onclick="applySocial(this,'none')" title="自定义尺寸">自由</button>
+            </div>
+          </div>
+          <div class="control-group">
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span> 导出</label>
+            <div class="format-row">
+              <button class="format-btn active" data-format="png" onclick="setFormat(this,'png')">PNG</button>
+              <button class="format-btn" data-format="jpeg" onclick="setFormat(this,'jpeg')">JPEG</button>
+              <button class="format-btn" data-format="webp" onclick="setFormat(this,'webp')">WebP</button>
+            </div>
+          </div>
+          <div class="control-group" id="qualityGroup">
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> 质量</label>
+            <div class="slider-row">
+              <input type="range" id="jpegQuality" min="50" max="100" value="92" aria-label="JPEG quality" oninput="document.getElementById('qualityValue').textContent=this.value+'%'">
+              <span class="slider-value" id="qualityValue">92%</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Size Checker Panel -->
+      <div class="size-checker" id="sizeCheckerPanel">
+        <div class="sc-upload" id="scUpload">
+          <!-- Particle canvas -->
+          <canvas class="sc-canvas" id="scCanvas"></canvas>
+          <!-- Animated conic-gradient border -->
+          <div class="sc-border"></div>
+          <!-- Inner radial glow pulse -->
+          <div class="sc-glow"></div>
+          <!-- Demo image showcase cycling social media layouts -->
+          <div class="sc-demo" id="scDemo">
+            <svg class="sc-demo-img active" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <rect width="240" height="180" fill="#1a1a2e"/>
+              <rect x="10" y="10" width="220" height="160" rx="4" fill="#0d0d1a" stroke="rgba(13,148,136,0.3)" stroke-width="1"/>
+              <!-- Score circle -->
+              <circle cx="60" cy="65" r="30" fill="none" stroke="#0d9488" stroke-width="3" opacity="0.6"/>
+              <text x="60" y="70" text-anchor="middle" fill="#5eead4" font-size="18" font-weight="bold" font-family="sans-serif">87</text>
+              <!-- Platform bars -->
+              <rect x="110" y="30" width="100" height="10" rx="5" fill="#10b981" opacity="0.5"/>
+              <rect x="110" y="48" width="80" height="10" rx="5" fill="#f59e0b" opacity="0.5"/>
+              <rect x="110" y="66" width="65" height="10" rx="5" fill="#ef4444" opacity="0.4"/>
+              <rect x="110" y="84" width="90" height="10" rx="5" fill="#10b981" opacity="0.5"/>
+              <!-- Platform icons -->
+              <circle cx="102" cy="35" r="4" fill="#d97706" opacity="0.6"/>
+              <circle cx="102" cy="53" r="4" fill="#d97706" opacity="0.6"/>
+              <circle cx="102" cy="71" r="4" fill="#d97706" opacity="0.6"/>
+              <circle cx="102" cy="89" r="4" fill="#d97706" opacity="0.6"/>
+              <!-- Bottom row -->
+              <rect x="20" y="115" width="55" height="42" rx="4" fill="#134e4a" opacity="0.5"/>
+              <rect x="85" y="115" width="55" height="42" rx="4" fill="#1e1b4b" opacity="0.5"/>
+              <rect x="150" y="115" width="55" height="42" rx="4" fill="#134e4a" opacity="0.5"/>
+              <text x="47" y="140" text-anchor="middle" fill="#8888a0" font-size="7" font-family="sans-serif">1:1</text>
+              <text x="112" y="140" text-anchor="middle" fill="#8888a0" font-size="7" font-family="sans-serif">16:9</text>
+              <text x="177" y="140" text-anchor="middle" fill="#8888a0" font-size="7" font-family="sans-serif">9:16</text>
+            </svg>
+            <svg class="sc-demo-img" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <rect width="240" height="180" fill="#1a1a2e"/>
+              <!-- Phone frame -->
+              <rect x="70" y="8" width="100" height="164" rx="12" fill="#0d0d1a" stroke="rgba(217,119,6,0.3)" stroke-width="1.5"/>
+              <!-- Screen content -->
+              <rect x="78" y="22" width="84" height="136" rx="4" fill="#12122a"/>
+              <!-- Story preview -->
+              <rect x="86" y="30" width="68" height="90" rx="3" fill="#134e4a" opacity="0.6"/>
+              <circle cx="120" cy="65" r="16" fill="#0d9488" opacity="0.4"/>
+              <rect x="98" y="82" width="44" height="6" rx="3" fill="#d97706" opacity="0.35"/>
+              <!-- Status bar dots -->
+              <circle cx="110" cy="15" r="1.5" fill="#555570"/>
+              <circle cx="120" cy="15" r="1.5" fill="#555570"/>
+              <circle cx="130" cy="15" r="1.5" fill="#555570"/>
+              <!-- Bottom UI -->
+              <rect x="86" y="128" width="68" height="8" rx="2" fill="rgba(255,255,255,0.06)"/>
+              <rect x="86" y="140" width="45" height="8" rx="2" fill="rgba(13,148,136,0.2)"/>
+              <!-- Side labels -->
+              <rect x="14" y="50" width="42" height="8" rx="4" fill="#d97706" opacity="0.2"/>
+              <rect x="14" y="65" width="35" height="6" rx="3" fill="rgba(255,255,255,0.05)"/>
+              <rect x="184" y="50" width="42" height="8" rx="4" fill="#f43f5e" opacity="0.2"/>
+              <rect x="184" y="65" width="35" height="6" rx="3" fill="rgba(255,255,255,0.05)"/>
+              <text x="120" y="175" text-anchor="middle" fill="#555570" font-size="7" font-family="sans-serif">1080 x 1920</text>
+            </svg>
+            <svg class="sc-demo-img" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <rect width="240" height="180" fill="#1a1a2e"/>
+              <!-- Multi-platform grid -->
+              <!-- Instagram square -->
+              <rect x="12" y="12" width="64" height="64" rx="4" fill="#134e4a" opacity="0.5" stroke="rgba(13,148,136,0.2)" stroke-width="1"/>
+              <circle cx="44" cy="38" r="14" fill="#0d9488" opacity="0.4"/>
+              <rect x="28" y="56" width="32" height="4" rx="2" fill="#5eead4" opacity="0.3"/>
+              <text x="44" y="72" text-anchor="middle" fill="#8888a0" font-size="5" font-family="sans-serif">IG</text>
+              <!-- YouTube thumbnail -->
+              <rect x="88" y="12" width="96" height="54" rx="4" fill="#1e1b4b" opacity="0.5" stroke="rgba(244,63,94,0.2)" stroke-width="1"/>
+              <polygon points="136,32 136,46 148,39" fill="#f43f5e" opacity="0.5"/>
+              <rect x="96" y="52" width="60" height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
+              <text x="136" y="62" text-anchor="middle" fill="#8888a0" font-size="5" font-family="sans-serif">YouTube</text>
+              <!-- Twitter card -->
+              <rect x="12" y="90" width="96" height="54" rx="4" fill="#0d1b2a" opacity="0.5" stroke="rgba(217,119,6,0.2)" stroke-width="1"/>
+              <circle cx="26" cy="100" r="6" fill="#d97706" opacity="0.3"/>
+              <rect x="36" y="96" width="44" height="4" rx="2" fill="rgba(255,255,255,0.08)"/>
+              <rect x="36" y="104" width="32" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+              <rect x="18" y="116" width="80" height="20" rx="2" fill="#134e4a" opacity="0.4"/>
+              <text x="60" y="140" text-anchor="middle" fill="#8888a0" font-size="5" font-family="sans-serif">Twitter</text>
+              <!-- Pinterest pin -->
+              <rect x="120" y="80" width="48" height="72" rx="4" fill="#134e4a" opacity="0.5" stroke="rgba(244,63,94,0.2)" stroke-width="1"/>
+              <circle cx="144" cy="106" r="12" fill="#f43f5e" opacity="0.3"/>
+              <rect x="130" y="124" width="28" height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
+              <rect x="132" y="132" width="24" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+              <text x="144" y="148" text-anchor="middle" fill="#8888a0" font-size="5" font-family="sans-serif">Pin</text>
+              <!-- LinkedIn -->
+              <rect x="180" y="90" width="48" height="64" rx="4" fill="#0d1b2a" opacity="0.5" stroke="rgba(217,119,6,0.15)" stroke-width="1"/>
+              <circle cx="204" cy="104" r="8" fill="#d97706" opacity="0.3"/>
+              <rect x="188" y="118" width="32" height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
+              <rect x="188" y="126" width="24" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+              <rect x="188" y="134" width="32" height="12" rx="2" fill="rgba(217,119,6,0.15)"/>
+              <text x="204" y="152" text-anchor="middle" fill="#8888a0" font-size="5" font-family="sans-serif">LinkedIn</text>
+            </svg>
+          </div>
+          <!-- Upload instruction overlay -->
+          <div class="sc-content">
+            <div class="sc-icon-wrap">
+              <div class="sc-icon-ring"></div>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke-linecap="round" stroke-linejoin="round"/><polyline points="17 8 12 3 7 8" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="3" x2="12" y2="15" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="sc-upload-title">将图片拖放到这里</div>
+            <div class="sc-upload-sub">查看你的图片在每个平台上的适配情况</div>
+            <div class="sc-upload-hint">JPG, PNG, WebP, GIF, BMP</div>
+            <div class="sc-upload-keys">
+              <span class="sc-upload-key">拖放</span>
+              <span class="sc-upload-key">放置</span>
+              <span class="sc-upload-key">点击</span>
+            </div>
+          </div>
+          <img class="sc-preview" id="scPreview" alt="上传预览">
+          <input type="file" id="scFileInput" accept="image/*" style="display:none">
+        </div>
+        <div class="sc-results" id="scResults">
+          <div class="sc-score-overall">
+            <div class="sc-score-number" id="scOverallScore">--</div>
+            <div class="sc-score-label">社媒图片综合评分</div>
+          </div>
+          <div class="sc-grid" id="scGrid"></div>
+          <div class="sc-actions">
+            <button class="sc-btn sc-btn-primary" onclick="generateShareCard()">&#128228; 下载分享卡</button>
+            <button class="sc-btn sc-btn-secondary" onclick="switchTab('border')">&#127912; 用边框工具修复</button>
+            <button class="sc-btn sc-btn-secondary" onclick="resetSizeChecker()">&#8635; 检查另一张图片</button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Privacy -->
+    <div class="privacy-banner">
+      <span class="lock-icon">&#128274;</span>
+      <span><strong>100% 隐私安全。</strong>所有图片处理均在你的浏览器本地完成。你的图片永远不会离开你的设备。</span>
+    </div>
+
+    <!-- Ad Middle -->
+    <div class="ad-slot" id="ad-middle">
+      <div class="ad-slot-inner">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2779701070600473" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+
+    <!-- Social Media Size Guide CTA -->
+    <section class="platform-guides reveal" aria-label="社交媒体图片尺寸指南">
+      <div class="platform-grid" style="display:flex;justify-content:center">
+        <a href="/blog-social-media-sizes.html" class="platform-card" style="max-width:600px;padding:32px 40px;text-align:left;display:flex;align-items:center;gap:24px">
+          <span class="platform-card-icon" style="margin-bottom:0;flex-shrink:0"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#8888a0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div>
+            <div class="platform-card-name" style="font-size:1rem;margin-bottom:4px">社交媒体图片尺寸终极指南</div>
+            <div class="platform-card-desc" style="font-size:0.85rem">Instagram、Twitter、Facebook、YouTube、Pinterest、LinkedIn——所有尺寸尽在一篇指南。2026 年 6 月更新。</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Social Proof Stats -->
+    <section class="stats-section" aria-label="关于本工具">
+      <div class="stats-grid">
+        <div class="stat-card reveal">
+          <div class="stat-number" style="font-size:1.2rem;background:var(--gradient-text);-webkit-background-clip:text;background-clip:text;color:transparent">永久免费</div>
+          <div class="stat-label">无高级版、无水印、无隐藏费用</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number" style="font-size:1.2rem;background:var(--gradient-text);-webkit-background-clip:text;background-clip:text;color:transparent">100% 隐私安全</div>
+          <div class="stat-label">全部处理在浏览器完成，图片绝不离开设备</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number" style="font-size:1.2rem;background:var(--gradient-text);-webkit-background-clip:text;background-clip:text;color:transparent">4 种边框样式</div>
+          <div class="stat-label">纯色、拍立得、渐变与圆角</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number" style="font-size:1.2rem;background:var(--gradient-text);-webkit-background-clip:text;background-clip:text;color:transparent">即时出图</div>
+          <div class="stat-label">上传、自定义、下载，10 秒内完成</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="content-section" id="features">
+      <h2>为速度、隐私与零成本而生</h2>
+      <p>为图片添加边框的最快方式。无论你需要 Instagram 白边、拍立得相框，还是社媒用的彩色渐变边框。</p>
+      <div class="features-grid">
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#5eead4"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span><h3>即时出图</h3><p>上传、自定义、下载，10 秒内完成。实时预览所见即所得。</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#5eead4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>100% 隐私安全</h3><p>所有处理均在浏览器中完成。不上传服务器、不收集数据，永远如此。</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#5eead4"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.5-.7 1.5-1.5 0-.4-.2-.8-.4-1.1-.3-.3-.4-.7-.4-1.1 0-.9.7-1.5 1.5-1.5H16c3.3 0 6-2.7 6-6 0-5.5-4.5-9-10-9z"/><circle cx="7.5" cy="11.5" r="1.5"/><circle cx="12" cy="7.5" r="1.5"/><circle cx="16.5" cy="11.5" r="1.5"/></svg></span><h3>多种样式</h3><p>从复古拍立得相框到现代渐变边框——选择符合你审美的样式。宽度、颜色与投影均可完全自定义。</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#5eead4"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span><h3>社媒即用</h3><p>Instagram 方图、快拍与 Facebook 帖子的一键预设。每次都是完美比例。</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#5eead4"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span><h3>批量处理</h3><p>有 50 张照片要加框？全部上传、统一应用一种样式、打包下载 ZIP。过去几小时的工作现在只需几分钟。</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#5eead4"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></span><h3>完全免费</h3><p>无隐藏费用、无高级版、无水印。所有功能免费且不限用量。</p></article>
+      </div>
+    </section>
+
+    <!-- How To -->
+    <section class="content-section" id="how-to">
+      <h2>如何为图片添加边框</h2>
+      <p>用 AdBorder 为图片添加边框只需四个简单步骤：</p>
+      <p><strong>步骤 1：</strong>拖放你的图片，或点击选择，也可以用 Ctrl+V 从剪贴板粘贴。</p>
+      <p><strong>步骤 2：</strong>选择边框样式——纯色、拍立得、渐变或圆角。</p>
+      <p><strong>步骤 3：</strong>自定义宽度、颜色或渐变，并可选择添加投影。</p>
+      <p><strong>步骤 4：</strong>实时预览，选择导出格式，点击下载。就这么简单。</p>
+    </section>
+
+    <!-- Ad Bottom -->
+    <div class="ad-slot" id="ad-bottom">
+      <div class="ad-slot-inner">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2779701070600473" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section reveal" aria-label="邮件订阅">
+      <div class="newsletter-card">
+        <div class="newsletter-text">
+          <h3>获取设计技巧与工具更新</h3>
+          <p>免费边框预设、设计技巧与新功能——直接送达你的收件箱。不发垃圾邮件。</p>
+        </div>
+        <form class="newsletter-form" id="newsletterForm" onsubmit="return handleNewsletter(event)">
+          <input type="email" placeholder="your@email.com" required aria-label="邮箱地址">
+          <button type="submit">订阅</button>
+        </form>
+        <div class="newsletter-success" id="newsletterSuccess">感谢订阅！</div>
+      </div>
+    </section>
+
+    <!-- Blog CTA -->
+    <div class="blog-cta reveal">
+      <div class="blog-cta-card">
+        <div class="blog-cta-text">
+          <h3>照片边框技巧与教程</h3>
+          <p>了解 Instagram 最佳边框样式、拍立得效果、社媒实用技巧等内容。</p>
+        </div>
+        <a href="/zh/blog.html" class="blog-cta-link">阅读博客 &#8594;</a>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <section class="content-section" id="faq">
+      <h2>常见问题</h2>
+      <div class="faq-list">
+        <div class="faq-item reveal" id="faq-border-online"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>如何在线免费为图片添加边框？</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">访问 adborder.top，拖放或粘贴你的图片，选择边框样式，调整宽度和颜色，实时预览后点击下载。无需注册，输出无水印。</div></div></div>
+        <div class="faq-item reveal" id="faq-white-border"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>给照片加白边最好的免费工具是什么？</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">AdBorder 是添加白色边框的最佳免费工具之一。它无需账号、不加水印，且完全在你的浏览器中处理图片，隐私无忧。支持 1px 至 200px 的边框宽度。</div></div></div>
+        <div class="faq-item reveal" id="faq-colored-border"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>不用 Photoshop 能添加彩色边框吗？</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">可以。使用取色器选择任意颜色，用滑块调整宽度，即可下载 PNG、JPEG 或 WebP 格式的图片。还可以从渐变预设中选择，打造更有创意的样式。</div></div></div>
+        <div class="faq-item reveal" id="faq-polaroid"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>如何添加拍立得风格边框？</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">选择拍立得预设，即可添加白边加厚底部的经典拍立得胶片效果。再添加投影会更逼真。</div></div></div>
+        <div class="faq-item reveal" id="faq-privacy"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>使用 AdBorder 时我的图片安全吗？</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">你的图片完全安全。所有处理均通过 JavaScript 和 Canvas API 在你的浏览器本地完成，图片绝不会被上传到任何服务器。</div></div></div>
+        <div class="faq-item reveal" id="faq-formats"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>支持哪些图片格式？</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">输入：JPG、PNG、WebP、GIF、BMP、SVG。输出：PNG（无损）、JPEG（质量可调）或 WebP（现代格式，压缩表现出色）。</div></div></div>
+        <div class="faq-item reveal" id="faq-batch"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>可以一次给多张图片添加边框吗？</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">可以。上传多张图片，统一应用相同的设置，一次性下载全部结果。比逐张处理快得多。</div></div></div>
+        <div class="faq-item reveal" id="faq-instagram"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>如何为 Instagram 帖子添加边框？</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">使用 IG 方形预设为 1:1 比例添加白边，或使用 IG 快拍预设适配 9:16。你的照片在 Instagram 上将完整显示，不会被意外裁切。</div></div></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  

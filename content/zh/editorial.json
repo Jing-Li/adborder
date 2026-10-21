@@ -1,0 +1,11 @@
+{
+  "src": "editorial.html",
+  "title": "编辑政策 - AdBorder",
+  "description": "AdBorder 编辑政策：我们如何研究、撰写和事实核查关于图片编辑、摄影与社媒内容创作的文章。",
+  "canonical": "https://adborder.top/zh/editorial.html",
+  "headExtra": "  <meta name=\"author\" content=\"Lena Park\">\n  <meta name=\"google-site-verification\" content=\"RrDjrKc0TzssHvF5gtzF-VrCu46XdmH7PvPVTyVu_bU\" />\n  <link rel=\"stylesheet\" href=\"/static.css?v=20260711i\">",
+  "bodyTag": "<body class=\"static-page\">",
+  "bodyPreExtra": "  ",
+  "revealSelectors": "h1, h2, h3, p, footer",
+  "postOverride": ""
+}

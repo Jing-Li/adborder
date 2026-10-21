@@ -1,4 +1,4 @@
-const CACHE_NAME = 'adborder-v12';
+const CACHE_NAME = 'adborder-v13';
 const ASSETS = [
   '/',
   '/index.html',
@@ -14,6 +14,15 @@ const ASSETS = [
   '/blog-photo-border-guide.html',
   '/blog-image-format.html',
   '/blog-aspect-ratio.html',
+  // zh 首批(T11 i18n):与 en 同一缓存策略,缓存版本升级避免旧 en 快照残留
+  '/zh/index.html',
+  '/zh/404.html',
+  '/zh/about.html',
+  '/zh/contact.html',
+  '/zh/privacy.html',
+  '/zh/terms.html',
+  '/zh/editorial.html',
+  '/zh/blog.html',
   '/images/tool-screenshot.jpg',
   '/images/before-after-borders.jpg',
   '/images/border-styles-grid.jpg',

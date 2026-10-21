@@ -1,0 +1,11 @@
+{
+  "src": "editorial.html",
+  "title": "Editorial Policy - AdBorder",
+  "description": "AdBorder editorial policy: how we research, write, and fact-check our articles about image editing, photography, and social media content creation.",
+  "canonical": "https://adborder.top/editorial.html",
+  "headExtra": "  <meta name=\"author\" content=\"Lena Park\">\n  <meta name=\"google-site-verification\" content=\"RrDjrKc0TzssHvF5gtzF-VrCu46XdmH7PvPVTyVu_bU\" />\n  <link rel=\"stylesheet\" href=\"/static.css?v=20260711i\">",
+  "bodyTag": "<body class=\"static-page\">",
+  "bodyPreExtra": "  ",
+  "revealSelectors": "h1, h2, h3, p, footer",
+  "postOverride": ""
+}

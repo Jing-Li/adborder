@@ -1,0 +1,57 @@
+# deploy-site — 主站 25 页双语(en 仓根直出 + zh/)内容管线:源变更 → 重建产物 → bot commit
+#
+# 设计依据:docs/research/i18n-architecture.md T11(主站 25 页中英双语,首批)。
+# - 数据流解耦(Lead 定案):主站页面构建不并入 fetch-leaderboards.yml(后者仅管每日榜单数据流)。
+# - 触发 paths 仅限源文件(content/**、templates/**、build/extract 脚本);bot commit 的产物
+#   (仓根 HTML/sitemap.xml/zh/)不在触发 paths 内,且 GITHUB_TOKEN commit 官方内置
+#   不触发新 run——双重防循环(与 fetch-leaderboards.yml 同款先例)。
+# - Pages 为 branch 部署(F4:主站 push 即上线),故本 workflow 无 Pages 步骤,产物 commit 即部署。
+# - 幂等:build-site.mjs 重复运行产物逐字节稳定(sitemap lastmod 取自现有文件)。
+# - 并发:与每日数据快照 commit 冲突时用 git pull --rebase 整合。
+name: deploy-site
+
+on:
+  push:
+    paths:
+      - 'content/**'
+      - 'templates/**'
+      - 'scripts/build-site.mjs'
+      - 'scripts/site-pages.mjs'
+      - 'scripts/extract-pages.mjs'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-site
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Build site (en root + zh/ + sitemap.xml)
+        run: node scripts/build-site.mjs
+
+      - name: Commit built artifacts (not in trigger paths — no loop)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- '*.html' critique sitemap.xml zh
+          if git diff --cached --quiet; then
+            echo "No artifact changes; skip commit."
+          else
+            git commit -m "[site] rebuild pages from content/ ($(date -u +%F))"
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
+            git push
+          fi

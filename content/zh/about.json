@@ -1,0 +1,11 @@
+{
+  "src": "about.html",
+  "title": "关于 AdBorder - 创作者 Lena Park",
+  "description": "认识 AdBorder 创作者 Lena Park，了解这款免费、隐私优先的图片加边框工具背后的故事，以及驱动它不断进化的价值观。",
+  "canonical": "https://adborder.top/zh/about.html",
+  "headExtra": "  <meta name=\"author\" content=\"Lena Park\">\n  <meta name=\"google-site-verification\" content=\"RrDjrKc0TzssHvF5gtzF-VrCu46XdmH7PvPVTyVu_bU\" />\n  <link rel=\"stylesheet\" href=\"/blog.css?v=20260711i\">\n  <link rel=\"stylesheet\" href=\"/static.css?v=20260711i\">",
+  "bodyTag": "<body class=\"static-page about-page\">",
+  "bodyPreExtra": "  ",
+  "revealSelectors": "h1, h2, h3, p, .blog-card, .featured-hero, .featured-card, .author-card, .author-hero, .faq-item, .cta-box, .tip-box, .size-table, .comparison-table, .mistake-card, .blog-grid, .featured-section, .archive-label, .featured-label, footer",
+  "postOverride": ""
+}

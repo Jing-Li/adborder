@@ -1,0 +1,11 @@
+{
+  "src": "about.html",
+  "title": "About - Lena Park, Creator of AdBorder",
+  "description": "Meet Lena Park, the creator of AdBorder. Learn about the story behind this free, privacy-first image border tool and the values that drive its development.",
+  "canonical": "https://adborder.top/about.html",
+  "headExtra": "  <meta name=\"author\" content=\"Lena Park\">\n  <meta name=\"google-site-verification\" content=\"RrDjrKc0TzssHvF5gtzF-VrCu46XdmH7PvPVTyVu_bU\" />\n  <link rel=\"stylesheet\" href=\"/blog.css?v=20260711i\">\n  <link rel=\"stylesheet\" href=\"/static.css?v=20260711i\">",
+  "bodyTag": "<body class=\"static-page about-page\">",
+  "bodyPreExtra": "  ",
+  "revealSelectors": "h1, h2, h3, p, .blog-card, .featured-hero, .featured-card, .author-card, .author-hero, .faq-item, .cta-box, .tip-box, .size-table, .comparison-table, .mistake-card, .blog-grid, .featured-section, .archive-label, .featured-label, footer",
+  "postOverride": ""
+}

@@ -1,0 +1,11 @@
+{
+  "src": "404.html",
+  "title": "页面未找到 - AdBorder",
+  "description": "",
+  "canonical": "https://adborder.top/",
+  "headExtra": "  <meta name=\"robots\" content=\"noindex\">\n  <link rel=\"stylesheet\" href=\"/static.css?v=20260711i\">",
+  "bodyTag": "<body class=\"error-page\">",
+  "bodyPreExtra": "  ",
+  "revealSelectors": "main h1, main h2, main h3, main p, main ul, main ol, main .contact-methods, main .author-hero, main .static-hero",
+  "postOverride": ""
+}

@@ -1,0 +1,11 @@
+{
+  "src": "privacy.html",
+  "title": "隐私政策 - AdBorder",
+  "description": "AdBorder 隐私政策。了解我们如何保护你的数据，以及使用本工具时你的图片为何完全安全。",
+  "canonical": "https://adborder.top/zh/privacy.html",
+  "headExtra": "  <meta name=\"google-site-verification\" content=\"RrDjrKc0TzssHvF5gtzF-VrCu46XdmH7PvPVTyVu_bU\" />\n  <script async src=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2779701070600473\" crossorigin=\"anonymous\"></script>\n  <link rel=\"stylesheet\" href=\"/static.css?v=20260711i\">",
+  "bodyTag": "<body class=\"static-page\">",
+  "bodyPreExtra": "  ",
+  "revealSelectors": "main h1, main h2, main h3, main p, main ul, main ol, main .contact-methods, main .author-hero, main .static-hero",
+  "postOverride": ""
+}

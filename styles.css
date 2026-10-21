@@ -242,3 +242,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   .mesh-bg { display: none; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ===== zh-CN (T11 i18n) — 中文最小适配:行高/断行;不影响 en(仅 lang="zh-CN" 生效) ===== */
+html[lang="zh-CN"] body { line-height: 1.75; }
+html[lang="zh-CN"] h1 { line-height: 1.35; }
+html[lang="zh-CN"] h2, html[lang="zh-CN"] h3 { line-height: 1.45; }
+html[lang="zh-CN"] p, html[lang="zh-CN"] li { overflow-wrap: anywhere; }

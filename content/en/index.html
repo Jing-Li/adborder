@@ -1,0 +1,442 @@
+  <!-- Ad Top -->
+  <div class="ad-slot" id="ad-top">
+    <div class="ad-slot-inner">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2779701070600473" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+
+  <!-- Main Tool -->
+  <main id="main-content">
+    <section class="tool-section" id="tool">
+      <div class="tool-hero">
+        <h1>Add <span class="gradient-word">Beautiful Borders</span><br>to Any Image, Instantly</h1>
+        <p>Free. No signup. No watermark. 100% private — your images never leave your browser.</p>
+        <p style="color:var(--text3);font-size:0.88rem;max-width:600px;margin:12px auto 0">AdBorder is a free online tool to add beautiful borders to your photos in seconds. Works with any image format — just upload, customize, and download. No account, no watermark, no limits.</p>
+      </div>
+
+      <!-- Tool Tabs -->
+      <div class="tool-tabs">
+        <button class="tool-tab active" onclick="switchTab('border')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px"><rect x="3" y="3" width="18" height="18" rx="2"/><rect x="7" y="7" width="10" height="10" rx="1"/></svg> Border Tool</button>
+        <button class="tool-tab" onclick="switchTab('checker')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Size Checker</button>
+      </div>
+
+      <div class="tool-container">
+        <div>
+          <div class="upload-stage" id="uploadZone" role="button" tabindex="0" aria-label="Upload image area - drag, drop, click, or paste">
+            <!-- Particle canvas -->
+            <canvas class="stage-canvas" id="stageCanvas"></canvas>
+            <!-- Animated conic-gradient border -->
+            <div class="stage-border"></div>
+            <!-- Inner radial glow pulse -->
+            <div class="stage-glow"></div>
+            <!-- Demo image showcase cycling border styles -->
+            <div class="stage-demo" id="stageDemo">
+              <svg class="stage-demo-img active" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+                <rect width="240" height="180" fill="#1a1a2e"/>
+                <rect x="14" y="14" width="212" height="152" rx="3" fill="#134e4a" stroke="#fff" stroke-width="5"/>
+                <circle cx="78" cy="65" r="22" fill="#0d9488" opacity="0.6"/><circle cx="155" cy="90" r="30" fill="#d97706" opacity="0.45"/>
+                <rect x="60" y="120" width="120" height="16" rx="4" fill="#f43f5e" opacity="0.3"/>
+              </svg>
+              <svg class="stage-demo-img" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="pgb" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#667eea"/><stop offset="100%" stop-color="#764ba2"/></linearGradient></defs>
+                <rect width="240" height="180" fill="#1a1a2e"/>
+                <rect x="4" y="4" width="232" height="172" rx="2" fill="url(#pgb)"/>
+                <rect x="18" y="18" width="204" height="144" rx="3" fill="#134e4a"/>
+                <circle cx="90" cy="75" r="28" fill="#5eead4" opacity="0.5"/><rect x="50" y="115" width="140" height="14" rx="4" fill="#fbbf24" opacity="0.35"/>
+              </svg>
+              <svg class="stage-demo-img" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+                <rect width="240" height="180" fill="#1a1a2e"/>
+                <rect x="10" y="10" width="220" height="160" rx="28" fill="none" stroke="#d97706" stroke-width="3"/>
+                <rect x="28" y="28" width="184" height="124" rx="18" fill="#1e1b4b"/>
+                <circle cx="100" cy="72" r="24" fill="#0d9488" opacity="0.5"/><circle cx="155" cy="95" r="18" fill="#f43f5e" opacity="0.4"/>
+                <rect x="70" y="120" width="100" height="12" rx="6" fill="#d97706" opacity="0.3"/>
+              </svg>
+            </div>
+            <!-- Upload instruction overlay -->
+            <div class="stage-content">
+              <div class="stage-icon-wrap">
+                <div class="icon-ring"></div>
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke-linecap="round" stroke-linejoin="round"/><polyline points="17 8 12 3 7 8" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="3" x2="12" y2="15" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="stage-title">Drop your image here</div>
+              <div class="stage-sub">or click to browse &middot; paste with Ctrl+V</div>
+              <div class="stage-hint">JPG, PNG, WebP, GIF, BMP, SVG</div>
+              <div class="stage-keys">
+                <span class="stage-key">Drag</span>
+                <span class="stage-key">Drop</span>
+                <span class="stage-key">Ctrl+V</span>
+              </div>
+            </div>
+            <!-- Bloom expansion effect on upload -->
+            <div class="bloom-overlay" id="bloomOverlay">
+              <div class="bloom-ring"></div>
+            </div>
+            <input type="file" id="fileInput" accept="image/*" multiple>
+          </div>
+          <div class="preview-wrapper" id="previewWrapper">
+            <canvas id="previewCanvas"></canvas>
+            <div class="preview-actions">
+              <button class="btn btn-primary" id="downloadBtn" onclick="downloadImage()">&#11015; Download</button>
+              <button class="btn btn-secondary" id="newImageBtn" onclick="resetTool()">&#8635; New Image</button>
+              <button class="btn btn-secondary" id="batchDownloadBtn" onclick="downloadBatch()" style="display:none">&#11015; Download All</button>
+
+            </div>
+          </div>
+
+          <div class="batch-area" id="batchArea">
+            <div class="batch-list" id="batchList"></div>
+            <div class="batch-progress" id="batchProgress"><div class="batch-progress-bar" id="batchProgressBar" style="width:0%"></div></div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <aside class="controls-panel" aria-label="Border customization controls">
+          <div class="panel-header">
+            <div class="panel-header-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+            <h3>Customize</h3>
+          </div>
+          <div class="control-group">
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></span> Style</label>
+            <div class="style-grid">
+              <div class="style-btn active" data-style="solid" role="button" tabindex="0" onclick="setStyle(this,'solid')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setStyle(this,'solid')}"><span class="style-icon">&#9632;</span>Solid</div>
+              <div class="style-btn" data-style="polaroid" role="button" tabindex="0" onclick="setStyle(this,'polaroid')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setStyle(this,'polaroid')}"><span class="style-icon">&#128248;</span>Polaroid</div>
+              <div class="style-btn" data-style="gradient" role="button" tabindex="0" onclick="setStyle(this,'gradient')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setStyle(this,'gradient')}"><span class="style-icon">&#127752;</span>Gradient</div>
+              <div class="style-btn" data-style="rounded" role="button" tabindex="0" onclick="setStyle(this,'rounded')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setStyle(this,'rounded')}"><span class="style-icon">&#9673;</span>Rounded</div>
+            </div>
+          </div>
+          <div class="control-group">
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span> Width</label>
+            <div class="slider-row">
+              <input type="range" id="borderWidth" min="1" max="200" value="20" aria-label="Border width" oninput="updateWidth(this.value)">
+              <span class="slider-value" id="widthValue">20px</span>
+            </div>
+            <div class="width-presets">
+              <button class="width-preset" onclick="setWidth(5)">Thin</button>
+              <button class="width-preset" onclick="setWidth(20)">Medium</button>
+              <button class="width-preset" onclick="setWidth(50)">Thick</button>
+              <button class="width-preset" onclick="setWidth(100)">XL</button>
+            </div>
+          </div>
+          <div class="control-group" id="colorGroup">
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></span> Color</label>
+            <div class="color-row">
+              <input type="color" id="borderColor" value="#ffffff" aria-label="Border color" oninput="updateColor(this.value)">
+              <div class="color-swatches">
+                <div class="color-swatch active" style="background:#ffffff" data-color="#ffffff" role="button" tabindex="0" aria-label="White" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+                <div class="color-swatch" style="background:#000000" data-color="#000000" role="button" tabindex="0" aria-label="Black" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+                <div class="color-swatch" style="background:#ef4444" data-color="#ef4444" role="button" tabindex="0" aria-label="Red" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+                <div class="color-swatch" style="background:#3b82f6" data-color="#3b82f6" role="button" tabindex="0" aria-label="Blue" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+                <div class="color-swatch" style="background:#22c55e" data-color="#22c55e" role="button" tabindex="0" aria-label="Green" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+                <div class="color-swatch" style="background:#f59e0b" data-color="#f59e0b" role="button" tabindex="0" aria-label="Amber" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+                <div class="color-swatch" style="background:#8b5cf6" data-color="#8b5cf6" role="button" tabindex="0" aria-label="Purple" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+                <div class="color-swatch" style="background:#ec4899" data-color="#ec4899" role="button" tabindex="0" aria-label="Pink" onclick="pickColor(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickColor(this)}"></div>
+              </div>
+            </div>
+          </div>
+          <div class="control-group" id="gradientGroup" style="display:none">
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18"/><path d="M3 6h18"/><path d="M3 18h18"/></svg></span> Gradient</label>
+            <div class="gradient-grid">
+              <div class="gradient-btn active" style="background:linear-gradient(135deg,#667eea,#764ba2)" data-g1="#667eea" data-g2="#764ba2" role="button" tabindex="0" aria-label="Purple gradient" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+              <div class="gradient-btn" style="background:linear-gradient(135deg,#f093fb,#f5576c)" data-g1="#f093fb" data-g2="#f5576c" role="button" tabindex="0" aria-label="Pink gradient" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+              <div class="gradient-btn" style="background:linear-gradient(135deg,#4facfe,#00f2fe)" data-g1="#4facfe" data-g2="#00f2fe" role="button" tabindex="0" aria-label="Blue gradient" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+              <div class="gradient-btn" style="background:linear-gradient(135deg,#43e97b,#38f9d7)" data-g1="#43e97b" data-g2="#38f9d7" role="button" tabindex="0" aria-label="Green gradient" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+              <div class="gradient-btn" style="background:linear-gradient(135deg,#fa709a,#fee140)" data-g1="#fa709a" data-g2="#fee140" role="button" tabindex="0" aria-label="Sunset gradient" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+              <div class="gradient-btn" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)" data-g1="#a18cd1" data-g2="#fbc2eb" role="button" tabindex="0" aria-label="Lavender gradient" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+              <div class="gradient-btn" style="background:linear-gradient(135deg,#ff9a9e,#fad0c4)" data-g1="#ff9a9e" data-g2="#fad0c4" role="button" tabindex="0" aria-label="Peach gradient" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+              <div class="gradient-btn" style="background:linear-gradient(135deg,#ffecd2,#fcb69f)" data-g1="#ffecd2" data-g2="#fcb69f" role="button" tabindex="0" aria-label="Warm gradient" onclick="pickGradient(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pickGradient(this)}"></div>
+            </div>
+          </div>
+          <div class="control-group" id="radiusGroup">
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="6"/></svg></span> Corner Radius</label>
+            <div class="slider-row">
+              <input type="range" id="cornerRadius" min="0" max="50" value="10" aria-label="Corner radius" oninput="updateRadius(this.value)">
+              <span class="slider-value" id="radiusValue">10%</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="toggle-row">
+              <span>Drop Shadow</span>
+              <label class="toggle"><input type="checkbox" id="shadowToggle" aria-label="Toggle drop shadow" onchange="renderPreview()"><span class="toggle-slider"></span></label>
+            </div>
+          </div>
+          <div class="control-group">
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></span> Social Preset</label>
+            <div class="social-grid">
+              <button class="social-btn" onclick="applySocial(this,'square')" title="1:1 ratio">IG<br>Square</button>
+              <button class="social-btn" onclick="applySocial(this,'story')" title="9:16 ratio">IG<br>Story</button>
+              <button class="social-btn" onclick="applySocial(this,'post')" title="16:9 ratio">FB<br>Post</button>
+              <button class="social-btn" onclick="applySocial(this,'none')" title="Custom size">Free</button>
+            </div>
+          </div>
+          <div class="control-group">
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span> Export</label>
+            <div class="format-row">
+              <button class="format-btn active" data-format="png" onclick="setFormat(this,'png')">PNG</button>
+              <button class="format-btn" data-format="jpeg" onclick="setFormat(this,'jpeg')">JPEG</button>
+              <button class="format-btn" data-format="webp" onclick="setFormat(this,'webp')">WebP</button>
+            </div>
+          </div>
+          <div class="control-group" id="qualityGroup">
+            <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> Quality</label>
+            <div class="slider-row">
+              <input type="range" id="jpegQuality" min="50" max="100" value="92" aria-label="JPEG quality" oninput="document.getElementById('qualityValue').textContent=this.value+'%'">
+              <span class="slider-value" id="qualityValue">92%</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Size Checker Panel -->
+      <div class="size-checker" id="sizeCheckerPanel">
+        <div class="sc-upload" id="scUpload">
+          <!-- Particle canvas -->
+          <canvas class="sc-canvas" id="scCanvas"></canvas>
+          <!-- Animated conic-gradient border -->
+          <div class="sc-border"></div>
+          <!-- Inner radial glow pulse -->
+          <div class="sc-glow"></div>
+          <!-- Demo image showcase cycling social media layouts -->
+          <div class="sc-demo" id="scDemo">
+            <svg class="sc-demo-img active" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <rect width="240" height="180" fill="#1a1a2e"/>
+              <rect x="10" y="10" width="220" height="160" rx="4" fill="#0d0d1a" stroke="rgba(13,148,136,0.3)" stroke-width="1"/>
+              <!-- Score circle -->
+              <circle cx="60" cy="65" r="30" fill="none" stroke="#0d9488" stroke-width="3" opacity="0.6"/>
+              <text x="60" y="70" text-anchor="middle" fill="#5eead4" font-size="18" font-weight="bold" font-family="sans-serif">87</text>
+              <!-- Platform bars -->
+              <rect x="110" y="30" width="100" height="10" rx="5" fill="#10b981" opacity="0.5"/>
+              <rect x="110" y="48" width="80" height="10" rx="5" fill="#f59e0b" opacity="0.5"/>
+              <rect x="110" y="66" width="65" height="10" rx="5" fill="#ef4444" opacity="0.4"/>
+              <rect x="110" y="84" width="90" height="10" rx="5" fill="#10b981" opacity="0.5"/>
+              <!-- Platform icons -->
+              <circle cx="102" cy="35" r="4" fill="#d97706" opacity="0.6"/>
+              <circle cx="102" cy="53" r="4" fill="#d97706" opacity="0.6"/>
+              <circle cx="102" cy="71" r="4" fill="#d97706" opacity="0.6"/>
+              <circle cx="102" cy="89" r="4" fill="#d97706" opacity="0.6"/>
+              <!-- Bottom row -->
+              <rect x="20" y="115" width="55" height="42" rx="4" fill="#134e4a" opacity="0.5"/>
+              <rect x="85" y="115" width="55" height="42" rx="4" fill="#1e1b4b" opacity="0.5"/>
+              <rect x="150" y="115" width="55" height="42" rx="4" fill="#134e4a" opacity="0.5"/>
+              <text x="47" y="140" text-anchor="middle" fill="#8888a0" font-size="7" font-family="sans-serif">1:1</text>
+              <text x="112" y="140" text-anchor="middle" fill="#8888a0" font-size="7" font-family="sans-serif">16:9</text>
+              <text x="177" y="140" text-anchor="middle" fill="#8888a0" font-size="7" font-family="sans-serif">9:16</text>
+            </svg>
+            <svg class="sc-demo-img" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <rect width="240" height="180" fill="#1a1a2e"/>
+              <!-- Phone frame -->
+              <rect x="70" y="8" width="100" height="164" rx="12" fill="#0d0d1a" stroke="rgba(217,119,6,0.3)" stroke-width="1.5"/>
+              <!-- Screen content -->
+              <rect x="78" y="22" width="84" height="136" rx="4" fill="#12122a"/>
+              <!-- Story preview -->
+              <rect x="86" y="30" width="68" height="90" rx="3" fill="#134e4a" opacity="0.6"/>
+              <circle cx="120" cy="65" r="16" fill="#0d9488" opacity="0.4"/>
+              <rect x="98" y="82" width="44" height="6" rx="3" fill="#d97706" opacity="0.35"/>
+              <!-- Status bar dots -->
+              <circle cx="110" cy="15" r="1.5" fill="#555570"/>
+              <circle cx="120" cy="15" r="1.5" fill="#555570"/>
+              <circle cx="130" cy="15" r="1.5" fill="#555570"/>
+              <!-- Bottom UI -->
+              <rect x="86" y="128" width="68" height="8" rx="2" fill="rgba(255,255,255,0.06)"/>
+              <rect x="86" y="140" width="45" height="8" rx="2" fill="rgba(13,148,136,0.2)"/>
+              <!-- Side labels -->
+              <rect x="14" y="50" width="42" height="8" rx="4" fill="#d97706" opacity="0.2"/>
+              <rect x="14" y="65" width="35" height="6" rx="3" fill="rgba(255,255,255,0.05)"/>
+              <rect x="184" y="50" width="42" height="8" rx="4" fill="#f43f5e" opacity="0.2"/>
+              <rect x="184" y="65" width="35" height="6" rx="3" fill="rgba(255,255,255,0.05)"/>
+              <text x="120" y="175" text-anchor="middle" fill="#555570" font-size="7" font-family="sans-serif">1080 x 1920</text>
+            </svg>
+            <svg class="sc-demo-img" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <rect width="240" height="180" fill="#1a1a2e"/>
+              <!-- Multi-platform grid -->
+              <!-- Instagram square -->
+              <rect x="12" y="12" width="64" height="64" rx="4" fill="#134e4a" opacity="0.5" stroke="rgba(13,148,136,0.2)" stroke-width="1"/>
+              <circle cx="44" cy="38" r="14" fill="#0d9488" opacity="0.4"/>
+              <rect x="28" y="56" width="32" height="4" rx="2" fill="#5eead4" opacity="0.3"/>
+              <text x="44" y="72" text-anchor="middle" fill="#8888a0" font-size="5" font-family="sans-serif">IG</text>
+              <!-- YouTube thumbnail -->
+              <rect x="88" y="12" width="96" height="54" rx="4" fill="#1e1b4b" opacity="0.5" stroke="rgba(244,63,94,0.2)" stroke-width="1"/>
+              <polygon points="136,32 136,46 148,39" fill="#f43f5e" opacity="0.5"/>
+              <rect x="96" y="52" width="60" height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
+              <text x="136" y="62" text-anchor="middle" fill="#8888a0" font-size="5" font-family="sans-serif">YouTube</text>
+              <!-- Twitter card -->
+              <rect x="12" y="90" width="96" height="54" rx="4" fill="#0d1b2a" opacity="0.5" stroke="rgba(217,119,6,0.2)" stroke-width="1"/>
+              <circle cx="26" cy="100" r="6" fill="#d97706" opacity="0.3"/>
+              <rect x="36" y="96" width="44" height="4" rx="2" fill="rgba(255,255,255,0.08)"/>
+              <rect x="36" y="104" width="32" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+              <rect x="18" y="116" width="80" height="20" rx="2" fill="#134e4a" opacity="0.4"/>
+              <text x="60" y="140" text-anchor="middle" fill="#8888a0" font-size="5" font-family="sans-serif">Twitter</text>
+              <!-- Pinterest pin -->
+              <rect x="120" y="80" width="48" height="72" rx="4" fill="#134e4a" opacity="0.5" stroke="rgba(244,63,94,0.2)" stroke-width="1"/>
+              <circle cx="144" cy="106" r="12" fill="#f43f5e" opacity="0.3"/>
+              <rect x="130" y="124" width="28" height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
+              <rect x="132" y="132" width="24" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+              <text x="144" y="148" text-anchor="middle" fill="#8888a0" font-size="5" font-family="sans-serif">Pin</text>
+              <!-- LinkedIn -->
+              <rect x="180" y="90" width="48" height="64" rx="4" fill="#0d1b2a" opacity="0.5" stroke="rgba(217,119,6,0.15)" stroke-width="1"/>
+              <circle cx="204" cy="104" r="8" fill="#d97706" opacity="0.3"/>
+              <rect x="188" y="118" width="32" height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
+              <rect x="188" y="126" width="24" height="3" rx="1.5" fill="rgba(255,255,255,0.04)"/>
+              <rect x="188" y="134" width="32" height="12" rx="2" fill="rgba(217,119,6,0.15)"/>
+              <text x="204" y="152" text-anchor="middle" fill="#8888a0" font-size="5" font-family="sans-serif">LinkedIn</text>
+            </svg>
+          </div>
+          <!-- Upload instruction overlay -->
+          <div class="sc-content">
+            <div class="sc-icon-wrap">
+              <div class="sc-icon-ring"></div>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke-linecap="round" stroke-linejoin="round"/><polyline points="17 8 12 3 7 8" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="3" x2="12" y2="15" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="sc-upload-title">Drop your image here</div>
+            <div class="sc-upload-sub">Check how your image fits on every platform</div>
+            <div class="sc-upload-hint">JPG, PNG, WebP, GIF, BMP</div>
+            <div class="sc-upload-keys">
+              <span class="sc-upload-key">Drag</span>
+              <span class="sc-upload-key">Drop</span>
+              <span class="sc-upload-key">Click</span>
+            </div>
+          </div>
+          <img class="sc-preview" id="scPreview" alt="Uploaded preview">
+          <input type="file" id="scFileInput" accept="image/*" style="display:none">
+        </div>
+        <div class="sc-results" id="scResults">
+          <div class="sc-score-overall">
+            <div class="sc-score-number" id="scOverallScore">--</div>
+            <div class="sc-score-label">Overall Social Media Score</div>
+          </div>
+          <div class="sc-grid" id="scGrid"></div>
+          <div class="sc-actions">
+            <button class="sc-btn sc-btn-primary" onclick="generateShareCard()">&#128228; Download Share Card</button>
+            <button class="sc-btn sc-btn-secondary" onclick="switchTab('border')">&#127912; Fix with Border Tool</button>
+            <button class="sc-btn sc-btn-secondary" onclick="resetSizeChecker()">&#8635; Check Another Image</button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Privacy -->
+    <div class="privacy-banner">
+      <span class="lock-icon">&#128274;</span>
+      <span><strong>100% Private.</strong> All image processing happens locally in your browser. Your images never leave your device.</span>
+    </div>
+
+    <!-- Ad Middle -->
+    <div class="ad-slot" id="ad-middle">
+      <div class="ad-slot-inner">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2779701070600473" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+
+    <!-- Social Media Size Guide CTA -->
+    <section class="platform-guides reveal" aria-label="Social media image size guide">
+      <div class="platform-grid" style="display:flex;justify-content:center">
+        <a href="/blog-social-media-sizes.html" class="platform-card" style="max-width:600px;padding:32px 40px;text-align:left;display:flex;align-items:center;gap:24px">
+          <span class="platform-card-icon" style="margin-bottom:0;flex-shrink:0"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#8888a0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div>
+            <div class="platform-card-name" style="font-size:1rem;margin-bottom:4px">The Ultimate Social Media Image Size Guide</div>
+            <div class="platform-card-desc" style="font-size:0.85rem">Instagram, Twitter, Facebook, YouTube, Pinterest, LinkedIn — all sizes in one guide. Updated June 2026.</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Social Proof Stats -->
+    <section class="stats-section" aria-label="About the tool">
+      <div class="stats-grid">
+        <div class="stat-card reveal">
+          <div class="stat-number" style="font-size:1.2rem;background:var(--gradient-text);-webkit-background-clip:text;background-clip:text;color:transparent">Free Forever</div>
+          <div class="stat-label">No premium tiers, no watermarks, no hidden costs</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number" style="font-size:1.2rem;background:var(--gradient-text);-webkit-background-clip:text;background-clip:text;color:transparent">100% Private</div>
+          <div class="stat-label">All processing in your browser. Images never leave your device</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number" style="font-size:1.2rem;background:var(--gradient-text);-webkit-background-clip:text;background-clip:text;color:transparent">4 Border Styles</div>
+          <div class="stat-label">Solid, Polaroid, Gradient, and Rounded corners</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number" style="font-size:1.2rem;background:var(--gradient-text);-webkit-background-clip:text;background-clip:text;color:transparent">Instant Results</div>
+          <div class="stat-label">Upload, customize, and download in under 10 seconds</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="content-section" id="features">
+      <h2>Built for Speed, Privacy, and Zero Cost</h2>
+      <p>The fastest way to add borders to your images. Whether you need a white border for Instagram, a polaroid frame, or a colorful gradient for social media.</p>
+      <div class="features-grid">
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#5eead4"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span><h3>Instant Results</h3><p>Upload, customize, and download in under 10 seconds. Real-time preview shows exactly what you get.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#5eead4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>100% Private</h3><p>All processing happens in your browser. No server uploads, no data collection, ever.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#5eead4"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.5-.7 1.5-1.5 0-.4-.2-.8-.4-1.1-.3-.3-.4-.7-.4-1.1 0-.9.7-1.5 1.5-1.5H16c3.3 0 6-2.7 6-6 0-5.5-4.5-9-10-9z"/><circle cx="7.5" cy="11.5" r="1.5"/><circle cx="12" cy="7.5" r="1.5"/><circle cx="16.5" cy="11.5" r="1.5"/></svg></span><h3>Multiple Styles</h3><p>From vintage Polaroid frames to modern gradient borders — pick the style that matches your vision. Full control over width, color, and shadows.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#5eead4"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span><h3>Social Media Ready</h3><p>One-click presets for Instagram square, stories, and Facebook posts. Perfect ratios every time.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#5eead4"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span><h3>Batch Processing</h3><p>Got 50 photos to frame? Upload them all, apply one style, download as a ZIP. What used to take hours now takes minutes.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#5eead4"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></span><h3>Completely Free</h3><p>No hidden fees, no premium tiers, no watermarks. Every feature is free with unlimited use.</p></article>
+      </div>
+    </section>
+
+    <!-- How To -->
+    <section class="content-section" id="how-to">
+      <h2>How to Add a Border to an Image</h2>
+      <p>Adding a border to your image takes just four simple steps with AdBorder:</p>
+      <p><strong>Step 1:</strong> Drag and drop your image, or click to browse. You can also paste from clipboard with Ctrl+V.</p>
+      <p><strong>Step 2:</strong> Choose a border style — Solid Color, Polaroid, Gradient, or Rounded Corners.</p>
+      <p><strong>Step 3:</strong> Customize width, color, or gradient, and optionally add a drop shadow.</p>
+      <p><strong>Step 4:</strong> Preview in real-time, choose your export format, and click Download. That's it.</p>
+    </section>
+
+    <!-- Ad Bottom -->
+    <div class="ad-slot" id="ad-bottom">
+      <div class="ad-slot-inner">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2779701070600473" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section reveal" aria-label="Newsletter signup">
+      <div class="newsletter-card">
+        <div class="newsletter-text">
+          <h3>Get Design Tips & Tool Updates</h3>
+          <p>Free border presets, design tricks, and new features — straight to your inbox. No spam.</p>
+        </div>
+        <form class="newsletter-form" id="newsletterForm" onsubmit="return handleNewsletter(event)">
+          <input type="email" placeholder="your@email.com" required aria-label="Email address">
+          <button type="submit">Subscribe</button>
+        </form>
+        <div class="newsletter-success" id="newsletterSuccess">Thanks! You're subscribed.</div>
+      </div>
+    </section>
+
+    <!-- Blog CTA -->
+    <div class="blog-cta reveal">
+      <div class="blog-cta-card">
+        <div class="blog-cta-text">
+          <h3>Photo Border Tips & Tutorials</h3>
+          <p>Learn the best border styles for Instagram, Polaroid effects, social media tricks, and more.</p>
+        </div>
+        <a href="/blog.html" class="blog-cta-link">Read Blog &#8594;</a>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <section class="content-section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item reveal" id="faq-border-online"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>How do I add a border to an image online for free?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">Go to adborder.top, drag and drop or paste your image, choose your border style, adjust the width and color, preview in real-time, and click Download. No signup required, no watermark on output.</div></div></div>
+        <div class="faq-item reveal" id="faq-white-border"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>What is the best free tool to add a white border to photos?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">AdBorder is one of the best free tools for adding white borders. It requires no account, adds no watermark, and processes images entirely in your browser for complete privacy. Supports widths from 1px to 200px.</div></div></div>
+        <div class="faq-item reveal" id="faq-colored-border"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>Can I add a colored border without Photoshop?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">Yes. Use the color picker to select any color, adjust the width with a slider, and download in PNG, JPEG, or WebP. You can also choose from gradient presets for creative styles.</div></div></div>
+        <div class="faq-item reveal" id="faq-polaroid"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>How do I add a polaroid-style border?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">Select the Polaroid preset to add a white border with a thicker bottom section that mimics classic Polaroid film. Add a drop shadow for a more realistic effect.</div></div></div>
+        <div class="faq-item reveal" id="faq-privacy"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>Is my image safe when using AdBorder?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">Your images are completely safe. All processing happens locally in your browser using JavaScript and Canvas API. Images are never uploaded to any server.</div></div></div>
+        <div class="faq-item reveal" id="faq-formats"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>What image formats are supported?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">Input: JPG, PNG, WebP, GIF, BMP, SVG. Output: PNG (lossless), JPEG (adjustable quality), or WebP (modern, excellent compression).</div></div></div>
+        <div class="faq-item reveal" id="faq-batch"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>Can I add borders to multiple images at once?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">Yes. Upload multiple images, apply the same settings to all, and download all results at once. Much faster than one by one.</div></div></div>
+        <div class="faq-item reveal" id="faq-instagram"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)"><span>How do I add a border for Instagram posts?</span><span class="faq-arrow">&#9660;</span></button><div class="faq-answer"><div class="faq-answer-inner">Use the IG Square preset for 1:1 ratio with a white border, or IG Story for 9:16. Your photos display perfectly on Instagram without unwanted cropping.</div></div></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  
