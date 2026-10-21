@@ -2,7 +2,7 @@
   "source": "LiveBench(Abacus.AI)",
   "dimension": "推理",
   "source_url": "https://livebench.ai/",
-  "fetched_at": "2026-10-20T13:38:48.261Z",
+  "fetched_at": "2026-10-21T02:25:14.070Z",
   "na_reason": "结构化数据路径不可达(2026-10-20 探测):livebench.ai 前端按 /v1/table_{期号日期}.csv 动态拉数,期号无法静态确定(候选日期 404);repo main 无集中结果 JSON;本机网络对 GitHub git/clone 及 HF 不可达。待 GHA runner 复试或人工确认期号后适配。(末次尝试:HTTP 404 Not Found)",
   "models": []
 }
