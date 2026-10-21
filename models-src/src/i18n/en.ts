@@ -49,6 +49,7 @@ export const en = {
     vendorLabel: 'Vendor',
     vendorAria: 'Filter by vendor',
     vendorAll: 'All',
+    vendorOther: 'Other',
     vendorOption: '{name} ({count})',
     searchPlaceholder: 'Search models…',
     searchAria: 'Search model names',

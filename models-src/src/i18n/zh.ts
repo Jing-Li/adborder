@@ -48,6 +48,7 @@ export const zh = {
     vendorLabel: '厂商',
     vendorAria: '按厂商筛选',
     vendorAll: '全部',
+    vendorOther: '其他',
     vendorOption: '{name}({count})',
     searchPlaceholder: '搜索模型名…',
     searchAria: '搜索模型名',

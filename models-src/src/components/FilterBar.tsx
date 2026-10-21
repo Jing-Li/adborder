@@ -4,7 +4,7 @@
  * (src/lib/modelMeta.ts);数据无模态字段,不摆模态筛选器。
  */
 import { useT } from '../i18n'
-import type { License } from '../lib/modelMeta'
+import { VENDOR_OTHER, type License } from '../lib/modelMeta'
 
 export type LicenseFilter = 'all' | License
 
@@ -64,7 +64,11 @@ export default function FilterBar({
           <option value="all">{t('filter.vendorAll')}</option>
           {vendors.map((v) => (
             <option key={v.name} value={v.name}>
-              {t('filter.vendorOption', { name: v.name, count: v.count })}
+              {/* 兜底类目名属 UI 文案,en 版经 dict 译出;option value 仍用数据字段值,筛选语义不变 */}
+              {t('filter.vendorOption', {
+                name: v.name === VENDOR_OTHER ? t('filter.vendorOther') : v.name,
+                count: v.count,
+              })}
             </option>
           ))}
         </select>

@@ -20,6 +20,9 @@ export interface ModelMeta {
 
 const OTHER: ModelMeta = { vendor: '其他', license: 'unknown', domestic: false }
 
+/** 兜底类目名(OTHER.vendor 的数据字段值,原样引用不改语义);UI 层经 i18n `filter.vendorOther` 映射展示 */
+export const VENDOR_OTHER = OTHER.vendor
+
 /** 按顺序命中第一条;注意正则锚定词边界,避免误伤(如 GPT 不应匹配其他含 gpt 字样的家族) */
 const RULES: Array<{ re: RegExp; vendor: string; license: Exclude<License, 'unknown'>; domestic?: boolean }> = [
   { re: /^claude/i, vendor: 'Anthropic', license: 'closed' },
