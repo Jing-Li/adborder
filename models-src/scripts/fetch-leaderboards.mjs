@@ -23,6 +23,7 @@
 
 import { mkdirSync, writeFileSync, existsSync, statSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { pathToFileURL } from 'node:url'
 import zlib from 'node:zlib'
 
 const ROOT = new URL('..', import.meta.url).pathname
@@ -150,10 +151,105 @@ function parseSwebench(json) {
   }
 }
 
-// --------------------------------------------- OpenCompass (五张子表 → 五个维度文件)
+// --------------------------------- OpenCompass (动态期号发现 → 五张子表 → 五个维度文件)
 
-const OPENCOMPASS_URL = 'https://cdn.opencompass.org.cn/assets/llm-rank/llm-data-v2.26-07.20260824.json'
 const OPENCOMPASS_SOURCE_URL = 'https://rank.opencompass.org.cn/leaderboard-llm-v1'
+
+/**
+ * 运行时动态发现(T15):POST 索引 API 拿全部历史期数,按 updateTime 取最新,
+ * 期号/URL 全部来自响应 —— 官方发布新期时每日抓取自动跟进,零代码改动。
+ * 索引连败(首发+重试 2)回退 OC_FALLBACK 最后已知期号并打 WARNING,单次 API 抖动不断每日数据流。
+ */
+export const OC_INDEX_API_URL = 'https://rank.opencompass.org.cn/gw/opencompass-be/api/v1/rank/listRankTableAvailableMonths'
+const OC_INDEX_BODY = JSON.stringify({ rankingType: 0, benchmarkType: 1 })
+const OC_CDN_BASE = 'https://cdn.opencompass.org.cn/'
+const OC_INDEX_ATTEMPTS = 3 // 首发一次 + 重试两次(契约:重试 ≥2)
+
+/** 最后已知期号(2026-10-21 实采):索引 API 全败时的回退锚,绝不静默断流 */
+const OC_FALLBACK = {
+  url: 'https://cdn.opencompass.org.cn/assets/llm-rank/llm-data-v2.26-07.20260824.json',
+  version: 'v2.26-07',
+  month: '26-07',
+  updatedAt: '2026-08-24',
+}
+export const OC_FALLBACK_URL = OC_FALLBACK.url
+
+/** 索引条目合法性:fileName/updateTime 缺失即不可用 */
+function isValidOcIndexEntry(e) {
+  return Boolean(e) && typeof e.fileName === 'string' && e.fileName.length > 0
+    && typeof e.updateTime === 'string' && e.updateTime.length > 0
+}
+
+/** data[] 按 updateTime(ISO 日期,字典序即可)取最新一条;空/全非法抛错 */
+function pickLatestOcIndexEntry(data) {
+  if (!Array.isArray(data)) throw new Error(`索引响应缺 data 数组(实际类型: ${typeof data})`)
+  const valid = data.filter(isValidOcIndexEntry)
+  if (valid.length === 0) {
+    throw new Error(`索引响应 data 为空或全部条目非法(实际 ${data.length} 项,需 fileName/updateTime 字符串)`)
+  }
+  return valid.reduce((a, b) => (b.updateTime > a.updateTime ? b : a))
+}
+
+/** fileName 'assets/llm-rank/llm-data-v2.26-07.20260824.json' → 期号 'v2.26-07';不匹配抛错 */
+function extractOcVersion(fileName) {
+  const m = fileName.match(/llm-data-(v[0-9.]+-[0-9]{2})\./)
+  if (!m) throw new Error(`无法从 fileName 提取期号: ${fileName}`)
+  return m[1]
+}
+
+/**
+ * 索引响应 → { url, version, month, updatedAt }:纯函数,期号完全来自响应。
+ * 测试锚:scripts/test-opencompass-index.mjs(正常最新/乱序取最大/空报错/新期号反证)。
+ */
+export function parseOpencompassIndex(json) {
+  const entry = pickLatestOcIndexEntry(json?.data)
+  return {
+    url: `${OC_CDN_BASE}${entry.fileName}`,
+    version: extractOcVersion(entry.fileName),
+    month: typeof entry.month === 'string' ? entry.month : null,
+    updatedAt: entry.updateTime,
+  }
+}
+
+/** 行级 benchmark_version 串:('v2.26-07','26-07') → 'OpenCompass v2.26-07 (CompassBench 2607)';month 缺失降级为期号 */
+export function ocRowVersionLabel(version, month) {
+  const tag = typeof month === 'string' && /^[0-9]{2}-[0-9]{2}$/.test(month) ? month.replace('-', '') : null
+  return tag ? `OpenCompass ${version} (CompassBench ${tag})` : `OpenCompass ${version}`
+}
+
+/**
+ * 解析 OpenCompass 最新数据 URL:POST 索引 API,按 updateTime 取最新期。
+ * useCache(--use-cache 离线调试)跳过索引直接回退已知期号,与 LiveBench 离线短路口径一致。
+ * fetchImpl 可注入(自测降级路径);连败 OC_INDEX_ATTEMPTS 次后回退 OC_FALLBACK 并打 WARNING。
+ */
+export async function resolveOpencompassIndex({ useCache = false, fetchImpl = fetch } = {}) {
+  if (useCache) {
+    console.error(`  [oc-index] --use-cache 离线模式:跳过索引发现,回退已知期号 ${OC_FALLBACK.version} (${OC_FALLBACK.updatedAt})`)
+    return { ...OC_FALLBACK, source: 'fallback' }
+  }
+  let lastErr = null
+  for (let attempt = 1; attempt <= OC_INDEX_ATTEMPTS; attempt++) {
+    try {
+      const res = await fetchImpl(OC_INDEX_API_URL, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'user-agent': UA },
+        body: OC_INDEX_BODY,
+        signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+      })
+      if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`)
+      const parsed = parseOpencompassIndex(await res.json())
+      console.error(`  [oc-index] 索引解析成功: ${parsed.version} (${parsed.updatedAt}) → ${parsed.url}`)
+      return { ...parsed, source: 'index' }
+    } catch (e) {
+      lastErr = e
+      if (attempt < OC_INDEX_ATTEMPTS) {
+        console.error(`  [oc-index] 第 ${attempt}/${OC_INDEX_ATTEMPTS} 次索引请求失败(${e.message}),重试…`)
+      }
+    }
+  }
+  console.error(`WARNING: OpenCompass 索引 API 不可达(${OC_INDEX_ATTEMPTS} 次尝试均失败,末次: ${lastErr?.message});回退最后已知期号 ${OC_FALLBACK.version} (${OC_FALLBACK.updatedAt}): ${OC_FALLBACK.url}`)
+  return { ...OC_FALLBACK, source: 'fallback' }
+}
 
 const TOP_N = 25
 
@@ -206,7 +302,7 @@ const OC_TABLES = [
   },
 ]
 
-function normalizeOpencompassTable(json, table) {
+function normalizeOpencompassTable(json, table, ocMeta) {
   const rows = Array.isArray(json?.[table]) ? json[table] : []
   const scored = rows.filter((r) => typeof r.Average === 'number')
   if (scored.length === 0) {
@@ -219,13 +315,13 @@ function normalizeOpencompassTable(json, table) {
     score: r.Average,
     rank: i + 1,
     source_url: OPENCOMPASS_SOURCE_URL,
-    benchmark_version: 'OpenCompass v2.26-07 (CompassBench 2607)',
+    benchmark_version: ocMeta.rowVersion,
     updated_at: toISODate(r.update_time),
     fetched_at: FETCHED_AT,
   }))
   const latestUpdate = models.map((m) => m.updated_at).filter(Boolean).sort().pop() ?? null
   return {
-    benchmark_version: 'v2.26-07',
+    benchmark_version: ocMeta.version,
     updated_at: latestUpdate,
     models,
   }
@@ -344,18 +440,21 @@ async function main() {
     }
   }
 
-  // --- OpenCompass(五张子表 → 五个维度文件,同源零新增 HTTP)---
+  // --- OpenCompass(运行时索引发现期号 → 五张子表 → 五个维度文件,同源零新增 CDN 下载)---
   try {
-    const { json, lastModified, bytes, decodedBytes } = await fetchJSON(OPENCOMPASS_URL, { useCache: USE_CACHE })
+    const oc = await resolveOpencompassIndex({ useCache: USE_CACHE })
+    const ocMeta = { version: oc.version, rowVersion: ocRowVersionLabel(oc.version, oc.month) }
+    const { json, lastModified, bytes, decodedBytes } = await fetchJSON(oc.url, { useCache: USE_CACHE })
     if (PROBE) {
       console.log('== OpenCompass probe ==')
+      console.log(`resolved=${oc.url} version=${oc.version} source=${oc.source}`)
       console.log(`bytes=${bytes} decodedBytes=${decodedBytes} lastModified=${lastModified}`)
       console.log(JSON.stringify(probe(json), null, 2))
     } else {
       // 逐子表独立落盘:单表异常不影响其余表,异常表落 N/A 占位(不编数)
       for (const spec of OC_TABLES) {
         try {
-          const parsed = normalizeOpencompassTable(json, spec.table)
+          const parsed = normalizeOpencompassTable(json, spec.table, ocMeta)
           const file = okFile({
             source: 'OpenCompass 司南(上海人工智能实验室)',
             dimension: spec.dimension,
@@ -460,7 +559,11 @@ async function main() {
   if (!PROBE) console.log(`\n输出目录: ${DATA_DIR}`)
 }
 
-main().catch((e) => {
-  console.error('FATAL(本地 IO 层):', e)
-  process.exit(1)
-})
+// 仅直接执行时启动(被 test-opencompass-index.mjs 导入时零副作用,便于纯函数自测)
+const IS_DIRECT_RUN = Boolean(process.argv[1]) && import.meta.url === pathToFileURL(process.argv[1]).href
+if (IS_DIRECT_RUN) {
+  main().catch((e) => {
+    console.error('FATAL(本地 IO 层):', e)
+    process.exit(1)
+  })
+}
