@@ -4,20 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Not Found - AdBorder</title>
-  <meta name="robots" content="noindex">
   <link rel="canonical" href="https://adborder.top/">
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-C483V5DK3K"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-C483V5DK3K');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260711i">
+  <link rel="stylesheet" href="/styles.css?v=20260711j">
+  <meta name="robots" content="noindex">
   <link rel="stylesheet" href="/static.css?v=20260711i">
+  <style>
+    .lang-switch{display:flex;align-items:center;margin-left:6px;padding-left:10px;border-left:1px solid rgba(255,255,255,.18)}
+    .lang-switch a{opacity:.8;font-size:.85rem}
+    .lang-switch a:hover{opacity:1}
+  </style>
 </head>
 <body class="error-page">
   <a href="#main-content" class="skip-link">Skip to content</a>
   <div class="mesh-bg"></div>
   <div class="noise"></div>
+  
   <header>
     <div class="header-inner">
       <a href="/" class="logo">Ad<span>Border</span></a>
@@ -25,8 +32,9 @@
         <a href="/">Tool</a>
         <a href="/blog.html">Blog</a>
         <a href="/critique/">Critique</a>
-        <a href="/models/">Rankings</a>
+        <a href="/models/en/">Rankings</a>
         <a href="/about.html">About</a>
+        <span class="lang-switch"><a href="https://adborder.top/zh/404.html" hreflang="zh-CN" lang="zh-CN" onclick="try{localStorage.setItem('adborder_lang','zh')}catch(e){}">中文</a></span>
       </nav>
     </div>
   </header>
@@ -49,6 +57,9 @@
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
   </div>
+
+
+  
 
 
   <footer>
@@ -85,8 +96,6 @@
       document.getElementById('cookieBanner').style.display = 'none';
     }
   </script>
-
-
   <script>
     (function(){
       var els = document.querySelectorAll('main h1, main h2, main h3, main p, main ul, main ol, main .contact-methods, main .author-hero, main .static-hero');
@@ -97,9 +106,27 @@
       els.forEach(function(el){ obs.observe(el); });
     })();
   </script>
+
   <!-- Ko-fi Floating Button -->
   <a href="https://ko-fi.com/adborder" target="_blank" rel="noopener" class="kofi-float">
     <span class="kofi-float-icon">&#9749;</span> Support Me
   </a>
+<div id="langHint" style="position:fixed;left:0;right:0;bottom:0;z-index:9998;display:none;align-items:center;justify-content:center;gap:12px;padding:10px 16px;background:#141b2b;color:#e8ecf4;font-size:.9rem;border-top:1px solid rgba(255,255,255,.12)">
+  <span>检测到您的浏览器语言是中文——切换到<a href="https://adborder.top/zh/404.html" hreflang="zh-CN" lang="zh-CN" style="color:#5eead4;text-decoration:underline">中文版</a>？</span>
+  <button onclick="dismissLangHint()" style="background:none;border:1px solid rgba(255,255,255,.3);color:#e8ecf4;border-radius:6px;padding:2px 10px;cursor:pointer">稍后</button>
+</div>
+<script>
+  (function(){
+    try{
+      if(localStorage.getItem('adborder_lang')) return;
+      if(!/^zh/i.test(navigator.language||'')) return;
+      document.getElementById('langHint').style.display='flex';
+    }catch(e){}
+  })();
+  function dismissLangHint(){
+    try{ localStorage.setItem('adborder_lang','en'); }catch(e){}
+    var h=document.getElementById('langHint'); if(h) h.style.display='none';
+  }
+</script>
 </body>
 </html>

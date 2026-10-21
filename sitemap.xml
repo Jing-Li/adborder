@@ -1,154 +1,239 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://adborder.top/</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+      <loc>https://adborder.top/models/</loc>
+      <lastmod>2026-10-20</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>0.8</priority>
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://adborder.top/models/"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://adborder.top/models/en/"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://adborder.top/models/"/>
   </url>
   <url>
-    <loc>https://adborder.top/models/</loc>
-    <lastmod>2026-10-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://adborder.top/models/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://adborder.top/models/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://adborder.top/models/"/>
+      <loc>https://adborder.top/</loc>
+      <lastmod>2026-07-11</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>1.0</priority>
+      <link rel="alternate" hreflang="en" href="https://adborder.top/"/>
+      <link rel="alternate" hreflang="zh-CN" href="https://adborder.top/zh/"/>
+      <link rel="alternate" hreflang="x-default" href="https://adborder.top/"/>
   </url>
   <url>
-    <loc>https://adborder.top/blog.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+      <loc>https://adborder.top/zh/</loc>
+      <lastmod>2026-07-11</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>0.8</priority>
+      <link rel="alternate" hreflang="en" href="https://adborder.top/"/>
+      <link rel="alternate" hreflang="zh-CN" href="https://adborder.top/zh/"/>
+      <link rel="alternate" hreflang="x-default" href="https://adborder.top/"/>
   </url>
   <url>
-    <loc>https://adborder.top/about.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+      <loc>https://adborder.top/about.html</loc>
+      <lastmod>2026-07-23</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+      <link rel="alternate" hreflang="en" href="https://adborder.top/about.html"/>
+      <link rel="alternate" hreflang="zh-CN" href="https://adborder.top/zh/about.html"/>
+      <link rel="alternate" hreflang="x-default" href="https://adborder.top/about.html"/>
   </url>
   <url>
-    <loc>https://adborder.top/contact.html</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
+      <loc>https://adborder.top/zh/about.html</loc>
+      <lastmod>2026-07-23</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+      <link rel="alternate" hreflang="en" href="https://adborder.top/about.html"/>
+      <link rel="alternate" hreflang="zh-CN" href="https://adborder.top/zh/about.html"/>
+      <link rel="alternate" hreflang="x-default" href="https://adborder.top/about.html"/>
   </url>
   <url>
-    <loc>https://adborder.top/privacy.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+      <loc>https://adborder.top/contact.html</loc>
+      <lastmod>2026-07-12</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+      <link rel="alternate" hreflang="en" href="https://adborder.top/contact.html"/>
+      <link rel="alternate" hreflang="zh-CN" href="https://adborder.top/zh/contact.html"/>
+      <link rel="alternate" hreflang="x-default" href="https://adborder.top/contact.html"/>
   </url>
   <url>
-    <loc>https://adborder.top/terms.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+      <loc>https://adborder.top/zh/contact.html</loc>
+      <lastmod>2026-07-12</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+      <link rel="alternate" hreflang="en" href="https://adborder.top/contact.html"/>
+      <link rel="alternate" hreflang="zh-CN" href="https://adborder.top/zh/contact.html"/>
+      <link rel="alternate" hreflang="x-default" href="https://adborder.top/contact.html"/>
   </url>
   <url>
-    <loc>https://adborder.top/editorial.html</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+      <loc>https://adborder.top/privacy.html</loc>
+      <lastmod>2026-07-23</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+      <link rel="alternate" hreflang="en" href="https://adborder.top/privacy.html"/>
+      <link rel="alternate" hreflang="zh-CN" href="https://adborder.top/zh/privacy.html"/>
+      <link rel="alternate" hreflang="x-default" href="https://adborder.top/privacy.html"/>
   </url>
   <url>
-    <loc>https://adborder.top/blog-polaroid.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+      <loc>https://adborder.top/zh/privacy.html</loc>
+      <lastmod>2026-07-23</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+      <link rel="alternate" hreflang="en" href="https://adborder.top/privacy.html"/>
+      <link rel="alternate" hreflang="zh-CN" href="https://adborder.top/zh/privacy.html"/>
+      <link rel="alternate" hreflang="x-default" href="https://adborder.top/privacy.html"/>
   </url>
   <url>
-    <loc>https://adborder.top/blog-photo-border-guide.html</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+      <loc>https://adborder.top/terms.html</loc>
+      <lastmod>2026-07-23</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+      <link rel="alternate" hreflang="en" href="https://adborder.top/terms.html"/>
+      <link rel="alternate" hreflang="zh-CN" href="https://adborder.top/zh/terms.html"/>
+      <link rel="alternate" hreflang="x-default" href="https://adborder.top/terms.html"/>
   </url>
   <url>
-    <loc>https://adborder.top/blog-instagram-border.html</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+      <loc>https://adborder.top/zh/terms.html</loc>
+      <lastmod>2026-07-23</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+      <link rel="alternate" hreflang="en" href="https://adborder.top/terms.html"/>
+      <link rel="alternate" hreflang="zh-CN" href="https://adborder.top/zh/terms.html"/>
+      <link rel="alternate" hreflang="x-default" href="https://adborder.top/terms.html"/>
   </url>
   <url>
-    <loc>https://adborder.top/blog-image-format.html</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+      <loc>https://adborder.top/editorial.html</loc>
+      <lastmod>2026-07-12</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+      <link rel="alternate" hreflang="en" href="https://adborder.top/editorial.html"/>
+      <link rel="alternate" hreflang="zh-CN" href="https://adborder.top/zh/editorial.html"/>
+      <link rel="alternate" hreflang="x-default" href="https://adborder.top/editorial.html"/>
   </url>
   <url>
-    <loc>https://adborder.top/blog-aspect-ratio.html</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+      <loc>https://adborder.top/zh/editorial.html</loc>
+      <lastmod>2026-07-12</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+      <link rel="alternate" hreflang="en" href="https://adborder.top/editorial.html"/>
+      <link rel="alternate" hreflang="zh-CN" href="https://adborder.top/zh/editorial.html"/>
+      <link rel="alternate" hreflang="x-default" href="https://adborder.top/editorial.html"/>
   </url>
   <url>
-    <loc>https://adborder.top/blog-social-media-sizes.html</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+      <loc>https://adborder.top/blog.html</loc>
+      <lastmod>2026-07-23</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+      <link rel="alternate" hreflang="en" href="https://adborder.top/blog.html"/>
+      <link rel="alternate" hreflang="zh-CN" href="https://adborder.top/zh/blog.html"/>
+      <link rel="alternate" hreflang="x-default" href="https://adborder.top/blog.html"/>
   </url>
   <url>
-    <loc>https://adborder.top/blog-color-psychology-social-media.html</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+      <loc>https://adborder.top/zh/blog.html</loc>
+      <lastmod>2026-07-23</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+      <link rel="alternate" hreflang="en" href="https://adborder.top/blog.html"/>
+      <link rel="alternate" hreflang="zh-CN" href="https://adborder.top/zh/blog.html"/>
+      <link rel="alternate" hreflang="x-default" href="https://adborder.top/blog.html"/>
   </url>
   <url>
-    <loc>https://adborder.top/blog-visual-storytelling.html</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+      <loc>https://adborder.top/blog-aspect-ratio.html</loc>
+      <lastmod>2026-07-12</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://adborder.top/blog-image-composition-tips.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+      <loc>https://adborder.top/blog-best-border-tools.html</loc>
+      <lastmod>2026-07-12</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://adborder.top/blog-black-border-guide.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+      <loc>https://adborder.top/blog-black-border-guide.html</loc>
+      <lastmod>2026-07-23</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://adborder.top/blog-mobile-borders.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+      <loc>https://adborder.top/blog-color-psychology-social-media.html</loc>
+      <lastmod>2026-07-12</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://adborder.top/blog-best-border-tools.html</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+      <loc>https://adborder.top/blog-image-composition-tips.html</loc>
+      <lastmod>2026-07-23</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://adborder.top/blog-ppi-vs-dpi.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+      <loc>https://adborder.top/blog-image-format.html</loc>
+      <lastmod>2026-07-12</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://adborder.top/blog-resize-images.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+      <loc>https://adborder.top/blog-instagram-border.html</loc>
+      <lastmod>2026-07-12</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://adborder.top/critique/</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+      <loc>https://adborder.top/blog-mobile-borders.html</loc>
+      <lastmod>2026-07-23</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://adborder.top/critique/episode-1.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+      <loc>https://adborder.top/blog-photo-border-guide.html</loc>
+      <lastmod>2026-07-12</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://adborder.top/critique/episode-2.html</loc>
-    <lastmod>2026-07-23</lastmod>
+      <loc>https://adborder.top/blog-polaroid.html</loc>
+      <lastmod>2026-07-23</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+  </url>
+  <url>
+      <loc>https://adborder.top/blog-ppi-vs-dpi.html</loc>
+      <lastmod>2026-07-23</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+  </url>
+  <url>
+      <loc>https://adborder.top/blog-resize-images.html</loc>
+      <lastmod>2026-07-23</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+  </url>
+  <url>
+      <loc>https://adborder.top/blog-social-media-sizes.html</loc>
+      <lastmod>2026-07-12</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+  </url>
+  <url>
+      <loc>https://adborder.top/blog-visual-storytelling.html</loc>
+      <lastmod>2026-07-12</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+  </url>
+  <url>
+      <loc>https://adborder.top/critique/index.html</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+  </url>
+  <url>
+      <loc>https://adborder.top/critique/episode-1.html</loc>
+      <lastmod>2026-07-23</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+  </url>
+  <url>
+      <loc>https://adborder.top/critique/episode-2.html</loc>
+      <lastmod>2026-07-23</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
   </url>
 </urlset>
