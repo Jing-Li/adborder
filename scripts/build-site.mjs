@@ -163,6 +163,27 @@ function renderPage(page, lang, meta, content) {
   return out;
 }
 
+// ---------- P1-A:zh 片段相对 .html 链接构建期重写(单一真源) ----------
+// zh 页位于 /zh/ 下,机械抽取自 en 正文原样的相对 a[href](如文章卡 blog-*.html)会解析到 /zh/ 下断链(未译页不生成)。
+// 规则:相对 a[href] 路径以 .html 结尾——目标 ∈ ZH_FIRST_BATCH → /zh/<page>(已译页);否则 → /<page>(en 原文 fallback,即已核准的「列表卡点进 en 原文」语义)。
+// 不动:锚点(#开头)、外部 http(s)/protocol-relative、绝对路径(/开头)、协议链接(mailto: 等)、非 .html 资源链接。
+function rewriteZhLinks(html) {
+  const hits = [];
+  const rewritten = html.replace(/(<a\b[^>]*?\shref=")([^"]*)(")/gi, (m, pre, href) => {
+    if (!href || href.startsWith('#') || href.startsWith('/') || href.startsWith('//')) return m;
+    if (/^[a-z][a-z0-9+.-]*:/i.test(href)) return m; // mailto:/tel:/https: 等协议链接
+    const pathPart = href.split(/[?#]/)[0];
+    if (!pathPart.endsWith('.html')) return m; // 非 .html 资源链接
+    const suffix = href.slice(pathPart.length); // 保留 ?query/#fragment
+    const target = ZH_FIRST_BATCH.has(pathPart)
+      ? (pathPart === 'index.html' ? `/${ZH_DIR}/` : `/${ZH_DIR}/${pathPart}`)
+      : (pathPart === 'index.html' ? '/' : `/${pathPart}`);
+    hits.push(target);
+    return `${pre}${target}${suffix}${'"'}`;
+  });
+  return [rewritten, hits];
+}
+
 // ---------- sitemap ----------
 function buildSitemap(written) {
   const cur = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
@@ -206,6 +227,7 @@ function buildSitemap(written) {
 // ---------- main ----------
 const written = [];
 const diffReport = [];
+const zhRewriteStats = [];
 for (const page of PAGES) {
   const enMeta = JSON.parse(fs.readFileSync(path.join(ROOT, 'content', 'en', page.out.replace(/\.html$/, '.json')), 'utf8'));
   const enContent = fs.readFileSync(path.join(ROOT, 'content', 'en', page.out), 'utf8').replace(/\n$/, '');
@@ -221,7 +243,9 @@ for (const page of PAGES) {
   if (!fs.existsSync(zhMetaPath) || !fs.existsSync(zhContentPath)) continue; // zh 缺页 → 不生成(分批安全)
   const zhMeta = JSON.parse(fs.readFileSync(zhMetaPath, 'utf8'));
   const zhContent = fs.readFileSync(zhContentPath, 'utf8').replace(/\n$/, '');
-  const zhHtml = renderPage(page, 'zh', zhMeta, zhContent);
+  const [zhRewritten, zhHits] = rewriteZhLinks(zhContent);
+  if (zhHits.length) zhRewriteStats.push({ page: `zh/${page.out}`, count: zhHits.length, targets: [...new Set(zhHits)].join(',') });
+  const zhHtml = renderPage(page, 'zh', zhMeta, zhRewritten);
   const zhOut = path.join(OUT_ROOT, pageOutPath(page, 'zh'));
   fs.mkdirSync(path.dirname(zhOut), { recursive: true });
   fs.writeFileSync(zhOut, BOM + zhHtml);
@@ -247,6 +271,15 @@ if (arg('diff-report')) {
   const bad = diffReport.filter(d => !d.contentIntact);
   console.log(`diff-report: ${diffReport.length} pages, main-body-integrity failures = ${bad.length}${bad.length ? ' ← ' + bad.map(b => b.page).join(',') : ''}`);
 }
+// P2-2:ZH_FIRST_BATCH ↔ content/zh/ 实际文件清单互查断言(防 T13 次批漏加集合静默丢页),不一致退出非零
+const zhFilesOnDisk = fs.readdirSync(path.join(ROOT, 'content', 'zh')).filter(f => f.endsWith('.html')).sort();
+const inBatchNoFile = [...ZH_FIRST_BATCH].filter(p => !zhFilesOnDisk.includes(p));
+const onDiskNotInBatch = zhFilesOnDisk.filter(p => !ZH_FIRST_BATCH.has(p));
+if (inBatchNoFile.length || onDiskNotInBatch.length) {
+  console.error(`P2-2 断言失败: ZH_FIRST_BATCH ↔ content/zh/ 文件清单不一致 — 集合有而文件缺: [${inBatchNoFile.join(',')}] | 文件有而集合缺: [${onDiskNotInBatch.join(',')}]`);
+  process.exit(1);
+}
+if (zhRewriteStats.length) console.log('zh-link-rewrite: ' + zhRewriteStats.map(s => `${s.page} ×${s.count} → [${s.targets}]`).join('; '));
 console.log(`BUILD OK → ${OUT_ROOT} (${written.length} files)`);
 
 function extractMain(html) {
