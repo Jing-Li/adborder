@@ -183,7 +183,8 @@ function buildSitemap(written) {
     } else {
       lines.push(pad('<changefreq>daily</changefreq>', 4), pad('<priority>0.8</priority>', 4));
     }
-    if (hreflang) lines.push(hreflang.split('\n').map(l => l.replace(/^ {2}/, '').replace(/">$/, '"/>')).map(l => pad(l, 4)).join('\n'));
+    // 决策⑥:sitemap 内 hreflang 用 <xhtml:link>(Google 官方 sitemap 标注法,依赖 xmlns:xhtml;HTML head 内裸 <link> 是正确写法,勿加前缀)
+    if (hreflang) lines.push(hreflang.split('\n').map(l => l.replace(/^ {2}/, '').replace('<link rel="alternate"', '<xhtml:link rel="alternate"').replace(/">$/, '"/>')).map(l => pad(l, 4)).join('\n'));
     lines.push('</url>');
     return lines.join('\n');
   };
