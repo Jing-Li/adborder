@@ -1,0 +1,191 @@
+  <main id="main-content">
+    <div class="series-tag">AI 批判 · 第二期</div>
+
+    <h1>能耗之墙:Scaling Laws 为何先撞上物理学,而不是智能</h1>
+
+    <p class="deck">「仅靠 exaFLOP 就能堆出 AGI」的论证,默认了能源便宜、token 无穷。细看推理的热力学,会发现一堵再多资本也撞不穿的硬墙。</p>
+
+    <p class="updated">发布于 2026 年 7 月 23 日 · 文 / Lin Kong</p>
+
+    <div class="author-card">
+      <div class="author-avatar">LK</div>
+      <div class="author-info">
+        <div class="author-name">Lin Kong</div>
+        <p class="author-bio">AI 批判专栏作者 · 写物理、因果与语言模型的边界</p>
+      </div>
+    </div>
+
+    <p>在<a href="/zh/critique/episode-1.html">第一期</a>里,我论证了自回归 LLM 是 AI 界的托勒密本轮——精密的曲线拟合机器,把统计拟态误认成理解。那篇文章的结论是:当前范式终将被自己参数虚胖的重量压垮。但有一个更迫近、更物理的障碍,会比理论障碍先到:<strong>能耗之墙</strong>。</p>
+
+    <p>AI 行业的总体规划押在一个假设上:Scaling Laws 成立,因此我们可以用足够多的 GPU、足够多的数据中心和足够多的电力,买到 AGI。Sam Altman 呼吁建设「Stargate」——一个 5000 亿美元的 AI 算力基础设施项目。微软在造小城市规模的数据中心。NVIDIA 的股价里写着「唯一的瓶颈是资本」这个信念。</p>
+
+    <p>本文要论证的是:真正的瓶颈不是财务的,而是热力学的。单位体积里能集中多少计算、能散掉多少热、每次推理的每个 token 花多少能量,都存在硬性的物理极限。这些极限不是聪明的冷却系统能顺手解决的工程不便。它们是物理定律的后果,而且在 Scaling Laws 交付任何类似通用智能的东西之前很久,它们就会先钳住 AI 的扩张。</p>
+
+    <hr>
+
+    <h2><span class="num">I.</span>过剩的算术</h2>
+
+    <p>先看原始数字——还没到物理学,它们已经令人瞠目。</p>
+
+    <p>训练 GPT-4 估计消耗了 <strong>50 吉瓦时</strong>电力——大约相当于 5,000 户美国家庭的年用电量。<sup><a href="#ref-1">[1]</a></sup> 下一代前沿模型预计需要 10 到 20 倍。一次假想的 GPT-5 级模型训练,可能消耗 <strong>500 GWh 到 1 TWh</strong>,相当于一座小型核反应堆的年发电量。</p>
+
+    <p>然而训练是一次性成本。更大、且持续复利式增长的开销是<strong>推理</strong>——为每个用户的每次查询生成每一个 token。GPT-4 回答一个问题时,要执行数千亿次浮点运算。按当前效率,一段 1000 token 的典型用户对话,大约耗电 <strong>0.5 到 1 瓦时</strong>。<sup><a href="#ref-2">[2]</a></sup></p>
+
+    <p>孤立地看微不足道。乘上规模呢?如果十亿用户每人每天跑 10 段对话、每段 1000 token,每日推理能耗是:</p>
+
+    <div class="math-block">
+      \[E_{\text{daily}} = 10^9 \times 10 \times 1\text{ Wh} = 10\text{ GWh/day} = 3.65\text{ TWh/year}\]
+    </div>
+
+    <p>这是一座欧洲中等城市的用电量,全部用来生成文本。而且这还是<em>保守</em>估计——它假设模型停留在 GPT-4 级效率。模型越大越强,单 token 能耗不降反升,因为每个 token 需要在更多参数上做更多矩阵乘法。</p>
+
+<div class="diagram"><span class="dim">[ GPT-4 训练 ]</span>    ──►  ~50 GWh(一次性)──► <span class="accent">≈ 5,000 户家庭 / 年</span>
+<span class="dim">[ 10 亿用户每日 ]</span>     ──►  ~3.65 TWh / 年   ──► <span class="accent">≈ 一座欧洲中等城市</span>
+<span class="dim">[ 2030 年 AI 预测 ]</span>  ──►  ~100+ TWh / 年   ──► <span class="accent">≈ 美国电力的 8%</span></div>
+
+    <p>国际能源署预测,全球数据中心用电将在 <strong>2028 年达到 1,000 TWh</strong>,AI 工作负载是其中增长最快的部分。<sup><a href="#ref-3">[3]</a></sup> 到 2030 年,仅 AI 就可能消耗全美发电量的 8% 到 10%。作为参照:全美住宅照明行业大约用掉 6%。</p>
+
+    <hr>
+
+    <h2><span class="num">II.</span>兰道尔极限与一次思考的成本</h2>
+
+    <p>任何计算都存在一个基本的、不可绕过的最小能耗。1961 年,IBM 物理学家 Rolf Landauer 证明:擦除一比特信息,必然耗散一份最小热量:</p>
+
+    <div class="math-block">
+      \[E_{\min} = k_B T \ln 2\]
+    </div>
+
+    <p>其中 \(k_B\) 是玻尔兹曼常数(\(1.38 \times 10^{-23}\) J/K),\(T\) 是绝对温度。在室温(300 K)下,约为<strong>每擦除一比特 \(2.87 \times 10^{-21}\) 焦耳</strong>。<sup><a href="#ref-4">[4]</a></sup></p>
+
+    <p>这是热力学第二定律设定的绝对地板。任何计算机,无论设计得多聪明,都不能低于它运行。</p>
+
+    <p>当前的 GPU 距离这个极限有多远?一块现代 NVIDIA H100 在 700 瓦功耗下,每秒执行约 <strong>\(2 \times 10^{15}\) 次浮点运算</strong>。每次 FLOP 大致对应一次比特操作,因此每次运算的能耗约为 \(3.5 \times 10^{-13}\) 焦耳。与兰道尔极限对比:</p>
+
+    <div class="math-block">
+      \[\frac{E_{\text{H100}}}{E_{\text{Landauer}}} = \frac{3.5 \times 10^{-13}}{2.87 \times 10^{-21}} \approx 1.2 \times 10^8\]
+    </div>
+
+    <p>当前硬件运行在热力学地板之上约 <strong>1.2 亿倍</strong>。表面上看,改进空间巨大。实际上并非如此。历史上,兰道尔极限与实际计算之间的差距,大约以每十年一个数量级的速度收窄。<sup><a href="#ref-5">[5]</a></sup> 按这个速度,达到理论最小值需要大约 <strong>80 年</strong>的持续进步——而且假设不发生任何根本性的架构革命。</p>
+
+    <p>含义很直白:即使我们能魔法般地把硬件效率提高 1000 倍——按历史速度需要 30 年——以当前模型规模运行十亿用户级 AI 的能耗,仍然要以每年数百 TWh 计。</p>
+
+    <hr>
+
+    <h2><span class="num">III.</span>数据中心即发电厂</h2>
+
+    <p>能耗问题并不抽象——它已经在重塑地理。看看一座现代 AI 数据中心到底长什么样。</p>
+
+    <p>一个 25,000 块 NVIDIA H100 GPU 的集群——训练前沿模型的那种——仅芯片就要消耗约 <strong>17.5 兆瓦</strong>。算上内存、网络、存储和散热基础设施,大约翻三倍,达到 <strong>50 MW</strong>。<sup><a href="#ref-6">[6]</a></sup> 这不是一间服务器机房。它是一座塞进几个足球场大小建筑里的小型发电厂。</p>
+
+    <p>微软规划的「Stargate」设施,设计为每站点容纳 10 万块以上 GPU,总功耗逼近 <strong>1 吉瓦</strong>——相当于一座核反应堆的输出。<sup><a href="#ref-7">[7]</a></sup> Oracle 与 OpenAI 的联合提案设想消耗 5 GW 以上的设施。作为参照:胡佛大坝发电 2.08 GW。每座 Stargate 级设施,都需要半个胡佛大坝的电力输出。</p>
+
+    <p>然后是热。GPU 消耗的每一瓦,都变成必须排走的废热。在这个密度下,风冷已经不够——满载的 H100 机柜产生的热流密度,堪比火箭发动机喷管。<sup><a href="#ref-8">[8]</a></sup> 行业转向液冷,而液冷带来自己的庞大资源需求:</p>
+
+<div class="diagram"><span class="dim">[ 50 MW 数据中心 ]</span>
+  ├── <span class="accent">17.5 MW</span>  ── GPU 算力
+  ├── <span class="accent">7.5 MW</span>   ── 内存 + 网络
+  ├── <span class="accent">10 MW</span>    ── 散热基础设施
+  ├── <span class="accent">5 MW</span>     ── 存储 + 杂项
+  └── <span class="accent">10 MW</span>    ── 电力转换损耗 (PUE ≈ 1.3)
+
+<span class="dim">[ 水耗 ]</span>
+  └── <span class="accent">每天 300–500 万加仑</span>,用于蒸发冷却塔</div>
+
+    <p>一座超大规模 AI 数据中心,每天消耗 <strong>300 到 500 万加仑水</strong>用于冷却——相当于一座 3 万到 5 万人口城市的日用水量。<sup><a href="#ref-9">[9]</a></sup> 在美国西南部——许多数据中心为了便宜的太阳能和干燥的空气建在那里——这与农业和城市供水形成直接竞争。</p>
+
+    <p>电网本身也是瓶颈。美国几十年没有新建过一条大型输电线。新增发电容量的并网排队要 4 到 5 年。<sup><a href="#ref-10">[10]</a></sup> 几家公用事业公司已经告诉 AI 公司:最早要到 2030 年代初,才能提供所请求的吉瓦级接入。把这些设施接上电的物理基础设施现在根本不存在,而建设它比建数据中心本身更慢。</p>
+
+    <hr>
+
+    <h2><span class="num">IV.</span>AI 效率的杰文斯悖论</h2>
+
+    <p>标准的反驳是:效率提升会解决能耗问题。GPU 越来越快,模型被量化,推理越来越便宜。市场自然会优化着翻过这堵墙。</p>
+
+    <p>这个推理忽视了技术史上最稳固的经验定律之一:<strong>杰文斯悖论</strong>。</p>
+
+    <p>1865 年,英国经济学家 William Stanley Jevons 观察到:当燃煤蒸汽机变得更高效时,煤炭消耗没有减少——反而爆炸式增长。每一次效率改进都让蒸汽动力更便宜,扩大了它的应用范围,总需求增长快过效率增益的抵消。<sup><a href="#ref-11">[11]</a></sup></p>
+
+    <p>同样的模式,在历史上每一种计算技术上重演:</p>
+
+<div class="diagram"><span class="dim">[ 晶体管 ]</span>      更便宜 → 更多设备     → <span class="accent">总能耗 ↑↑↑</span>
+<span class="dim">[ 硬盘 ]</span>      更便宜 → 更多数据        → <span class="accent">总能耗 ↑↑↑</span>
+<span class="dim">[ 网络带宽]</span> 更便宜 → 更多流量      → <span class="accent">总能耗 ↑↑↑</span>
+<span class="dim">[ AI 推理 ]</span>     更便宜 → 更多请求      → <span class="accent">总能耗 ↑↑↑</span></div>
+
+    <p>2024 年初 OpenAI 把 GPT-4 API 调用成本减半时,用量没有翻倍——它增长了大约 5 到 10 倍,因为开发者发现了许多此前不经济的全新应用。<sup><a href="#ref-12">[12]</a></sup> AI 推理的每一次效率提升都降低每 token 价格,释放新用例,推高总 token 量,增加总能耗。</p>
+
+    <p>这不是 bug。这是基本经济规律。它意味着 AI 行业自己在效率上的进步,会<em>加速</em>它与能耗之墙的碰撞,而不是推迟。推理越便宜,世界要得越多,总能耗爬升得越快。</p>
+
+    <hr>
+
+    <h2><span class="num">V.</span>热节流天花板</h2>
+
+    <p>即使我们能发足、送足电力,还有第二堵物理之墙:<strong>热密度</strong>。</p>
+
+    <p>GPU 在机柜里塞得越紧,芯片表面每平方厘米的热流密度就越接近任何现有冷却技术都扛不住的水平。一块 NVIDIA H100 在 814 mm² 的晶片面积上耗散 700 瓦,热流密度约 <strong>86 W/cm²</strong>。<sup><a href="#ref-13">[13]</a></sup> 作为对比:太阳表面辐射约 6.3 W/cm²。以热流密度论,芯片表面比恒星还高一个数量级。</p>
+
+    <p>当冷却跟不上,芯片会<strong>热节流</strong>——自动降低时钟频率以避免物理损伤。这意味着把更多 GPU 塞进更小的空间,并不能线性提高算力密度。超过某个堆叠密度后,每多一块 GPU 带来的有效算力反而更少,因为整个集群必须跑得更慢才能待在热限制以内。</p>
+
+    <div class="math-block">
+      \[\eta_{\text{effective}} = \eta_{\text{peak}} \times \left(1 - \frac{T_{\text{junction}} - T_{\text{ambient}}}{T_{\max} - T_{\text{ambient}}}\right)\]
+    </div>
+
+    <p>这不是理论担忧。它已经是现代数据中心设计的主导性工程挑战。浸没冷却——把整台服务器泡进介电液体——之所以被采用,不是因为优雅,而是因为风冷在这些功率密度下物理上已经失败。<sup><a href="#ref-8">[8]</a></sup></p>
+
+    <p>最终极限,是热量从硅片导出的速度。铜散热器、均热板、液冷冷板全都面对同一个热力学约束:材料的导热率为散热速率设定了上限。没有已知材料能在没有主动液冷的情况下,从一块 700 W 晶片上足够快地带走热量以避免节流;而随着密度继续上升,液冷自身也在收益递减。</p>
+
+    <hr>
+
+    <h2><span class="num">VI.</span>结语:智能很便宜,能源不便宜</h2>
+
+    <p>AI 行业的 Scaling 假说——加更多算力就能到达 AGI——是一场对物理学的对赌。它假设能源实际无限、热量可以许愿消失、杰文斯悖论不会像作用于历史上其他所有计算技术那样作用于推理。</p>
+
+    <p>证据说的相反。训练成本正爬向 TWh 量级。推理需求增长快过效率改进。数据中心正在变成发电厂。冷却系统以市政规模消耗水。电网扩不了那么快。而每一次效率突破只会加速需求,把总能耗账单推得更高。</p>
+
+    <p>这不意味着 AI 进步停止。它意味着前进的路不能再是暴力堆参数。人工智能下一个真正的突破,将来自<strong>架构效率</strong>——只激活相关参数的稀疏模型、运行在兰道尔极限附近的神经形态芯片,或更激进的东西,比如生物计算基底。它将来自思考方式<em>不同</em>的系统,而不是计算得<em>更多</em>的系统。</p>
+
+    <p>能耗之墙不是资本能翻过去的临时障碍。它是一句关于热力学宇宙中计算之物理成本的陈述。事实证明,智能,模拟起来也许便宜。但大规模模拟它是一个能源问题,不是算法问题——而能源问题服从物理定律,不服从风险投资定律。</p>
+
+    <div class="references-card">
+      <h3 class="references-title">参考文献</h3>
+      <ol class="references-list">
+        <li id="ref-1"><span class="num">[1]</span> Patterson, D., et al. (2021). <em>Carbon Emissions and Large Neural Network Training.</em> arXiv preprint arXiv:2104.10350.</li>
+        <li id="ref-2"><span class="num">[2]</span> Faiz, A., et al. (2024). <em>LLMCarbon: Modeling the Energy and Carbon Footprint of Large Language Models.</em> arXiv preprint arXiv:2311.11513.</li>
+        <li id="ref-3"><span class="num">[3]</span> International Energy Agency (2024). <em>Electricity 2024: Analysis and Forecast to 2026.</em> IEA Publications.</li>
+        <li id="ref-4"><span class="num">[4]</span> Landauer, R. (1961). <em>Irreversibility and Heat Generation in the Computing Process.</em> IBM Journal of Research and Development, 5(3), 183–191.</li>
+        <li id="ref-5"><span class="num">[5]</span> Koomey, J., et al. (2011). <em>Implications of Historical Trends in the Electrical Efficiency of Computing.</em> IEEE Annals of the History of Computing, 33(3), 46–54.</li>
+        <li id="ref-6"><span class="num">[6]</span> NVIDIA Corporation (2023). <em>NVIDIA H100 Tensor Core GPU Architecture Whitepaper.</em></li>
+        <li id="ref-7"><span class="num">[7]</span> Reuters (2024). <em>Microsoft, OpenAI plan $100 billion 'Stargate' AI data center project.</em></li>
+        <li id="ref-8"><span class="num">[8]</span> Capello, G., et al. (2024). <em>Single-Phase and Two-Phase Immersion Cooling for High-Performance Computing.</em> Applied Thermal Engineering, 236, 121584.</li>
+        <li id="ref-9"><span class="num">[9]</span> Mytton, D. (2024). <em>How much water does AI consume?</em> Nature Water, 2, 597–598.</li>
+        <li id="ref-10"><span class="num">[10]</span> Berkeley Lab (2024). <em>Queued Up: Characteristics of Power Plants Seeking Transmission Interconnection.</em> Lawrence Berkeley National Laboratory.</li>
+        <li id="ref-11"><span class="num">[11]</span> Jevons, W. S. (1865). <em>The Coal Question: An Inquiry Concerning the Progress of the Nation, and the Probable Exhaustion of Our Coal Mines.</em> Macmillan and Co.</li>
+        <li id="ref-12"><span class="num">[12]</span> OpenAI (2024). <em>Pricing update: GPT-4o and API cost reductions.</em> OpenAI Blog.</li>
+        <li id="ref-13"><span class="num">[13]</span> NVIDIA Corporation (2023). <em>H100 SXM5 Datasheet: Thermal and Power Specifications.</em></li>
+      </ol>
+    </div>
+
+    <a href="/critique/" class="next-in-series" style="display:block;text-decoration:none;color:inherit;">
+      <div class="label">继续本系列</div>
+      <h3>← 返回 AI 批判</h3>
+      <p>探索当代 AI 的物理、数学与哲学基础的全部文章。</p>
+    </a>
+
+    <div class="related-articles">
+      <h3>AI 批判</h3>
+      <ul class="related-list">
+        <li><a href="/critique/">← 全部文章</a></li>
+        <li><a href="/zh/critique/episode-1.html">第一期:本轮均轮泡沫</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <div class="ad-slot">
+    <div class="ad-slot-inner">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2779701070600473" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+
+
+  

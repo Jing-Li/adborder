@@ -1,4 +1,4 @@
-const CACHE_NAME = 'adborder-v13';
+const CACHE_NAME = 'adborder-v14';
 const ASSETS = [
   '/',
   '/index.html',
@@ -23,6 +23,23 @@ const ASSETS = [
   '/zh/terms.html',
   '/zh/editorial.html',
   '/zh/blog.html',
+  // zh 次批(T13 i18n):blog 14 篇 + critique 2 篇,缓存版本升级避免旧快照残留
+  '/zh/blog-aspect-ratio.html',
+  '/zh/blog-best-border-tools.html',
+  '/zh/blog-black-border-guide.html',
+  '/zh/blog-color-psychology-social-media.html',
+  '/zh/blog-image-composition-tips.html',
+  '/zh/blog-image-format.html',
+  '/zh/blog-instagram-border.html',
+  '/zh/blog-mobile-borders.html',
+  '/zh/blog-photo-border-guide.html',
+  '/zh/blog-polaroid.html',
+  '/zh/blog-ppi-vs-dpi.html',
+  '/zh/blog-resize-images.html',
+  '/zh/blog-social-media-sizes.html',
+  '/zh/blog-visual-storytelling.html',
+  '/zh/critique/episode-1.html',
+  '/zh/critique/episode-2.html',
   '/images/tool-screenshot.jpg',
   '/images/before-after-borders.jpg',
   '/images/border-styles-grid.jpg',

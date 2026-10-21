@@ -5,10 +5,27 @@
 export const SITE = 'https://adborder.top';
 export const ZH_DIR = 'zh';
 
-// 已译 zh 首批(契约 T11 第 4 条枚举): index 工具页 + 404 + about/contact/privacy/terms/editorial/blog 列表
-export const ZH_FIRST_BATCH = new Set([
+// 已译 zh 页全量集合(T13 次批起更名 ZH_TRANSLATED 体现全量语义;首批 8 页见 T11 契约,blog 14 篇以 PAGES 实际为准——T13 契约"12 页"为约数笔误,先例同 T11):
+// index 工具页 + 404 + about/contact/privacy/terms/editorial/blog 列表 + blog 全部 14 篇 + critique episode-1/2
+export const ZH_TRANSLATED = new Set([
   'index.html', '404.html', 'about.html', 'contact.html',
   'privacy.html', 'terms.html', 'editorial.html', 'blog.html',
+  'blog-aspect-ratio.html',
+  'blog-best-border-tools.html',
+  'blog-black-border-guide.html',
+  'blog-color-psychology-social-media.html',
+  'blog-image-composition-tips.html',
+  'blog-image-format.html',
+  'blog-instagram-border.html',
+  'blog-mobile-borders.html',
+  'blog-photo-border-guide.html',
+  'blog-polaroid.html',
+  'blog-ppi-vs-dpi.html',
+  'blog-resize-images.html',
+  'blog-social-media-sizes.html',
+  'blog-visual-storytelling.html',
+  'critique/episode-1.html',
+  'critique/episode-2.html',
 ]);
 
 // 25 个模板页(F1 实测:除重定向页外内容页共 25;契约"24 片段"为约数,零回归 oracle 以 25 页为准——blog-* 实际 14 篇)

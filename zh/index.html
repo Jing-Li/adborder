@@ -261,7 +261,7 @@
           <div class="control-group" id="qualityGroup">
             <label><span class="label-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> 质量</label>
             <div class="slider-row">
-              <input type="range" id="jpegQuality" min="50" max="100" value="92" aria-label="JPEG quality" oninput="document.getElementById('qualityValue').textContent=this.value+'%'">
+              <input type="range" id="jpegQuality" min="50" max="100" value="92" aria-label="JPEG 质量" oninput="document.getElementById('qualityValue').textContent=this.value+'%'">
               <span class="slider-value" id="qualityValue">92%</span>
             </div>
           </div>
@@ -413,7 +413,7 @@
     <!-- Social Media Size Guide CTA -->
     <section class="platform-guides reveal" aria-label="社交媒体图片尺寸指南">
       <div class="platform-grid" style="display:flex;justify-content:center">
-        <a href="/blog-social-media-sizes.html" class="platform-card" style="max-width:600px;padding:32px 40px;text-align:left;display:flex;align-items:center;gap:24px">
+        <a href="/zh/blog-social-media-sizes.html" class="platform-card" style="max-width:600px;padding:32px 40px;text-align:left;display:flex;align-items:center;gap:24px">
           <span class="platform-card-icon" style="margin-bottom:0;flex-shrink:0"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#8888a0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
           <div>
             <div class="platform-card-name" style="font-size:1rem;margin-bottom:4px">社交媒体图片尺寸终极指南</div>
@@ -1077,49 +1077,49 @@
       {
         name: 'Instagram', icon: '\ud83d\udcf8',
         formats: [
-          { name: 'Feed Post', w: 1080, h: 1080, ratio: '1:1' },
-          { name: 'Feed Portrait', w: 1080, h: 1350, ratio: '4:5' },
-          { name: 'Story / Reel', w: 1080, h: 1920, ratio: '9:16' }
+          { name: '信息流帖子', w: 1080, h: 1080, ratio: '1:1' },
+          { name: '信息流竖版', w: 1080, h: 1350, ratio: '4:5' },
+          { name: '快拍 / Reels', w: 1080, h: 1920, ratio: '9:16' }
         ]
       },
       {
         name: 'Twitter / X', icon: '\ud83d\udc26',
         formats: [
-          { name: 'Post Image', w: 1200, h: 675, ratio: '16:9' },
-          { name: 'Header', w: 1500, h: 500, ratio: '3:1' },
-          { name: 'Profile', w: 400, h: 400, ratio: '1:1' }
+          { name: '帖子图片', w: 1200, h: 675, ratio: '16:9' },
+          { name: '头图', w: 1500, h: 500, ratio: '3:1' },
+          { name: '头像', w: 400, h: 400, ratio: '1:1' }
         ]
       },
       {
         name: 'Facebook', icon: '\ud83d\udc64',
         formats: [
-          { name: 'Post', w: 1200, h: 630, ratio: '1.91:1' },
-          { name: 'Cover Photo', w: 820, h: 312, ratio: '2.63:1' },
-          { name: 'Profile', w: 170, h: 170, ratio: '1:1' },
-          { name: 'Story', w: 1080, h: 1920, ratio: '9:16' }
+          { name: '帖子', w: 1200, h: 630, ratio: '1.91:1' },
+          { name: '封面照片', w: 820, h: 312, ratio: '2.63:1' },
+          { name: '头像', w: 170, h: 170, ratio: '1:1' },
+          { name: '快拍', w: 1080, h: 1920, ratio: '9:16' }
         ]
       },
       {
         name: 'Pinterest', icon: '\ud83d\udccc',
         formats: [
-          { name: 'Standard Pin', w: 1000, h: 1500, ratio: '2:3' },
-          { name: 'Profile', w: 165, h: 165, ratio: '1:1' }
+          { name: '标准 Pin', w: 1000, h: 1500, ratio: '2:3' },
+          { name: '头像', w: 165, h: 165, ratio: '1:1' }
         ]
       },
       {
         name: 'LinkedIn', icon: '\ud83d\udcbc',
         formats: [
-          { name: 'Post', w: 1200, h: 627, ratio: '1.91:1' },
-          { name: 'Cover', w: 1584, h: 396, ratio: '4:1' },
-          { name: 'Profile', w: 400, h: 400, ratio: '1:1' }
+          { name: '帖子', w: 1200, h: 627, ratio: '1.91:1' },
+          { name: '封面图', w: 1584, h: 396, ratio: '4:1' },
+          { name: '头像', w: 400, h: 400, ratio: '1:1' }
         ]
       },
       {
         name: 'YouTube', icon: '\u25b6\ufe0f',
         formats: [
-          { name: 'Thumbnail', w: 1280, h: 720, ratio: '16:9' },
-          { name: 'Banner', w: 2560, h: 1440, ratio: '16:9' },
-          { name: 'Profile', w: 800, h: 800, ratio: '1:1' }
+          { name: '缩略图', w: 1280, h: 720, ratio: '16:9' },
+          { name: '横幅', w: 2560, h: 1440, ratio: '16:9' },
+          { name: '头像', w: 800, h: 800, ratio: '1:1' }
         ]
       }
     ];

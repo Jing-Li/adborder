@@ -6,7 +6,7 @@
 // 幂等:重复运行产物逐字节稳定(sitemap lastmod 取自现有文件,zh 条目对齐对应 en 页)
 import fs from 'node:fs';
 import path from 'node:path';
-import { PAGES, ZH_FIRST_BATCH, SITE, ZH_DIR, pageUrl, pageOutPath, hreflangLines } from './site-pages.mjs';
+import { PAGES, ZH_TRANSLATED, SITE, ZH_DIR, pageUrl, pageOutPath, hreflangLines } from './site-pages.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const BOM = '\uFEFF'; // 原站 25 页 HTML 与 sitemap.xml 均带 UTF-8 BOM,产物保持一致
@@ -83,7 +83,7 @@ function langSwitchHtml(page, lang) {
   const label = other === 'zh' ? '中文' : 'EN';
   let url;
   if (lang === 'en') {
-    url = ZH_FIRST_BATCH.has(page.src) ? pageUrl(page, 'zh') : `${SITE}/${ZH_DIR}/`;
+    url = ZH_TRANSLATED.has(page.src) ? pageUrl(page, 'zh') : `${SITE}/${ZH_DIR}/`;
   } else {
     url = pageUrl(page, 'en');
   }
@@ -102,7 +102,7 @@ function renderPage(page, lang, meta, content) {
   const zhUrl = pageUrl(page, 'zh');
 
   // hreflang:已译成对页(404 为 noindex,两语均不入簇;未译页不出现 zh alternate——成对原则)
-  const paired = (lang === 'zh' || ZH_FIRST_BATCH.has(page.src)) && page.src !== '404.html';
+  const paired = (lang === 'zh' || ZH_TRANSLATED.has(page.src)) && page.src !== '404.html';
   const alternates = paired ? '\n' + hreflangLines(enUrl, zhUrl) : '';
 
   const desc = meta.description
@@ -121,7 +121,7 @@ function renderPage(page, lang, meta, content) {
       .split('\n').map(l => l.replace(/%%([A-Z_]+)%%/g, (_, k) => (t[k] !== undefined ? t[k] : `%%${k}%%`))).join('\n');
   }
 
-  const hintTarget = ZH_FIRST_BATCH.has(page.src) ? zhUrl : `${SITE}/${ZH_DIR}/`;
+  const hintTarget = ZH_TRANSLATED.has(page.src) ? zhUrl : `${SITE}/${ZH_DIR}/`;
   const values = {
     LANG: lang === 'en' ? 'en' : 'zh-CN',
     TITLE: meta.title,
@@ -165,7 +165,7 @@ function renderPage(page, lang, meta, content) {
 
 // ---------- P1-A:zh 片段相对 .html 链接构建期重写(单一真源) ----------
 // zh 页位于 /zh/ 下,机械抽取自 en 正文原样的相对 a[href](如文章卡 blog-*.html)会解析到 /zh/ 下断链(未译页不生成)。
-// 规则:相对 a[href] 路径以 .html 结尾——目标 ∈ ZH_FIRST_BATCH → /zh/<page>(已译页);否则 → /<page>(en 原文 fallback,即已核准的「列表卡点进 en 原文」语义)。
+// 规则:相对 a[href] 路径以 .html 结尾——目标 ∈ ZH_TRANSLATED → /zh/<page>(已译页);否则 → /<page>(en 原文 fallback,即已核准的「列表卡点进 en 原文」语义)。
 // 不动:锚点(#开头)、外部 http(s)/protocol-relative、绝对路径(/开头)、协议链接(mailto: 等)、非 .html 资源链接。
 function rewriteZhLinks(html) {
   const hits = [];
@@ -175,7 +175,7 @@ function rewriteZhLinks(html) {
     const pathPart = href.split(/[?#]/)[0];
     if (!pathPart.endsWith('.html')) return m; // 非 .html 资源链接
     const suffix = href.slice(pathPart.length); // 保留 ?query/#fragment
-    const target = ZH_FIRST_BATCH.has(pathPart)
+    const target = ZH_TRANSLATED.has(pathPart)
       ? (pathPart === 'index.html' ? `/${ZH_DIR}/` : `/${ZH_DIR}/${pathPart}`)
       : (pathPart === 'index.html' ? '/' : `/${pathPart}`);
     hits.push(target);
@@ -215,7 +215,7 @@ function buildSitemap(written) {
     if (page.src === '404.html') continue; // noindex 不进 sitemap
     const enUrl = pageUrl(page, 'en');
     const zhUrl = pageUrl(page, 'zh');
-    const hasZh = ZH_FIRST_BATCH.has(page.src) && page.src !== '404.html';
+    const hasZh = ZH_TRANSLATED.has(page.src) && page.src !== '404.html';
     const mod = lastmod[enUrl] || '';
     entries.push(urlEntry(enUrl, mod, hasZh ? hreflangLines(enUrl, zhUrl) : ''));
     if (hasZh) entries.push(urlEntry(zhUrl, mod, hreflangLines(enUrl, zhUrl)));
@@ -237,7 +237,7 @@ for (const page of PAGES) {
   fs.writeFileSync(enOut, BOM + enHtml);
   written.push(pageOutPath(page, 'en'));
 
-  if (!ZH_FIRST_BATCH.has(page.src)) continue;
+  if (!ZH_TRANSLATED.has(page.src)) continue;
   const zhMetaPath = path.join(ROOT, 'content', 'zh', page.out.replace(/\.html$/, '.json'));
   const zhContentPath = path.join(ROOT, 'content', 'zh', page.out);
   if (!fs.existsSync(zhMetaPath) || !fs.existsSync(zhContentPath)) continue; // zh 缺页 → 不生成(分批安全)
@@ -271,12 +271,13 @@ if (arg('diff-report')) {
   const bad = diffReport.filter(d => !d.contentIntact);
   console.log(`diff-report: ${diffReport.length} pages, main-body-integrity failures = ${bad.length}${bad.length ? ' ← ' + bad.map(b => b.page).join(',') : ''}`);
 }
-// P2-2:ZH_FIRST_BATCH ↔ content/zh/ 实际文件清单互查断言(防 T13 次批漏加集合静默丢页),不一致退出非零
-const zhFilesOnDisk = fs.readdirSync(path.join(ROOT, 'content', 'zh')).filter(f => f.endsWith('.html')).sort();
-const inBatchNoFile = [...ZH_FIRST_BATCH].filter(p => !zhFilesOnDisk.includes(p));
-const onDiskNotInBatch = zhFilesOnDisk.filter(p => !ZH_FIRST_BATCH.has(p));
+// P2-2:ZH_TRANSLATED ↔ content/zh/ 实际文件清单互查断言(防 T13 次批漏加集合静默丢页),不一致退出非零
+// T13: 递归扫描含子目录(critique/ 片段入集合后须被断言覆盖;返回相对路径如 critique/episode-1.html)
+const zhFilesOnDisk = fs.readdirSync(path.join(ROOT, 'content', 'zh'), { recursive: true }).filter(f => f.endsWith('.html')).map(f => f.replaceAll('\\', '/')).sort();
+const inBatchNoFile = [...ZH_TRANSLATED].filter(p => !zhFilesOnDisk.includes(p));
+const onDiskNotInBatch = zhFilesOnDisk.filter(p => !ZH_TRANSLATED.has(p));
 if (inBatchNoFile.length || onDiskNotInBatch.length) {
-  console.error(`P2-2 断言失败: ZH_FIRST_BATCH ↔ content/zh/ 文件清单不一致 — 集合有而文件缺: [${inBatchNoFile.join(',')}] | 文件有而集合缺: [${onDiskNotInBatch.join(',')}]`);
+  console.error(`P2-2 断言失败: ZH_TRANSLATED ↔ content/zh/ 文件清单不一致 — 集合有而文件缺: [${inBatchNoFile.join(',')}] | 文件有而集合缺: [${onDiskNotInBatch.join(',')}]`);
   process.exit(1);
 }
 if (zhRewriteStats.length) console.log('zh-link-rewrite: ' + zhRewriteStats.map(s => `${s.page} ×${s.count} → [${s.targets}]`).join('; '));

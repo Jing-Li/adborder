@@ -1,0 +1,137 @@
+  <main id="main-content">
+    <div class="series-tag">AI 批判 · 第一期</div>
+
+    <h1>本轮均轮泡沫:为什么自回归 LLM 是 AI 的托勒密本轮</h1>
+
+    <p class="deck">万亿参数语言模型并没有走在通往通用智能的路上——它们走在通往科学史上最繁复的曲线拟合工程的路上。数学迟早会找上门来。</p>
+
+    <p class="updated">发布于 2026 年 7 月 11 日 · 文 / Lin Kong</p>
+
+    <div class="author-card">
+      <div class="author-avatar">LK</div>
+      <div class="author-info">
+        <div class="author-name">Lin Kong</div>
+        <p class="author-bio">AI 批判专栏作者 · 写物理、因果与语言模型的边界</p>
+      </div>
+    </div>
+
+    <p>人工智能领域正被一种空前的自大幻觉笼罩。看着万亿参数的 <strong>Checkpoint</strong> 文件,看着大语言模型(LLM)滔滔不绝、上下文随行的生成结果,社会把宏大的统计插值误认成了真正的认知。投资人、技术人和评论者动辄宣称:距离人工通用智能(AGI),我们只差几个 exaFLOP。</p>
+
+    <p>然而,揭开资本密集的暴力算力面纱,真相令人清醒:当前的自回归架构,是一种笨拙的、极不科学的智能进路。我们没有去解码现实世界优雅的基础规则,而是试图用堆叠无穷的权重参数,把人类产出的整个光谱「背」下来。</p>
+
+    <p>这种暴力方法已经触及结构性极限。它面临一道不肯让步的数学障碍:混沌动力系统固有的<strong>蝴蝶效应</strong>。</p>
+
+    <hr>
+
+    <h2><span class="num">I.</span>统计本轮的缺陷</h2>
+
+    <p>传统物理依靠简洁的第一性原理方程为复杂系统建模。牛顿定律或爱因斯坦场方程,用少得难以置信的参数集就能描述天体力学。与之形成鲜明对照,现代生成式深度学习放弃了对底层因果公式的追寻,转而部署数十亿多维参数,去拟合人类文本与图像的概率分布。</p>
+
+    <p>这条路线效率极低,且在根本层面上不科学。在科学史上,它的镜像是<strong>托勒密天文学</strong>:为了在死守地心模型的前提下解释行星运动,古代天文学家造出了「均轮」与「本轮」的超复杂系统——圆上再叠圆。托勒密的本轮确实能准确预测日月食,但底层框架整个是错的。<sup><a href="#ref-1">[1]</a></sup></p>
+
+<div class="diagram"><span class="dim">[ 托勒密地心说 ]</span> ──► 层层叠加的本轮 ──► <span class="accent">高复杂度,零真理</span>
+<span class="dim">[ 现代 Transformer ]</span>   ──► 万亿参数 ──► <span class="accent">高拟真,零因果</span></div>
+
+    <p>Checkpoint 文件里的现代参数,就是这些托勒密本轮的数字等价物。它们不编码宇宙的物理定律,而是存储一张静态的高维地图,图上画的是人类生成的各种<em>结果</em>。正如发表于 <em>Nature</em> 系列期刊的研究所确立的:生成模型确实展现了基于文本分布的发散联想能力,令人印象深刻,但它们完全依靠表层模式复制运作。<sup><a href="#ref-2">[2]</a></sup> 它们并不具备对物理或逻辑系统的真值理解。<sup><a href="#ref-3">[3]</a></sup></p>
+
+    <hr>
+
+    <h2><span class="num">II.</span>自回归的蝴蝶效应</h2>
+
+    <p>因为这些模型没有因果地基,它们对<strong>蝴蝶效应</strong>高度脆弱——那是混沌动力系统的标志:初始条件的微小扰动,会彻底改变系统的最终状态。</p>
+
+    <p>在一个真实向前演化的物理系统里,时间与因果单向流动:</p>
+
+    <div class="math-block">
+      \[\text{初始边界条件} \longrightarrow \text{动力学演化} \longrightarrow \text{状态结果}\]
+    </div>
+
+    <p>自回归模型把这个过程倒了过来。它用逐 token 的条件概率框架:</p>
+
+    <div class="math-block">
+      \[P(x_{t} \mid x_{1}, x_{2}, \dots, x_{t-1})\]
+    </div>
+
+    <p>模型分析已有的人类数据(历史结果),尝试反推统计上最合理的下一个词。<sup><a href="#ref-4">[4]</a></sup></p>
+
+    <p>这套方法触发巨大的<strong>误差级联</strong>,也就是数字世界的「蝴蝶效应」。LLM 生成长序列时,它输出的每一个 token 都会成为下一步 prompt 中不可更改的一部分。如果模型选中了一个次优 token——哪怕概率方差微乎其微——这个选择就成了一个被挪动过的初始条件。经过几十层塞满矩阵乘法的 transformer,这点小误差呈指数放大。</p>
+
+    <p>这个误差级联解释了为什么长篇推理、复杂数学证明和长代码生成会常规性地崩成胡言乱语。模型并不沿着逻辑的不变轨迹行走,它在一片脆弱的概率流体上滑行——一个被改动的逗号,就能让它的「思维链」彻底脱轨。</p>
+
+    <hr>
+
+    <h2><span class="num">III.</span>世界模型的到来</h2>
+
+    <p>当行业撞上「数据墙」——高质量人类文本的枯竭——再加上 Scaling Laws 惊人的能耗需求,这个参数虚胖的泡沫终将破裂。<sup><a href="#ref-5">[5]</a></sup> 在崩塌之后,一个高度精确的范式会浮出水面:<strong>世界模型</strong>。</p>
+
+    <p>正如 Yann LeCun 等开创性 AI 研究者所论证的,真正的智能不能依赖预测表层文本或像素。<sup><a href="#ref-4">[4]</a></sup> 它需要一个模块化的认知架构,去学习物理、原因与结果的内部表征。未来的自主智能体不会用万亿参数的骨干网络去背句子,而会用紧凑的自监督系统——比如<strong>联合嵌入预测架构(JEPA)</strong>——来预测环境中的抽象结构变化。<sup><a href="#ref-1">[1]</a></sup></p>
+
+<div class="diagram"><span class="dim">当前范式(LLM):</span>
+[文本/数据输入] ──► 自回归预测 ──► <span class="accent">脆弱的概率链</span>
+
+<span class="dim">未来范式(世界模型):</span>
+[感知/物理输入] ──► JEPA 潜空间 ──► <span class="accent">不变的因果逻辑</span></div>
+
+    <hr>
+
+    <h2><span class="num">IV.</span>终极物理悖论:时间之箭</h2>
+
+    <p>从自回归拟态到真正的世界模型,这次过渡将揭示一个深刻的物理事实:<strong>真正的智能需要编码时间的不对称性</strong>。</p>
+
+    <p>当前的语言模型活在一个死寂的、无时间的数学空间里。对 transformer 来说,文本正着解析、反着解析都行;它操纵的只是静态的双向或单向注意力矩阵。</p>
+
+    <p>而一个真正的世界模型,必须与物理宇宙交互。要预测一个系统的未来状态,模型必须把热力学的核心信条写进硬编码:<strong>因果性</strong>与<strong>熵</strong>。</p>
+
+    <p>想想一只被打碎的花瓶。一个正向的物理模型会积分重力、冲击与结构断裂的力:</p>
+
+    <div class="math-block">
+      \[\frac{d\mathbf{X}}{dt} = f(\mathbf{X})\]
+    </div>
+
+    <p>这个正向推进很容易计算。但要倒解这个方程、重构那只碰倒花瓶的猫的精确轨迹,就需要关于热耗散、声波弥散和分子摩擦的无穷微观信息。信息被不对称地丢失给了环境。</p>
+
+    <p>当 AI 精确映射真实世界时,它的数学将与热力学第二定律正面相遇。它会发现:微小的改变可以在未来造成巨大的分歧(正向的蝴蝶效应),但一个巨大的未来状态无法坍缩回一个单一、无歧义的过去——除非违反能量守恒。</p>
+
+    <hr>
+
+    <h2><span class="num">V.</span>结语</h2>
+
+    <p>当前这个巨型 Checkpoint 文件加逐 token 拟态的时代,只是一个短暂的技术枢纽。它是一场昂贵的尝试:绕过我们对自己心智究竟如何建模现实的无知。</p>
+
+    <p>真正的通用智能,不会靠用数字参数造更大的百科全书来实现。它会靠造一台优雅、节能的因果引擎来实现。当那台机器最终被造出来,它拥有智能,不是因为它背下了人类语言,而是因为它的数学明确尊重因果之间单向的权重,以及时间之箭的不可动摇。<sup><a href="#ref-11">[11]</a></sup></p>
+
+    <div class="references-card">
+      <h3 class="references-title">参考文献</h3>
+      <ol class="references-list">
+        <li id="ref-1"><span class="num">[1]</span> Destrade, M., Bounou, O., Le Lidec, Q., Ponce, J., &amp; LeCun, Y. (2025). <em>Value-guided action planning with JEPA world models.</em> arXiv preprint arXiv:2601.00844.</li>
+        <li id="ref-2"><span class="num">[2]</span> Lilian Weng. (2026). <em>Scaling Laws, Carefully.</em> Lil'Log.</li>
+        <li id="ref-3"><span class="num">[3]</span> Guzik, E. E., et al. (2024). <em>The current state of artificial intelligence generative language models demonstrates higher creative potential than human respondents.</em> Nature Scientific Reports, 14, 5330.</li>
+        <li id="ref-4"><span class="num">[4]</span> LeCun, Y. (2022). <em>A Path Towards Autonomous Machine Intelligence.</em> OpenReview.</li>
+        <li id="ref-5"><span class="num">[5]</span> AIMultiple. <em>LLM Scaling Laws.</em></li>
+        <li id="ref-11"><span class="num">[11]</span> Vishal B. <em>LeWorldModel: How Yann LeCun solved the hardest problem in World Models.</em></li>
+      </ol>
+    </div>
+
+    <a href="/zh/critique/episode-2.html" class="next-in-series" style="display:block;text-decoration:none;color:inherit;">
+      <div class="label">AI 批判 · 第二期预告</div>
+      <h3>能耗之墙:Scaling Laws 为何先撞上物理学,而不是智能</h3>
+      <p>「仅靠 exaFLOP 就能堆出 AGI」的论证,默认了能源便宜、token 无穷。细看推理过程的热力学,故事是另一个样子。</p>
+    </a>
+
+    <div class="related-articles">
+      <h3>AI 批判</h3>
+      <ul class="related-list">
+        <li><a href="/critique/">← 全部文章</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <div class="ad-slot">
+    <div class="ad-slot-inner">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2779701070600473" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+
+
+  

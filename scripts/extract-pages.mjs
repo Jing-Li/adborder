@@ -7,7 +7,7 @@
 //   A5 25 页清单(F1 实测;契约"24"为约数);重定向页 blog-ai-truth-illusion.html 不在清单
 import fs from 'node:fs';
 import path from 'node:path';
-import { PAGES, ZH_FIRST_BATCH, splitPage } from './site-pages.mjs';
+import { PAGES, ZH_TRANSLATED, splitPage } from './site-pages.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const OUT_DIR = path.join(ROOT, 'content', 'en');
@@ -42,7 +42,7 @@ function assertSliceLossless(src, split) {
 function main() {
   if (PAGES.some(p => p.src === REDIRECT_PAGE)) throw new Error(`A5 FAIL: 重定向页 ${REDIRECT_PAGE} 不得进模板体系`);
   if (PAGES.length !== 25) throw new Error(`A5 FAIL: 清单页数 ${PAGES.length} !== 25`);
-  for (const p of ZH_FIRST_BATCH) if (!PAGES.some(x => x.src === p)) throw new Error(`A5 FAIL: zh 首批页 ${p} 不在清单`);
+  for (const p of ZH_TRANSLATED) if (!PAGES.some(x => x.src === p)) throw new Error(`A5 FAIL: zh 已译页 ${p} 不在清单`);
 
   const verify = process.argv.includes('--verify');
   if (!verify) fs.mkdirSync(OUT_DIR, { recursive: true });
