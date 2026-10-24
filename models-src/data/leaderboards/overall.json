@@ -2,7 +2,7 @@
   "source": "Artificial Analysis Intelligence Index",
   "dimension": "综合",
   "source_url": "https://artificialanalysis.ai/models",
-  "fetched_at": "2026-10-23T03:45:20.474Z",
+  "fetched_at": "2026-10-24T03:39:28.940Z",
   "na_reason": "ToS 禁止转分发且 Data API 需服务端 key(官方文档:\"Keep the key server-side\");首版按 INDEX 硬约束 3 以引用形态处理,不批量复刻分数。结构化分数快照 N/A。",
   "models": []
 }
