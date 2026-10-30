@@ -2,7 +2,7 @@
   "source": "LMArena Text Arena (Bradley-Terry)",
   "dimension": "人类偏好",
   "source_url": "https://lmarena.ai/leaderboard",
-  "fetched_at": "2026-10-29T04:46:50.650Z",
+  "fetched_at": "2026-10-30T04:46:21.440Z",
   "na_reason": "两层排查均不可用(2026-10-20 闭环):①本机网络 lmarena.ai 直连失败(墙),无法服务端拉取;②GHA 海外 runner 复抓亦未命中 —— 官方 HF 存档 lmarena-ai/arena-leaderboard 的 leaderboard_table_*.csv 止于 2025-08-04,缺当前模型代际,采用将误导,故不采用;新站数据 API 未公开。待官方公开数据后接入。",
   "models": []
 }
