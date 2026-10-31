@@ -5,7 +5,7 @@
   "benchmark_version": "v2.26-07",
   "updated_at": "2026-08-24",
   "note": "CompassBench 2607 期 KnowledgeTable 知识分(Average 列,细分为人文/社科/工程/科学/常识五域);月度期数快照",
-  "fetched_at": "2026-10-30T04:46:21.440Z",
+  "fetched_at": "2026-10-31T04:30:23.689Z",
   "models": [
     {
       "model": "Claude Opus 5 (high)",
@@ -14,7 +14,7 @@
       "source_url": "https://rank.opencompass.org.cn/leaderboard-llm-v1",
       "benchmark_version": "OpenCompass v2.26-07 (CompassBench 2607)",
       "updated_at": "2026-08-24",
-      "fetched_at": "2026-10-30T04:46:21.440Z"
+      "fetched_at": "2026-10-31T04:30:23.689Z"
     },
     {
       "model": "Gemini-3.7-Flash",
@@ -23,7 +23,7 @@
       "source_url": "https://rank.opencompass.org.cn/leaderboard-llm-v1",
       "benchmark_version": "OpenCompass v2.26-07 (CompassBench 2607)",
       "updated_at": "2026-08-24",
-      "fetched_at": "2026-10-30T04:46:21.440Z"
+      "fetched_at": "2026-10-31T04:30:23.689Z"
     },
     {
       "model": "Grok-4.6 (high)",
@@ -32,7 +32,7 @@
       "source_url": "https://rank.opencompass.org.cn/leaderboard-llm-v1",
       "benchmark_version": "OpenCompass v2.26-07 (CompassBench 2607)",
       "updated_at": "2026-08-24",
-      "fetched_at": "2026-10-30T04:46:21.440Z"
+      "fetched_at": "2026-10-31T04:30:23.689Z"
     },
     {
       "model": "DeepSeek-V4-Pro",
@@ -41,7 +41,7 @@
       "source_url": "https://rank.opencompass.org.cn/leaderboard-llm-v1",
       "benchmark_version": "OpenCompass v2.26-07 (CompassBench 2607)",
       "updated_at": "2026-08-24",
-      "fetched_at": "2026-10-30T04:46:21.440Z"
+      "fetched_at": "2026-10-31T04:30:23.689Z"
     },
     {
       "model": "GLM-5.3",
@@ -50,7 +50,7 @@
       "source_url": "https://rank.opencompass.org.cn/leaderboard-llm-v1",
       "benchmark_version": "OpenCompass v2.26-07 (CompassBench 2607)",
       "updated_at": "2026-08-24",
-      "fetched_at": "2026-10-30T04:46:21.440Z"
+      "fetched_at": "2026-10-31T04:30:23.689Z"
     },
     {
       "model": "Doubao-Seed-2.1-Pro-260628 (high)",
@@ -59,7 +59,7 @@
       "source_url": "https://rank.opencompass.org.cn/leaderboard-llm-v1",
       "benchmark_version": "OpenCompass v2.26-07 (CompassBench 2607)",
       "updated_at": "2026-08-24",
-      "fetched_at": "2026-10-30T04:46:21.440Z"
+      "fetched_at": "2026-10-31T04:30:23.689Z"
     },
     {
       "model": "Kimi-K3 (high)",
@@ -68,7 +68,7 @@
       "source_url": "https://rank.opencompass.org.cn/leaderboard-llm-v1",
       "benchmark_version": "OpenCompass v2.26-07 (CompassBench 2607)",
       "updated_at": "2026-08-24",
-      "fetched_at": "2026-10-30T04:46:21.440Z"
+      "fetched_at": "2026-10-31T04:30:23.689Z"
     },
     {
       "model": "Kimi-K2.6 (high)",
@@ -77,7 +77,7 @@
       "source_url": "https://rank.opencompass.org.cn/leaderboard-llm-v1",
       "benchmark_version": "OpenCompass v2.26-07 (CompassBench 2607)",
       "updated_at": "2026-08-24",
-      "fetched_at": "2026-10-30T04:46:21.440Z"
+      "fetched_at": "2026-10-31T04:30:23.689Z"
     },
     {
       "model": "GPT-5.6-Sol (high)",
@@ -86,7 +86,7 @@
       "source_url": "https://rank.opencompass.org.cn/leaderboard-llm-v1",
       "benchmark_version": "OpenCompass v2.26-07 (CompassBench 2607)",
       "updated_at": "2026-08-24",
-      "fetched_at": "2026-10-30T04:46:21.440Z"
+      "fetched_at": "2026-10-31T04:30:23.689Z"
     },
     {
       "model": "GPT-5.5 (high)",
@@ -95,7 +95,7 @@
       "source_url": "https://rank.opencompass.org.cn/leaderboard-llm-v1",
       "benchmark_version": "OpenCompass v2.26-07 (CompassBench 2607)",
       "updated_at": "2026-08-24",
-      "fetched_at": "2026-10-30T04:46:21.440Z"
+      "fetched_at": "2026-10-31T04:30:23.689Z"
     },
     {
       "model": "Claude Opus 4.8 (high)",
@@ -104,7 +104,7 @@
       "source_url": "https://rank.opencompass.org.cn/leaderboard-llm-v1",
       "benchmark_version": "OpenCompass v2.26-07 (CompassBench 2607)",
       "updated_at": "2026-08-24",
-      "fetched_at": "2026-10-30T04:46:21.440Z"
+      "fetched_at": "2026-10-31T04:30:23.689Z"
     },
     {
       "model": "Qwen3.8-Max",
@@ -113,7 +113,7 @@
       "source_url": "https://rank.opencompass.org.cn/leaderboard-llm-v1",
       "benchmark_version": "OpenCompass v2.26-07 (CompassBench 2607)",
       "updated_at": "2026-08-24",
-      "fetched_at": "2026-10-30T04:46:21.440Z"
+      "fetched_at": "2026-10-31T04:30:23.689Z"
     },
     {
       "model": "MiniMax-M3",
@@ -122,7 +122,7 @@
       "source_url": "https://rank.opencompass.org.cn/leaderboard-llm-v1",
       "benchmark_version": "OpenCompass v2.26-07 (CompassBench 2607)",
       "updated_at": "2026-08-24",
-      "fetched_at": "2026-10-30T04:46:21.440Z"
+      "fetched_at": "2026-10-31T04:30:23.689Z"
     },
     {
       "model": "Hy3-preview (high)",
@@ -131,7 +131,7 @@
       "source_url": "https://rank.opencompass.org.cn/leaderboard-llm-v1",
       "benchmark_version": "OpenCompass v2.26-07 (CompassBench 2607)",
       "updated_at": "2026-08-24",
-      "fetched_at": "2026-10-30T04:46:21.440Z"
+      "fetched_at": "2026-10-31T04:30:23.689Z"
     },
     {
       "model": "DeepSeek-V4-Flash",
@@ -140,7 +140,7 @@
       "source_url": "https://rank.opencompass.org.cn/leaderboard-llm-v1",
       "benchmark_version": "OpenCompass v2.26-07 (CompassBench 2607)",
       "updated_at": "2026-08-24",
-      "fetched_at": "2026-10-30T04:46:21.440Z"
+      "fetched_at": "2026-10-31T04:30:23.689Z"
     }
   ]
 }
