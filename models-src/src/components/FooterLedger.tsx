@@ -22,7 +22,7 @@ export default function FooterLedger() {
         <p>{t('ledger.methodBody2')}</p>
       </section>
 
-      {/* T6:未接入四源(原 N/A 维)降级至此逐源呈现状态/原因/接入条件 */}
+      {/* T6:未接入三源(原 N/A 维)降级至此逐源呈现状态/原因/接入条件 */}
       <Roadmap />
 
       <footer id="ledger" className="ledger" aria-labelledby="ledger-title">

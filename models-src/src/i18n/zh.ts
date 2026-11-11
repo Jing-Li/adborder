@@ -76,7 +76,7 @@ export const zh = {
   roadmap: {
     title: '数据源路线图',
     intro:
-      '以下四源尚未以结构化快照接入本页,状态、原因与接入条件如实记录(原因摘自各源抓取记录原文);接入后自动成为排行榜新维度。',
+      '以下三源尚未以结构化快照接入本页,状态、原因与接入条件如实记录(原因摘自各源抓取记录原文);接入后自动成为排行榜新维度。',
     notIntegrated: '未接入',
     access: {
       network: '接入条件:海外 runner 每日定时抓取命中可达的结构化数据路径后自动填充为正式维度,无需人工操作。',
@@ -104,6 +104,7 @@ export const zh = {
   source: {
     oc: 'OpenCompass 司南',
     swe: 'SWE-bench',
+    lmarena: 'LMArena',
   },
   dim: {
     overall: {
@@ -129,6 +130,10 @@ export const zh = {
         title: '英文口径对照 · SWE-bench Verified(真实 issue 修复)',
         desc: '同一批模型的英文口径代码能力:在真实 GitHub issue 上跑补丁的修复率。与主榜的中文 CompassBench 分不同口径、不可直接互比,分开陈列供对照。',
       },
+    },
+    preference: {
+      label: '人类偏好',
+      desc: '真实用户盲测两两对战产生的 Bradley-Terry 偏好分,不是主观打分',
     },
   },
 }

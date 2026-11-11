@@ -80,7 +80,7 @@ export const en = {
   roadmap: {
     title: 'Data source roadmap',
     intro:
-      "The four sources below are not yet integrated as structured snapshots. Status, reason and integration requirements are recorded as-is (reasons quoted from each source's raw fetch record); once integrated, they become new leaderboard dimensions automatically.",
+      "The three sources below are not yet integrated as structured snapshots. Status, reason and integration requirements are recorded as-is (reasons quoted from each source's raw fetch record); once integrated, they become new leaderboard dimensions automatically.",
     notIntegrated: 'Not integrated',
     access: {
       network:
@@ -110,6 +110,7 @@ export const en = {
   source: {
     oc: 'OpenCompass',
     swe: 'SWE-bench',
+    lmarena: 'LMArena',
   },
   dim: {
     overall: {
@@ -135,6 +136,10 @@ export const en = {
         title: 'English-scope companion · SWE-bench Verified (real issue fixing)',
         desc: 'English-language coding ability of the same models: patch-application fix rate on real GitHub issues. A different metric scope from the Chinese CompassBench main board — not directly comparable, listed side by side for reference.',
       },
+    },
+    preference: {
+      label: 'Human Preference',
+      desc: 'Bradley-Terry preference scores from blind pairwise battles judged by real users — not subjective ratings',
     },
   },
 } satisfies typeof zh

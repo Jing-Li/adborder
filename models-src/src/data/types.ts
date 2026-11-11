@@ -30,6 +30,7 @@ export interface LeaderboardFile {
  * T6 新分类:五维 Tab(OC 五张子表 Average,逐字采用 Lead 定稿 Tab 名)。
  * _oc 后缀 = OpenCompass CompassBench 中文口径,与旧 N/A 占位文件(overall/reasoning)
  * 及 SWE-bench 副榜(coding.json)命名隔离。
+ * T16:LMArena 人类偏好由页脚路线图提升为一级 Tab(非 OC 口径,故不带 _oc 后缀)。
  */
 export type DimensionId =
   | 'overall_oc'
@@ -37,3 +38,4 @@ export type DimensionId =
   | 'math_oc'
   | 'reasoning_oc'
   | 'coding_oc'
+  | 'preference'

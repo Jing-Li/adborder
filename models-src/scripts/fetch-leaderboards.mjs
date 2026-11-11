@@ -25,6 +25,7 @@ import { mkdirSync, writeFileSync, existsSync, statSync, readFileSync } from 'no
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import zlib from 'node:zlib'
+import { parquetReadObjects } from 'hyparquet'
 
 const ROOT = new URL('..', import.meta.url).pathname
 const DATA_DIR = join(ROOT, 'data', 'leaderboards')
@@ -346,6 +347,186 @@ function normalizeLivebench(json) {
   throw new Error(LIVEBENCH_NA_REASON)
 }
 
+// ------------------------------ LMArena(人类偏好维度;HF 官方公开数据集)
+
+/**
+ * LMArena 官方公开数据集(2026-04 起官方发布,每日更新;许可 CC-BY-4.0,须署名):
+ *   HF repo  lmarena-ai/leaderboard-dataset
+ *   config   text_style_control(下划线;同名 config 下有 latest / full 两个 split,每日只取 latest)
+ *   file     text_style_control/latest-00000-of-00001.parquet(约 627 KB / 11,175 行 / 29 个 category)
+ * 2026-11-11 实测(hyparquet):category=overall 421 行,行内 rank 恰为 1..421 唯一且与 rating 降序一致;
+ * rank 列物理类型 INT64(读出 BigInt),rating 列 DOUBLE。本机 huggingface.co 直连超时(墙),
+ * GHA runner 直连官方域名 → 候选 URL 官方优先 + hf-mirror.com 兜底。
+ */
+const LMARENA_SOURCE_NAME = 'LMArena Text Arena (Bradley-Terry)'
+const LMARENA_DIMENSION = '人类偏好'
+const LMARENA_SOURCE_URL = 'https://arena.ai/leaderboard'
+const LMARENA_HF_REPO = 'lmarena-ai/leaderboard-dataset'
+const LMARENA_HF_CONFIG = 'text_style_control'
+const LMARENA_HF_SPLIT = 'latest'
+const LMARENA_PARQUET_PATH = `${LMARENA_HF_CONFIG}/${LMARENA_HF_SPLIT}-00000-of-00001.parquet`
+export const LMARENA_OVERALL_CATEGORY = 'overall'
+export const LMARENA_RETRY_MAX = 3 // 首发 + 2 次退避重试(仅 429 限流触发重试)
+export const LMARENA_BACKOFF_BASE_MS = 2000 // 429 指数退避基数(2s → 4s)
+const LMARENA_RATE_LIMIT_PATTERN = /\bHTTP 429\b/ // fetchRaw 抛 "HTTP 429 Too Many Requests"
+const PARQUET_MAGIC = 'PAR1' // parquet 文件头尾各 4 字节魔数
+
+/** 候选 URL:官方域名优先(GHA runner 直连),hf-mirror.com 兜底(本机墙) */
+export const LMARENA_CANDIDATE_URLS = [
+  `https://huggingface.co/datasets/${LMARENA_HF_REPO}/resolve/main/${LMARENA_PARQUET_PATH}`,
+  `https://hf-mirror.com/datasets/${LMARENA_HF_REPO}/resolve/main/${LMARENA_PARQUET_PATH}`,
+]
+
+/** 候选 URL 主机名清单(供 na_reason 文案动态生成:增删候选后文案不与实际候选脱节) */
+function lmarenaCandidateHosts() {
+  return LMARENA_CANDIDATE_URLS.map((u) => new URL(u).host).join(' → ')
+}
+
+const LMARENA_NOTE = `数据出处:HuggingFace 官方公开数据集 ${LMARENA_HF_REPO} 的 ${LMARENA_HF_CONFIG}/${LMARENA_HF_SPLIT} split(文件 ${LMARENA_PARQUET_PATH}),Bradley-Terry 评分,仅取 category=${LMARENA_OVERALL_CATEGORY};许可 CC-BY-4.0(转载须署名 Arena / LMArena);评分为 Bradley-Terry Elo 量纲,与其他维度分数不可直接横比。`
+
+/**
+ * rank 归一:源列物理类型 INT64(hyparquet 读出 BigInt),亦兼容字符串/数字 → 正整数。
+ * 非法值抛错(不编数)。
+ */
+export function toLmarenaRank(value) {
+  const n = typeof value === 'bigint' ? Number(value) : Number(String(value).trim())
+  if (!Number.isInteger(n) || n <= 0) throw new Error(`rank 非法: ${String(value)}`)
+  return n
+}
+
+/** rating → score:保留 1 位小数(四舍五入);非有限数抛错(不编数) */
+export function toLmarenaScore(value) {
+  if (typeof value !== 'number' && typeof value !== 'bigint') {
+    throw new Error(`rating 非法: ${String(value)}`)
+  }
+  const n = Number(value)
+  if (!Number.isFinite(n)) throw new Error(`rating 非法: ${String(value)}`)
+  return Math.round(n * 10) / 10
+}
+
+/** category 过滤谓词(唯一真源:只认 overall) */
+function isLmarenaOverall(row) {
+  return row?.category === LMARENA_OVERALL_CATEGORY
+}
+
+/**
+ * 源行 → 统一 schema 七字段。
+ * 只取七个字段,其余列(vote_count 等)不进快照 —— 天然规避 BigInt 序列化崩溃:
+ * JSON.stringify 遇 BigInt 会抛 "Do not know how to serialize a BigInt"。
+ */
+function toLmarenaModelRow(row, fetchedAt) {
+  const model = String(row.model_name ?? '').trim()
+  if (!model) throw new Error('model_name 缺失')
+  const publishDate = typeof row.leaderboard_publish_date === 'string' ? row.leaderboard_publish_date.trim() : ''
+  if (!publishDate) throw new Error(`model_name=${model} 缺 leaderboard_publish_date`)
+  return {
+    model,
+    score: toLmarenaScore(row.rating),
+    rank: toLmarenaRank(row.rank),
+    source_url: LMARENA_SOURCE_URL,
+    benchmark_version: publishDate,
+    updated_at: publishDate,
+    fetched_at: fetchedAt,
+  }
+}
+
+/**
+ * 源行数组 → 归一化结果(纯函数;自测 scripts/test-lmarena.mjs 直接复用)。
+ * 口径:只保留 category === 'overall';行内 rank 直接采用源 rank(实测恰为 1..N 唯一)。
+ */
+export function parseLmarenaRows(rows, { fetchedAt = FETCHED_AT } = {}) {
+  if (!Array.isArray(rows)) throw new Error(`源数据不是数组(实际类型: ${typeof rows})`)
+  const overall = rows.filter(isLmarenaOverall)
+  if (overall.length === 0) {
+    throw new Error(`源数据无 category=${LMARENA_OVERALL_CATEGORY} 行(共 ${rows.length} 行)`)
+  }
+  const models = overall.map((r) => toLmarenaModelRow(r, fetchedAt))
+  const versions = models.map((m) => m.benchmark_version).sort()
+  const benchmarkVersion = versions[versions.length - 1]
+  return { models, benchmark_version: benchmarkVersion, updated_at: benchmarkVersion }
+}
+
+/** Buffer → ArrayBuffer(Node Buffer 是 Uint8Array 视图,hyparquet 需要真正的 ArrayBuffer) */
+export function toArrayBuffer(bytes) {
+  const buf = Buffer.isBuffer(bytes) ? bytes : Buffer.from(bytes)
+  return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength)
+}
+
+/**
+ * 原始字节 → 源行数组(纯函数,自测可直接喂 Buffer)。
+ * 坑一:直接把 Buffer 传给 parquetReadObjects 会抛
+ *      "First argument to DataView constructor must be an ArrayBuffer" → 必须切片出真正的 ArrayBuffer。
+ * 坑二:CDN 偶尔回压缩体 → 首字节非 'PAR1' 时先兜底解压再判魔数。
+ */
+export async function readLmarenaParquet(bytes) {
+  const buf = Buffer.isBuffer(bytes) ? bytes : Buffer.from(bytes)
+  const raw = buf.subarray(0, 4).toString('latin1') === PARQUET_MAGIC ? buf : decodeMaybeCompressed(buf)
+  if (raw.subarray(0, 4).toString('latin1') !== PARQUET_MAGIC) {
+    throw new Error(`下载内容不是 parquet 文件(首 4 字节: ${JSON.stringify(raw.subarray(0, 4).toString('latin1'))})`)
+  }
+  return parquetReadObjects({ file: toArrayBuffer(raw) })
+}
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
+/** 429 限流判定:默认下载器 fetchRaw 抛 "HTTP 429 Too Many Requests";自测注入同格式错误 */
+function isLmarenaRateLimited(err) {
+  return LMARENA_RATE_LIMIT_PATTERN.test(err?.message ?? '')
+}
+
+/** 默认下载器:复用 fetchRaw(超时 + UA + 24h /tmp 缓存),返回原始字节 */
+async function downloadLmarenaDefault(url, { useCache }) {
+  const { buf } = await fetchRaw(url, { useCache })
+  return buf
+}
+
+/**
+ * 候选 URL 轮询 + 429 退避重试(纯网络层,不触解析)。
+ * downloadImpl 可注入(自测用假下载器模拟「官方 URL 恒 429 → 退避重试 → 镜像兜底命中」)。
+ * 失败信息按既有范式保留每次尝试的原始错误,末次错误作附录。
+ */
+export async function fetchLmarenaBytes({
+  candidates = LMARENA_CANDIDATE_URLS,
+  useCache = false,
+  downloadImpl = null,
+  sleep = delay,
+} = {}) {
+  const download = downloadImpl ?? ((url) => downloadLmarenaDefault(url, { useCache }))
+  const failures = []
+  for (const url of candidates) {
+    for (let attempt = 1; attempt <= LMARENA_RETRY_MAX; attempt++) {
+      try {
+        const buf = await download(url)
+        return { buf, url, attempt }
+      } catch (e) {
+        failures.push(`${url}(第${attempt}次): ${e.message}`)
+        const canRetry = attempt < LMARENA_RETRY_MAX && isLmarenaRateLimited(e)
+        if (!canRetry) break
+        const wait = LMARENA_BACKOFF_BASE_MS * 2 ** (attempt - 1)
+        console.error(`  [lmarena] HTTP 429 限流(${url}),退避 ${wait}ms 后重试…`)
+        await sleep(wait)
+      }
+    }
+  }
+  throw new Error(`候选 URL 全失败:${failures.join(' | ')}`)
+}
+
+/** LMArena probe 摘要:BigInt 字段转字符串后输出(避免 JSON.stringify 遇 BigInt 抛错) */
+function lmarenaProbeSummary(rows) {
+  const categories = [...new Set(rows.map((r) => r?.category))]
+  const overall = rows.filter(isLmarenaOverall)
+  const sample = overall[0] ?? rows[0] ?? null
+  return {
+    rows: rows.length,
+    categories: categories.length,
+    categoryNames: categories,
+    overallRows: overall.length,
+    sample: sample
+      ? Object.fromEntries(Object.entries(sample).map(([k, v]) => [k, typeof v === 'bigint' ? v.toString() : v]))
+      : null,
+  }
+}
+
 // ------------------------------------------------------------------ N/A 源
 
 const NA_SOURCES = [
@@ -355,13 +536,6 @@ const NA_SOURCES = [
     source: 'Artificial Analysis Intelligence Index',
     source_url: 'https://artificialanalysis.ai/models',
     na_reason: 'ToS 禁止转分发且 Data API 需服务端 key(官方文档:"Keep the key server-side");首版按 INDEX 硬约束 3 以引用形态处理,不批量复刻分数。结构化分数快照 N/A。',
-  },
-  {
-    file: 'preference.json',
-    dimension: '人类偏好',
-    source: 'LMArena Text Arena (Bradley-Terry)',
-    source_url: 'https://lmarena.ai/leaderboard',
-    na_reason: '两层排查均不可用(2026-10-20 闭环):①本机网络 lmarena.ai 直连失败(墙),无法服务端拉取;②GHA 海外 runner 复抓亦未命中 —— 官方 HF 存档 lmarena-ai/arena-leaderboard 的 leaderboard_table_*.csv 止于 2025-08-04,缺当前模型代际,采用将误导,故不采用;新站数据 API 未公开。待官方公开数据后接入。',
   },
   {
     file: 'value.json',
@@ -543,6 +717,41 @@ async function main() {
       } catch (e2) {
         console.error(`LiveBench README 读取失败: ${e2.message}`)
       }
+    }
+  }
+
+  // --- LMArena(HF 官方公开数据集 → 人类偏好维度;失败落 N/A 占位,exit code 仍 0)---
+  try {
+    const { buf, url } = await fetchLmarenaBytes({ useCache: USE_CACHE })
+    const rows = await readLmarenaParquet(buf)
+    if (PROBE) {
+      console.log('== LMArena probe ==')
+      console.log(`source=${url}`)
+      console.log(JSON.stringify(lmarenaProbeSummary(rows), null, 2))
+    } else {
+      const parsed = parseLmarenaRows(rows, { fetchedAt: FETCHED_AT })
+      const file = okFile({
+        source: LMARENA_SOURCE_NAME,
+        dimension: LMARENA_DIMENSION,
+        source_url: LMARENA_SOURCE_URL,
+        benchmark_version: parsed.benchmark_version,
+        updated_at: parsed.updated_at,
+        note: LMARENA_NOTE,
+      }, parsed.models)
+      writeFileSync(join(DATA_DIR, 'preference.json'), JSON.stringify(file, null, 2) + '\n')
+      summary.push(`LMArena: OK, ${parsed.models.length} models, version=${parsed.benchmark_version} → preference.json`)
+    }
+  } catch (e) {
+    console.error(`LMArena FAIL: ${e.message}`)
+    if (!PROBE) {
+      writeFileSync(join(DATA_DIR, 'preference.json'), JSON.stringify(naFile({
+        source: LMARENA_SOURCE_NAME,
+        dimension: LMARENA_DIMENSION,
+        source_url: LMARENA_SOURCE_URL,
+        // 末次错误作附录(裸 e.message 无信息量),沿用既有范式
+        na_reason: `LMArena 官方公开数据集(HF ${LMARENA_HF_REPO},config ${LMARENA_HF_CONFIG})抓取失败:候选 URL(${lmarenaCandidateHosts()})均不可达,末次错误: ${e.message}`,
+      }), null, 2) + '\n')
+      summary.push('LMArena: FAIL(落 N/A 占位)')
     }
   }
 

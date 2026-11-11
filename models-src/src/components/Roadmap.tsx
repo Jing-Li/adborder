@@ -1,7 +1,8 @@
 /**
  * Roadmap — 页脚「数据源路线图」(T6)。
- * 四个未接入源(原 N/A 维度,撤一级 Tab 后降级至此):AA 综合智能/性价比、
- * LMArena 人类偏好、LiveBench 英文推理,逐源呈现 状态 + 原因 + 接入条件;
+ * 未接入三源(原 N/A 维度,撤一级 Tab 后降级至此):AA 综合智能、AA 性价比、LiveBench 英文推理,
+ * 逐源呈现  状态 + 原因 + 接入条件;
+ * T16:LMArena 人类偏好已提升为一级 Tab,不在本路线图三源之列;
  * na_reason 原文直接来自构建期打包的 data/leaderboards/*.json(机制同 NaPanel),不丢不篡改;
  * 接入条件按 network/key 分层(NaPanel WHEN_FILLED 同机制),样式只用 tokens 变量。
  */

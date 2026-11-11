@@ -1,13 +1,16 @@
 /**
- * 维度注册表 — 五 Tab(OC 五张子表 Average)+ 代码副榜 + 页脚路线图,构建期静态导入。
+ * 维度注册表 — 六 Tab(OC 五张子表 Average + LMArena 人类偏好)+ 代码副榜 + 页脚路线图,构建期静态导入。
  * 数据在构建时打包进产物(Vite JSON import),运行时零请求、零重活。
- * 文案原则(writing-in-design):Tab 保持短名;副题在维度报头把「量什么 · 数据源」说人话讲清。
+ * 文案原则(writing-in-design):Tab 名为用户一眼可辨的维度域短名;副题在维度报头把「量什么 · 数据源」说人话讲清。
  *
  * T6 新分类(Lead 定稿方案 B):综合/知识/数学/推理 四个 OC 中文 CompassBench 子分;
  * 代码 = OC CodeTable 主榜(中文口径)+ SWE-bench Verified 英文口径对照副榜(同页可见,口径分列标注);
  * 原「中文」维度正名为「综合」(同源同表同列,数据点零丢失);
  * 原 4 个 N/A 维(overall/preference/reasoning-LiveBench/value)撤一级 Tab,
  * 数据文件与 na_reason 机制保留,由 ROADMAP 供页脚「数据源路线图」使用。
+ *
+ * T16:LMArena 官方公开数据集上线,preference 由路线图提升为一级 Tab(同一份数据文件,仅注册位置变更);
+ * 路线图余三源(AA 综合 / AA 性价比 / LiveBench 推理);数据文件若仍为 N/A 占位,该 Tab 走既有 NaPanel 空态。
  *
  * T10 文案键化:label/desc/sourceName/alt.title/alt.desc 改为 i18n key 引用(真源 src/i18n/zh.ts);
  * id/file/abbr/naKind 等非文案字段不动;na_reason 属数据文件字段,永不翻译。
@@ -21,9 +24,10 @@ import mathOcJson from '../../data/leaderboards/math_oc.json'
 import reasoningOcJson from '../../data/leaderboards/reasoning_oc.json'
 import codingOcJson from '../../data/leaderboards/coding_oc.json'
 import codingJson from '../../data/leaderboards/coding.json'
-// 路线图四源(N/A 占位文件,仅供页脚数据源路线图引用,不挂一级 Tab)
+// T16:LMArena 人类偏好(官方公开数据集接入前为 N/A 占位,接入后为真实榜单数据)
+import preferenceJson from '../../data/leaderboards/preference.json'
+// 路线图三源(N/A 占位文件,仅供页脚数据源路线图引用,不挂一级 Tab)
 import overallNaJson from '../../data/leaderboards/overall.json'
-import preferenceNaJson from '../../data/leaderboards/preference.json'
 import reasoningNaJson from '../../data/leaderboards/reasoning.json'
 import valueNaJson from '../../data/leaderboards/value.json'
 
@@ -108,6 +112,14 @@ export const DIMENSIONS: DimensionMeta[] = [
       file: codingJson as LeaderboardFile,
     },
   },
+  {
+    id: 'preference',
+    labelKey: 'dim.preference.label',
+    descKey: 'dim.preference.desc',
+    sourceNameKey: 'source.lmarena',
+    abbr: 'LMA',
+    file: preferenceJson as LeaderboardFile,
+  },
 ]
 
 /** 页脚数据源路线图条目:未接入源的状态事实(源自构建期打包的 N/A 占位文件,na_reason 原文不丢) */
@@ -120,12 +132,11 @@ export interface RoadmapItem {
 
 const ROADMAP_FILES: Array<{ kind: NaKind; file: LeaderboardFile }> = [
   { kind: 'key', file: overallNaJson as LeaderboardFile },
-  { kind: 'network', file: preferenceNaJson as LeaderboardFile },
   { kind: 'network', file: reasoningNaJson as LeaderboardFile },
   { kind: 'key', file: valueNaJson as LeaderboardFile },
 ]
 
-/** 数据源路线图(Lead 定稿):AA 综合智能/性价比、LMArena 人类偏好、LiveBench 英文推理四源 */
+/** 数据源路线图:AA 综合智能 / AA 性价比 / LiveBench 英文推理三源(T16:LMArena 人类偏好已提升为一级 Tab) */
 export const ROADMAP: RoadmapItem[] = ROADMAP_FILES.map(({ kind, file }) => ({
   source: file.source,
   sourceUrl: file.source_url,
