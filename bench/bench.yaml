@@ -1,0 +1,28 @@
+# bench.yaml — 评测运行配置（控制台读取此文件决定跑什么）
+version: 1
+
+model: claude-sonnet-4-20250514
+trials_per_case: 3
+# Hard-capped at 3 by the runner (this machine has 7.6GB RAM).
+concurrency: 3
+timeout_seconds: 600
+
+cases:
+  - case-001   # 后端服务全流程
+  - case-002   # 多云运维方案
+  - case-003   # 前端看板实现
+  - case-004   # 术语对齐与 BRD
+  - case-005   # 设计约束与反 AI-slop
+
+packs:
+  - mine        # 你的 arch + dx 体系
+  - baseline    # 无 skill 对照组
+  - superpowers # obra/superpowers
+  - skills      # mattpocock/skills
+  - impeccable  # pbakaus/impeccable
+  - taste-skill # Leonxlnx/taste-skill
+
+scoring:
+  method: binary_reward       # 0 or 1 per verifier
+  tiebreaker: avg_tokens      # 同分时 token 少者优
+  aggregation: mean           # 3 trials 取均值

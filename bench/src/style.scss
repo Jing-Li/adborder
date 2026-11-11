@@ -1,0 +1,500 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// Arch/Dx Bench — arena-inspired design system
+// Visual language borrowed from arena.ai: warm off-white ground, hairline
+// rules, serif display headings, monospace numerals, dense tables.
+// ─────────────────────────────────────────────────────────────────────────────
+
+$bg:        #fcfaf8;
+$card:      #ffffff;
+$ink:       #2e2b29;
+$ink-2:     #413d39;
+$ink-strong:#1d1d1b;
+$muted:     #8a847e;
+$muted-2:   #a8a29c;
+$line:      #eeedec;
+$line-2:    #e6e2dd;
+$chip:      #f1ece5;
+$active:    #efeae4;
+$accent:    #2e2b29;
+$link:      #3b6fd8;
+$up:        #2f8a4f;
+$down:      #c2483d;
+$row-hover: #f6f2ed;
+$tint:      rgba(244, 240, 235, .35);
+
+$serif: 'Source Serif 4', 'Songti SC', Georgia, serif;
+$sans:  'Inter', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+$mono:  'DM Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+@use 'sass:color';
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+
+body {
+  font-family: $sans;
+  font-size: 13px;
+  background: $bg;
+  color: $ink;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app { display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+
+// ─── Nav ──────────────────────────────────────────────────────────────────────
+
+.appnav {
+  display: flex; align-items: center; gap: 28px;
+  padding: 0 20px; height: 52px;
+  background: $card;
+  border-bottom: 1px solid $line;
+  flex-shrink: 0;
+}
+
+.brand { display: flex; align-items: center; gap: 9px; }
+
+.brand-mark {
+  width: 20px; height: 20px; border-radius: 5px;
+  background: linear-gradient(140deg, $ink 0%, #6b6560 100%);
+  flex-shrink: 0;
+}
+
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-name { font-family: $serif; font-size: 15px; font-weight: 600; color: $ink-strong; }
+.brand-sub  { font-size: 10px; color: $muted; letter-spacing: .3px; }
+
+.nav-tabs { display: flex; gap: 2px; }
+
+.nav-item {
+  padding: 5px 13px; border: none; background: none; cursor: pointer;
+  font-family: $sans; font-size: 13px; color: $muted;
+  border-radius: 6px; transition: all .14s;
+  &:hover { color: $ink; background: $chip; }
+  &.active { color: $ink-strong; background: $active; font-weight: 500; }
+}
+
+.nav-foot { margin-left: auto; display: flex; align-items: center; gap: 7px; }
+
+.conn-dot {
+  width: 7px; height: 7px; border-radius: 50%; background: $muted-2;
+  &.busy   { background: #d99b28; animation: pulse 1.1s infinite; }
+  &.ok     { background: $up; }
+  &.err    { background: $down; }
+}
+
+@keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: .35 } }
+
+.conn-label { font-family: $mono; font-size: 11px; color: $muted; }
+
+// ─── Run bar ──────────────────────────────────────────────────────────────────
+
+.runbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 7px 20px; background: $card;
+  border-bottom: 1px solid $line;
+  flex-shrink: 0;
+}
+
+.runbar-left  { display: flex; align-items: center; gap: 6px; }
+.runbar-right { display: flex; align-items: center; gap: 10px; }
+
+.sep { width: 1px; height: 16px; background: $line-2; margin: 0 4px; }
+
+.ghost, .act, .danger {
+  font-family: $sans; font-size: 12px; cursor: pointer;
+  padding: 5px 12px; border-radius: 6px;
+  border: 1px solid $line-2; background: $card; color: $ink-2;
+  transition: all .14s;
+  &:hover:not(:disabled) { border-color: $muted-2; background: $chip; color: $ink-strong; }
+  &:disabled { opacity: .38; cursor: not-allowed; }
+}
+
+.act { border-color: $ink; background: $ink; color: #fff; font-weight: 500;
+  &:hover:not(:disabled) { background: $ink-strong; border-color: $ink-strong; color: #fff; } }
+
+.danger { border-color: rgba($down, .4); color: $down;
+  &:hover:not(:disabled) { background: rgba($down, .07); border-color: $down; color: $down; } }
+
+.sm { padding: 2px 8px; font-size: 11px; }
+
+.cmd { font-family: $mono; font-size: 11px; color: $muted; }
+
+// ─── Shell ────────────────────────────────────────────────────────────────────
+
+.shell { display: grid; grid-template-columns: 216px 1fr; flex: 1; overflow: hidden; }
+
+.filters {
+  background: $card; border-right: 1px solid $line;
+  overflow-y: auto; padding: 16px 14px;
+  &.hidden { display: none; }
+}
+
+.fsec { margin-bottom: 22px; }
+.fsec-h {
+  font-size: 10px; text-transform: uppercase; letter-spacing: .8px;
+  color: $muted-2; margin-bottom: 8px; font-weight: 600;
+}
+
+.cat-list { display: flex; flex-direction: column; gap: 1px; }
+
+.cat {
+  display: flex; align-items: center; gap: 7px;
+  padding: 4px 7px; border-radius: 5px; cursor: pointer;
+  font-size: 12px; color: $ink-2; user-select: none;
+  transition: background .12s;
+  &:hover { background: $chip; }
+  &.on { background: $active; color: $ink-strong; font-weight: 500; }
+  .emo { font-size: 11px; width: 13px; }
+  .check { margin-left: auto; font-size: 10px; color: $up; opacity: 0; }
+  &.on .check { opacity: 1; }
+  .cnt { margin-left: auto; font-family: $mono; font-size: 10px; color: $muted-2; }
+  &.warn { color: $down; }
+  &.warn .emo { color: $down; }
+  &.warn .cnt { color: $down; opacity: .8; }
+  &.warn .check { opacity: 1; color: $down; }
+}
+
+.content { overflow-y: auto; padding: 22px 26px 30px; }
+
+// ─── Head ─────────────────────────────────────────────────────────────────────
+
+.head { margin-bottom: 18px; }
+
+// The path of the board on screen — the way arena.ai nests it under a
+// category and a headline board.
+.crumb {
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  font-size: 11px; color: $muted-2; margin-bottom: 6px;
+  &:empty { display: none; }
+}
+
+.crumb-fam {
+  font-family: $mono; font-size: 10.5px; color: $ink-2;
+  padding: 1px 7px; border-radius: 20px;
+  background: $chip; border: 1px solid $line-2;
+}
+
+.crumb-sep { color: $muted-2; }
+
+.title-row { display: flex; align-items: center; gap: 11px; margin-bottom: 5px; }
+
+h1 { font-family: $serif; font-size: 25px; font-weight: 600; color: $ink-strong; letter-spacing: -.2px; }
+
+.chip {
+  padding: 2px 10px; border-radius: 20px; background: $chip;
+  font-size: 11px; color: $ink-2; border: 1px solid $line-2;
+}
+
+.desc { font-size: 12.5px; color: $muted; margin-bottom: 8px; }
+
+.meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 11.5px; color: $muted; }
+.meta b { font-family: $mono; font-weight: 500; color: $ink-2; }
+
+// ─── Toolbar ──────────────────────────────────────────────────────────────────
+
+.toolbar {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;
+}
+
+.seg { display: flex; border: 1px solid $line-2; border-radius: 6px; overflow: hidden; }
+.seg-btn {
+  padding: 5px 13px; border: none; background: $card; cursor: pointer;
+  font-family: $sans; font-size: 12px; color: $muted;
+  &:hover { background: $chip; }
+  &.on { background: $ink; color: #fff; }
+}
+
+.search {
+  flex: 1; min-width: 160px; max-width: 320px;
+  margin-left: auto;
+  padding: 5px 11px; border: 1px solid $line-2; border-radius: 6px;
+  background: $card; color: $ink; font-family: $sans; font-size: 12px;
+  &:focus { outline: none; border-color: $muted-2; }
+  &::placeholder { color: $muted-2; }
+}
+
+.colpick { position: relative; }
+
+.colmenu {
+  position: absolute; right: 0; top: calc(100% + 4px); z-index: 40;
+  min-width: 170px; padding: 6px;
+  background: $card; border: 1px solid $line-2; border-radius: 8px;
+  box-shadow: 0 6px 22px rgba(45, 40, 35, .12);
+  &.hidden { display: none; }
+}
+
+.col-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 5px 8px; border-radius: 5px; cursor: pointer; font-size: 12px;
+  &:hover { background: $chip; }
+  .box {
+    width: 13px; height: 13px; border: 1px solid $muted-2; border-radius: 3px;
+    display: grid; place-items: center; font-size: 9px; color: #fff;
+    &.on { background: $ink; border-color: $ink; }
+  }
+}
+
+// ─── Card & table ─────────────────────────────────────────────────────────────
+
+.card {
+  background: $card; border: 1px solid $line; border-radius: 10px;
+  margin-bottom: 16px; overflow: hidden;
+}
+
+.card-h {
+  padding: 10px 16px; border-bottom: 1px solid $line;
+  font-size: 11px; text-transform: uppercase; letter-spacing: .7px;
+  color: $muted; font-weight: 600;
+}
+
+.table-wrap { overflow-x: auto; }
+
+.lb-table {
+  width: 100%; border-collapse: collapse; font-size: 12.5px;
+  th {
+    text-align: left; padding: 9px 12px; white-space: nowrap;
+    border-bottom: 1px solid $line-2; background: $bg;
+    font-weight: 600; font-size: 10.5px; text-transform: uppercase;
+    letter-spacing: .6px; color: $muted;
+    position: sticky; top: 0; z-index: 5;
+    button {
+      background: none; border: none; cursor: pointer; padding: 0;
+      font: inherit; color: inherit; text-transform: inherit; letter-spacing: inherit;
+      display: inline-flex; align-items: center; gap: 5px;
+      &:hover { color: $ink-strong; }
+    }
+    .sort { font-size: 9px; color: $ink-2; opacity: .8; }
+  }
+  td { padding: 8px 12px; border-bottom: 1px solid $line; vertical-align: middle; }
+  tbody tr { transition: background .1s; &:hover { background: $row-hover; } }
+  tbody tr:last-child td { border-bottom: none; }
+}
+
+.col-num { text-align: right; font-family: $mono; font-variant-numeric: tabular-nums; }
+.col-ctr { text-align: center; }
+
+.rank { font-family: $mono; font-weight: 600; color: $ink-strong; }
+.rank-medal { font-weight: 700; color: #b8860b; }
+
+.spread { font-family: $mono; font-size: 11.5px; color: $ink-2; }
+
+.pack-cell { display: flex; align-items: center; gap: 9px; }
+
+.logo {
+  width: 22px; height: 22px; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0;
+  font-size: 10px; font-weight: 700; color: #fff;
+}
+
+.pack-name { font-weight: 500; color: $ink-strong; }
+.pack-sub  { font-size: 10.5px; color: $muted-2; }
+.pack-cell .txt { display: flex; flex-direction: column; line-height: 1.3; }
+
+.rating { font-family: $mono; font-weight: 600; color: $ink-strong; }
+.ci { font-family: $mono; font-size: 10.5px; color: $muted-2; }
+.ci-in { font-family: $mono; font-size: 10.5px; color: $muted; }
+
+// The interval as arena.ai prints it: a delta above and below the score.
+.ci-delta { display: inline-flex; gap: 5px; }
+.ci-up { color: $ink-2; }
+.ci-dn { color: $muted-2; }
+
+.bar { height: 4px; background: $chip; border-radius: 2px; overflow: hidden; min-width: 54px; }
+.bar-fill { height: 100%; background: $ink; border-radius: 2px; }
+.bar-fill.hl { background: $up; }
+
+.score { font-family: $mono; }
+.score-up   { color: $up; }
+.score-down { color: $down; }
+
+.badge {
+  display: inline-block; padding: 1px 6px; border-radius: 4px;
+  font-size: 10px; border: 1px solid $line-2; background: $bg; color: $muted;
+}
+.badge.open { border-color: rgba($down, .35); color: $down; }
+.badge.proprietary { border-color: $line-2; color: $muted; }
+
+// ─── Selected model row ───────────────────────────────────────────────────────
+
+.lb-table tbody tr[data-mid] { cursor: pointer; }
+.lb-table tbody tr.sel td { background: $active; }
+
+// ─── Model history (arena.ai style trajectory) ────────────────────────────────
+
+.card-sub {
+  font-family: $sans; font-size: 10.5px; text-transform: none;
+  letter-spacing: 0; color: $muted-2; font-weight: 400; margin-left: 10px;
+}
+
+.history-body {
+  display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: 20px; padding: 16px;
+  @media (max-width: 1180px) { grid-template-columns: minmax(0, 1fr); }
+}
+
+.hist-chart { width: 100%; height: auto; display: block; }
+
+.hist-cap {
+  font-size: 10.5px; color: $muted-2; margin-top: 6px; text-align: center;
+}
+
+.hist-table {
+  width: 100%; border-collapse: collapse; font-size: 12px;
+  th {
+    padding: 7px 9px; text-align: right; background: $bg;
+    border-bottom: 1px solid $line-2; font-weight: 600; font-size: 10px;
+    text-transform: uppercase; letter-spacing: .5px; color: $muted; white-space: nowrap;
+  }
+  th:first-child { text-align: left; }
+  td { padding: 5px 9px; text-align: right; border-bottom: 1px solid $line; font-family: $mono; }
+  td:first-child { text-align: left; font-family: $sans; color: $ink-2; }
+  tr:last-child td { border-bottom: none; }
+  tr.now td { background: $tint; font-weight: 600; }
+}
+
+// ─── Matrix ───────────────────────────────────────────────────────────────────
+
+.matrix-table {
+  width: 100%; border-collapse: collapse; font-size: 12px;
+  th {
+    padding: 8px 10px; text-align: right; background: $bg;
+    border-bottom: 1px solid $line-2; font-weight: 600; font-size: 10.5px;
+    text-transform: uppercase; letter-spacing: .5px; color: $muted; white-space: nowrap;
+  }
+  th:first-child { text-align: left; }
+  td { padding: 5px 10px; text-align: right; border-bottom: 1px solid $line; font-family: $mono; }
+  td:first-child { text-align: left; font-family: $sans; color: $ink-2; }
+  tr:last-child td { border-bottom: none; }
+
+  .cell { border-radius: 4px; padding: 3px 7px; display: inline-block; min-width: 46px; }
+}
+
+// ─── Benchmark footprint ─────────────────────────────────────────────────────
+
+// A footprint row opens the board the model was found on.
+.fp-row { cursor: pointer; }
+.fp-row:hover td { background: $row-hover; }
+.fp-row .pack-name { display: block; }
+
+// ─── Note ─────────────────────────────────────────────────────────────────────
+
+.note {
+  font-size: 11.5px; color: $muted; line-height: 1.75;
+  border-top: 1px solid $line; padding-top: 12px;
+  b { color: $ink-2; font-weight: 600; }
+}
+
+// ─── Empty ────────────────────────────────────────────────────────────────────
+
+.empty { padding: 34px 16px; text-align: center; color: $muted-2; font-size: 12.5px; }
+.hidden { display: none; }
+
+// ─── Benchmarked marker (the model this bench actually ran against) ───────────
+
+.logo-bench {
+  box-shadow: 0 0 0 2px $accent, 0 0 0 3.5px $card;
+}
+
+.logo-ref {
+  box-shadow: 0 0 0 2px $muted-2, 0 0 0 3.5px $card;
+}
+
+.mark-bench {
+  display: inline-block; margin-left: 7px; padding: 1px 6px;
+  border-radius: 4px; background: $chip; border: 1px solid $line-2;
+  font-family: $mono; font-size: 9.5px; font-weight: 500;
+  color: $ink-2; letter-spacing: .3px; vertical-align: 1px;
+
+  &.ref {
+    background: transparent; border-style: dashed;
+    color: $muted; font-weight: 400;
+  }
+}
+
+// ─── Board / snapshot pickers ────────────────────────────────────────────────
+
+.picker {
+  font-family: $sans; font-size: 12px; cursor: pointer;
+  padding: 5px 10px; border-radius: 6px;
+  border: 1px solid $line-2; background: $card; color: $ink-2;
+  transition: all .14s;
+  &:hover { border-color: $muted-2; background: $chip; color: $ink-strong; }
+}
+
+// ─── Benchmark target (arena board → bench) ──────────────────────────────────
+
+.pick-cell { margin-left: 4px; }
+
+.pick {
+  width: 21px; height: 21px; border-radius: 50%; cursor: pointer;
+  border: 1px solid $line-2; background: $card; color: $muted-2;
+  font-size: 10px; line-height: 1; padding: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: all .14s;
+  &:hover:not(:disabled) { border-color: $ink; color: $ink-strong; background: $chip; }
+  &:disabled { opacity: .4; cursor: not-allowed; }
+}
+
+.mark-target {
+  display: inline-block; margin-left: 7px; padding: 1px 6px;
+  border-radius: 4px; background: $accent; color: #fff;
+  font-family: $mono; font-size: 9.5px; font-weight: 600;
+  letter-spacing: .3px; vertical-align: 1px;
+}
+
+.logo-target { box-shadow: 0 0 0 2px $ink, 0 0 0 3.5px $card; }
+
+// A model that was not on the board in the previous snapshot. arena.ai marks
+// fresh entries too, and "no movement" and "just arrived" are different facts.
+.mark-new {
+  display: inline-block; padding: 1px 5px;
+  border-radius: 4px; background: transparent;
+  border: 1px solid $up; color: $up;
+  font-family: $mono; font-size: 9px; font-weight: 600;
+  letter-spacing: .4px; vertical-align: 1px;
+}
+
+// ─── Multi-dimension axis cell (arena.ai Agent Arena) ────────────────────────
+
+.dim { display: inline-flex; align-items: baseline; gap: 5px; }
+.dim-v  { font-family: $mono; font-weight: 600; color: $ink-strong; }
+.dim-ci { font-family: $mono; font-size: 9.5px; color: $muted-2; }
+.dim-sp { font-family: $mono; font-size: 9.5px; color: $muted-2; opacity: .75; }
+
+.meta-warn { color: $down; }
+
+// ─── Log drawer ───────────────────────────────────────────────────────────────
+
+.logbar {
+  background: #1f1d1c; border-top: 1px solid $line-2;
+  flex-shrink: 0; display: flex; flex-direction: column;
+  max-height: 210px; height: 210px;
+  &.collapsed { height: 32px; max-height: 32px; }
+  &.collapsed .log-area { display: none; }
+}
+
+.logbar-h {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 5px 16px; color: #9c968f; font-size: 10.5px;
+  text-transform: uppercase; letter-spacing: .7px; font-weight: 600;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  .ghost { background: none; border: none; color: #9c968f; padding: 2px 8px; border-radius: 4px; cursor: pointer;
+    &:hover { background: rgba(255,255,255,.08); color: #e8e4e0; } }
+}
+
+.log-area {
+  flex: 1; overflow-y: auto; padding: 10px 16px;
+  font-family: $mono; font-size: 11px; line-height: 1.65;
+  color: #c9c3bd; white-space: pre-wrap; word-break: break-word;
+  .log-err { color: #e07a70; }
+}
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+
+@media (max-width: 1080px) {
+  .shell { grid-template-columns: 1fr; }
+  .filters { display: none; }
+  .filters.open { display: block; position: absolute; z-index: 30; width: 216px; height: 100%; box-shadow: 0 0 24px rgba(0,0,0,.12); }
+}

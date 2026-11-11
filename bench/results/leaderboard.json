@@ -1,0 +1,206 @@
+{
+  "generated_at": "2026-11-11T02:58:03.521Z",
+  "model": "claude-sonnet-4-20250514",
+  "trials_per_case": 3,
+  "cases": [
+    "case-001",
+    "case-002",
+    "case-003",
+    "case-004",
+    "case-005"
+  ],
+  "packs": [
+    {
+      "pack": "mine",
+      "rank": 1,
+      "rank_spread": [
+        1,
+        2
+      ],
+      "rating": 648,
+      "ci_lower": 510,
+      "ci_upper": 740,
+      "score": 0.9333333333333333,
+      "trials": 15,
+      "avg_tokens": 142544,
+      "case_scores": {
+        "case-001": 1,
+        "case-002": 0.6666666666666666,
+        "case-003": 1,
+        "case-004": 1,
+        "case-005": 1
+      },
+      "is_baseline": false
+    },
+    {
+      "pack": "superpowers",
+      "rank": 2,
+      "rank_spread": [
+        1,
+        5
+      ],
+      "rating": 506,
+      "ci_lower": 307,
+      "ci_upper": 673,
+      "score": 0.8,
+      "trials": 15,
+      "avg_tokens": 111256,
+      "case_scores": {
+        "case-001": 1,
+        "case-002": 1,
+        "case-003": 0.6666666666666666,
+        "case-004": 0.6666666666666666,
+        "case-005": 0.6666666666666666
+      },
+      "is_baseline": false
+    },
+    {
+      "pack": "skills",
+      "rank": 3,
+      "rank_spread": [
+        2,
+        5
+      ],
+      "rating": 314,
+      "ci_lower": 121,
+      "ci_upper": 445,
+      "score": 0.6,
+      "trials": 15,
+      "avg_tokens": 98653,
+      "case_scores": {
+        "case-001": 0.6666666666666666,
+        "case-002": 0.6666666666666666,
+        "case-003": 0.6666666666666666,
+        "case-004": 0.6666666666666666,
+        "case-005": 0.3333333333333333
+      },
+      "is_baseline": false
+    },
+    {
+      "pack": "impeccable",
+      "rank": 4,
+      "rank_spread": [
+        2,
+        5
+      ],
+      "rating": 302,
+      "ci_lower": 164,
+      "ci_upper": 405,
+      "score": 0.6,
+      "trials": 15,
+      "avg_tokens": 92297,
+      "case_scores": {
+        "case-001": 0.6666666666666666,
+        "case-002": 0.3333333333333333,
+        "case-003": 0.6666666666666666,
+        "case-004": 0.6666666666666666,
+        "case-005": 0.6666666666666666
+      },
+      "is_baseline": false
+    },
+    {
+      "pack": "taste-skill",
+      "rank": 5,
+      "rank_spread": [
+        2,
+        6
+      ],
+      "rating": 243,
+      "ci_lower": -11,
+      "ci_upper": 470,
+      "score": 0.5333333333333333,
+      "trials": 15,
+      "avg_tokens": 75581,
+      "case_scores": {
+        "case-001": 0.3333333333333333,
+        "case-002": 0.3333333333333333,
+        "case-003": 0.6666666666666666,
+        "case-004": 0.3333333333333333,
+        "case-005": 1
+      },
+      "is_baseline": false
+    },
+    {
+      "pack": "baseline",
+      "rank": 6,
+      "rank_spread": [
+        5,
+        6
+      ],
+      "rating": 0,
+      "ci_lower": -81,
+      "ci_upper": 81,
+      "score": 0.3333333333333333,
+      "trials": 15,
+      "avg_tokens": 90185,
+      "case_scores": {
+        "case-001": 0.3333333333333333,
+        "case-002": 0.3333333333333333,
+        "case-003": 0.3333333333333333,
+        "case-004": 0.3333333333333333,
+        "case-005": 0.3333333333333333
+      },
+      "is_baseline": true
+    }
+  ],
+  "arena_reference": {
+    "arena": "hf-text",
+    "arena_title": "Text Arena",
+    "arena_date": "2026-10-22",
+    "match": "exact",
+    "bench_model": "claude-sonnet-4-20250514",
+    "model": "Claude Sonnet 4 (Thinking 32K, 20250514)",
+    "vendor": "Anthropic",
+    "license": "proprietary",
+    "score": 1401.9,
+    "ci": 4,
+    "rank": 162,
+    "votes": 34135,
+    "family": [],
+    "data_date": "2026-10-22"
+  },
+  "arena_alternate": {
+    "arena": "hf-search",
+    "arena_date": "2026-10-13",
+    "match": "family",
+    "bench_model": "claude-sonnet-4-20250514",
+    "model": "claude-sonnet-4-6-search",
+    "score": 1220.5,
+    "ci": 5,
+    "rank": 12,
+    "votes": 173986,
+    "data_date": "2026-10-13"
+  },
+  "arena_source": {
+    "boards": 70,
+    "snapshots": 626,
+    "newest_date": "2026-10-26",
+    "age_days": 16,
+    "sources": [
+      "github-raw:lmarena-hf",
+      "github-raw"
+    ],
+    "families": [
+      {
+        "family": "LMArena · HF dataset",
+        "boards": 59,
+        "snapshots": 70,
+        "newest_date": "2026-10-26",
+        "age_days": 16
+      },
+      {
+        "family": "arena.ai",
+        "boards": 11,
+        "snapshots": 556,
+        "newest_date": "2026-10-07",
+        "age_days": 35
+      }
+    ]
+  },
+  "methodology": {
+    "model": "Bradley-Terry over pairwise case wins",
+    "ci": "Bootstrap over cases, B=2000, 95% percentile interval",
+    "rank_spread": "Rank range consistent with 95% CI (LMArena convention)",
+    "scale": "Elo-like, 400/ln(10) scaling"
+  }
+}

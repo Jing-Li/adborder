@@ -1,0 +1,19 @@
+node_modules/
+dist/
+jobs/
+shots/
+.tmp/
+*.log
+.DS_Store
+
+# Downloaded opponent skill packs (restored by scripts/setup.sh)
+skills/superpowers/
+skills/skills/
+skills/impeccable/
+skills/taste-skill/
+
+# Locally imported arch/dx skill set (restored by the Import button)
+skills/mine/
+
+# Arena leaderboard snapshots (restored by scripts/fetch-arena.ts)
+data/arena/

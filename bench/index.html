@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arch/Dx Bench — Skill Pack Arena</title>
+</head>
+<body>
+  <div id="app">
+    <!-- ── Nav ── -->
+    <nav class="appnav">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <div class="brand-text">
+          <span class="brand-name">Arch/Dx Bench</span>
+          <span class="brand-sub">Skill Pack Arena</span>
+        </div>
+      </div>
+      <div class="nav-tabs">
+        <button class="nav-item active" data-view="packs">Packs</button>
+        <button class="nav-item" data-view="arena">Model Landscape</button>
+      </div>
+      <div class="nav-foot">
+        <span id="conn-dot" class="conn-dot"></span>
+        <span id="conn-label" class="conn-label">idle</span>
+      </div>
+    </nav>
+
+    <!-- ── Status strip ── -->
+    <div class="runbar">
+      <div class="runbar-left">
+        <button id="btn-setup" class="ghost" title="下载对手 skill 包">Setup</button>
+        <button id="btn-arena" class="ghost" title="拉取 arena.ai 榜单快照">Arena Data</button>
+        <button id="btn-import" class="ghost hidden" title="把本机 arch/dx skill 复制进 skills/mine">Import Mine Skills</button>
+        <span class="sep"></span>
+        <button id="btn-run" class="act" title="跑 agent 评测">▶ Run</button>
+        <button id="btn-grade" class="act" title="确定性打分">✓ Grade</button>
+        <button id="btn-rank" class="act" title="聚合排名">★ Rank</button>
+        <button id="btn-kill" class="danger" disabled>■ Stop</button>
+      </div>
+      <div class="runbar-right">
+        <code id="cmd-display" class="cmd"></code>
+      </div>
+    </div>
+
+    <!-- ── Main ── -->
+    <div class="shell">
+      <!-- Filters sidebar -->
+      <aside class="filters" id="filters">
+        <div class="fsec" data-mode="pack">
+          <div class="fsec-h">Cases</div>
+          <div id="filter-cases" class="cat-list"></div>
+        </div>
+        <div class="fsec" data-mode="pack">
+          <div class="fsec-h">Packs</div>
+          <div id="filter-packs" class="cat-list"></div>
+        </div>
+        <div class="fsec" data-mode="pack">
+          <div class="fsec-h">Model Tier</div>
+          <div id="filter-tier" class="cat-list"></div>
+        </div>
+        <div class="fsec" data-mode="model">
+          <div class="fsec-h">Vendor</div>
+          <div id="filter-vendor" class="cat-list"></div>
+        </div>
+        <div class="fsec" data-mode="model">
+          <div class="fsec-h">License</div>
+          <div id="filter-license" class="cat-list"></div>
+        </div>
+        <div class="fsec" data-mode="model">
+          <div class="fsec-h">Votes</div>
+          <div id="filter-votes" class="cat-list"></div>
+        </div>
+        <div class="fsec" data-mode="both">
+          <div class="fsec-h">Data Status</div>
+          <div id="filter-status" class="cat-list"></div>
+        </div>
+      </aside>
+
+      <!-- Content -->
+      <main class="content">
+        <!-- Head -->
+        <div class="head">
+          <div class="crumb" id="view-crumb"></div>
+          <div class="title-row">
+            <h1 id="view-title">Skill Pack Arena</h1>
+            <span class="chip" id="view-chip">🏆 Overall</span>
+          </div>
+          <p class="desc" id="view-desc">Brady-Terry ratings over pairwise case wins, bootstrapped 95% CI.</p>
+          <div class="meta" id="view-meta"></div>
+        </div>
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+          <button id="btn-filters" class="ghost">Show Filters</button>
+          <select id="board-group" class="picker hidden" title="leaderboard category"></select>
+          <select id="board-select" class="picker hidden" title="arena.ai leaderboard"></select>
+          <select id="snap-select" class="picker hidden" title="snapshot date"></select>
+          <input id="search" class="search" type="search" placeholder="Search packs…" />
+          <div class="colpick">
+            <button id="btn-cols" class="ghost">Columns ▾</button>
+            <div id="col-menu" class="colmenu hidden"></div>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="card">
+          <div class="table-wrap">
+            <table id="main-table" class="lb-table">
+              <thead></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div id="table-empty" class="empty hidden">No results yet — click Run → Grade → Rank.</div>
+        </div>
+
+        <!-- Model history — the model's trajectory across arena snapshots -->
+        <div class="card hidden" id="history-card">
+          <div class="card-h">Model History<span class="card-sub" id="history-sub"></span></div>
+          <div class="history-body" id="history-body"></div>
+        </div>
+
+        <!-- Benchmark footprint — every board that lists the benchmarked model -->
+        <div class="card hidden" id="footprint-card">
+          <div class="card-h">Benchmark Footprint<span class="card-sub" id="footprint-sub"></span></div>
+          <div class="table-wrap">
+            <table id="footprint-table" class="matrix-table">
+              <thead></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Per-case matrix -->
+        <div class="card" id="matrix-card">
+          <div class="card-h" id="matrix-h">Per-Case Win Rate</div>
+          <div class="table-wrap">
+            <table id="matrix-table" class="matrix-table">
+              <thead></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Methodology -->
+        <div class="note" id="method-note"></div>
+      </main>
+    </div>
+
+    <!-- ── Log drawer ── -->
+    <div class="logbar" id="logbar">
+      <div class="logbar-h" id="logbar-h">
+        <span>Execution Log</span>
+        <button id="btn-log-toggle" class="ghost sm">▾</button>
+      </div>
+      <pre id="log-stream" class="log-area"></pre>
+    </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
