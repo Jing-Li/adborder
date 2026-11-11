@@ -2,6 +2,7 @@
 node_modules/
 *.log
 .DS_Store
+.tmp/
 
 # arch/dx bench — 本地产物与可重新拉取的语料
 # 语料由 bench/scripts/fetch-arena.ts 重建,评测产物由 bench/scripts/run-eval.ts 生成
