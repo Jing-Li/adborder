@@ -1,0 +1,56 @@
+# check-stale-na — 每周巡检「陈旧结论」(na_reason 时效门禁,T18)
+#
+# 依据:kanban/tasks/T18.md(T16 遗留项 ①)。
+# T16 的根因教训:「官方未公开 / 待官方开放」这类结论会静默过期 —— 本门禁把「结论时效」变成 CI 可判定项:
+#   - 判的是 na_reason 正文里的「结论作出日期」,不是文件 fetched_at(每日 fetch 会刷新 fetched_at,占位文件的
+#     fetched_at 永远是昨天,按文件时间判陈旧永远抓不到问题);
+#   - 结论型词元(未公开/待官方/官方未/不可达)命中且「今天 − 结论日期」> 阈值(默认 21 天)→ 报陈旧结论,退出码 1;
+#   - 合规/密钥约束结论(ToS/禁止转分发/需服务端 key/服务端持有/API key)永久豁免,不报;
+#   - 命中结论词元但正文里提不出日期 → 提示「结论未标日期 · 无法自动判定」,不计入退出码 1。
+# - 独立 workflow:与 fetch-leaderboards.yml / deploy-site.yml 无任何依赖关系。
+#   本 workflow 失败只产生一条失败通知(failed run + 邮件 + job summary),
+#   **不影响数据流水线**(既不阻塞每日 fetch,也不阻塞 Pages 部署)。
+# - 只读:脚本不写任何文件、不发网络请求,零 npm 依赖 → 无需 npm ci。
+name: check-stale-na
+
+on:
+  schedule:
+    - cron: '0 3 * * 1' # 每周一 UTC 03:00(北京时间 11:00)
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-stale-na
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Check stale na_reason conclusions
+        run: |
+          set -o pipefail
+          cd models-src
+          node scripts/check-stale-na.mjs 2>&1 | tee "$RUNNER_TEMP/stale-na.txt"
+
+      - name: Publish report to job summary
+        if: always()
+        run: |
+          {
+            echo "### 陈旧结论门禁(check-stale-na)"
+            echo ""
+            echo '```text'
+            cat "$RUNNER_TEMP/stale-na.txt" 2>/dev/null || echo "(无输出)"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
