@@ -2,3799 +2,3799 @@
   "source": "LMArena Text Arena (Bradley-Terry)",
   "dimension": "人类偏好",
   "source_url": "https://arena.ai/leaderboard",
-  "benchmark_version": "2026-11-09",
-  "updated_at": "2026-11-09",
+  "benchmark_version": "2026-11-11",
+  "updated_at": "2026-11-11",
   "note": "数据出处:HuggingFace 官方公开数据集 lmarena-ai/leaderboard-dataset 的 text_style_control/latest split(文件 text_style_control/latest-00000-of-00001.parquet),Bradley-Terry 评分,仅取 category=overall;许可 CC-BY-4.0(转载须署名 Arena / LMArena);评分为 Bradley-Terry Elo 量纲,与其他维度分数不可直接横比。",
-  "fetched_at": "2026-11-12T06:08:56.791Z",
+  "fetched_at": "2026-11-13T05:30:27.188Z",
   "models": [
     {
       "model": "Gemini 4 Carbon (High)",
-      "score": 1526,
+      "score": 1526.2,
       "rank": 1,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 4 Argon (High)",
-      "score": 1522.4,
+      "score": 1521.7,
       "rank": 2,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Muse Wonder (Max)",
-      "score": 1511,
+      "score": 1510.9,
       "rank": 3,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Opus 5.5 (High)",
-      "score": 1506.1,
+      "score": 1506.8,
       "rank": 4,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Fable 5 (High)",
-      "score": 1503.9,
+      "score": 1504,
       "rank": 5,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Opus 4.6 (High)",
-      "score": 1503,
+      "score": 1502.8,
       "rank": 6,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Fable 5.1 (Max)",
-      "score": 1502.7,
+      "score": 1502.3,
       "rank": 7,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Opus 4.7 (High)",
       "score": 1501.1,
       "rank": 8,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 3.8 Flash (High)",
-      "score": 1497.5,
+      "score": 1496.7,
       "rank": 9,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "Claude Opus 4.6",
-      "score": 1496.5,
-      "rank": 10,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Muse Spark 1.3 (Max)",
-      "score": 1496.3,
+      "score": 1496.5,
+      "rank": 10,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Claude Opus 4.6",
+      "score": 1496.4,
       "rank": 11,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Opus 4.7",
       "score": 1493.9,
       "rank": 12,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Muse Spark 1.2 (xHigh)",
-      "score": 1493.5,
+      "score": 1492.9,
       "rank": 13,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Muse Spark 1.1",
-      "score": 1490.7,
+      "score": 1490.9,
       "rank": 14,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Gemini 4 Hydrogen (High)",
+      "score": 1490.4,
+      "rank": 15,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Opus 5 (High)",
-      "score": 1489.8,
-      "rank": 15,
+      "score": 1489.7,
+      "rank": 16,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 3.7 Flash (High)",
-      "score": 1489.4,
-      "rank": 16,
+      "score": 1489.3,
+      "rank": 17,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Muse Spark",
-      "score": 1489.1,
-      "rank": 17,
+      "score": 1489.2,
+      "rank": 18,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Opus 5 (Max)",
-      "score": 1488.8,
-      "rank": 18,
+      "score": 1489,
+      "rank": 19,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Kimi K3 (Max)",
-      "score": 1487.1,
-      "rank": 19,
+      "score": 1487.4,
+      "rank": 20,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 3.1 Pro Preview",
-      "score": 1486.7,
-      "rank": 20,
+      "score": 1486.8,
+      "rank": 21,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 3 Pro",
       "score": 1485.6,
-      "rank": 21,
+      "rank": 22,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-5.6 Sol (xHigh)",
-      "score": 1484.9,
-      "rank": 22,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "Qwen3.8-Max",
-      "score": 1484,
+      "score": 1485.1,
       "rank": 23,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Kimi K3.1 Pro (Max)",
-      "score": 1483,
+      "score": 1484.7,
       "rank": 24,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Qwen3.8-Max",
+      "score": 1484.1,
+      "rank": 25,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 3.6 Flash (High)",
-      "score": 1482.5,
-      "rank": 25,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "GLM-5.3 (Max)",
-      "score": 1482.5,
+      "score": 1482.6,
       "rank": 26,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "GPT-6.1 Sol (Max)",
-      "score": 1482.1,
-      "rank": 27,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Opus 4.8 (High)",
-      "score": 1481.8,
+      "score": 1481.9,
+      "rank": 27,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "GLM-5.3 (Max)",
+      "score": 1481.6,
       "rank": 28,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-5.5 (High)",
       "score": 1481.3,
       "rank": 29,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "GPT-6.1 Sol (Max)",
+      "score": 1480.8,
+      "rank": 30,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "MiMo-V2.6-Pro",
-      "score": 1480,
-      "rank": 30,
+      "score": 1479.9,
+      "rank": 31,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 3.5 Flash (High)",
       "score": 1478.4,
-      "rank": 31,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "Gemini 3.5 Flash (Medium)",
-      "score": 1476.1,
       "rank": 32,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-5.5",
       "score": 1476.1,
       "rank": 33,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Gemini 3.5 Flash (Medium)",
+      "score": 1476,
+      "rank": 34,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-5.2 Chat (20260210)",
-      "score": 1475.7,
-      "rank": 34,
+      "score": 1475.6,
+      "rank": 35,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "GLM-5.3-Flash",
+      "score": 1475.3,
+      "rank": 36,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-5.4 (High)",
-      "score": 1475.2,
-      "rank": 35,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "GLM-5.2 (Max)",
       "score": 1475.1,
-      "rank": 36,
+      "rank": 37,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek-V4.1-Flash-20260910 (Max)",
-      "score": 1475,
-      "rank": 37,
+      "score": 1475.1,
+      "rank": 38,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "GLM-5.2 (Max)",
+      "score": 1475,
+      "rank": 39,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Grok 4.20 Beta 1",
       "score": 1474.6,
-      "rank": 38,
+      "rank": 40,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Opus 4.8",
-      "score": 1474.3,
-      "rank": 39,
+      "score": 1474.4,
+      "rank": 41,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "GLM-5.3-Flash",
-      "score": 1474.2,
-      "rank": 40,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-6 Astra (Max)",
-      "score": 1474.1,
-      "rank": 41,
+      "score": 1473.9,
+      "rank": 42,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3.7-Max-Preview",
       "score": 1473.8,
-      "rank": 42,
+      "rank": 43,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Opus 4.5 (High, 32K, 20251101)",
       "score": 1473.7,
-      "rank": 43,
+      "rank": 44,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-5.5 Instant",
-      "score": 1473.3,
-      "rank": 44,
+      "score": 1473.2,
+      "rank": 45,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 3 Flash",
-      "score": 1472.9,
-      "rank": 45,
+      "score": 1473,
+      "rank": 46,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Sonnet 5.5 (xHigh)",
-      "score": 1472.5,
-      "rank": 46,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "Grok 4.20 Beta (Reasoning, 0309)",
-      "score": 1472.1,
+      "score": 1472.9,
       "rank": 47,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Sonnet 4.6",
-      "score": 1472,
+      "score": 1472.1,
       "rank": 48,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Grok 4.20 Beta (Reasoning, 0309)",
+      "score": 1471.9,
+      "rank": 49,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Grok 4.20 Multi-Agent Beta (0309)",
       "score": 1471.1,
-      "rank": 49,
+      "rank": 50,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Opus 4.5 (20251101)",
       "score": 1469.7,
-      "rank": 50,
+      "rank": 51,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-5.6 Terra (xHigh)",
       "score": 1467.9,
-      "rank": 51,
+      "rank": 52,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "ERNIE 5.1",
       "score": 1467,
-      "rank": 52,
+      "rank": 53,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "MiMo-V2.5-Pro",
-      "score": 1466.5,
-      "rank": 53,
+      "score": 1466.4,
+      "rank": 54,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Grok 4.5",
       "score": 1465.8,
-      "rank": 54,
+      "rank": 55,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Grok 4.1 (Thinking)",
       "score": 1465.3,
-      "rank": 55,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "GLM-5.1",
-      "score": 1465.2,
       "rank": 56,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "Qwen3.5-Max-Preview",
-      "score": 1465.1,
-      "rank": 57,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-5.4",
+      "score": 1465.1,
+      "rank": 57,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Qwen3.5-Max-Preview",
       "score": 1465,
       "rank": 58,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "GLM-5.1",
+      "score": 1465,
+      "rank": 59,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek-V4-Pro (High, 20260813)",
-      "score": 1464,
-      "rank": 59,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "Claude Sonnet 5 (High)",
-      "score": 1460.9,
+      "score": 1463.9,
       "rank": 60,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Kimi K2.6",
-      "score": 1460.8,
+      "score": 1460.9,
       "rank": 61,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Claude Sonnet 5 (High)",
+      "score": 1460.8,
+      "rank": 62,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3.6-Max-Preview",
       "score": 1459.7,
-      "rank": 62,
+      "rank": 63,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Grok 4.1",
-      "score": 1459.2,
-      "rank": 63,
+      "score": 1459.3,
+      "rank": 64,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 3 Flash (Minimal)",
-      "score": 1458.3,
-      "rank": 64,
+      "score": 1458.2,
+      "rank": 65,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek-V4-Pro",
-      "score": 1458.1,
-      "rank": 65,
+      "score": 1457.9,
+      "rank": 66,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GLM-5",
-      "score": 1457.4,
-      "rank": 66,
+      "score": 1457.3,
+      "rank": 67,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-6 Sol (Max)",
-      "score": 1456.8,
-      "rank": 67,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "Dola Seed 2.0 Pro",
-      "score": 1456.6,
+      "score": 1457.2,
       "rank": 68,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Grok 4.6 (High)",
-      "score": 1456.5,
+      "score": 1456.7,
       "rank": 69,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Dola Seed 2.0 Pro",
+      "score": 1456.5,
+      "rank": 70,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Sonnet 4.5 (High, 32K, 20250929)",
-      "score": 1456.3,
-      "rank": 70,
+      "score": 1456.1,
+      "rank": 71,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-5.1 (High)",
-      "score": 1455.5,
-      "rank": 71,
+      "score": 1455.4,
+      "rank": 72,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3.7-Plus",
       "score": 1455.3,
-      "rank": 72,
+      "rank": 73,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Sonnet 4.5 (20250929)",
       "score": 1455.1,
-      "rank": 73,
+      "rank": 74,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek-V4-Pro Preview (High)",
-      "score": 1455,
-      "rank": 74,
+      "score": 1454.9,
+      "rank": 75,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 3.5 Flash-Lite",
-      "score": 1454.8,
-      "rank": 75,
+      "score": 1454.9,
+      "rank": 76,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Hy3",
-      "score": 1454.2,
-      "rank": 76,
+      "score": 1454,
+      "rank": 77,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-5.6 Luna (xHigh)",
       "score": 1453.2,
-      "rank": 77,
+      "rank": 78,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemma 4 31B",
-      "score": 1451.9,
-      "rank": 78,
+      "score": 1451.8,
+      "rank": 79,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-5.3 Chat",
-      "score": 1450.1,
-      "rank": 79,
+      "score": 1450.3,
+      "rank": 80,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Opus 4.1 (Thinking 16K, 20250805)",
-      "score": 1449.8,
-      "rank": 80,
+      "score": 1449.9,
+      "rank": 81,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Kimi K2.5 (Thinking)",
       "score": 1449.5,
-      "rank": 81,
+      "rank": 82,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "ERNIE-5.0-Preview (1203)",
-      "score": 1449,
-      "rank": 82,
+      "score": 1448.8,
+      "rank": 83,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Step 5 Preview",
-      "score": 1448.3,
-      "rank": 83,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "MiMo-V2-Pro",
-      "score": 1448.2,
+      "score": 1448.5,
       "rank": 84,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "Claude Opus 4.1 (20250805)",
-      "score": 1448.1,
-      "rank": 85,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "MiMo-V2.6-Flash",
-      "score": 1447.8,
+      "score": 1448.4,
+      "rank": 85,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "MiMo-V2-Pro",
+      "score": 1448,
       "rank": 86,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Claude Opus 4.1 (20250805)",
+      "score": 1448,
+      "rank": 87,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-5.4 mini (High)",
-      "score": 1447.4,
-      "rank": 87,
+      "score": 1447.3,
+      "rank": 88,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "ERNIE 5.0 (0110)",
       "score": 1445.8,
-      "rank": 88,
+      "rank": 89,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 2.5 Pro",
       "score": 1445.5,
-      "rank": 89,
+      "rank": 90,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-4.5 Preview (2025-02-27)",
-      "score": 1444.6,
-      "rank": 90,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "Inkling",
-      "score": 1443.1,
+      "score": 1444.7,
       "rank": 91,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Grok 4.7 (xHigh)",
+      "score": 1443.3,
+      "rank": 92,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3.6-Plus",
-      "score": 1442.9,
-      "rank": 92,
+      "score": 1442.8,
+      "rank": 93,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "ChatGPT-4o Latest (20250326)",
       "score": 1442.7,
-      "rank": 93,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "Grok 4.7 (xHigh)",
-      "score": 1442,
       "rank": 94,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Inkling",
+      "score": 1442.5,
+      "rank": 95,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Grok 4.3",
       "score": 1441.7,
-      "rank": 95,
+      "rank": 96,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3.5-397B-A17B",
-      "score": 1441.5,
-      "rank": 96,
+      "score": 1441.4,
+      "rank": 97,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GLM-4.7",
       "score": 1441.4,
-      "rank": 97,
+      "rank": 98,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-6 Luna (Max)",
-      "score": 1440.8,
-      "rank": 98,
+      "score": 1440.9,
+      "rank": 99,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek-V4-Flash Preview (High)",
-      "score": 1438.8,
-      "rank": 99,
+      "score": 1439,
+      "rank": 100,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-5.1",
-      "score": 1438.6,
-      "rank": 100,
+      "score": 1438.5,
+      "rank": 101,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemma 4 26B A4B",
-      "score": 1437.5,
-      "rank": 101,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "GPT-5.2 (High)",
       "score": 1437.4,
       "rank": 102,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "GPT-5.2 (High)",
+      "score": 1437.2,
+      "rank": 103,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "LongCat-Flash-Chat Exp (2602)",
-      "score": 1436.1,
-      "rank": 103,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "MiniMax-M3",
-      "score": 1435.9,
+      "score": 1436,
       "rank": 104,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek-V4-Flash",
       "score": 1435.8,
       "rank": 105,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "MiniMax-M3",
+      "score": 1435.8,
+      "rank": 106,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-5.2",
-      "score": 1435.3,
-      "rank": 106,
+      "score": 1435.4,
+      "rank": 107,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-5 (High)",
-      "score": 1434.8,
-      "rank": 107,
+      "score": 1434.9,
+      "rank": 108,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Beam 1.0 501B A23B",
-      "score": 1434.6,
-      "rank": 108,
+      "score": 1434.4,
+      "rank": 109,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3-Max-Preview",
       "score": 1434.4,
-      "rank": 109,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "GLM-5V-Turbo",
-      "score": 1434.1,
       "rank": 110,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "MiMo-V2.5",
-      "score": 1433.7,
-      "rank": 111,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3.8-27B",
-      "score": 1433.4,
+      "score": 1433.8,
+      "rank": 111,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "MiMo-V2.5",
+      "score": 1433.6,
       "rank": 112,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 3.1 Flash-Lite Preview",
       "score": 1433,
       "rank": 113,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "o3 (2025-04-16)",
-      "score": 1431.5,
+      "score": 1431.6,
       "rank": 114,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Kimi K2.5 (Instant)",
-      "score": 1430.9,
+      "score": 1430.8,
       "rank": 115,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Grok 4.1 Fast (Reasoning)",
       "score": 1430.6,
       "rank": 116,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "MiMo-V2-Omni",
       "score": 1430.3,
       "rank": 117,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Kimi K2 Thinking Turbo",
-      "score": 1430.1,
+      "score": 1429.9,
       "rank": 118,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-5 Chat",
       "score": 1426.7,
       "rank": 119,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "amazon-nova-experimental-chat (26-02-10)",
       "score": 1426.6,
       "rank": 120,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Mistral Medium 3.5",
-      "score": 1426.5,
+      "score": 1426.4,
       "rank": 121,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "NVIDIA-Nemotron-3-Ultra-550B-A55B (NVFP4)",
-      "score": 1426.4,
-      "rank": 122,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Opus 4 (Thinking 16K, 20250514)",
       "score": 1426.3,
+      "rank": 122,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "NVIDIA-Nemotron-3-Ultra-550B-A55B (NVFP4)",
+      "score": 1426.3,
       "rank": 123,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek-V3.2-Exp (Thinking)",
-      "score": 1425.2,
+      "score": 1425,
       "rank": 124,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek-V3.2",
       "score": 1424.7,
       "rank": 125,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Muse Glimmer",
-      "score": 1424.7,
+      "score": 1424.6,
       "rank": 126,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GLM-4.6",
-      "score": 1424.4,
+      "score": 1424.5,
       "rank": 127,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3-Max (2025-09-23)",
       "score": 1423.3,
       "rank": 128,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "Mistral Large 4",
-      "score": 1423.1,
-      "rank": 129,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek-V3.2 (Thinking)",
-      "score": 1422.6,
-      "rank": 130,
+      "score": 1422.7,
+      "rank": 129,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "Claude Haiku 5.5 (High)",
-      "score": 1422.4,
-      "rank": 131,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3-235B-A22B-Instruct (2507)",
-      "score": 1422.2,
-      "rank": 132,
+      "score": 1422.1,
+      "rank": 130,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek-V3.2-Exp",
       "score": 1421.9,
-      "rank": 133,
+      "rank": 131,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek-R1 (0528)",
-      "score": 1421.4,
+      "score": 1421.5,
+      "rank": 132,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Claude Haiku 5.5 (High)",
+      "score": 1421.2,
+      "rank": 133,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Mistral Large 4",
+      "score": 1420.4,
       "rank": 134,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Grok 4 Fast (Non-Reasoning)",
       "score": 1418.5,
       "rank": 135,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Kimi K2 Preview (0905)",
-      "score": 1418.5,
+      "score": 1418.4,
       "rank": 136,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "ERNIE-5.0-Preview (1022)",
-      "score": 1418.2,
-      "rank": 137,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Kimi K2 Preview (0711)",
-      "score": 1417.9,
+      "score": 1418.1,
+      "rank": 137,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "ERNIE-5.0-Preview (1022)",
+      "score": 1418.1,
       "rank": 138,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek-V3.1",
       "score": 1417.3,
       "rank": 139,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3.5-122B-A10B",
-      "score": 1416.3,
+      "score": 1416.4,
       "rank": 140,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek-V3.1-Terminus (Thinking)",
       "score": 1416,
       "rank": 141,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek-V3.1 (Thinking)",
       "score": 1415.9,
       "rank": 142,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)",
-      "score": 1415,
-      "rank": 143,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "MiniMax-M2.7",
-      "score": 1414.9,
-      "rank": 144,
+      "score": 1414.8,
+      "rank": 143,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek-V3.1-Terminus",
       "score": 1414.7,
-      "rank": 145,
+      "rank": 144,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Mistral Large 3",
       "score": 1414.7,
-      "rank": 146,
+      "rank": 145,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-4.1 (2025-04-14)",
       "score": 1414.6,
-      "rank": 147,
+      "rank": 146,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Opus 4 (20250514)",
       "score": 1414.4,
+      "rank": 147,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)",
+      "score": 1414.4,
       "rank": 148,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Haiku 4.5 (20251001)",
-      "score": 1414.1,
+      "score": 1414,
       "rank": 149,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3-VL-235B-A22B-Instruct",
       "score": 1413.2,
       "rank": 150,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "Inkling 2 Small",
-      "score": 1412.1,
-      "rank": 151,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "amazon-nova-experimental-chat (26-01-10)",
-      "score": 1412,
+      "score": 1411.8,
+      "rank": 151,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Inkling 2 Small",
+      "score": 1411.8,
       "rank": 152,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Grok 3 Preview (02-24)",
       "score": 1411.3,
       "rank": 153,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Grok 4 (0709)",
+      "score": 1411,
+      "rank": 154,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GLM-4.5",
       "score": 1411,
-      "rank": 154,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "Grok 4 (0709)",
-      "score": 1410.9,
       "rank": 155,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 2.5 Flash",
       "score": 1409.3,
       "rank": 156,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Hy3 preview",
-      "score": 1408.9,
+      "score": 1408.8,
       "rank": 157,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3.5-27B",
-      "score": 1408.6,
+      "score": 1408.5,
       "rank": 158,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Mistral Medium 3.1 (2508)",
       "score": 1408.1,
       "rank": 159,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Inkling-Small",
-      "score": 1405.2,
+      "score": 1405.4,
       "rank": 160,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Grok 4 Fast (Reasoning)",
       "score": 1405.2,
       "rank": 161,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 2.5 Flash Preview (09-2025)",
-      "score": 1403.1,
+      "score": 1403.2,
       "rank": 162,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "o1 (2024-12-17)",
       "score": 1402.3,
       "rank": 163,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3-235B-A22B (Non-Thinking)",
       "score": 1402.2,
       "rank": 164,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Sonnet 4 (Thinking 32K, 20250514)",
-      "score": 1401.9,
+      "score": 1402,
       "rank": 165,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-5.4 nano (High)",
       "score": 1401,
       "rank": 166,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "LongCat-Flash-Chat",
-      "score": 1400.5,
+      "score": 1400.6,
       "rank": 167,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3-235B-A22B-Thinking (2507)",
-      "score": 1400.3,
+      "score": 1400.2,
       "rank": 168,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3-Next-80B-A3B-Instruct",
-      "score": 1398.7,
+      "score": 1398.6,
       "rank": 169,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek-R1",
-      "score": 1398.1,
+      "score": 1398.2,
       "rank": 170,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3.5-Flash",
       "score": 1396,
       "rank": 171,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek-V3 (0324)",
-      "score": 1395.2,
+      "score": 1395.3,
       "rank": 172,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3-VL-235B-A22B-Thinking",
       "score": 1394.7,
       "rank": 173,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Hunyuan Vision 1.5 Thinking",
-      "score": 1394.3,
+      "score": 1394.6,
       "rank": 174,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3.5-35B-A3B",
-      "score": 1394,
+      "score": 1393.9,
       "rank": 175,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Step-3.5-Flash",
-      "score": 1392.8,
+      "score": 1392.6,
       "rank": 176,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "amazon-nova-experimental-chat (12-10)",
-      "score": 1392.7,
+      "score": 1392.5,
       "rank": 177,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "MiMo-V2-Flash (Non-Thinking)",
       "score": 1391.7,
       "rank": 178,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude Sonnet 4 (20250514)",
-      "score": 1391,
+      "score": 1390.9,
       "rank": 179,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "o4-mini (2025-04-16)",
       "score": 1390.8,
       "rank": 180,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "MiniMax-M2.5",
       "score": 1390.8,
       "rank": 181,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-5 mini (High)",
       "score": 1389.9,
       "rank": 182,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "o1-preview",
-      "score": 1388.6,
+      "score": 1388.7,
       "rank": 183,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude 3.7 Sonnet (Thinking 32K, 20250219)",
       "score": 1388.4,
       "rank": 184,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "Qwen3-Coder-480B-A35B-Instruct",
-      "score": 1387.5,
-      "rank": 185,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Solar Pro 4",
       "score": 1387.5,
+      "rank": 185,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Qwen3-Coder-480B-A35B-Instruct",
+      "score": 1387.4,
       "rank": 186,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Mistral Medium 3 (2505)",
+      "score": 1387.4,
+      "rank": 187,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Hunyuan T1 (20250711)",
       "score": 1387.3,
-      "rank": 187,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "Mistral Medium 3 (2505)",
-      "score": 1387.3,
       "rank": 188,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "MiMo-V2-Flash (Thinking)",
       "score": 1386.2,
       "rank": 189,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "MiniMax-M2.1 Preview",
-      "score": 1384.5,
+      "score": 1384.3,
       "rank": 190,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Hunyuan TurboS (20250416)",
       "score": 1383.1,
       "rank": 191,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-4.1 mini (2025-04-14)",
       "score": 1382.9,
       "rank": 192,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3-30B-A3B-Instruct (2507)",
       "score": 1382.3,
       "rank": 193,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 2.5 Flash-Lite Preview (Non-Thinking, 09-2025)",
       "score": 1379.4,
       "rank": 194,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Trinity Large Preview",
-      "score": 1378.9,
+      "score": 1378.7,
       "rank": 195,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GLM-4.6V",
       "score": 1378.3,
       "rank": 196,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Qwen3-235B-A22B",
+      "score": 1374.9,
+      "rank": 197,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 2.5 Flash-Lite Preview (Thinking, 06-17)",
       "score": 1374.9,
-      "rank": 197,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "Qwen3-235B-A22B",
-      "score": 1374.8,
       "rank": 198,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude 3.5 Sonnet (20241022)",
       "score": 1374.3,
       "rank": 199,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen2.5-Max",
-      "score": 1373.7,
+      "score": 1373.8,
       "rank": 200,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GLM-4.5-Air",
-      "score": 1372.9,
+      "score": 1373,
       "rank": 201,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude 3.7 Sonnet (20250219)",
-      "score": 1372.4,
+      "score": 1372.5,
       "rank": 202,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3-Next-80B-A3B-Thinking",
       "score": 1369.4,
       "rank": 203,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Trinity Large Thinking",
-      "score": 1367.4,
+      "score": 1367.2,
       "rank": 204,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemma 3 27B IT",
       "score": 1365.4,
       "rank": 205,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GLM-4.7-Flash",
       "score": 1364.5,
       "rank": 206,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "MiniMax-M1",
-      "score": 1363.7,
-      "rank": 207,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Grok 3 Mini (High)",
-      "score": 1363.6,
+      "score": 1363.8,
+      "rank": 207,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "MiniMax-M1",
+      "score": 1363.8,
       "rank": 208,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "o3-mini (High)",
       "score": 1363.6,
       "rank": 209,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "amazon-nova-experimental-chat (11-10)",
-      "score": 1363.3,
+      "score": 1363.4,
       "rank": 210,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 2.0 Flash (001)",
-      "score": 1360,
+      "score": 1360.2,
       "rank": 211,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "NVIDIA-Nemotron-3-Super-120B-A12B",
-      "score": 1359.9,
+      "score": 1359.7,
       "rank": 212,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek-V3",
-      "score": 1358.4,
+      "score": 1358.5,
       "rank": 213,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Grok 3 Mini Beta",
-      "score": 1357.8,
+      "score": 1357.9,
       "rank": 214,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Mistral Small 3.2 (2506)",
-      "score": 1356.4,
+      "score": 1356.5,
       "rank": 215,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "INTELLECT-3",
-      "score": 1355.8,
+      "score": 1355.9,
       "rank": 216,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Command A (03-2025)",
       "score": 1353.7,
       "rank": 217,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 2.0 Flash-Lite Preview (02-05)",
-      "score": 1353.6,
+      "score": 1353.7,
       "rank": 218,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GLM-4.5V",
-      "score": 1352,
+      "score": 1352.2,
       "rank": 219,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "gpt-oss-120b",
-      "score": 1351.7,
+      "score": 1351.8,
       "rank": 220,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "NVIDIA-Nemotron-3.5-Lightning-30B-A3B (NVFP4)",
-      "score": 1351.4,
+      "score": 1351.5,
       "rank": 221,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 1.5 Pro (002)",
       "score": 1351.4,
       "rank": 222,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Hunyuan TurboS (20250226)",
       "score": 1348.9,
       "rank": 223,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Step-3",
       "score": 1348.7,
       "rank": 224,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "amazon-nova-experimental-chat (10-20)",
-      "score": 1348.4,
-      "rank": 225,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "o3-mini",
       "score": 1348.2,
+      "rank": 225,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "amazon-nova-experimental-chat (10-20)",
+      "score": 1348,
       "rank": 226,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Llama 3.1 Nemotron Ultra 253B v1",
       "score": 1347.6,
       "rank": 227,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3-32B",
       "score": 1346.8,
       "rank": 228,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-4o (2024-05-13)",
       "score": 1346.2,
       "rank": 229,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "amazon-nova-experimental-chat (10-09)",
-      "score": 1346,
+      "score": 1346.1,
       "rank": 230,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen-Plus (0125)",
       "score": 1345.9,
       "rank": 231,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "MiniMax-M2",
-      "score": 1343.6,
+      "score": 1343.7,
       "rank": 232,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Mercury 2",
+      "score": 1343.4,
+      "rank": 233,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude 3.5 Sonnet (20240620)",
       "score": 1343.3,
-      "rank": 233,
+      "rank": 234,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Llama 3.3 Nemotron Super 49B v1.5",
-      "score": 1343.2,
-      "rank": 234,
+      "score": 1343.3,
+      "rank": 235,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Ling-flash-2.0",
       "score": 1343.1,
-      "rank": 235,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "Mercury 2",
-      "score": 1343,
       "rank": 236,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GLM-4-Plus (0111)",
       "score": 1342.8,
       "rank": 237,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemma 3 12B IT",
-      "score": 1341.7,
+      "score": 1341.8,
       "rank": 238,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Hunyuan Turbo (0110)",
       "score": 1340.7,
       "rank": 239,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Granite 4.2 30B",
-      "score": 1339.8,
+      "score": 1340.1,
       "rank": 240,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-5 nano (High)",
       "score": 1337.6,
       "rank": 241,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "o1-mini",
-      "score": 1336.8,
+      "score": 1336.9,
       "rank": 242,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini Advanced (0514)",
       "score": 1336.1,
       "rank": 243,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Grok 2 (2024-08-13)",
       "score": 1335.7,
       "rank": 244,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-4o (2024-08-06)",
-      "score": 1335.6,
+      "score": 1335.7,
       "rank": 245,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Llama 3.1 405B Instruct (BF16)",
+      "score": 1335.6,
+      "rank": 246,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "QwQ-32B",
       "score": 1335.5,
-      "rank": 246,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "Llama 3.1 405B Instruct (BF16)",
-      "score": 1335.5,
       "rank": 247,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Amazon Nova 2 Lite",
       "score": 1334.8,
       "rank": 248,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Llama 3.1 405B Instruct (FP8)",
       "score": 1333.7,
       "rank": 249,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Step-2 16K Exp (202412)",
       "score": 1333.5,
       "rank": 250,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Olmo 3.1 32B Instruct",
       "score": 1329.3,
       "rank": 251,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Yi Lightning",
       "score": 1328.3,
       "rank": 252,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Llama 3.3 Nemotron Super 49B v1",
       "score": 1327.8,
       "rank": 253,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Llama 4 Maverick 17B 128E Instruct",
       "score": 1327,
       "rank": 254,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen3-30B-A3B",
-      "score": 1326.5,
+      "score": 1326.6,
       "rank": 255,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Hunyuan Large (2025-02-10)",
       "score": 1326.4,
       "rank": 256,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude 3.5 Haiku (20241022)",
-      "score": 1324.7,
+      "score": 1324.8,
       "rank": 257,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-4 Turbo (2024-04-09)",
       "score": 1324.6,
       "rank": 258,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 1.5 Pro (001)",
-      "score": 1324.1,
+      "score": 1324.2,
       "rank": 259,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek-V2.5 (1210)",
       "score": 1323.4,
       "rank": 260,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "Ring-flash-2.0",
-      "score": 1322.3,
-      "rank": 261,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-4.1 nano (2025-04-14)",
       "score": 1322.3,
-      "rank": 262,
+      "rank": 261,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude 3 Opus (20240229)",
       "score": 1322.3,
+      "rank": 262,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Ring-flash-2.0",
+      "score": 1322.2,
       "rank": 263,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Llama 4 Scout 17B 16E Instruct",
-      "score": 1321.5,
+      "score": 1321.6,
       "rank": 264,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Molmo 2 8B",
-      "score": 1320.7,
+      "score": 1321,
       "rank": 265,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Step-1o Turbo (202506)",
-      "score": 1319.6,
+      "score": 1319.7,
       "rank": 266,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GLM-4-Plus",
       "score": 1319.4,
       "rank": 267,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen-Max (0919)",
-      "score": 1318.1,
+      "score": 1318.2,
       "rank": 268,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Llama 3.3 70B Instruct",
       "score": 1318.1,
       "rank": 269,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-4o mini (2024-07-18)",
       "score": 1317.6,
       "rank": 270,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "gpt-oss-20b",
-      "score": 1317.6,
-      "rank": 271,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemma 3n E4B IT",
+      "score": 1317.6,
+      "rank": 271,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "gpt-oss-20b",
       "score": 1317.5,
       "rank": 272,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen2.5-Plus (1127)",
       "score": 1314.6,
       "rank": 273,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Mistral Large 2 (2407)",
       "score": 1314.5,
       "rank": 274,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Athene V2 Chat",
-      "score": 1314.1,
+      "score": 1314.2,
       "rank": 275,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "NVIDIA-Nemotron-3-Nano-30B-A3B (BF16)",
-      "score": 1313.8,
+      "score": 1313.7,
       "rank": 276,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-4 Turbo Preview (0125)",
       "score": 1313.3,
       "rank": 277,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-4 Turbo Preview (1106)",
-      "score": 1312.9,
+      "score": 1313,
       "rank": 278,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Hunyuan Standard (2025-02-10)",
       "score": 1311.3,
       "rank": 279,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 1.5 Flash (002)",
-      "score": 1309.3,
+      "score": 1309.4,
       "rank": 280,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Grok 2 mini (2024-08-13)",
-      "score": 1308.4,
+      "score": 1308.5,
       "rank": 281,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek-V2.5",
       "score": 1307.2,
       "rank": 282,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Athene 70B (0725)",
-      "score": 1306.7,
+      "score": 1306.8,
       "rank": 283,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Olmo 3 32B Think",
-      "score": 1305.8,
+      "score": 1305.7,
       "rank": 284,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Mistral Large (2411)",
       "score": 1305.6,
       "rank": 285,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Mercury",
-      "score": 1305.5,
+      "score": 1305.3,
       "rank": 286,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Magistral Medium (2506)",
       "score": 1304.8,
       "rank": 287,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Granite 4.1 8B",
-      "score": 1304.4,
+      "score": 1304.3,
       "rank": 288,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemma 3 4B IT",
-      "score": 1303.2,
+      "score": 1303.3,
       "rank": 289,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen2.5-72B-Instruct",
       "score": 1302.9,
       "rank": 290,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Mistral Small 3.1 24B Instruct (2503)",
-      "score": 1302.7,
+      "score": 1302.8,
       "rank": 291,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Llama 3.1 Nemotron 70B Instruct",
       "score": 1298.8,
       "rank": 292,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Hunyuan Large Vision",
-      "score": 1294,
+      "score": 1294.1,
       "rank": 293,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Llama 3.1 70B Instruct",
-      "score": 1293.4,
+      "score": 1293.5,
       "rank": 294,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Amazon Nova Pro 1.0",
       "score": 1290.1,
       "rank": 295,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemma 2 27B IT",
       "score": 1289.6,
       "rank": 296,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "Granite 4.2 8B",
-      "score": 1289.5,
-      "rank": 297,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Jamba 1.5 Large",
-      "score": 1289.5,
+      "score": 1289.6,
+      "rank": 297,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "Granite 4.2 8B",
+      "score": 1289.3,
       "rank": 298,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Granite 4.2 3B",
       "score": 1289,
       "rank": 299,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Reka Core (20240904)",
       "score": 1288.1,
       "rank": 300,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-4 (0314)",
       "score": 1288,
       "rank": 301,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Granite-4.0-H-Small",
       "score": 1287.5,
       "rank": 302,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Llama 3.1 Nemotron 51B Instruct",
-      "score": 1286.7,
+      "score": 1286.8,
       "rank": 303,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 1.5 Flash (001)",
-      "score": 1286.6,
+      "score": 1286.7,
       "rank": 304,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Llama 3.1 Tulu 3 70B",
-      "score": 1286.1,
+      "score": 1286.2,
       "rank": 305,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Olmo 3.1 32B Think",
-      "score": 1286,
+      "score": 1286.1,
       "rank": 306,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude 3 Sonnet (20240229)",
-      "score": 1281.4,
+      "score": 1281.5,
       "rank": 307,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemma 2 9B IT SimPO",
       "score": 1280.5,
       "rank": 308,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Nemotron-4 340B Instruct",
-      "score": 1277.2,
+      "score": 1277.3,
       "rank": 309,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Llama 3 70B Instruct",
       "score": 1276.7,
       "rank": 310,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
-    },
-    {
-      "model": "GPT-4 (0613)",
-      "score": 1276.4,
-      "rank": 311,
-      "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Command R+ (08-2024)",
       "score": 1276.4,
+      "rank": 311,
+      "source_url": "https://arena.ai/leaderboard",
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
+    },
+    {
+      "model": "GPT-4 (0613)",
+      "score": 1276.4,
       "rank": 312,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Mistral Small 24B Instruct (2501)",
-      "score": 1274.4,
+      "score": 1274.5,
       "rank": 313,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GLM-4 (0520)",
       "score": 1273.5,
       "rank": 314,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Reka Flash (20240904)",
-      "score": 1272.5,
+      "score": 1272.6,
       "rank": 315,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen2.5-Coder-32B-Instruct",
-      "score": 1270.6,
+      "score": 1270.7,
       "rank": 316,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Aya Expanse 32B",
-      "score": 1267.3,
+      "score": 1267.4,
       "rank": 317,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemma 2 9B IT",
-      "score": 1267.1,
+      "score": 1267.2,
       "rank": 318,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek-Coder-V2",
       "score": 1265.5,
       "rank": 319,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen2-72B-Instruct",
-      "score": 1261.9,
+      "score": 1262,
       "rank": 320,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Command R+",
       "score": 1261.9,
       "rank": 321,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Claude 3 Haiku (20240307)",
       "score": 1261.8,
       "rank": 322,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Amazon Nova Lite 1.0",
       "score": 1260.5,
       "rank": 323,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini 1.5 Flash-8B (001)",
       "score": 1258.9,
       "rank": 324,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Phi-4",
-      "score": 1256.3,
+      "score": 1256.4,
       "rank": 325,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "OLMo 2 32B Instruct (0325)",
       "score": 1251.7,
       "rank": 326,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Command R (08-2024)",
-      "score": 1250.5,
+      "score": 1250.6,
       "rank": 327,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Mistral Large (2402)",
       "score": 1242.7,
       "rank": 328,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Amazon Nova Micro 1.0",
-      "score": 1240.7,
+      "score": 1240.8,
       "rank": 329,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Jamba 1.5 Mini",
       "score": 1239.9,
       "rank": 330,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Ministral 8B (2410)",
       "score": 1237.7,
       "rank": 331,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini Pro (Dev API)",
       "score": 1237,
       "rank": 332,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen1.5-110B-Chat",
       "score": 1234.3,
       "rank": 333,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Reka Flash 21B (Online, 20240226)",
       "score": 1233.7,
       "rank": 334,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen1.5-72B-Chat",
       "score": 1233.7,
       "rank": 335,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Hunyuan Standard 256K",
       "score": 1233.2,
       "rank": 336,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Mixtral 8x22B Instruct v0.1",
-      "score": 1229.7,
+      "score": 1229.8,
       "rank": 337,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Command R",
       "score": 1227,
       "rank": 338,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Reka Flash 21B (20240226)",
-      "score": 1226.9,
+      "score": 1227,
       "rank": 339,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-3.5 Turbo (0125)",
       "score": 1225.8,
       "rank": 340,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemini Pro",
       "score": 1223.8,
       "rank": 341,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Llama 3 8B Instruct",
-      "score": 1223.7,
+      "score": 1223.8,
       "rank": 342,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Aya Expanse 8B",
-      "score": 1223.1,
+      "score": 1223.2,
       "rank": 343,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Mistral Medium",
-      "score": 1222.8,
+      "score": 1222.9,
       "rank": 344,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Llama 3.1 Tulu 3 8B",
-      "score": 1220.5,
+      "score": 1220.6,
       "rank": 345,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Zephyr ORPO 141B A35B v0.1",
-      "score": 1213.1,
+      "score": 1213.2,
       "rank": 346,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Yi 1.5 34B Chat",
-      "score": 1212.9,
+      "score": 1213,
       "rank": 347,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Llama 3.1 8B Instruct",
       "score": 1211.3,
       "rank": 348,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Granite 3.1 8B Instruct",
-      "score": 1208.6,
+      "score": 1208.7,
       "rank": 349,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT-3.5 Turbo (1106)",
-      "score": 1204.4,
+      "score": 1204.5,
       "rank": 350,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen1.5-32B-Chat",
-      "score": 1204.1,
+      "score": 1204.2,
       "rank": 351,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemma 2 2B IT",
       "score": 1200.2,
       "rank": 352,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Phi-3 Medium 4K Instruct",
-      "score": 1198,
+      "score": 1198.1,
       "rank": 353,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Mixtral 8x7B Instruct v0.1",
       "score": 1197.3,
       "rank": 354,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DBRX Instruct Preview",
       "score": 1195.7,
       "rank": 355,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen1.5-14B-Chat",
       "score": 1191.2,
       "rank": 356,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "InternLM2.5 20B Chat",
-      "score": 1190.8,
+      "score": 1190.9,
       "rank": 357,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "DeepSeek LLM 67B Chat",
       "score": 1185.1,
       "rank": 358,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "WizardLM 70B",
-      "score": 1184.8,
+      "score": 1184.9,
       "rank": 359,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Yi 34B Chat",
-      "score": 1183.8,
+      "score": 1183.9,
       "rank": 360,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Granite 3.0 8B Instruct",
       "score": 1183.3,
       "rank": 361,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "OpenChat 3.5",
       "score": 1183.2,
       "rank": 362,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "OpenChat 3.5 (0106)",
       "score": 1182.9,
       "rank": 363,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemma 1.1 7B IT",
-      "score": 1182.7,
+      "score": 1182.8,
       "rank": 364,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Snowflake Arctic Instruct",
       "score": 1180.2,
       "rank": 365,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Granite 3.1 2B Instruct",
       "score": 1179,
       "rank": 366,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Tulu 2 DPO 70B",
       "score": 1177.8,
       "rank": 367,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "OpenHermes 2.5 Mistral 7B",
       "score": 1176.1,
       "rank": 368,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Vicuna 33B",
-      "score": 1173,
+      "score": 1173.1,
       "rank": 369,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Phi-3 Small 8K Instruct",
       "score": 1171.2,
       "rank": 370,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Starling LM 7B Beta",
-      "score": 1171,
+      "score": 1171.1,
       "rank": 371,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Llama 2 70B Chat",
-      "score": 1170.7,
+      "score": 1170.8,
       "rank": 372,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Starling LM 7B Alpha",
-      "score": 1167.5,
+      "score": 1167.6,
       "rank": 373,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Llama 3.2 3B Instruct",
       "score": 1166.9,
       "rank": 374,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Nous Hermes 2 Mixtral 8x7B DPO",
       "score": 1164.5,
       "rank": 375,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Granite 3.0 2B Instruct",
       "score": 1156.8,
       "rank": 376,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Llama 2 70B SteerLM Chat",
-      "score": 1154.8,
+      "score": 1154.9,
       "rank": 377,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "QwQ-32B-Preview",
-      "score": 1154.2,
+      "score": 1154.3,
       "rank": 378,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "SOLAR 10.7B Instruct v1.0",
-      "score": 1152.5,
+      "score": 1152.6,
       "rank": 379,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Dolphin 2.2.1 Mistral 7B",
       "score": 1152.4,
       "rank": 380,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "MPT 30B Chat",
       "score": 1150.9,
       "rank": 381,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "WizardLM 13B",
-      "score": 1149.6,
+      "score": 1149.7,
       "rank": 382,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Mistral 7B Instruct v0.2",
       "score": 1149.5,
       "rank": 383,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Falcon 180B Chat",
       "score": 1148.3,
       "rank": 384,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen1.5-7B-Chat",
-      "score": 1143.9,
+      "score": 1144,
       "rank": 385,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Phi-3 Mini 4K Instruct (June 2024)",
-      "score": 1143.2,
+      "score": 1143.3,
       "rank": 386,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Vicuna 13B",
-      "score": 1141.7,
+      "score": 1141.8,
       "rank": 387,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Llama 2 13B Chat",
-      "score": 1141.5,
+      "score": 1141.6,
       "rank": 388,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen-14B-Chat",
-      "score": 1139.5,
+      "score": 1139.6,
       "rank": 389,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "PaLM 2",
       "score": 1139.4,
       "rank": 390,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemma 7B IT",
       "score": 1137.9,
       "rank": 391,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Code Llama 34B Instruct",
       "score": 1137,
       "rank": 392,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Zephyr 7B Beta",
-      "score": 1130.9,
+      "score": 1131,
       "rank": 393,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Phi-3 Mini 128K Instruct",
       "score": 1130,
       "rank": 394,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Phi-3 Mini 4K Instruct",
       "score": 1128.2,
       "rank": 395,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Guanaco 33B",
-      "score": 1127.6,
+      "score": 1127.7,
       "rank": 396,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Zephyr 7B Alpha",
-      "score": 1127,
+      "score": 1127.1,
       "rank": 397,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "StripedHyena Nous 7B",
       "score": 1121.8,
       "rank": 398,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Code Llama 70B Instruct",
       "score": 1119.3,
       "rank": 399,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemma 1.1 2B IT",
-      "score": 1116.8,
+      "score": 1116.9,
       "rank": 400,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Vicuna 7B",
       "score": 1115.5,
       "rank": 401,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "SmolLM2 1.7B Instruct",
-      "score": 1114.8,
+      "score": 1114.9,
       "rank": 402,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Llama 3.2 1B Instruct",
-      "score": 1111.2,
+      "score": 1111.3,
       "rank": 403,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Mistral 7B Instruct",
-      "score": 1110.5,
+      "score": 1110.6,
       "rank": 404,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Llama 2 7B Chat",
       "score": 1108,
       "rank": 405,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Gemma 2B IT",
-      "score": 1093.8,
+      "score": 1093.9,
       "rank": 406,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Qwen1.5-4B-Chat",
       "score": 1091.3,
       "rank": 407,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "OLMo 7B Instruct",
       "score": 1073.7,
       "rank": 408,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Koala 13B",
       "score": 1071.1,
       "rank": 409,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Alpaca 13B",
       "score": 1070.5,
       "rank": 410,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "GPT4All 13B Snoozy",
       "score": 1067.9,
       "rank": 411,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "MPT 7B Chat",
-      "score": 1063.6,
+      "score": 1063.7,
       "rank": 412,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "ChatGLM3 6B",
-      "score": 1056.7,
+      "score": 1056.8,
       "rank": 413,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "RWKV-4 Raven 14B",
       "score": 1042.5,
       "rank": 414,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "ChatGLM2 6B",
-      "score": 1024.9,
+      "score": 1025,
       "rank": 415,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "OpenAssistant Pythia 12B",
       "score": 1023.7,
       "rank": 416,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "ChatGLM 6B",
-      "score": 995.9,
+      "score": 996,
       "rank": 417,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "FastChat-T5 3B",
-      "score": 992.7,
+      "score": 992.8,
       "rank": 418,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "Dolly 2.0 12B",
       "score": 982.7,
       "rank": 419,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "LLaMA 13B",
       "score": 975.4,
       "rank": 420,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     },
     {
       "model": "StableLM Tuned Alpha 7B",
-      "score": 953.3,
+      "score": 953.4,
       "rank": 421,
       "source_url": "https://arena.ai/leaderboard",
-      "benchmark_version": "2026-11-09",
-      "updated_at": "2026-11-09",
-      "fetched_at": "2026-11-12T06:08:56.791Z"
+      "benchmark_version": "2026-11-11",
+      "updated_at": "2026-11-11",
+      "fetched_at": "2026-11-13T05:30:27.188Z"
     }
   ]
 }
